@@ -4,18 +4,22 @@
 
 %\documentclass[12pt,titlepage]{book}
 \documentclass[a4paper,12pt]{article}
-\usepackage[english]{babel}
+\usepackage[british]{babel}
 %\usepackage{graphics}
 %\usepackage{url,amsfonts,epsfig}
 %\usepackage[applemac]{inputenc} %comando per le lettere accentate se usate mac  
 \usepackage[utf8]{inputenc} % comando per le lettere accentate se usate pc  
 \usepackage[nottoc]{tocbibind}
 \usepackage{hyperref}
+\usepackage{graphicx}
+\graphicspath{ {Images/} }
 
 \hypersetup{
 colorlinks=true,
-linkcolor=blue
+linkcolor=blue,
+urlcolor=blue
 }
+\urlstyle{same}
 
 \title{\textsc{Simulation of HL-LHC inner tracker performances}}
 \author{Federico Massa}
@@ -40,10 +44,17 @@ dfdfdffsjdfl
 
 \section{Detector} \label{Detector}
 
-This section briefly describes the current experimental apparatus and the reasons as to why it cannot withstand the conditions of HL-LHC.
+\begin{figure} [h]
+	\includegraphics[width=\textwidth]{atlasdet}
+	\caption{Current ATLAS detector.}
+	\label{fig:current_atlasdet}
+\end{figure}
+
+This section briefly describes the current experimental apparatus, shown in Figure \ref{fig:current_atlasdet}, and the reasons as to why it cannot withstand the conditions of HL-LHC.
+\smallskip
 ATLAS detector is currently composed by 
 \begin{itemize}
-\item a \textbf{magnet(ic?) system}
+\item a \textbf{magnet system}
 \item an \textbf{inner tracker}
 \item an \textbf{electromagnetic calorimeter}
 \item an \textbf{hadronic calorimeter}
@@ -53,8 +64,64 @@ ATLAS detector is currently composed by
 \item an \textbf{offline system}
 \end{itemize}
 
-\subsection{The magnet(ic?) system}
-\cite{magnetic_system}
+\subsection{The magnet system}\label{sec:magnet}
+
+\begin{figure} [h]
+	\includegraphics[width=\textwidth]{magnetSystems}
+	\caption{ATLAS magnet system\cite{magnet_system_picture}.}
+	\label{fig:magnet_system_picture}
+\end{figure}
+
+The current magnet system (Fig.\ref{fig:magnet_system_picture}) comprises four superconducting magnets\cite{magnetic_system}, for charged particles bending and momentum measurement in the $8000\ m^3$ volume of the apparatus.\\[2pt]
+The Central Solenoid magnet encloses the tracking volume and provides a $2\ T$ magnetic field and minimal thickness in order to reduce the degradation of photon and electron energy resolution in the subsequent calorimeter layers.\\[2pt]
+The Barrel and Endcap Toroids provides a tangential magnetic field of about $1\ T$ for the muon detectors, both in the radial and the forward region.\\[2pt]
+As the current magnet system already fulfils HL-LHC requirements, it is not going to be
+upgraded during that phase. [NON SE NE PARLA NEL LOI/SCOPING]
+
+\subsection{The Inner Detector}
+
+\subsection{The Calorimeter System}
+
+ATLAS experiment  relies on an electromagnetic and an hadronic calorimeter for the identification and the measurement of physical quantities of photons, electrons, hadrons and jets. 
+Both compartments are divided into a central and a forward region (Fig.\ref{fig:current_Cals}).
+
+\begin{figure} [h]
+	\includegraphics[width=\textwidth]{current_Cals}
+	\caption{ATLAS Calorimeter System.}
+	\label{fig:current_Cals}
+\end{figure}
+
+\subsubsection{Liquid Argon Calorimeters}\label{sec:LAr}
+Several calorimeters in ATLAS use liquid Argon (LAr) as active medium\cite{current_ELCal}. The electromagnetic barrel and endcap (EMEC) are entirely made up this way, but also the Hadronic Endcap Calorimeter (HEC) and the Forward Calorimeter (FCal). \\[2pt]
+The \textbf{electromagnetic calorimeter} uses lead as absorber and is designed to trigger on and to provide precision measurements of electrons, photons, jets, and missing $E_T$ .
+The full cryostat of the \textit{barrel section} is $6.8\ m$ long, with the inner and outer radius being respectively $1.15\ m$ and $2.25\ m$ and ranges in $|\eta|$ from 0 to 1.7.  The \textit{endcap section} is made up of two concentric wheels, the larger one ranging in $|\eta|$ from 1.4 to 2.5, the smaller from 2.5 to 3.2. In addition, a \textit{presampler} layer has been inserted behind the cryostat wall to allow measurement correction due to losses in the upstream material. The amount of inactive material due to the solenoid
+accounts for $0.63\ X_0$ and, as cited in Sec.\ref{sec:magnet}, has been optimized. As suggested from detailed simulations based on the response to high energy photons and electrons, the thickness of the calorimeter is about $24\ X_0$ in the barrel and $26\ X_0$ in the endcap. Each section is physically divided into towers which produce the signal and are so responsible
+for the granularity of the calorimeter.
+High granularity is especially required in the central regions, where it reaches the value of 
+$\Delta\eta\ \times\ \Delta\phi\ =\ 0.025\ \times\ 0.025$. In this region is possible to combine the signal of the calorimeter with the information coming from the inner detector to improve the rejection power of $\pi_0$ against photons. Indeed, granularity is less and less relevant to the overall performance with increasing $|\eta|$. Hermeticity is also important for the measurement of missing $E_T$ and has been maximized using a transition gap between the barrel and endcap cryostats of 95 mm. \\[2pt]
+
+\textbf{HEC}\cite{hec} is a sampling calorimeter with copper absorber plates and consists of two wheels of outer radius $2.03\ m$, made of 32 identical modules. It ranges in $|\eta|$ from 1.4 to 3.2 and every half of it shares the cryostat with the EMEC and FCal. \\[2pt]
+
+\textbf{FCal} has to cope with a high level of radiation, which makes it a particularly challenging detector. To avoid an excessive neutron albedo in the central cavity the detector is actually recessed by 
+$1.2\ m$ with respect to the frontal face of the electromagnetic calorimeter. FCal is a high density mixed copper-tungsten calorimeter and covers the range of $3.0\ < |\eta|\ <\ 4.9$.  The high density allows to reach the required $9.5\ \lambda$ in a reduced space and to minimize the endcap calorimeter pileup signal.  \\[2pt]
+
+The performance required by HL-LHC barrel electromagnetic calorimeter is the same as the current one, thus it does not need to be upgraded. In contrast to that, the FCal performances will be degraded by the conditions of HL-LHC. That said, the Reference Scenario of the ATLAS Scoping Document\cite{scoping} foresees the replacement of current FCal with a high-granularity Small-Gap Forward Calorimeter (sFCal), superior to the current one in terms of resolution and size of LAr gaps. These latter are designed to be smaller than the current, in order to reduce the risk of formation of Argon bubbles, due to the high energy release. (?? This improvement in granularity would be also required by the extension in $|\eta|$ of the Inner Detector in the aforementioned scenario ??). This replacement and the addition of a High Granularity Timing Detector (HGTD), that will be hopefully installed in front of the LAr Calorimeter endcaps and will be needed to reduce the (??OUT-OF-TIME??) pileup signal. It will cover the range $2.4\ <\ |\eta|\ <\ 4.3$ and it will measure the arrival time of charged particles, assigning them to different collision vertices. The readout electronics will also need to be exchanged due to insufficient radiation tolerance and poor performance with respect to that necessary for the forseen trigger upgrade. In the Middle and Low cost 
+scenarios, on the contrary, no upgrades in the endcap and forward region are foreseen, unless the risk of formation of Argon bubbles is considered too high, in which case a MiniFCal will be installed in front of the existing FCal. 
+
+\subsubsection{Hadron Tile calorimeters}
+The \textbf{Tile calorimeter} is a sampling calorimeter composed by alternated layers of scintillating tiles as active medium and steel as an absorber. The signal is carried out from each module using optical fibres, which can run through the layers thanks to the laminated structure of the calorimeter. It is segmented, thus providing a resolution of
+$\Delta\eta \times \Delta\phi\ = 0.1 \times 0.1$.\\
+The Tile Calorimeter is made up of one barrel ($5.64\ m$ long) and two extended barrel ($2.91\ m$ long) parts, with a gap of $60\ cm$ in between. It consists of a cylindrical structure of inner radius $2.28\ m$ and $4.23\ m$. The barrel covers the region $0\ <\ |\eta|\ <\ 1.0$ whereas the extended covers the region $0.8\ <\ |\eta|\ <\ 1.7$. The overlap region from 0.8 to 1.0 is
+occupied by an Intermediate Tile Calorimeter (ITC).\\
+The main requirement for the Tile Calorimeter is to reconstruct the energy of the jets produced in the collisions and, due to the high center-of-mass energy at LHC, it has to assure 
+high performances in a wide range of energies. Thanks to the use of an extended barrel, the HEC and the FCal (see Sec.\ref{sec:LAr}), it provides a good $p_T^{miss}$ reconstruction.\\[2pt]
+
+The Tile Calorimeter maintains the required performance even during the HL-LHC phase and
+so it does not need replacement. On the contrary, the readout electronics will need to be upgraded due to limited radiation tolerance and to accommodate the new trigger requirements in terms of rates and latencies. This will be fulfilled, as in the case of the LAr (see
+Section \ref{sec:LAr}), by substituting the on-detector front-end electronics, the optical links, the off-detector signal processing unit, the powering system and the interface modules to the TTC and DAQ systems. (??).
+
+
+
 
 
 \newpage
