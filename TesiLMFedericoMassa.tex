@@ -180,15 +180,32 @@ The possibility to extend the coverage to $|\eta| < 4$ to identify muons and tag
 detectors in the region $2.7 < |\eta| < 4.0$.
 
 \subsection{Trigger and DAQ system}
-The current ATLAS \textbf{trigger system} is structured in three levels of event selection. 
+
+\begin{figure} [h]
+	\centering
+	\includegraphics[scale=0.4]{trigger}
+	\caption{ATLAS Trigger and DAQ System\cite{Green:2010zza}.}
+	\label{fig:trigger}
+\end{figure}
+
+The current ATLAS \textbf{trigger system} is structured in three levels of event selection: \textit{Level 1} (L1), \textit{Level 2} (L2) and event filter\cite{Aad:2008zzm}. The L2 trigger, together
+with the event filter, form the \textit{High-Level Trigger} (HLT). Due to the high level of integration between the HLT and the DAQ system they are sometimes referred as a single system (DAQ or 
+DAQ-HLT)\cite{Green:2010zza}.\\
+
+At LHC, a bunch crossing happens every 25 ns (i.e. $40\ MHz$), resulting in a trigger to the detector . The goal of L1 trigger is to search for signatures from high $p_{T}$ muons, electrons,
+photons, jets and $\tau$ decaying into hadrons. It also searches for events with large $E_{T}^{miss}$ or large $E_{T}$. It manipulates reduced granularity data coming from the muon
+spectrometer (RPCs and TGCs) and calorimeters. L1 trigger is designed to work with an accept rate of $100\ kHZ$, with a latency of $2.5\ \mu s$. A \textit{Central Trigger Processor} applies
+the programmed algorithms and, if the event passes the selection, the data is
+sent to the DAQ and to the \textit{RoI Builder}, which computes the regions of interest for the next stage. 
+
+
 
 
 
 
 
 \newpage
-\section{Conclusions}
-\label{Conclusions}
+\section{Conclusions}\label{sec:conclusions}
 \baselineskip 25pt
 \baselineskip 5pt
 \baselineskip 16pt
