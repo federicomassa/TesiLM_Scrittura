@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\documentclass[12pt,titlepage]{book}
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,twoside,12pt]{article}
 \usepackage[british]{babel}
 %\usepackage{graphics}
 %\usepackage{url,amsfonts,epsfig}
@@ -58,7 +58,7 @@ A causa dell'elevato numero di eventi di pileup ($>200$) previsti, il tempo rich
 \newpage
 
 \section{Introduction} \label{Introduction}
-
+\subsection{Coordinate system - perigee parameters definition?}
 
 
 \newpage
@@ -102,7 +102,28 @@ upgraded during that phase. [ref? NON SE NE PARLA NEL LOI/SCOPING]
 
 \subsection{The Inner Detector}
 
-\subsection{The Calorimeter System}
+\begin{figure} [h]
+	\includegraphics[width=\textwidth]{IDLayout}
+	\caption{ATLAS Inner Detector layout\cite{Aad:2008zzm}.}
+	\label{fig:IDLayout}
+\end{figure}
+
+The ATLAS \textbf{Inner Detector} (ID), whose layout is shown if fig.\ref{fig:IDLayout} is designed to measure the momentum of the
+charged particles tracks with $p_{T}$ larger than a typical threshold of $500\ MeV$ and 
+within $|\eta| < 2.5$, identifying both primary and secondary vertices\cite{Aad:2008zzm}. \\
+
+The ID is contained in a cylindrical envelope (with the axis along the z-axis) that extends
+$\pm\ 3512\ mm$ in length and $1150\ mm$ in radius. The whole system is placed inside
+a solenoid magnet which produces a field parallel to the beam line of $2\ T$(see sec.\ref{sec:magnet}). The ID is composed by three sub-detectors: the innermost section provides
+high resolution pattern recognition using \textit{silicon pixel layers}, the middle one consists of stereo pairs of \textit{silicon microstrip} (SCT) layers and the outermost one consists of a \textit{transition radiation tracker} (TRT). 
+
+\subsubsection*{Pixel and SCT sensors}
+
+\subsubsection*{TRT tubes}
+
+
+
+\subsection{Calorimeter system}
 
 ATLAS experiment  relies on an electromagnetic and an hadronic calorimeter for the identification and the measurement of physical quantities of photons, electrons, hadrons and jets. 
 Both compartments are divided into a central and a forward region (Fig.\ref{fig:current_Cals}).
@@ -170,7 +191,7 @@ than achieving the triggering functionality, they also provide the coordinate on
 \subsubsection{Upgrade}\cite{scoping}
 During the HL-LHC upgrade, the huge increase in the average number of pileup events leads to a series of difficulties that must be overcome by a corresponding performance improvement.\\
 
-In particular, the innermost endcap layer will be substituted by \textit{New Small Wheels} that combines small strip TGCs and MicroMegas chambers, both for triggering and 
+In particular, the innermost endcap layer will be substituted by \textit{New Small Wheels}(NSW) that combines small strip TGCs and MicroMegas chambers, both for triggering and 
 precision tracking. The MDTs, together with the New Small Wheels, should already be able to provide an adequate performance and will not be substituted. Its read-out electronics, instead, will not 
 be able to cope with the high hit rate and the new ATLAS L0/L1 trigger scheme, so it will have to be subtituted. The same also applies for the RPCs and TGCs. In the case of RPCs, moreover,
 the gas gain will be lowered to ensure safety in the expected high rate environment and protract its life. New RPCs with increased rate capabilities will be instead placed in the innermost barrel layer to maintain a
@@ -195,8 +216,27 @@ DAQ-HLT)\cite{Green:2010zza}.\\
 At LHC, a bunch crossing happens every 25 ns (i.e. $40\ MHz$), resulting in a trigger to the detector . The goal of L1 trigger is to search for signatures from high $p_{T}$ muons, electrons,
 photons, jets and $\tau$ decaying into hadrons. It also searches for events with large $E_{T}^{miss}$ or large $E_{T}$. It manipulates reduced granularity data coming from the muon
 spectrometer (RPCs and TGCs) and calorimeters. L1 trigger is designed to work with an accept rate of $100\ kHZ$, with a latency of $2.5\ \mu s$. A \textit{Central Trigger Processor} applies
-the programmed algorithms and, if the event passes the selection, the data is
-sent to the DAQ and to the \textit{RoI Builder}, which computes the regions of interest for the next stage. 
+the selection and, if the event passes it, the data is
+sent to the DAQ and to the \textit{RoI Builder}, which computes the regions of interest for the next trigger level.
+L2 trigger is designed to select events so that the event rate diminishes from the $100\ kHz$ of the L1 trigger to $3.5\ kHz$, with an average processing time of $40\ ms$ per event, by
+exploiting a distributed architecture. This
+level takes the regions of interest from the L1 trigger as input and send a data request to the network, based on these RoI. The events are distributed among the nodes and the selection is applied. If an event passes the selection it is sent to the \textit{event filter}, which applies a more sophisticated selection with high latency, taking the event rate from $3.5\ kHz$ to $\approx 200 Hz$, which are stored in a permanent memory area by the DAQ system.
+
+\subsubsection{Upgrade}
+The trigger system and electronics were designed to operate at the initial luminosity 
+$\mathcal{L} = 10^{33} cm^{-2}s^{-1}$ at low trigger thresholds and at the Run2 upgrade
+luminosity, $\mathcal{L} = 10^{34} cm^{-2}s^{-1}$, with higher thresholds\cite{scoping}.\\
+
+With the increase of the luminosity to $\mathcal{L} = 2-3 \cdot 10^{34} cm^{-2}s^{-1}$ during
+the Phase-I upgrade and then to a maximum of $\mathcal{L} = 7.5 \cdot 10^{34} cm^{-2}s^{-1}$, the entire TDAQ system will have to be significantly improved. During the Phase-I upgrade the NSW will be installed, together with a higher-granularity calorimeter
+trigger and the L1 trigger will become more selective(?), keeping the latency and the accept rate unchanged. During this phase also the \textit{Fast TracKer trigger} (FTK)\cite{FTK_TDR} will be installed, which will perform
+full tracking on the events accepted by the L1 trigger. \\
+
+During the HL-LHC phase, when the luminosity will reach its maximum, it will be necessary
+to increase the maximum rate and latency of the trigger system and install an additional Level 0 hardware trigger (L0), which relies on the muon and calorimeter trigger information. The L0 trigger is designed to decrease the data flow from $40\ MHz$ to $1\ MHz$, with a maximum latency of $6\ \mu s$. The upgraded L1 trigger will be seeded by the RoI provided by the L0
+trigger and it will use full calorimeter readout with higher-granularity data. It is designed to
+operate with a maximum latency of $30\ \mu s$ and an accept rate of $400\ kHz$ (in the Reference scenario\cite{scoping}). Finally, the Phase-II DAQ system is designed to make 
+efficient use of commercial networking and computing hardware. 
 
 
 
