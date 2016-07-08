@@ -5,6 +5,7 @@
 %\documentclass[12pt,titlepage]{book}
 \documentclass[a4paper,twoside,12pt]{article}
 \usepackage[british]{babel}
+\usepackage{gensymb}
 %\usepackage{graphics}
 %\usepackage{url,amsfonts,epsfig}
 %\usepackage[applemac]{inputenc} %comando per le lettere accentate se usate mac  
@@ -94,9 +95,12 @@ In the following sections these elements are briefly described, outlining the ma
 	\label{fig:magnet_system_picture}
 \end{figure}
 
-The current magnet system (Fig.\ref{fig:magnet_system_picture}) comprises four superconducting magnets\cite{magnetic_system}, for charged particles bending and momentum measurement in the $8000\ m^3$ volume of the apparatus.\\[2pt]
-The Central Solenoid magnet encloses the tracking volume and provides a $2\ T$ magnetic field and minimal thickness in order to reduce the degradation of photon and electron energy resolution in the subsequent calorimeter layers.\\[2pt]
-The Barrel and Endcap Toroids provides a tangential magnetic field of about $1\ T$ for the muon detectors, both in the radial and the forward region.\\[2pt]
+The current magnet system (Fig.\ref{fig:magnet_system_picture}) comprises four superconducting magnets\cite{magnet_system}, for charged particles bending and momentum measurement in the $8000\ m^3$ volume of the apparatus.\\
+
+The \textit{Central Solenoid Magnet} encloses the tracking volume and provides a $2\ T$ magnetic field and minimal thickness in order to reduce the degradation of photon and electron energy resolution in the subsequent calorimeter layers.\\
+
+The \textit{Barrel} and \textit{Endcap Toroids} provide a tangential magnetic field of about $1\ T$ for the muon detectors, both in the radial and the forward region.\\
+
 As the current magnet system already fulfils HL-LHC requirements, it is not going to be
 upgraded during that phase. [ref? NON SE NE PARLA NEL LOI/SCOPING]
 
@@ -104,23 +108,54 @@ upgraded during that phase. [ref? NON SE NE PARLA NEL LOI/SCOPING]
 
 \begin{figure} [h]
 	\includegraphics[width=\textwidth]{IDLayout}
-	\caption{ATLAS Inner Detector layout\cite{Aad:2008zzm}.}
+	\caption{ATLAS Inner Detector layout\cite{Aad:2008zzm}. IBL is not shown in this layout.}
 	\label{fig:IDLayout}
 \end{figure}
 
-The ATLAS \textbf{Inner Detector} (ID), whose layout is shown if fig.\ref{fig:IDLayout} is designed to measure the momentum of the
+The ATLAS \textbf{Inner Detector} (ID), whose layout is shown if Fig.\ref{fig:IDLayout}, is designed to measure the momentum of the
 charged particles tracks with $p_{T}$ larger than a typical threshold of $500\ MeV$ and 
 within $|\eta| < 2.5$, identifying both primary and secondary vertices\cite{Aad:2008zzm}. \\
 
 The ID is contained in a cylindrical envelope (with the axis along the z-axis) that extends
 $\pm\ 3512\ mm$ in length and $1150\ mm$ in radius. The whole system is placed inside
 a solenoid magnet which produces a field parallel to the beam line of $2\ T$(see sec.\ref{sec:magnet}). The ID is composed by three sub-detectors: the innermost section provides
-high resolution pattern recognition using \textit{silicon pixel layers}, the middle one consists of stereo pairs of \textit{silicon microstrip} (SCT) layers and the outermost one consists of a \textit{transition radiation tracker} (TRT). 
+high resolution pattern recognition using \textit{silicon pixel layers}, the middle one consists of stereo pairs of \textit{silicon microstrip} (SCT) layers and the outermost one consists of the \textit{Transition Radiation Tracker} (TRT). During 2014 ATLAS upgrade, the \textit{Insertable B-Layer} (IBL), a fourth pixel barrel layer, was added to avoid the decrease of performances after the luminosity upgrade. \\
 
-\subsubsection*{Pixel and SCT sensors}
+Each one of these detectors is subdivided into a \textit{barrel} region, in which the sensor modules 
+are organized tangentially with respect to a circle around the beam axis and an \textit{end-cap} region, in which they are placed perpendicularly with respect to the beam axis, producing
+a disk resemblant shape.
 
-\subsubsection*{TRT tubes}
+\subsubsection*{Pixel and SCT} (DIFFERENZE CON TDR: dimensioni diverse dei singoli pixel)
 
+The pixel and SCT sensors are designed to maintain their performance during the detector
+lifetime at nominal luminosity\cite{Aad:2008zzm}. As the integrated radiation dose has significant consequences
+on these sensors, they are operated at a temperature between $-10\ ^{\circ}C$ and $-5\ ^{\circ}C$.\\
+
+\textit{Pixel sensors} of the original ID (thus excluding IBL) are $250\ \mu m$ thick detectors which are mounted on oxygenated n-type wafers, with the pixel on the $n^+$ side(??). About 90\% of the pixel on a sensor have a nominal 
+size of $50 \times 400\ \mu m^2$, while the rest are $50 \times 600\ \mu m^2$ large and are placed
+at the front-end chips on a module. There are a total of 1744 identical pixel sensors(module??) with an external dimension of $19 \times 63\ mm^2$, each composed by 47232 pixels. For reasons of space, there are four ganged pixels on each column of the front-end chip, thus resulting in a total of 46080 readout channels. \\
+
+\textit{IBL pixels} are, instead, $50 \times 250\ \mu m^2$ large to 
+ensure a highly precise measurement of the coordinates near to the interaction point\cite{IBL}. Two 
+different technologies have been implemented in the central and forward IBL region, which
+results in a different sensor thickness and chip size.\\
+
+The \textit{SCT} consists of a total of 15912 sensors with thickness $285\ \pm\ 15\ \mu m$. Every sensor consists of 768 strips of $12\ cm$ length, with average pitch of $80\ \mu m$.
+On each SCT module there are two back-to-back sensors with a relative angle of $40\ mrad$,
+which allows the extraction of the second coordinate.
+
+\subsubsection*{TRT}
+The basic element of \textit{TRT} consists of $4\ mm$ diameter tubes\cite{Aad:2008zzm}. For both the barrel
+and end-cap sections, the anodes are made of $31\ \mu m$ diameter, $\pm\ 71.2\ cm$ 
+active length tungsten wires 
+connected to the front-end electronics and grounded. The wires are carefully aligned within
+the straw, with a maximum tolerance of $300\ \mu m$. The barrel section contains about 
+50000 straw tubes, whereas the end-cap contains approximatively 320000 (organized radially),
+for a total of 420000 electronic channels\cite{ATLAS:1997ag}. This detector typically provides
+an almost continuous tracking of the particles traversing it, with an average of 36 measurements per track.\\
+
+\bigskip
+The upgrade of the ID is the main focus of this thesis and will be covered in sec.\ref{sec:ITkLayouts}.
 
 
 \subsection{Calorimeter system}
@@ -134,24 +169,24 @@ Both compartments are divided into a central and a forward region (Fig.\ref{fig:
 	\label{fig:current_Cals}
 \end{figure}
 
-\subsubsection{Liquid Argon Calorimeters}\label{sec:LAr}
-Several calorimeters in ATLAS use liquid Argon (LAr) as active medium\cite{current_ELCal}. The electromagnetic barrel and endcap (EMEC) are entirely made up this way, but also the Hadronic Endcap Calorimeter (HEC) and the Forward Calorimeter (FCal). \\[2pt]
+\subsubsection*{Liquid Argon Calorimeters}\label{sec:LAr}
+Several components of the ATLAS calorimeter use liquid Argon (LAr) as active medium\cite{current_EMCal}. The electromagnetic barrel and endcap (EMEC) are entirely made up this way, but also the Hadronic Endcap Calorimeter (HEC) and the Forward Calorimeter (FCal). \\[2pt]
 The \textbf{electromagnetic calorimeter} uses lead as absorber and is designed to trigger on and to provide precision measurements of electrons, photons, jets, and missing $E_T$ .
-The full cryostat of the \textit{barrel section} is $6.8\ m$ long, with the inner and outer radius being respectively $1.15\ m$ and $2.25\ m$ and ranges in $|\eta|$ from 0 to 1.7.  The \textit{endcap section} is made up of two concentric wheels, the larger one ranging in $|\eta|$ from 1.4 to 2.5, the smaller from 2.5 to 3.2. In addition, a \textit{presampler} layer has been inserted behind the cryostat wall to allow measurement correction due to losses in the upstream material. The amount of inactive material due to the solenoid
-accounts for $0.63\ X_0$ and, as cited in Sec.\ref{sec:magnet}, has been optimized. As suggested from detailed simulations based on the response to high energy photons and electrons, the thickness of the calorimeter is about $24\ X_0$ in the barrel and $26\ X_0$ in the endcap. Each section is physically divided into towers which produce the signal and are so responsible
+The full cryostat of the \textit{barrel section} is $6.8\ m$ long, with the inner and outer radius being respectively $1.15\ m$ and $2.25\ m$ and ranges in $|\eta|$ from 0 to 1.7.  The \textit{endcap section} consists of two concentric wheels, the larger one ranging in $|\eta|$ from 1.4 to 2.5, the smaller from 2.5 to 3.2. In addition, a \textit{presampler} layer has been inserted behind the cryostat wall to allow measurement correction due to losses in the upstream material. 
+%The amount of inactive material due to the solenoid
+%accounts for $0.63\ X_0$ and, as cited in Sec.\ref{sec:magnet}, has been optimized. 
+Detailed simulations based on the response to high energy photons and electrons have
+measured the thickness of the calorimeter to be about $24\ X_0$ in the barrel and $26\ X_0$ in the endcap. Each section is physically divided into towers which produce the signal and are so responsible
 for the granularity of the calorimeter.
 High granularity is especially required in the central regions, where it reaches the value of 
-$\Delta\eta\ \times\ \Delta\phi\ =\ 0.025\ \times\ 0.025$. In this region is possible to combine the signal of the calorimeter with the information coming from the inner detector to improve the rejection power of $\pi_0$ against photons. Indeed, granularity is less and less relevant to the overall performance with increasing $|\eta|$. Hermeticity is also important for the measurement of missing $E_T$ and has been maximized using a transition gap between the barrel and endcap cryostats of 95 mm. \\[2pt]
+$\Delta\eta\ \times\ \Delta\phi\ =\ 0.025\ \times\ 0.025$. In this region it is possible to combine the signal of the calorimeter with the information coming from the inner detector to improve the rejection power of $\pi_0$ against photons. Indeed, granularity is less and less relevant to the overall performance with increasing $|\eta|$. Hermeticity is also important for the measurement of missing $E_T$ and has been maximized using a transition gap between the barrel and endcap cryostats of 95 mm. \\
 
 \textbf{HEC}\cite{hec} is a sampling calorimeter with copper absorber plates and consists of two wheels of outer radius $2.03\ m$, made of 32 identical modules. It ranges in $|\eta|$ from 1.4 to 3.2 and every half of it shares the cryostat with the EMEC and FCal. \\[2pt]
 
 \textbf{FCal} has to cope with a high level of radiation, which makes it a particularly challenging detector. To avoid an excessive neutron albedo in the central cavity the detector is actually recessed by 
 $1.2\ m$ with respect to the frontal face of the electromagnetic calorimeter. FCal is a high density mixed copper-tungsten calorimeter and covers the range of $3.0\ < |\eta|\ <\ 4.9$.  The high density allows to reach the required $9.5\ \lambda$ in a reduced space and to minimize the endcap calorimeter pileup signal.  \\[2pt]
 
-The performance required by HL-LHC barrel electromagnetic calorimeter is the same as the current one, thus it does not need to be upgraded. In contrast to that, the FCal performances will be degraded by the conditions of HL-LHC. That said, the Reference Scenario of the ATLAS Scoping Document\cite{scoping} foresees the replacement of current FCal with a high-granularity Small-Gap Forward Calorimeter (sFCal), superior to the current one in terms of resolution and size of LAr gaps. These latter are designed to be smaller than the current, in order to reduce the risk of formation of Argon bubbles, due to the high energy release. (?? This improvement in granularity would be also required by the extension in $|\eta|$ of the Inner Detector in the aforementioned scenario ??). This replacement and the addition of a High Granularity Timing Detector (HGTD), that will be hopefully installed in front of the LAr Calorimeter endcaps and will be needed to reduce the (??OUT-OF-TIME??) pileup signal. It will cover the range $2.4\ <\ |\eta|\ <\ 4.3$ and it will measure the arrival time of charged particles, assigning them to different collision vertices. The readout electronics will also need to be exchanged due to insufficient radiation tolerance and poor performance with respect to that necessary for the foreseen trigger upgrade. In the Middle and Low cost 
-scenarios, on the contrary, no upgrades in the endcap and forward region are foreseen, unless the risk of formation of Argon bubbles is considered too high, in which case a MiniFCal will be installed in front of the existing FCal. 
-
-\subsubsection{Hadron Tile calorimeters}
+\subsubsection*{Hadron Tile calorimeters}
 The \textbf{Tile calorimeter} is a sampling calorimeter composed by alternated layers of scintillating tiles as active medium and steel as an absorber. The signal is carried out from each module using optical fibres, which can run through the layers thanks to the laminated structure of the calorimeter. It is segmented, thus providing a resolution of
 $\Delta\eta \times \Delta\phi\ = 0.1 \times 0.1$.\\
 The Tile Calorimeter is made up of one barrel ($5.64\ m$ long) and two extended barrel ($2.91\ m$ long) parts, with a gap of $60\ cm$ in between. It consists of a cylindrical structure of inner radius $2.28\ m$ and $4.23\ m$. The barrel covers the region $0\ <\ |\eta|\ <\ 1.0$ whereas the extended covers the region $0.8\ <\ |\eta|\ <\ 1.7$. The overlap region from 0.8 to 1.0 is
@@ -159,9 +194,14 @@ occupied by an Intermediate Tile Calorimeter (ITC).\\
 The main requirement for the Tile Calorimeter is to reconstruct the energy of the jets produced in the collisions and, due to the high center-of-mass energy at LHC, it has to assure 
 high performances in a wide range of energies. Thanks to the use of an extended barrel, the HEC and the FCal (see Sec.\ref{sec:LAr}), it provides a good $p_T^{miss}$ reconstruction.\\[2pt]
 
+\subsubsection{Upgrade of the electromagnetic calorimeter}
+
+The performance required by HL-LHC barrel electromagnetic calorimeter is the same as the current one, thus it does not need to be upgraded. In contrast to that, the FCal performances will be degraded by the conditions of HL-LHC. That said, the Reference Scenario of the ATLAS Scoping Document\cite{scoping} foresees the replacement of current FCal with a high-granularity Small-Gap Forward Calorimeter (sFCal), superior to the current one in terms of resolution and size of LAr gaps. These latter are designed to be smaller than the current, in order to reduce the risk of formation of Argon bubbles, due to the high energy release. (?? This improvement in granularity would be also required by the extension in $|\eta|$ of the Inner Detector in the aforementioned scenario ??). This replacement and the addition of a High Granularity Timing Detector (HGTD), that will be hopefully installed in front of the LAr Calorimeter endcaps and will be needed to reduce the (??OUT-OF-TIME??) pileup signal. It will cover the range $2.4\ <\ |\eta|\ <\ 4.3$ and it will measure the arrival time of charged particles, assigning them to different collision vertices. The readout electronics will also need to be exchanged due to insufficient radiation tolerance and poor performance with respect to that necessary for the foreseen trigger upgrade. In the Middle and Low cost 
+scenarios, on the contrary, no upgrades in the endcap and forward region are foreseen, unless the risk of formation of Argon bubbles is considered too high, in which case a MiniFCal will be installed in front of the existing FCal. \\
+
 The Tile Calorimeter maintains the required performance even during the HL-LHC phase and
 so it does not need replacement. On the contrary, the readout electronics will need to be upgraded due to limited radiation tolerance and to accommodate the new trigger requirements in terms of rates and latencies. This will be fulfilled, as in the case of the LAr (see
-Section \ref{sec:LAr}), by substituting the on-detector front-end electronics, the optical links, the off-detector signal processing unit, the powering system and the interface modules to the TTC and DAQ systems. (??).
+Sec.\ref{sec:LAr}), by substituting the on-detector front-end electronics, the optical links, the off-detector signal processing unit, the powering system and the interface modules to the TTC and DAQ systems. (??).
 
 \subsection{Muon Spectrometer}\label{sec:muon}\cite{muon_tdr}\cite{Aad:2008zzm}
 
