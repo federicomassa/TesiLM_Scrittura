@@ -59,7 +59,39 @@ A causa dell'elevato numero di eventi di pileup ($>200$) previsti, il tempo rich
 \newpage
 
 \section{Introduction} \label{Introduction}
-\subsection{Coordinate system - perigee parameters definition?}
+The Large Hadron Collider (LHC) accelerator is scheduled to be upgraded in two different phases: the first will begin after the end of Run 2 during the Long Shotdown 2 (LS2) in 2019-2020; the second will start at the end of Run 3 during the Long Shotdown 3 (LS3) in 2024-2026 (Fig.\ref{fig:HLLHC_Plan}). The latter upgrade phase will lead to what is referred as High-Luminosity LHC (HL-LHC) during which the
+luminosity will reach the value of $7.5 \times 10^{34}\ cm^{-2}s^{-1}$, corresponding to approximately $3000\ fb^{-1}$ during ten years of data taking. \\
+
+\begin{figure} [h]
+	\includegraphics[width=\textwidth]{HLLHC_Plan}
+	\caption{LHC/HL-LHC Plan as scheduled in 2015\cite{scoping}.}
+	\label{fig:HLLHC_Plan}
+\end{figure}
+
+HL-LHC will allow to study new physics processes, such as the ones predicted by SUSY models and extra dimensions as well as improve Standard Model measurements, in particular Higgs boson 
+couplings that are expected to be measured with a precision between 5\% and 30\%\cite{loi}. In fact, the increased statistics will allow rare channels to be measured,  $H \rightarrow \mu\mu$, vector boson 
+fusion production of $H \rightarrow \gamma\gamma$ and $H \rightarrow \tau\tau$ and associated production $t\bar{t}H$ with $H \rightarrow \gamma\gamma$, as well as Higgs self couplings
+such as in $HH \rightarrow \tau\tau b b$, $HH \rightarrow \gamma\gamma b b$.\\
+
+By the end of Run 3, ATLAS detector will be using 15-20 years old components. In particular,
+the highly irradiated Inner Detector pixels and strips will have reached the end of their
+lifetime, whereas the transition radiation tracker will reach 100\% occupancy at that luminosity. The Inner Detector will so be completely substituted by the Inner Tracker (ITk), which will
+have to guarantee the same or an improved performance in the harsh conditions of HL-LHC while maximizing the acceptance. At the design luminosity, the expected number of in-time pileup events will be $<\mu > = 200$, much
+higher than that expected at the end of Run 3 ($<\mu > = 80$) and even more with respect to the current one ($<\mu > = 35$??), introducing new challenges in the tracking. The increase of the number
+of collisions per bunch crossing leads to new requirements on the front-end electronics, trigger and data acquisition system that cannot be met by the current apparatus, thus leading to a 
+substantial upgrade of the electronics. Moreover, in the Reference Scenario of the Scoping Document\cite{scoping} the geometrical acceptance of ATLAS detector is increased with respect to 
+the current one thanks to the extension of the $|\eta|$ coverage to $4.0$, which requires either the substitution (such as in the case of ITk) or the addition of new detectors (muon chambers,
+calorimeter system). \\
+
+Other than detector and hardware upgrades, HL-LHC will require software upgrades to meet the needs of the upgraded detectors, handle large event samples and adapt to multi-processor
+architectures. To deal with the simulation size and time requirements it will be necessary to mix fast simulation techniques (using detector parametrisations) with full simulation at event level.
+
+
+
+
+
+
+\subsection{Coordinate system - perigee parameters definition - maybe in appendix}
 
 
 \newpage
