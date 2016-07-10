@@ -14,6 +14,7 @@
 \usepackage{unipitesi}
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{verbatim}
 \graphicspath{ {Images/} }
 
 \hypersetup{
@@ -59,8 +60,8 @@ A causa dell'elevato numero di eventi di pileup ($>200$) previsti, il tempo rich
 \newpage
 
 \section{Introduction} \label{Introduction}
-The Large Hadron Collider (LHC) accelerator is scheduled to be upgraded in two different phases: the first will begin after the end of Run 2 during the Long Shotdown 2 (LS2) in 2019-2020; the second will start at the end of Run 3 during the Long Shotdown 3 (LS3) in 2024-2026 (Fig.\ref{fig:HLLHC_Plan}). The latter upgrade phase will lead to what is referred as High-Luminosity LHC (HL-LHC) during which the
-luminosity will reach the value of $7.5 \times 10^{34}\ cm^{-2}s^{-1}$, corresponding to approximately $3000\ fb^{-1}$ during ten years of data taking. \\
+The Large Hadron Collider (LHC) accelerator is scheduled to be upgraded in two different stages: the first one will begin after the end of Run 2 during the Long Shotdown 2 (LS2) in 2019-2020; the second one will start at the end of Run 3 during the Long Shotdown 3 (LS3) in 2024-2026 (Fig.\ref{fig:HLLHC_Plan}). The latter upgrade stage will lead to what is known as High-Luminosity LHC (HL-LHC) during which the
+luminosity will reach the maximum value of $7.5 \times 10^{34}\ cm^{-2}s^{-1}$, corresponding to approximately $3000\ fb^{-1}$ during ten years of data taking. \\
 
 \begin{figure} [h]
 	\includegraphics[width=\textwidth]{HLLHC_Plan}
@@ -68,16 +69,19 @@ luminosity will reach the value of $7.5 \times 10^{34}\ cm^{-2}s^{-1}$, correspo
 	\label{fig:HLLHC_Plan}
 \end{figure}
 
-HL-LHC will allow to study new physics processes, such as the ones predicted by SUSY models and extra dimensions as well as improve Standard Model measurements, in particular Higgs boson 
-couplings that are expected to be measured with a precision between 5\% and 30\%\cite{loi}. In fact, the increased statistics will allow rare channels to be measured,  $H \rightarrow \mu\mu$, vector boson 
-fusion production of $H \rightarrow \gamma\gamma$ and $H \rightarrow \tau\tau$ and associated production $t\bar{t}H$ with $H \rightarrow \gamma\gamma$, as well as Higgs self couplings
+HL-LHC will allow to study new physics processes, such as extra dimensions or the ones predicted by SUSY models, as well as improve Standard Model measurements. In particular, Higgs boson 
+couplings are expected to be measured with a precision between 5\% and 30\%\cite{loi}. Thanks to the increased luminosity, it will be possible to observe the Higgs boson in rare
+channels such as  $H \rightarrow \mu\mu$, vector boson 
+fusion production of $H \rightarrow \gamma\gamma$ and $H \rightarrow \tau\tau$, associated production $t\bar{t}H$ with $H \rightarrow \gamma\gamma$, as well as Higgs self couplings
 such as in $HH \rightarrow \tau\tau b b$, $HH \rightarrow \gamma\gamma b b$.\\
 
 By the end of Run 3, ATLAS detector will be using 15-20 years old components. In particular,
 the highly irradiated Inner Detector pixels and strips will have reached the end of their
-lifetime, whereas the transition radiation tracker will reach 100\% occupancy at that luminosity. The Inner Detector will so be completely substituted by the Inner Tracker (ITk), which will
-have to guarantee the same or an improved performance in the harsh conditions of HL-LHC while maximizing the acceptance. At the design luminosity, the expected number of in-time pileup events will be $<\mu > = 200$, much
-higher than that expected at the end of Run 3 ($<\mu > = 80$) and even more with respect to the current one ($<\mu > = 35$??), introducing new challenges in the tracking. The increase of the number
+lifetime and the transition radiation tracker will reach 100\% occupancy at that luminosity. Thus, the Inner Detector will have to be completely substituted by the Inner Tracker (ITk), which will
+have to guarantee the same or an improved performance in the harsh conditions of HL-LHC while maximizing the acceptance. At the design luminosity, the expected number of in-time pileup events will be $<\mu > = 200$, a much
+higher value than the one expected at the end of Run 3 ($<\mu > = 80$) and even more if 
+compared to the current one ($<\mu > = 35$??), introducing new challenges in the pattern
+recognition. The increase of the number
 of collisions per bunch crossing leads to new requirements on the front-end electronics, trigger and data acquisition system that cannot be met by the current apparatus, thus leading to a 
 substantial upgrade of the electronics. Moreover, in the Reference Scenario of the Scoping Document\cite{scoping} the geometrical acceptance of ATLAS detector is increased with respect to 
 the current one thanks to the extension of the $|\eta|$ coverage to $4.0$, which requires either the substitution (such as in the case of ITk) or the addition of new detectors (muon chambers,
@@ -117,7 +121,7 @@ ATLAS detector is currently composed by the following components:
 \item a \textbf{data acquisition system (DAQ)}
 \end{itemize}
 
-In the following sections these elements are briefly described, outlining the main upgrades that will be applied. 
+In the following sections these elements are briefly described, outlining the main upgrades that will be applied for HL-LHC. 
 
 \subsection{The magnet system}\label{sec:magnet}
 
@@ -133,8 +137,8 @@ The \textit{Central Solenoid Magnet} encloses the tracking volume and provides a
 
 The \textit{Barrel} and \textit{Endcap Toroids} provide a tangential magnetic field of about $1\ T$ for the muon detectors, both in the radial and the forward region.\\
 
-As the current magnet system already fulfils HL-LHC requirements, it is not going to be
-upgraded during that phase. [ref? NON SE NE PARLA NEL LOI/SCOPING]
+As the current magnet system already fulfils HL-LHC requirements, it will not require an
+upgrade. [ref? NON SE NE PARLA NEL LOI/SCOPING]
 
 \subsection{The Inner Detector}
 
@@ -155,7 +159,19 @@ high resolution pattern recognition using \textit{silicon pixel layers}, the mid
 
 Each one of these detectors is subdivided into a \textit{barrel} region, in which the sensor modules 
 are organized tangentially with respect to a circle around the beam axis and an \textit{end-cap} region, in which they are placed perpendicularly with respect to the beam axis, producing
-a disk resemblant shape.
+a disk resemblant shape.\\
+
+The \textit{pixel} barrel layout consists of 3 layers placed at approximate radii $50.5\ mm$, $88.5\ mm$ and $122.5\ mm$ with respect to the beam 
+axis. A fourth layer called \textit{Insertable B-Layer} (IBL) was added during the LS1 as the
+innermost pixel layer at radius $32.7\ mm$. In the end-cap region, three disks per side were chosen,
+at z position respectively $495\ mm$, $580\ mm$, $650\ mm$. \\
+
+The \textit{SCT} barrel layout consists of four layers at radii $300\ mm$, $373\ mm$, $447\ mm$ and $520\ mm$. The end-cap region is instead composed by 9 disks per side with variable
+inner radii and z-position ranging from $850\ mm$ to $2720\ mm$. \\
+
+The \textit{TRT} barrel layout is formed by straws parallel to the beam axis (GIUSTO?) at radii from $563\ mm$ to $1066\ mm$,
+while the end-cap region consists of radially wound straws with z ranging from $850\ mm$ to 
+$2710\ mm$. 
 
 \subsubsection*{Pixel and SCT} (DIFFERENZE CON TDR: dimensioni diverse dei singoli pixel)
 
@@ -163,26 +179,26 @@ The pixel and SCT sensors are designed to maintain their performance during the 
 lifetime at nominal luminosity\cite{Aad:2008zzm}. As the integrated radiation dose has significant consequences
 on these sensors, they are operated at a temperature between $-10\ ^{\circ}C$ and $-5\ ^{\circ}C$.\\
 
-\textit{Pixel sensors} of the original ID (thus excluding IBL) are $250\ \mu m$ thick detectors which are mounted on oxygenated n-type wafers, with the pixel on the $n^+$ side(??). About 90\% of the pixel on a sensor have a nominal 
+\textit{Pixel sensors} of the Run 1 ID (thus excluding IBL) are $250\ \mu m$ thick detectors which are mounted on oxygenated n-type wafers, with the pixel on the $n^+$ side(??). About 90\% of the pixel on a sensor have a nominal 
 size of $50 \times 400\ \mu m^2$, while the rest are $50 \times 600\ \mu m^2$ large and are placed
-at the front-end chips on a module. There are a total of 1744 identical pixel sensors(module??) with an external dimension of $19 \times 63\ mm^2$, each composed by 47232 pixels. For reasons of space, there are four ganged pixels on each column of the front-end chip, thus resulting in a total of 46080 readout channels. \\
+at the front-end chips on a module. There are a total of 1744 identical pixel sensors(modules??) with an external dimension of $19 \times 63\ mm^2$, each composed by 47232 pixels. For reasons of space, there are four ganged pixels on each column of the front-end chip, thus resulting in a total of 46080 readout channels. \\
 
 \textit{IBL pixels} are, instead, $50 \times 250\ \mu m^2$ large to 
-ensure a highly precise measurement of the coordinates near to the interaction point\cite{IBL}. Two 
+ensure a highly precise measurement of the coordinates near the interaction point\cite{IBL}. Two 
 different technologies have been implemented in the central and forward IBL region, which
 results in a different sensor thickness and chip size.\\
 
 The \textit{SCT} consists of a total of 15912 sensors with thickness $285\ \pm\ 15\ \mu m$. Every sensor consists of 768 strips of $12\ cm$ length, with average pitch of $80\ \mu m$.
 On each SCT module there are two back-to-back sensors with a relative angle of $40\ mrad$,
-which allows the extraction of the second coordinate.
+which allows the extraction of a second coordinate.
 
 \subsubsection*{TRT}
-The basic element of \textit{TRT} consists of $4\ mm$ diameter tubes\cite{Aad:2008zzm}. For both the barrel
+The basic elements of \textit{TRT} consist of $4\ mm$ diameter tubes\cite{Aad:2008zzm}. For both the barrel
 and end-cap sections, the anodes are made of $31\ \mu m$ diameter, $\pm\ 71.2\ cm$ 
 active length tungsten wires 
 connected to the front-end electronics and grounded. The wires are carefully aligned within
 the straw, with a maximum tolerance of $300\ \mu m$. The barrel section contains about 
-50000 straw tubes, whereas the end-cap contains approximatively 320000 (organized radially),
+50000 straw tubes, whereas the end-cap contains approximatively 320000,
 for a total of 420000 electronic channels\cite{ATLAS:1997ag}. This detector typically provides
 an almost continuous tracking of the particles traversing it, with an average of 36 measurements per track.\\
 
@@ -211,25 +227,39 @@ Detailed simulations based on the response to high energy photons and electrons 
 measured the thickness of the calorimeter to be about $24\ X_0$ in the barrel and $26\ X_0$ in the endcap. Each section is physically divided into towers which produce the signal and are so responsible
 for the granularity of the calorimeter.
 High granularity is especially required in the central regions, where it reaches the value of 
-$\Delta\eta\ \times\ \Delta\phi\ =\ 0.025\ \times\ 0.025$. In this region it is possible to combine the signal of the calorimeter with the information coming from the inner detector to improve the rejection power of $\pi_0$ against photons. Indeed, granularity is less and less relevant to the overall performance with increasing $|\eta|$. Hermeticity is also important for the measurement of missing $E_T$ and has been maximized using a transition gap between the barrel and endcap cryostats of 95 mm. \\
+$\Delta\eta\ \times\ \Delta\phi\ =\ 0.025\ \times\ 0.025$, sometimes allowing to combine the information
+coming from the inner detector to improve rejection power.
+\begin{comment}
+ In this region it is possible to combine the signal of the calorimeter with the information coming from the inner detector to improve the rejection power of $\pi_0$ against photons. Indeed, granularity is less and less relevant to the overall performance with increasing $|\eta|$. 
+\end{comment}
+Hermeticity is also a very important feature for the measurement of missing $E_T$ and has been maximized using a transition gap between the barrel and endcap cryostats of 95 mm. \\
 
 \textbf{HEC}\cite{hec} is a sampling calorimeter with copper absorber plates and consists of two wheels of outer radius $2.03\ m$, made of 32 identical modules. It ranges in $|\eta|$ from 1.4 to 3.2 and every half of it shares the cryostat with the EMEC and FCal. \\[2pt]
 
-\textbf{FCal} has to cope with a high level of radiation, which makes it a particularly challenging detector. To avoid an excessive neutron albedo in the central cavity the detector is actually recessed by 
-$1.2\ m$ with respect to the frontal face of the electromagnetic calorimeter. FCal is a high density mixed copper-tungsten calorimeter and covers the range of $3.0\ < |\eta|\ <\ 4.9$.  The high density allows to reach the required $9.5\ \lambda$ in a reduced space and to minimize the endcap calorimeter pileup signal.  \\[2pt]
+\textbf{FCal} has to cope with a high level of radiation, which makes it a particularly challenging detector. 
+
+\begin{comment}
+To avoid an excessive neutron albedo in the central cavity the detector is actually recessed by 
+$1.2\ m$ with respect to the frontal face of the electromagnetic calorimeter. FCal is a high density mixed copper-tungsten calorimeter and covers the range of $3.0\ < |\eta|\ <\ 4.9$. 
+\end{comment}
+
+ The high material density employed allows to reach the required $9.5\ \lambda$ in a reduced space and to minimize the endcap calorimeter pileup signal.  \\[2pt]
 
 \subsubsection*{Hadron Tile calorimeters}
-The \textbf{Tile calorimeter} is a sampling calorimeter composed by alternated layers of scintillating tiles as active medium and steel as an absorber. The signal is carried out from each module using optical fibres, which can run through the layers thanks to the laminated structure of the calorimeter. It is segmented, thus providing a resolution of
+The main requirement for the \textbf{Tile Calorimeter} is to reconstruct the energy of the jets produced in the collisions and, due to the high center-of-mass energy at LHC, it has to assure 
+high performances in a wide range of energies. Thanks to the use of an extended barrel, the HEC and the FCal (see Sec.\ref{sec:LAr}), it also provides a good $p_T^{miss}$ reconstruction.\\
+
+The Tile calorimeter is a sampling calorimeter composed by alternated layers of scintillating tiles as active medium and steel as an absorber. The signal is carried out from each module using optical fibres, which can run through the layers thanks to the laminated structure of the calorimeter. It is segmented and provides a resolution of
 $\Delta\eta \times \Delta\phi\ = 0.1 \times 0.1$.\\
-The Tile Calorimeter is made up of one barrel ($5.64\ m$ long) and two extended barrel ($2.91\ m$ long) parts, with a gap of $60\ cm$ in between. It consists of a cylindrical structure of inner radius $2.28\ m$ and $4.23\ m$. The barrel covers the region $0\ <\ |\eta|\ <\ 1.0$ whereas the extended covers the region $0.8\ <\ |\eta|\ <\ 1.7$. The overlap region from 0.8 to 1.0 is
-occupied by an Intermediate Tile Calorimeter (ITC).\\
-The main requirement for the Tile Calorimeter is to reconstruct the energy of the jets produced in the collisions and, due to the high center-of-mass energy at LHC, it has to assure 
-high performances in a wide range of energies. Thanks to the use of an extended barrel, the HEC and the FCal (see Sec.\ref{sec:LAr}), it provides a good $p_T^{miss}$ reconstruction.\\[2pt]
+The Tile Calorimeter is made up of one barrel ($5.64\ m$ long) and two extended barrel ($2.91\ m$ long) parts, with a gap of $60\ cm$ in between. It consists of a cylindrical structure of inner radius $2.28\ m$ and $4.23\ m$. The barrel covers the region $0\ <\ |\eta|\ <\ 1.0$ whereas the extended barrel covers the region $0.8\ <\ |\eta|\ <\ 1.7$. The overlap region from 0.8 to 1.0 is
+occupied by the Intermediate Tile Calorimeter (ITC).\\
 
-\subsubsection{Upgrade of the electromagnetic calorimeter}
+\subsubsection*{Upgrade of the electromagnetic calorimeter}
 
-The performance required by HL-LHC barrel electromagnetic calorimeter is the same as the current one, thus it does not need to be upgraded. In contrast to that, the FCal performances will be degraded by the conditions of HL-LHC. That said, the Reference Scenario of the ATLAS Scoping Document\cite{scoping} foresees the replacement of current FCal with a high-granularity Small-Gap Forward Calorimeter (sFCal), superior to the current one in terms of resolution and size of LAr gaps. These latter are designed to be smaller than the current, in order to reduce the risk of formation of Argon bubbles, due to the high energy release. (?? This improvement in granularity would be also required by the extension in $|\eta|$ of the Inner Detector in the aforementioned scenario ??). This replacement and the addition of a High Granularity Timing Detector (HGTD), that will be hopefully installed in front of the LAr Calorimeter endcaps and will be needed to reduce the (??OUT-OF-TIME??) pileup signal. It will cover the range $2.4\ <\ |\eta|\ <\ 4.3$ and it will measure the arrival time of charged particles, assigning them to different collision vertices. The readout electronics will also need to be exchanged due to insufficient radiation tolerance and poor performance with respect to that necessary for the foreseen trigger upgrade. In the Middle and Low cost 
+The performance required by HL-LHC barrel electromagnetic calorimeter is the same as the current one, thus it does not need to be upgraded. In contrast to that, the FCal performances will be degraded by the conditions of HL-LHC. In the Reference Scenario of the ATLAS Scoping Document\cite{scoping} the replacement of the current FCal with a high-granularity Small-Gap Forward Calorimeter (sFCal) is foreseen, which is superior to the current one in terms of resolution and size of LAr gaps. These latter are designed to be smaller than the current in order to reduce the risk of formation of Argon bubbles, due to the high energy release. (??) The improvement in granularity would be also required by the extension in $|\eta|$ of the Inner Detector in the aforementioned scenario (??). Also, the addition of a High Granularity Timing Detector (HGTD) is planned, which will be hopefully installed in front of the LAr Calorimeter endcaps and will be needed to reduce the (OUT-OF-TIME?) pileup signal. It will cover the range $2.4\ <\ |\eta|\ <\ 4.3$ and it will measure the arrival time of charged particles, assigning them to different collision vertices. The readout electronics will also need to be upgraded due to insufficient radiation tolerance and poor performance with respect to that necessary for the foreseen trigger upgrade. In the Middle and Low cost 
 scenarios, on the contrary, no upgrades in the endcap and forward region are foreseen, unless the risk of formation of Argon bubbles is considered too high, in which case a MiniFCal will be installed in front of the existing FCal. \\
+
+\subsubsection*{Upgrade of the Tile Calorimeter}
 
 The Tile Calorimeter maintains the required performance even during the HL-LHC phase and
 so it does not need replacement. On the contrary, the readout electronics will need to be upgraded due to limited radiation tolerance and to accommodate the new trigger requirements in terms of rates and latencies. This will be fulfilled, as in the case of the LAr (see
@@ -253,9 +283,10 @@ region}, $1.0 < |\eta| < 1.4$, is covered by a combination of the two. The syste
 
 In the barrel section the tracks are measured by stations arranged in three concentric cylinders (approximatively $5\ m$, $7.5\ m$ and $10\ m$ radius) while in the end-cap and
 transition region other three stations are arranged in disks along the z-axis (approximatively at  $|z| = 7.4\ m$, $10.8\ m$, $14\ m$ and $21.5\ m$). An extra disk is added in the transition
-region to increase acceptance. A gap in the region $|\eta| < 0.1$ is necessary to allow for services. The layout is designed so that a track coming from the interaction point can traverse only three of the aforementioned stations.
+region to increase acceptance. A gap in the region $|\eta| < 0.1$ is necessary to allow for services. The layout is designed so that a track coming from the interaction point can traverse only three of the aforementioned stations.\\
+
 Four different detector technologies are employed in this detector to optimize momentum reconstruction and trigger efficiency in the 
-different regions.  \textit{Monitored drift tube chambers}(MDT) are employed in the barrel and endcap regions (except for the innermost endcap layer, where the particle flux is maximum) to provide precise z coordinate measurement in the bending plane. In the innermost endcap layer, instead, \textit{Cathode Strip Chambers}(CSC) are used to provide $R-\phi$ and time measurements. \\
+different regions.  \textit{Monitored drift tube chambers}(MDT) are employed in the barrel and endcap regions (except in the innermost endcap layer, where the particle flux is maximum) to provide precise z coordinate measurement in the bending plane. In the innermost endcap layer, instead, \textit{Cathode Strip Chambers}(CSC) are used to provide $R-\phi$ and time measurements. \\
 
 For the muon trigger system, \textit{Resistive Plate Chambers}(RPC) were selected for the barrel region, while \textit{Thin Gap Chambers}(TGC) were selected for transition and endcap regions. Other
 than achieving the triggering functionality, they also provide the coordinate on the non-bending plane to the MDTs. 
