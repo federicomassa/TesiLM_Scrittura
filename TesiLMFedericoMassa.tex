@@ -15,6 +15,7 @@
 \usepackage[font=small]{caption}
 \usepackage{subcaption}
 \usepackage{hyperref}
+\usepackage{textcomp}
 \usepackage{graphicx}
 \usepackage{verbatim}
 \graphicspath{ {Images/} }
@@ -345,8 +346,11 @@ efficient use of commercial networking and computing hardware.
 \section{Physics at HL-LHC}\label{sec:physics}
 
 The observation of a particle consistent with the Standard Model Higgs boson at ATLAS and
-CMS experiments in 2012 started a new era of physics discovery at LHC, hopefully providing
-new insights to the study of the mechanism of electroweak symmetry breaking.\cite{loi}.\\
+CMS experiments in 2012 started a new era of physics discovery at LHC, providing
+new insights to the study of the mechanism of electroweak symmetry breaking.\cite{loi}.
+At HL-LHC, other than improving the accuracy of already performed measurements, the
+upgraded detectors will have to keep looking for new physics processes, such as the ones
+predicted by supersymmetric and exotic models. \\
 
 As the upgraded detectors for the high luminosity phase are foreseen to keep or improve
 the current ATLAS detector performance in spite of the huge amount of pileup events, the benefits gained from the increase in statistics
@@ -357,8 +361,8 @@ This section briefly describes some of the physics channels that will particular
 from the high luminosity phase.
 
 \subsection{Measurements of the Higgs boson}
-One of the main topics of interest in the Higgs boson study is to determine its quantum
-numbers and measure its couplings to fermions and vector bosons\cite{loi}. At LHC the Higgs
+One of the main topics of interest is the Higgs boson study, and especially the determination of its quantum
+numbers and the measurement of its couplings to fermions and vector bosons\cite{loi}. At LHC the Higgs
 boson is produced in several processes, shown in Fig.\ref{fig:HiggsProductionFeynman}, with
 the dominant one being the gluon-gluon fusion, as can be seen in Fig.\ref{fig:HiggsProductionCrossSection}. It is observed
 in a large number of final states, whose SM branching ratios are shown in Fig.\ref{fig:HiggsBranchingRatio}. There are, however, models that
@@ -367,11 +371,19 @@ SM, for example in some models predicting other heavy Higgs states. This means t
 to measure the Higgs couplings as precisely as possible while looking for other heavy
 particles. \\
 
+\begin{figure} [h]
+	\centering
+	\includegraphics[scale=0.6]{HiggsProductionFeynman}
+	\caption{Feynman diagrams of Higgs production channels at LHC\cite{HiggsFeynman}. (a) gluon-gluon fusion (b) Vector boson fusion (VBF) (c) W/Z bremmstrahlung (d) $t\bar{t}$ fusion}
+	\label{fig:HiggsProductionFeynman}
+\end{figure}
+
+
 \begin{figure}
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=1.\linewidth]{HiggsProductionCrossSection}
+  \includegraphics[width=1.1\linewidth]{HiggsProductionCrossSectionWithLine}
   \caption{}
   \label{fig:HiggsProductionCrossSection}
 \end{subfigure}%
@@ -381,7 +393,8 @@ particles. \\
   \caption{}
   \label{fig:HiggsBranchingRatio}
 \end{subfigure}
-\caption{(a): Cross sections of the Higgs boson production in p-p collisions as a function of the center of mass energy.(CITE LHC HIGGS CROSS SECTION WORKING GROUP: http://resonaances.blogspot.it/2014/02/plot-for-weekend-dream-on.html) (b): Branching
+\caption{(a): Cross sections of the Higgs boson production in p-p collisions as a function of the center of mass energy.(CITE LHC HIGGS CROSS SECTION WORKING GROUP: http://resonaances.blogspot.it/2014/02/plot-for-weekend-dream-on.html). The red line
+shows the 14 TeV energy of the HL-LHC phase. (b): Branching
 ratios of the SM Higgs boson as a function of its mass, with the measured mass region highlighted (E' COSI?).}
 \label{fig:test}
 \end{figure}
@@ -393,7 +406,8 @@ Run 1 analysis\cite{loi}\cite{scoping}:
 
 \begin{itemize}
 \item $H \rightarrow \gamma\gamma$ in the 0-jet and the 2-jet final state.
-\item Inclusive $H \rightarrow ZZ^{*} \rightarrow 4l$.
+\item Inclusive $H \rightarrow ZZ^{*} \rightarrow 4\mu$.
+\item Vector boson fusion $H \rightarrow ZZ^{*} \rightarrow 4l$.
 \item $H \rightarrow WW^* \rightarrow l\nu l\nu$ in the 0-jet and the 2-jet final state.
 \item $H \rightarrow \tau^+\tau^-$ in the 2-jet final state.
 \end{itemize}
@@ -422,11 +436,64 @@ number of events. In other cases, such as in $WH/ZH, H \rightarrow b\bar{b}$ bot
 energy resolution and the rejection of light jets are crucial for the calculation, and suffer from
 the high pileup environment. \\
 
+\subsubsection*{Inclusive $H \rightarrow ZZ^* \rightarrow 4\mu$ analysis}
+The study of this physics channel is of particular relevance because of the cleanness of the signature and the consequent high accuracy with which it is measured at LHC. In this paragraph, the analysis of this channel performed in \cite{scoping} is described; moreover, a symilar analysis is performed in this thesis, and it will be described in sec.\ref{sec:HZZAnalysis}.\\
+
+In this analysis, no production mode of the Higgs boson is selected and the only background considered is the irreducible dominant $ZZ^{(*)} \rightarrow 4\mu$, while the others are
+expected to have a small effect on the final result. The analysis cuts applied are based on the
+ones of the Run 1 analysis and are:
+
+\begin{itemize}
+\item the event must contain 4 muons.
+\item the ordered $p_T$ of the four muons must be greater than 20 GeV, 15 GeV, 10 GeV, 6 GeV respectively.
+\item the $\Delta R$ distance between the muons must be greater than 0.1.
+\item the pair with mass closest to the Z boson is required to lie in the mass region [50 GeV, 106 GeV].
+\item the other muon pair must lie in the mass region [12 GeV, 115 GeV].
+\item to ensure good mass resolution, at least one of the latter pair must lie in the
+region $|\eta| < 2.7$. 
+\end{itemize}
+
+Furthermore, a simplified version of the Run 1 Z mass constraint is applied, considering only 
+the $p_T$ resolution instead of the full covariance matrix. The overall acceptance of this channel is shown in Fig.\ref{fig:scopingHZZ4muAcceptance}, from which it is inferable an 
+acceptance gain of 21 \% thanks to the coverage extension of the present detector to 
+$|\eta| < 4.0$ that allows an improved measurement of the differential cross section (SPIN MEASUREMENT?). The results of the analysis are shown in Fig.\ref{fig:scopingHZZ4muMassResolution},\ref{fig:scopingHZZ4muNEvents}, where the 
+performances of the three layouts proposed in the Scoping Document are compared. For a description of the aforementioned layouts, see sec.\ref{sec:layout} (CHECK??).
+
+\begin{figure} [h]
+	\centering
+	\includegraphics[scale=0.3]{scopingHZZ4muAcceptance}
+	\caption{Acceptance of the channel $H \rightarrow ZZ* \rightarrow 4\mu$. The blue and 
+	red dashed lines corresponds to the angular selection in which the muon trigger is present.}
+	\label{fig:scopingHZZ4muAcceptance}
+\end{figure}
+
+\begin{figure} [h]
+	\centering
+	\includegraphics[scale=0.3]{scopingHZZ4muMassResolution}
+	\caption{Higgs mass and width measurement, where the samples are divided into three 
+	regions, depending on the value of $|\eta|$ of the most forward muon\cite{scoping}. In the Scoping Document, the only scenario with $|\eta| < 4.0$ coverage is the Reference scenario, see sec.\ref{sec:layouts}??}
+	\label{fig:scopingHZZ4MassResolution}
+\end{figure}
+
+\begin{figure} [h]
+	\centering
+	\includegraphics[scale=0.3]{scopingHZZ4muNEvents}
+	\caption{Number of expected signal and background events at 3000 $fb^{-1}$ integrated
+	luminosity for the three Scoping Documents layout and signal strength accuracy\cite{scoping}.}
+	\label{fig:scopingHZZ4muNEvents}
+\end{figure}
+
+
+\bigskip
+\bigskip
+\bigskip
+
+
 From a phenomenological standpoint, to find out if the Higgs mechanism is the one responsible
 for electroweak symmetry breaking, it is important to measure the Higgs self-couplings.
 In particular, the Higgs boson trilinear self-coupling $\lambda_{HHH}$ can be measured
 in the double Higgs boson production channel, whose cross section in the Standard Model is
-$34^{+6}_{-5}$ (QCD scale) $\pm 1$ (PDF) fb, which is around three orders of magnitude 
+$34^{+6}_{-5}$ (QCD scale) $\pm 1$ (PDF) fb, which is around three orders of magnitude
 smaller than the total Higgs production cross section (CHECK??) and thus needs high
 luminosity to be measured. For this kind of studies some interesting channels are
 $HH \rightarrow b\bar{b}W^+W^-$ and $HH \rightarrow b\bar{b}\gamma\gamma$, whose 
@@ -437,18 +504,89 @@ ratio, but its signature is clear and is expected to produce 260 events, on aver
 dominated by $t\bar{t}H$ (??? DOVE FINISCONO LE W?). The preliminary results of these
 studies show that none on these channels, taken alone, can provide a measurement of
 the Higgs self coupling, but it is expected that, combining the results of all the channels with 
-the ones of the CMS experiment, a $30\ \%$ measurement should be possible at HL-LHC.
+the ones of the CMS experiment, a $30\ \%$ measurement should be feasible at HL-LHC.
 
 \subsection{Weak boson scattering}
-The weak boson scattering (WBS) is a promising new physics channel because the increase of
+The weak boson scattering (WBS) is a promising new physics channel because the predicted increase of
 its cross-section
-in the longitudinal mode would violate unitarity at the TeV energy scale. In the SM the Higgs
+in the longitudinal mode would violate unitarity at the TeV energy scale (NON SO COSA VOGLIA DIRE?). In the SM the Higgs
 boson is responsible for its damping, while other theoretical models, such as Technicolour and 
-little Higgs, predicts TeV-scale resonances and a light scalar particle. Even if the Higgs
-mechanism is established, other mechanisms can produce an observable difference in
+little Higgs, predicts TeV-scale resonances and a light scalar particle that can achieve the same effect. Even if the Higgs
+mechanism was established, other mechanisms can produce an observable difference in
 the WBS processes, thus it is very important to measure the energy 
 dependence of this cross-section. In \cite{WBS} it is shown that, thanks to the improved
-statistics of HL-LHC, the channel $ZZjj \rightarrow lllljj$ can be pushed to the level of discovery and its cross section measured with a statistical precision of about $10\ \%$.
+statistics of HL-LHC, the channel $ZZjj \rightarrow lllljj$ can be pushed to the level of discovery and its cross section be measured with a statistical precision of about $10\ \%$.
+
+\subsection{Supersymmetry searches}
+The study of weak scale (?) supersymmetry (SUSY) remains one of the top priorities at LHC, because
+it could remove the quadratic divergences emerging from a fundamental scalar Higgs boson and provide a possible explanation for dark matter with the Light Supersymmetric Particle (LSP, often assumed as the lightest neutralino).
+SUSY models predict that every SM particle has a supersymmetric partner and Run 1 analysis
+has already excluded, assuming a light LSP, that the 1st and 2nd generation of squarks (supersymmetric partner of the quarks) and the gluino (supersymmetric partner of the gluon) lies in the mass region below 1.4 TeV and 1.0
+TeV respectively. Because of the flexibility on the parameters of the SUSY models, 
+the current limits on 3rd generation squarks, gauginos and sleptons (supersymmetric partner
+of the gauge bosons and leptons respectively) are less stringent.\\
+
+The \textbf{squark and gluino searches} are usually carried out by looking at final states
+with multiple jets and large missing transverse momentum. With the 3000 $fb^{-1}$ of the 
+HL-LHC, the limits for the discovery are pushed of around 400-500 GeV\cite{loi} in the 
+simplistic model that assumes a zero-mass LSP (the result is, however, preserved in less
+stringent hypotheses). The main background emerges from $Z \rightarrow \nu\nu + jets$ and 
+$t\bar{t}$ production.\\
+
+\textbf{Third generation searches} are also interesting because naturalness arguments require
+the stop to be light (below 1 TeV). Its cross-section is expected to grow significantly when 
+considering smaller masses, from 10 fb for a 1 TeV stop to 240 fb for a 600 GeV stop. At
+HL-LHC, the sensitivity for top squarks will significantly increase and, if found, it will be possible to measure their properties. The stop can be observed in a large number of modes,
+including top or bottom
+quarks, W/Z or Higgs bosons and an LSP. Such event would be characterised by the presence
+of several jets (including b-jets), large missing transverse momentum and possibly leptons. 
+Studies described in \cite{loi} show that the stop mass limits can be increased by up to
+200 GeV at HL-LHC, with possible improvements.\\
+
+In scenarios with heavy squarks and gluinos, the SUSY production modes are dominated by 
+pair production of \textbf{weak gauginos}. The predicted associated production cross sections of $\widetilde{\chi}_1^\pm - \widetilde{\chi}_2^0$  decrease significantly
+with increasing masses. Assuming the 100\% branching ratios for the decays
+$\widetilde{\chi}_1^\pm \rightarrow W^{\pm(*)} \widetilde{\chi}_1^0$ and 
+$\widetilde{\chi}_2^0 \rightarrow Z^{(*)}\widetilde{\chi}_1^0$, the event selection can be
+performed by looking for final states with three leptons and missing transverse momentum,
+where a pair of same flavour and opposite sign leptons comes from a Z boson. The main
+backgrounds consists of $t\bar{t}$ (DOVE SONO I TRE LEPTONI?) and $WZ$ production.
+At the end of the LHC program, scenarios with chargino masses up to 500 GeV can be probed
+with a neutralino mass below 100 GeV, while at HL-LHC it will be possible to probe scenarios
+with chargino masses up to 800 GeV and neutralino masses below 300 GeV.
+
+\subsection{Exotic sector}
+Exotic phenomena include a very large number of models and, consequently, a broad
+range of the parameters. However, their characteristic feature is the production of high-$p_T$ 
+leptons, photons and jets and the measurement of missing $E_T$. Two important exotic
+channels are presented in \cite{loi} to ensure that HL-LHC maintains or improve the
+sensitivity to their signatures: $t\bar{t}$ and di-lepton resonances.\\
+
+$t\bar{t}$ resonances are interesting because they provide a benchmark for cascade
+decays containing leptons, jets and missing $E_T$ and they allow to study highly boosted
+topologies. They can be observed in two complementary channels, which are the di-leptonic and the lepton + jets channels.  The lepton+jets channel allows a better mass reconstruction but it suffers
+from W+jets background and to the loss of the top quark identification capability when the two jets merge. In this channel, b-tagging is fundamental to reduce the huge light flavour jet
+background. The dileptonic channel cannot measure the resonance mass and suffers from the irreducible $t\bar{t}$ background but
+it is less susceptible to the top quark jets merging because the leptons are more easily 
+identified when they are close to the b-jet (?).  The increase in sensitivity at HL-LHC depends
+on the particular resonance mass considered, but it can improve the mass limits by up to
+2 TeV.\\
+
+The \textit{dilepton resonances} study at LHC are a quite challenging sector because of
+several problematic issues. The detector should, in fact, prevent that high-energy electrons lead to EM calorimeter
+response saturation due to the readout electronics, maintain a good momentum resolution for high-$p_T$ muons, ensure a proper angular coverage to measure the resonance spin(COME SI MISURA LO SPIN?). The main background is the Drell-Yan production, but in the 
+case of di-electron resonances also the jet-misidentification plays an important role. In \cite{loi}
+it is shown that, for $Z'$ resonances, HL-LHC will increase the mass limit by $\sim$1.2 TeV.
+
+\subsection{Flavour-changing neutral currents in top decays}
+In the top physics, flavour-changing neutral currents (FCNC) are of particular interest.
+In the SM, FCNC are very suppressed due to the GIM mechanism, with a branching ratio smaller
+than $10^{-12}$. However, several extensions to the SM predict a considerable increase of this branching ratio, up to $10^{-4}$. At the moment, LHC experiments are not able to provide a measurement of the FCNC branching ratios, and only upper limits have been calculated. 
+In \cite{loi} an analysis is described in which the signal is a top quark pair production, where
+one of the top quarks decays in the dominant channel and the other via a FCNC process 
+($t \rightarrow q\gamma$, $t \rightarrow qZ$). For the $t \rightarrow q\gamma$ channel, 
+the dominant backgrounds are $t\bar{t}$, Z+jets and W+jets, for the $t \rightarrow qZ$ they are $t\bar{t}$, Z+jets and WZ. At HL-LHC, the expected limits at 95\% CL are in the range
+$10^{-5} : 10^{-4}$, with possible improvements. 
 
 
 
