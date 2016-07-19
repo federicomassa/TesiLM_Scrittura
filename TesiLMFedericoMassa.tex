@@ -588,6 +588,78 @@ one of the top quarks decays in the dominant channel and the other via a FCNC pr
 the dominant backgrounds are $t\bar{t}$, Z+jets and W+jets, for the $t \rightarrow qZ$ they are $t\bar{t}$, Z+jets and WZ. At HL-LHC, the expected limits at 95\% CL are in the range
 $10^{-5} : 10^{-4}$, with possible improvements. 
 
+\newpage
+
+\section{Physics objects reconstruction}
+Every analysis in the ATLAS experiment starts from the reconstruction of physics objects
+based on the features of the signals coming from the different detectors\cite{PhysicsObjectReconstruction}. In this section it is
+described how physics objects are reconstructed, with particular focus on the way in which muons are defined in the analysis presented in this thesis, where they are the searched signal and background final product.\\
+
+\subsection{Tracking algorithm in the ATLAS ID}
+The first important step to identify physics objects in the ATLAS experiment is the track reconstruction process based on the Inner Detector data. Charged particles that
+traverse the ID can release a significant (C'E' UN THRESHOLD DI RUMORE IMMAGINO?) charge in the sensors via ionization of the material, so that at the end of an event a set
+of raw signals is available for further manipulation. The \textit{Baseline} track reconstruction
+algorithm used during Run 1 is now going to be briefly described\cite{OptimizationTrackReconstructionAlgorithm}.\\
+
+The track reconstruction process takes place in two phases: the first one starts with a so called \textit{inside-out reconstruction} that uses the data from the Pixel Detector and the SCT; the last phase is an \textit{outside-in reconstruction} that uses the TRT measurements. \\
+
+\subsubsection*{Inside-out reconstruction}
+The inside-out reconstruction starts with the conversion from raw data to 3D measurements called \textit{space points}. In the Pixel Detector, a space point is computed by
+considering only one cluster; in the SCT a space point
+is obtained by combining the clusters of both sides of the layers.  \\
+
+In the Pixel Detector it is
+possible to measure the charge release distribution, so that a complex algorithm was developed
+to fully benefit from this knowledge.  
+The total charge is often distributed among different pixels  and strongly depends on the 
+incidence angle of the particle with respect to the sensor. Clusters are formed by grouping 
+pixels that have a common edge or corner and then the space point is obtained by using a 
+charge interpolation technique. If two charged particles are very close to each other, it is possible
+that they release a measurable charge in side by side pixels, which result in the formation of
+a \textit{merged cluster}. An artificial neural network is then implemented to identify these clusters, and split them (NON SEMPRE PERO'?).\\
+
+Once the space points have been identified, \textit{seeds} are formed by combining three space points taken whether from the Pixel Detector or the SCT. The perigee parameters (Già DEFINITI A QUESTO PUNTO?) are estimated for each seed, assuming a helical trajectory in a 
+uniform magnetic field, and the seeds are finally combined to build track candidates.\\
+
+At this point, the track candidates pass to the \textit{ambiguity solver}. During this
+phase they are sorted based on a score which measures track quality
+weighing intrinsic resolution, $\chi^2$, holes (sensors that have not produced a signal but 
+should have because the track traverses it) and momentum (high momentum tracks are 
+promoted). A limit in the number of shared clusters is also imposed. \\
+
+The track candidates passing the previous step are fitted at full resolution and added to the track collection.
+
+\subsubsection*{Outside-in reconstruction}
+This second phase starts with the identification of straight line patterns in the TRT detector, and the track candidates are passed to an ambiguity solver analogous to the one of the inside-out reconstruction.
+The obtained segments are extrapolated to the silicon detectors and a full track fit is performed if a match is found. Conversely, if no acceptable silicon tracks are found during 
+the extrapolation, the track candidates become \textit{TRT-only tracks}. \\
+
+The outside-in reconstruction is particularly important to reconstruct tracks from neutral particle decays ($K^0 \rightarrow \pi^+\pi^-$ or $\Lambda^0 \rightarrow p\pi^-$), conversion
+electrons and bremsstrahlung electrons, which have not produced a measurable track in the silicon detectors.
+
+\bigskip
+\bigskip
+\bigskip
+
+In ITk the TRT is not present, which has led to a necessary revision of the tracking algorithm. However, the general idea is basically the same.
+
+\subsection{Muon identification}
+At the ATLAS experiment, muons momentum is measured independently in the ID and in the
+Muon Spectrometer (MS), with an efficiency of over 95\%\cite{PhysicsObjectReconstruction} in the
+range $|\eta| < 2.7$. Four kind of muons candidates are distinguished depending on the 
+subdetectors used to reconstruct them: ID alone (HOW?? ENERGY LOSS?), MS alone, ID and calorimeter combined, ID
+and MS combined. The latter identification guarantees the minimum misidentification rate
+because of the small number of other particles that can traverse the whole hadronic calorimeter (DETTO IO, E' VERO?). 
+
+\subsubsection*{Muon identification in this analysis}
+The analysis presented in this thesis uses the simulated data coming from ITk exclusively.
+This means that a muon identification is not possible and the chosen solution has been to make the hypothesis of 100\% identification efficiency of the muons passing a track quality cut and a minimum $p_{T}$ cut, described in sec.\ref{sec:trackingPerformance}. (POSSIAMO SAPERE L'EFFICIENZA DI IDENTIFICAZIONE DEI MUONI REALI CON QUESTI TAGLI?).
+
+\subsection{Electrons and photons}
+
+
+
+
 
 
 
