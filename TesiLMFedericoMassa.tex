@@ -62,7 +62,7 @@ A causa dell'elevato numero di eventi di pileup ($>200$) previsti, il tempo rich
 
 \newpage
 
-\section{Introduction} \label{Introduction}
+\section{Introduction} \label{sec:introduction}
 The Large Hadron Collider (LHC) accelerator is scheduled to be upgraded in two different stages: the first one will begin after the end of Run 2 during the Long Shotdown 2 (LS2) in 2019-2020; the second one will start at the end of Run 3 during the Long Shotdown 3 (LS3) in 2024-2026 (Fig.\ref{fig:HLLHC_Plan}). The latter upgrade stage will lead to what is known as High-Luminosity LHC (HL-LHC) during which the
 luminosity will reach the maximum value of $7.5 \times 10^{34}\ cm^{-2}s^{-1}$, corresponding to approximately $3000\ fb^{-1}$ during ten years of data taking. \\
 
@@ -592,8 +592,8 @@ $10^{-5} : 10^{-4}$, with possible improvements.
 
 \section{Physics objects reconstruction}
 Every analysis in the ATLAS experiment starts from the reconstruction of physics objects
-based on the features of the signals coming from the different detectors\cite{PhysicsObjectReconstruction}. In this section it is
-described how physics objects are reconstructed, with particular focus on the way in which muons are defined in the analysis presented in this thesis, where they are the searched signal and background final product.\\
+based on the features of the signals coming from the different detectors\cite{PhysicsObjectReconstruction}. In this section it is briefly
+summarized how physics objects are reconstructed in ATLAS.\\
 
 \subsection{Tracking algorithm in the ATLAS ID}
 The first important step to identify physics objects in the ATLAS experiment is the track reconstruction process based on the Inner Detector data. Charged particles that
@@ -641,21 +641,87 @@ electrons and bremsstrahlung electrons, which have not produced a measurable tra
 \bigskip
 \bigskip
 
-In ITk the TRT is not present, which has led to a necessary revision of the tracking algorithm. However, the general idea is basically the same.
+In ITk the TRT is not present, which has led to a necessary revision of the tracking algorithm. However, the general idea is basically the same(NON SI TROVA CITAZIONE?).
 
 \subsection{Muon identification}
 At the ATLAS experiment, muons momentum is measured independently in the ID and in the
 Muon Spectrometer (MS), with an efficiency of over 95\%\cite{PhysicsObjectReconstruction} in the
-range $|\eta| < 2.7$. Four kind of muons candidates are distinguished depending on the 
+range $|\eta| < 2.7$. They also produce a minimum ionization signal in the calorimeters. Four kind of muons candidates are distinguished depending on the 
 subdetectors used to reconstruct them: ID alone (HOW?? ENERGY LOSS?), MS alone, ID and calorimeter combined, ID
 and MS combined. The latter identification guarantees the minimum misidentification rate
 because of the small number of other particles that can traverse the whole hadronic calorimeter (DETTO IO, E' VERO?). 
 
 \subsubsection*{Muon identification in this analysis}
 The analysis presented in this thesis uses the simulated data coming from ITk exclusively.
-This means that a muon identification is not possible and the chosen solution has been to make the hypothesis of 100\% identification efficiency of the muons passing a track quality cut and a minimum $p_{T}$ cut, described in sec.\ref{sec:trackingPerformance}. (POSSIAMO SAPERE L'EFFICIENZA DI IDENTIFICAZIONE DEI MUONI REALI CON QUESTI TAGLI?).
+This means that a muon identification that exploit the information coming from the muon spectrometer is not possible. The chosen solution was to make the hypothesis of 100\% identification efficiency of the muons that pass a track quality cut and a minimum $p_{T}$ cut, as described in sec.\ref{sec:trackingPerformance}. (POSSIAMO SAPERE L'EFFICIENZA DI IDENTIFICAZIONE DEI MUONI REALI CON QUESTI TAGLI?). 
 
 \subsection{Electrons and photons}
+Electrons and photons produce a very similar (NON PROPRIO UGUALE VERO? SE NON RICORDO MALE X0 è tipo 7/5 dell'altro o qualcosa del genere??) energy release in the electromagnetic calorimeter and are typically completely absorbed before reaching the hadronic calorimeter for a broad range of energies. The identification of the
+electron can be achieved by 
+looking for a track in the Inner Detector that points to the calorimeter energy release.(GIUSTO?). For both particles, several levels of selection are defined that apply progressively
+more stringent requirements, based on track quality and cluster-track matching variables (
+for the electron only), lateral and longitudinal shower shape and energy leakage in the 
+hadronic calorimeter (for both particles). In the forward region ($2.5 < |\eta| < 4.9$) the 
+selection can only rely on calorimeter information and the discrimination against hadrons
+is achieved by considering shower shape and cluster moments (??) variables. An in-situ fine tuning
+of the electromagnetic energy scale is performed at ATLAS by measuring the well known 
+Z mass in the decay $Z \rightarrow e^+e^-$.
+
+\subsection{Hadronic $\tau$ decays}
+The $\tau$ lepton, being much heavier than the electron, does not emit appreciable 
+bremmstrahlung radiation and, due to its relatively long lifetime, it can be  
+The hadronic decay channels of the $\tau$ lepton with larger branching ratio are the 
+one-prong and three-prongs decays with charged and neutral pions, and neutrinos. The
+identification is based on the characteristics of the jets emitted from quark or gluons, such 
+as low track multiplicity, collimated energy deposits, secondary vertex displacement (
+for the three-prong decay). The discrimination against electrons is based on the analysis
+of the longitudinal energy distribution. 
+
+\subsection{Jets}
+In ATLAS, jets are reconstructed starting from topological clusters (?) built from calorimeter cells. These clusters are then split based on the position of local maxima and calibrated using
+local properties such as energy density, calorimeter depth, and isolation. Thanks to these 
+variables the jets are classified as electromagnetic or hadronic. The reconstructed jets are
+then corrected to account for the extra energy released by pileup particles.
+
+\subsection{Missing transverse energy}
+In a collinear collision such as that of the protons in LHC, the momentum conservation 
+implies the transverse component of the momentum of all the collision products to be zero. 
+By measuring the energy released in the calorimeter and in the hypothesis that the particles determining it are highly relativistic, it is possible to measure the missing transverse energy, 
+which is indication of the presence of neutrinos, which are typically produced in many events 
+of interest. The measurement of the missing transverse energy relies on the calibration of the 
+physics objects, as described in the jets section. The performance and uncertainties are 
+evaluated by comparing the data and simulation of processes like $Z \rightarrow ll$ and 
+$W \rightarrow l\nu$. The pileup suppression algorithms make the resolution independent of
+the number of pileup events.
+
+\newpage
+
+\section{Overview of the simulation technique} 
+(Definire IN-TIME E OFF-TIME IN INTRODUZIONE? REMINDER: LA RISOLUZIONE IN PT IN
+ AVANTI PUO' essere recuperate dalle camere dei mu? Altro reminder: le
+ distribuzioni che vediamo per il pileup sono correlate a quelle dell'hard scattering? ES. se ci
+ sono più particelle hard al centro ci sarà anche più pileup, dato che salviamo solo quello
+ vicino...?)
+In the ATLAS experiment, full Monte Carlo simulations are typically performed considering 
+a physical process of interest and simulating it through the whole detector. As the goal of this
+thesis is to analyse and compare the performances of several ITk configurations in a way that
+is independent from the other sub-detectors, only the tracker is simulated. This is 
+ideal for tracking studies, in which that is the only information that matters and simulating
+other parts of the detector would only be time wasting, but
+somewhat 
+limits the potential of the analysis of physics processes because of the small number of physics objects that can be reconstructed with the tracker only (muons, charged pions and kaons). Furthermore, no particle identification is possible without the other sub-detectors, so that 
+simplistic hypotheses have to be made on the identification efficiency and rejection power.
+As described in sec.\ref{sec:introduction} (CHECK?), the HL-LHC environment is particularly
+challenging due to the very high number of average proton collisions per bunch crossing ($\sim 200$). Thus, full ITk simulation including all the tracks is computationally challenging 
+and the production of private samples of this kind with acceptable statistics is very difficult
+to achieve. In this thesis, a fast simulation technique has been developed and studied that
+significantly reduces the computational time necessary to produce the samples. In this section,
+this technique is described together with a short description of the Monte Carlo generators
+employed.
+
+\subsection{Minimum bias events}
+ 
+
 
 
 
