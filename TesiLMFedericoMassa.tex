@@ -697,11 +697,8 @@ the number of pileup events.
 \newpage
 
 \section{Overview of the simulation technique} 
-(Definire IN-TIME E OFF-TIME IN INTRODUZIONE? REMINDER: LA RISOLUZIONE IN PT IN
- AVANTI PUO' essere recuperate dalle camere dei mu? Altro reminder: le
- distribuzioni che vediamo per il pileup sono correlate a quelle dell'hard scattering? ES. se ci
- sono più particelle hard al centro ci sarà anche più pileup, dato che salviamo solo quello
- vicino...?)
+(REMINDER: LA RISOLUZIONE IN PT IN
+ AVANTI PUO' essere recuperate dalle camere dei mu?)
 In the ATLAS experiment, full Monte Carlo simulations are typically performed considering 
 a physical process of interest and simulating it through the whole detector. As the goal of this
 thesis is to analyse and compare the performances of several ITk configurations in a way that
@@ -709,18 +706,223 @@ is independent from the other sub-detectors, only the tracker is simulated. This
 ideal for tracking studies, in which that is the only information that matters and simulating
 other parts of the detector would only be time wasting, but
 somewhat 
-limits the potential of the analysis of physics processes because of the small number of physics objects that can be reconstructed with the tracker only (muons, charged pions and kaons). Furthermore, no particle identification is possible without the other sub-detectors, so that 
+limits the potential of the analysis of physics processes because of the small number of physics objects that can be reconstructed with the tracker only (muons, charged pions and kaons, photon conversion). Furthermore, no particle identification is possible without the other sub-detectors, so that 
 simplistic hypotheses have to be made on the identification efficiency and rejection power.
 As described in sec.\ref{sec:introduction} (CHECK?), the HL-LHC environment is particularly
-challenging due to the very high number of average proton collisions per bunch crossing ($\sim 200$). Thus, full ITk simulation including all the tracks is computationally challenging 
+challenging due to the very high number of average proton-proton collisions per bunch crossing ($\sim 200$). Thus, full ITk simulation including all the tracks is computationally challenging 
 and the production of private samples of this kind with acceptable statistics is very difficult
 to achieve. In this thesis, a fast simulation technique has been developed and studied that
 significantly reduces the computational time necessary to produce the samples. In this section,
 this technique is described together with a short description of the Monte Carlo generators
 employed.
 
-\subsection{Minimum bias events}
- 
+
+\subsection{Pile-up events}
+The term \textit{pile-up} refers to a particle collision beside the one of interest, resulting in 
+the overlap of signals in the detector.
+At LHC, several sources of pile-up are present:
+
+\begin{itemize}
+\item in-time pile-up;
+\item out-of-time pile-up;
+\item cavern background;
+\item beam halo;
+\item beam-gas collision;
+\item cosmic background.
+\end{itemize}
+
+\subsubsection*{In-time pile-up}
+An HL-LHC bunch will consist of hundreds of billions of protons. The elementary
+proton-proton collisions that take place in the same bunch as that of the hard-scatter event of
+interest constitute the \textit{in-time pile-up} events.\\
+
+Most of the proton-proton collisions that take place during an LHC run do not result in the 
+fragmentation of the proton or result in the production of a small number of final products and are called \textit{diffractive events} (ON IN A?). The simulation of these
+processes is very important because they represent the in-time pile-up (DEFINIRE PER BENE IL
+PILEUP DA QUALCHE PARTE?), but it typically needs the use of a theoretical model because most of the final products are outside of the detector acceptance. These simulated events, called \textit{minimum bias events}, are the only considered pile-up source in this study, and have been simulated using the Pythia generator. \\
+
+(PYTHIA IN APPENDIX?)
+\textit{Pythia} is a program used to generate high-energy collisions that employs a set of physics
+models to simulate the evolution of a hard process from the interaction between few bodies 
+to a possibly complex multihadronic final state\cite{Pythia8}. 	\\
+It employs a \textit{leading-logarithm algorithm} to simulate the hard processes, 
+taking into account inital- and final-state parton shower, multiple interactions, beam remnants
+and hadronisation. 
+
+\subsubsection*{Out-of-time pile-up}
+The whole HL-LHC proton beam will (probably?) consist of 2808 bunches colliding every 25 ns.
+During this short time a particle travelling at the speed of light only covers a space of $7.5\ m$, thus
+not even reaching the outer part of the detector. The time response of some of the 
+sub-detectors is much longer than 25 ns, so the electronics integrates over more than one
+bunch-crossing. This effect is particularly important in the Liquid Argon detectors, where
+the integration time is around 250 ns.
+
+\subsubsection*{Cavern background}
+During an LHC run, the experiment cavern is filled with thermal neutrons and photons with 
+energy below $\sim 1\ MeV$ and typically affects the muon chambers. This background
+was not very relevant in LHC, but it could be in the luminosity upgrade phase.
+
+\subsubsection*{Beam halo}
+These events come from the collision of protons with collimators much upstream of the 
+interaction point. They typically consist of muons and produce a quite characteristic signal (for example, they are out-of-time), so they are normally removed easily. They are mainly seen by the muon chambers and sometimes
+can leave a measurable signal in the calorimeter. 
+
+\subsubsection*{Beam-gas events}
+These events arise from the collision of protons with the residual gas in the beam-pipe. These
+collisions are highly asymmetric and produce a clear signature, with a vertex way outside of
+the interaction region and an out-of-time signal, so that they are not typically simulated.
+
+\subsubsection*{Cosmic background}
+Cosmic high-energy muons or air shower can reach the ATLAS cavern and produce a signal in the detectors.
+They normally have a clear signature because they are out-of-time, but they can sometimes
+be mistaken as high energy jets and fake SUSY or other physics signals. \\
+
+\bigskip
+
+In this thesis, only the in-time pile-up is considered, because it represents the main source of
+pile-up in the tracker.
+
+\subsection{In-time pile-up study}
+
+The transverse momentum, pseudo-rapidity and azimuthal angle distribution of the pile-up particles reconstructible by ITk is shown if Fig.\ref{fig:pileupDists}, as simulated by 
+Pythia. Particles with the following
+features are excluded from these plots:
+
+\begin{itemize}
+\item particles not in the final state (e.g. partons before showering and/or hadronisation);
+\item neutrons and neutrinos;
+\item particles with $p_{T} < 500\ MeV$.
+\end{itemize}
+
+\begin{figure}
+\begin{subfigure}{\linewidth}
+\includegraphics[width=.5\textwidth]{pileup_pt}
+\caption{}
+\label{fig:pileup_pt}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{pileup_eta}
+\caption{}
+\label{fig:pileup_eta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{pileup_phi}
+\caption{}
+\label{fig:pileup_phi}
+\end{subfigure}
+\caption{$p_{T}$, $\eta$ and $\phi$ distribution of the pile-up particles reconstructible as tracks by ITk.}
+\label{fig:pileupDists}
+\end{figure}
+
+The particle composition of the pile-up events after the described cuts is as shown in Fig.
+\ref{fig:pileupComposition}. 
+
+\begin{figure} [h]
+	\includegraphics[width=\textwidth]{pileupComposition}
+	\caption{Pile-up particle composition after the cut in $p_{T}$ and excluding stable neutral particles.}
+	\label{fig:pileupComposition}
+\end{figure}
+
+\begin{comment}
+
+\begin{itemize}
+\item $52\%\ \pi^+/\pi^-$;
+\item $22\%$ photons;
+\item $8\%\ K^+/K^-$;
+\item $4\%\ K_0^L$;
+\item $4\%\ K_0^S$;
+\item $4\%$ protons;
+\item $3.5\%$ strange baryons;
+\item $2.5\%$ anti-protons;
+\item $0.1\%$ electrons and positrons;
+\item $0.04\%$ muons and anti-muons.
+\end{itemize}
+
+\end{comment}
+
+The particles belonging to the soft part of the pile-up ($p_{T} < 500\ MeV$) are numerically more consistent but 
+they are not reconstructed as tracks by ITk. However, they can travel in spirals around the 
+detector layers or, more generally, traverse the detector sensors at an angle very different
+from 90 degrees and produce hits that can be mistaken for hard scatter or hard pile-up particles
+(i.e. that can be reconstructed) hits, thus contributing to the fake rate and to the
+deterioration of spatial resolution, above all in the innermost layers. (SI VEDRà NEI RISULTATI?)
+The number of hard pile-up particles produced in a proton-proton collision is very high (42, on average), 
+half of which consists of charged pions. A minimum-bias events geometrical acceptance of $67\%$ has 
+been computed from the $\eta$ distribution considering the number of particles that 
+lie inside the region $|\eta| < 4.0$, thus resulting in 15 charged pions per proton collision in 
+the geometrical acceptance. Considering an expected average number of pile-up events per bunch-crossing of 200, an average of 3000 pion tracks per bunch-crossing is expected at ITk.
+Due to the high pion cross section and their abundance in the pile-up events, these particles produce
+a large number of secondary particles that have to be tracked and simulated by the simulation
+program, increasing drastically the necessary amount of time to perform a full tracker simulation\footnote{An estimate of this time can be found in sec.\ref{sec:fullSimEstimate}(??)}. As of today, ITk full simulation samples are mainly available for tracking studies but they
+lack in the physics sector. Due to the prohibitive time required to perform full tracker 
+simulation privately, in the following section a possible fast simulation method is described.
+
+\subsection{General structure of an ATLAS simulation}
+A typical ATLAS simulation consists in four steps, as described in Fig.\ref{fig:simulationFlow}.
+
+\begin{figure} [h]
+	\includegraphics[width=\textwidth]{SimulationFlow}
+	\caption{The ATLAS simulation flow. }
+	\label{fig:simulationFlow}
+\end{figure}
+
+During the \textbf{generation} step the proton-proton event of interest is first generated with the Monte
+Carlo (or custom) generator of choice. The collision is typically generated at the ATLAS 
+interaction point and the so obtained vertexes are then smeared to account for the beam 
+shape. The pile-up events are then superimposed and
+the result is saved in the HepMC format. \\
+
+During the \textbf{simulation} step the HepMC file is taken as input, together with
+the detector description complete of all detector and passive materials and services. 
+The Geant4 package\cite{Geant4} is used as
+engine to simulate the interaction of every particle with the material and the decays. This
+step concludes with the production of a HITS file, that contains the detector physical hits
+with a measure of the released energy, together with the generation information. Simulation 
+is normally the step that requires the longest computational time to process because of the
+complexity and multitude of physics processes that have to be emulated.\\
+
+The \textbf{digitization} step takes the HITS file as input and simulates the response of the 
+detector and the readout electronics as ADC counts. In realistic simulations, during this
+stage also the trigger response is simulated (GIUSTO?). The output of this stage is a Raw Data
+Object (RDO) file that is essentially analogous to the raw data produced during a real 
+ATLAS data taking, except that it carries the information from the generation stage.\\
+
+Finally, the \textbf{reconstruction} step takes the RDO file as input and implements
+the reconstruction algorithm on the raw data. This results in the formation of tracks that are saved in a Event Summary Data (ESD) file, which contains the detailed output
+of the detector reconstruction and allows rapid tuning of the reconstruction algorithms. It is readable by ROOT but it is large and normally not suitable
+to end-user analysis\cite{ATLASFormats}. The ESD file is processed into an Analysis Object Data (AOD) file, that is
+still readable by the ROOT I/O and is suitable for user analyses.  Finally, this file is converted
+into the xAOD format\cite{xAOD}, which is now a standard and replaced the D3PD format. It contains 
+information suitable to specific analyses and it is readable with the ROOT I/O and within the
+ATHENA framework\cite{Athena}.\\
+
+The user can then perform a specific analysis with the xAOD file and compute the physical
+variables of interest.
+
+\subsection{The fast simulation method}
+(NON POSSO CITARE SOSHI?)
+
+The fast simulation method developed has, as its main goal, that of efficiently model the
+in-time pile-up effect on the ITk performances and it is based on the identification of 
+regions-of-interest (RoI) at \textbf{generation level}. Particles lying outside of them are not 
+simulated, thus drastically reducing the time required by the simulation stage. \\
+
+The RoIs are computed by simply selecting the particles whose angular distance $\Delta R$
+from the hard-scatter particles is less than a certain value. In this thesis the chosen value
+was $0.1$, that has proven to realistically represent the detector performance (CHECK?).\\
+
+The idea at the basis of this method is that to efficiently represent the pile-up effect on the
+detector performances it is not necessary to simulate all the pile-up particles, because most 
+of them are distant from the particles of interest and cannot produce fake hits that 
+alter the reconstructed tracks. The distribution of the $\Delta R$ distance between 
+
+
+
+
+
+
 
 
 
