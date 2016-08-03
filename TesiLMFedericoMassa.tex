@@ -6,6 +6,7 @@
 \documentclass[a4paper,twoside,12pt]{article}
 \usepackage[british]{babel}
 \usepackage{gensymb}
+\usepackage[toc,page]{appendix}
 %\usepackage{graphics}
 %\usepackage{url,amsfonts,epsfig}
 %\usepackage[applemac]{inputenc} %comando per le lettere accentate se usate mac  
@@ -592,13 +593,13 @@ $10^{-5} : 10^{-4}$, with possible improvements.
 
 \section{Physics objects reconstruction}
 Every analysis in the ATLAS experiment starts from the reconstruction of physics objects
-based on the features of the signals coming from the different detectors\cite{PhysicsObjectReconstruction}. In this section it is briefly
+based on the features of the signals coming from the different sub-detectors\cite{PhysicsObjectReconstruction}. In this section it is briefly
 summarized how physics objects are reconstructed in ATLAS.\\
 
-\subsection{Tracking algorithm in the ATLAS ID}
+\subsection{Track reconstrution algorithm in the ATLAS ID}
 The first important step to identify physics objects in the ATLAS experiment is the track reconstruction process based on the Inner Detector data. Charged particles that
-traverse the ID can release a significant (C'E' UN THRESHOLD DI RUMORE IMMAGINO?) charge in the sensors via ionization of the material, so that at the end of an event a set
-of raw signals is available for further manipulation. The \textit{Baseline} track reconstruction
+traverse the ID can release a significant (C'E' UN THRESHOLD DI RUMORE INCLUSO IN DIGIT IMMAGINO?) charge in the sensors via ionization of the material, so that at the end of an event a set
+of raw signals is available for further manipulation. The \textit{baseline} track reconstruction
 algorithm used during Run 1 is now going to be briefly described\cite{OptimizationTrackReconstructionAlgorithm}.\\
 
 The track reconstruction process takes place in two phases: the first one starts with a so called \textit{inside-out reconstruction} that uses the data from the Pixel Detector and the SCT; the last phase is an \textit{outside-in reconstruction} that uses the TRT measurements. \\
@@ -611,26 +612,26 @@ is obtained by combining the clusters of both sides of the layers.  \\
 In the Pixel Detector it is
 possible to measure the charge release distribution, so that a complex algorithm was developed
 to fully benefit from this knowledge.  
-The total charge is often distributed among different pixels  and strongly depends on the 
+The total charge is often distributed among different pixel sensors and strongly depends on the 
 incidence angle of the particle with respect to the sensor. Clusters are formed by grouping 
 pixels that have a common edge or corner and then the space point is obtained by using a 
 charge interpolation technique. If two charged particles are very close to each other, it is possible
 that they release a measurable charge in side by side pixels, which result in the formation of
-a \textit{merged cluster}. An artificial neural network is then implemented to identify these clusters, and split them (NON SEMPRE PERO'?).\\
+a \textit{merged cluster}. An artificial neural network is then implemented to identify these clusters, and possibly split them (NON SEMPRE PERO'?).\\
 
-Once the space points have been identified, \textit{seeds} are formed by combining three space points taken whether from the Pixel Detector or the SCT. The perigee parameters (Già DEFINITI A QUESTO PUNTO?) are estimated for each seed, assuming a helical trajectory in a 
-uniform magnetic field, and the seeds are finally combined to build track candidates.\\
+Once the space points have been identified, \textit{seeds} are formed by combining three space points taken whether from the Pixel Detector or the SCT. The perigee parameters (see \ref{appendix:perigee} CHECK?) are estimated for each seed, assuming a helical trajectory in a 
+uniform magnetic field, and the seeds are finally combined to build track candidates at limited resolution.\\
 
 At this point, the track candidates pass to the \textit{ambiguity solver}. During this
 phase they are sorted based on a score which measures track quality
 weighing intrinsic resolution, $\chi^2$, holes (sensors that have not produced a signal but 
-should have because the track traverses it) and momentum (high momentum tracks are 
+should have because the fitted track traverses them) and momentum (high momentum tracks are 
 promoted). A limit in the number of shared clusters is also imposed. \\
 
 The track candidates passing the previous step are fitted at full resolution and added to the track collection.
 
 \subsubsection*{Outside-in reconstruction}
-This second phase starts with the identification of straight line patterns in the TRT detector, and the track candidates are passed to an ambiguity solver analogous to the one of the inside-out reconstruction.
+This second phase starts with the identification of straight line patterns in the TRT detector. The so found track candidates are passed to an ambiguity solver analogous to the one of the inside-out reconstruction phase.
 The obtained segments are extrapolated to the silicon detectors and a full track fit is performed if a match is found. Conversely, if no acceptable silicon tracks are found during 
 the extrapolation, the track candidates become \textit{TRT-only tracks}. \\
 
@@ -641,19 +642,19 @@ electrons and bremsstrahlung electrons, which have not produced a measurable tra
 \bigskip
 \bigskip
 
-In ITk the TRT is not present, which has led to a necessary revision of the tracking algorithm. However, the general idea is basically the same(NON SI TROVA CITAZIONE?).
+In ITk the TRT is not present, which has led to a necessary revision of the tracking algorithm. However, the general idea is basically the same(DETTO DA CLAUDIA, NON SI TROVA CITAZIONE?).
 
 \subsection{Muon identification}
 At the ATLAS experiment, muons momentum is measured independently in the ID and in the
-Muon Spectrometer (MS), with an efficiency of over 95\%\cite{PhysicsObjectReconstruction} in the
+Muon Spectrometer (MS), with an identification efficiency of over 95\%\cite{PhysicsObjectReconstruction} in the
 range $|\eta| < 2.7$. They also produce a minimum ionization signal in the calorimeters. Four kind of muons candidates are distinguished depending on the 
 subdetectors used to reconstruct them: ID alone (HOW?? ENERGY LOSS?), MS alone, ID and calorimeter combined, ID
-and MS combined. The latter identification guarantees the minimum misidentification rate
+and MS combined. The latter category guarantees the minimum misidentification rate
 because of the small number of other particles that can traverse the whole hadronic calorimeter (DETTO IO, E' VERO?). 
 
 \subsubsection*{Muon identification in this analysis}
 The analysis presented in this thesis uses the simulated data coming from ITk exclusively.
-This means that a muon identification that exploit the information coming from the muon spectrometer is not possible. The chosen solution was to make the hypothesis of 100\% identification efficiency of the muons that pass a track quality cut and a minimum $p_{T}$ cut, as described in sec.\ref{sec:trackingPerformance}. (POSSIAMO SAPERE L'EFFICIENZA DI IDENTIFICAZIONE DEI MUONI REALI CON QUESTI TAGLI?). 
+This means that a muon identification that exploits the information coming from the muon spectrometer is not possible. The chosen solution was to make the hypothesis of 100\% identification efficiency of the muons that pass a track quality cut and a minimum $p_{T}$ cut, as described in sec.\ref{sec:trackingPerformance}. (POSSIAMO SAPERE L'EFFICIENZA DI IDENTIFICAZIONE DEI MUONI REALI CON QUESTI TAGLI?). 
 
 \subsection{Electrons and photons}
 Electrons and photons produce a very similar (NON PROPRIO UGUALE VERO? SE NON RICORDO MALE X0 è tipo 7/5 dell'altro o qualcosa del genere??) energy release in the electromagnetic calorimeter and are typically completely absorbed before reaching the hadronic calorimeter for a broad range of energies. The identification of the
@@ -669,7 +670,8 @@ Z mass in the decay $Z \rightarrow e^+e^-$.
 
 \subsection{Hadronic $\tau$ decays}
 The $\tau$ lepton, being much heavier than the electron, does not emit appreciable 
-bremmstrahlung radiation and, due to its relatively long lifetime, it can be  
+bremmstrahlung radiation and, due to its relatively long lifetime, can cover a significative 
+(O(1mm) di D0?) space before decaying, resulting in the identification of a secondary vertex.
 The hadronic decay channels of the $\tau$ lepton with larger branching ratio are the 
 one-prong and three-prongs decays with charged and neutral pions, and neutrinos. The
 identification is based on the characteristics of the jets emitted from quark or gluons, such 
@@ -677,7 +679,7 @@ as low track multiplicity, collimated energy deposits, secondary vertex displace
 for the three-prong decay). The discrimination against electrons is based on the analysis
 of the longitudinal energy distribution. 
 
-\subsection{Jets}
+\subsection{Jets}\label{subsec:jets}
 In ATLAS, jets are reconstructed starting from topological clusters (?) built from calorimeter cells. These clusters are then split based on the position of local maxima and calibrated using
 local properties such as energy density, calorimeter depth, and isolation. Thanks to these 
 variables the jets are classified as electromagnetic or hadronic. The reconstructed jets are
@@ -689,16 +691,14 @@ implies the transverse component of the momentum of all the collision products t
 By measuring the energy released in the calorimeter and in the hypothesis that the particles determining it are highly relativistic, it is possible to measure the missing transverse energy, 
 which is indication of the presence of neutrinos, which are typically produced in many events 
 of interest. The measurement of the missing transverse energy relies on the calibration of the 
-physics objects, as described in the jets section. The performance and uncertainties are 
+physics objects, as described in Sec.\ref{subsec:jets}. The performance and uncertainties are 
 evaluated by comparing the data and simulation of processes like $Z \rightarrow ll$ and 
-$W \rightarrow l\nu$. The pileup suppression algorithms make the resolution independent of
-the number of pileup events.
+$W \rightarrow l\nu$. The pileup suppression algorithms make the resolution mostly independent on
+the number of pile-up events.
 
 \newpage
 
 \section{Overview of the simulation technique} 
-(REMINDER: LA RISOLUZIONE IN PT IN
- AVANTI PUO' essere recuperate dalle camere dei mu?)
 In the ATLAS experiment, full Monte Carlo simulations are typically performed considering 
 a physical process of interest and simulating it through the whole detector. As the goal of this
 thesis is to analyse and compare the performances of several ITk configurations in a way that
@@ -710,15 +710,14 @@ limits the potential of the analysis of physics processes because of the small n
 simplistic hypotheses have to be made on the identification efficiency and rejection power.
 As described in sec.\ref{sec:introduction} (CHECK?), the HL-LHC environment is particularly
 challenging due to the very high number of average proton-proton collisions per bunch crossing ($\sim 200$). Thus, full ITk simulation including all the tracks is computationally challenging 
-and the production of private samples of this kind with acceptable statistics is very difficult
+and the private production of samples of this kind with acceptable statistics is very difficult
 to achieve. In this thesis, a fast simulation technique has been developed and studied that
 significantly reduces the computational time necessary to produce the samples. In this section,
-this technique is described together with a short description of the Monte Carlo generators
-employed.
+the pile-up modelization employed and the fast simulation technique is described.
 
 
 \subsection{Pile-up events}
-The term \textit{pile-up} refers to a particle collision beside the one of interest, resulting in 
+The term \textit{pile-up} refers to an occurred particle collision beside the one of interest, resulting in 
 the overlap of signals in the detector.
 At LHC, several sources of pile-up are present:
 
@@ -733,49 +732,43 @@ At LHC, several sources of pile-up are present:
 
 \subsubsection*{In-time pile-up}
 An HL-LHC bunch will consist of hundreds of billions of protons. The elementary
-proton-proton collisions that take place in the same bunch as that of the hard-scatter event of
+proton-proton collisions that take place in the same bunch of the hard-scatter event of
 interest constitute the \textit{in-time pile-up} events.\\
 
 Most of the proton-proton collisions that take place during an LHC run do not result in the 
 fragmentation of the proton or result in the production of a small number of final products and are called \textit{diffractive events} (ON IN A?). The simulation of these
-processes is very important because they represent the in-time pile-up (DEFINIRE PER BENE IL
-PILEUP DA QUALCHE PARTE?), but it typically needs the use of a theoretical model because most of the final products are outside of the detector acceptance. These simulated events, called \textit{minimum bias events}, are the only considered pile-up source in this study, and have been simulated using the Pythia generator. \\
-
-(PYTHIA IN APPENDIX?)
-\textit{Pythia} is a program used to generate high-energy collisions that employs a set of physics
-models to simulate the evolution of a hard process from the interaction between few bodies 
-to a possibly complex multihadronic final state\cite{Pythia8}. 	\\
-It employs a \textit{leading-logarithm algorithm} to simulate the hard processes, 
-taking into account inital- and final-state parton shower, multiple interactions, beam remnants
-and hadronisation. 
+processes is very important because they represent the in-time pile-up, but it typically needs the implementation of a theoretical model because most of the final products lie outside of the detector acceptance. These simulated events, called \textit{minimum bias events}, are the only considered pile-up source in this study, and have been simulated using the Pythia generator (see \ref{appendix:MC}). (CHECK..NELLA JOB OPTION DI GENERAZ
+LEGGO MINBIAS, SINGLE DIFFRACTIVE E DOUBLE DIFFRACTIVE?? MINIMUM BIAS NON INCLUDE TUTTO?)\\
 
 \subsubsection*{Out-of-time pile-up}
 The whole HL-LHC proton beam will (probably?) consist of 2808 bunches colliding every 25 ns.
 During this short time a particle travelling at the speed of light only covers a space of $7.5\ m$, thus
 not even reaching the outer part of the detector. The time response of some of the 
-sub-detectors is much longer than 25 ns, so the electronics integrates over more than one
+sub-detectors is much longer than 25 ns, and the electronics integrates over more than one
 bunch-crossing. This effect is particularly important in the Liquid Argon detectors, where
-the integration time is around 250 ns.
+the integration time is around 250 ns\cite{ATLAS_pileup}. The tracker results less susceptible to this kind of 
+pile-up events so that this effect has not been taken into account in this study.
 
 \subsubsection*{Cavern background}
 During an LHC run, the experiment cavern is filled with thermal neutrons and photons with 
-energy below $\sim 1\ MeV$ and typically affects the muon chambers. This background
-was not very relevant in LHC, but it could be in the luminosity upgrade phase.
+energy below $\sim 1\ MeV$ which can produce hits in the muon chambers. This background
+was not very relevant in LHC, but it could be in the luminosity upgrade phase\cite{ATLAS_pileup}.
 
 \subsubsection*{Beam halo}
 These events come from the collision of protons with collimators much upstream of the 
-interaction point. They typically consist of muons and produce a quite characteristic signal (for example, they are out-of-time), so they are normally removed easily. They are mainly seen by the muon chambers and sometimes
-can leave a measurable signal in the calorimeter. 
+interaction point. They typically consist of muons and produce a quite characteristic signal (for example, they are out-of-time), so they are normally easily removed. They are mainly seen by the muon chambers and sometimes
+can leave a measurable signal in the calorimeter\cite{ATLAS_pileup}. 
 
 \subsubsection*{Beam-gas events}
 These events arise from the collision of protons with the residual gas in the beam-pipe. These
 collisions are highly asymmetric and produce a clear signature, with a vertex way outside of
-the interaction region and an out-of-time signal, so that they are not typically simulated.
+the interaction region and an out-of-time signal, so that they are not typically simulated\cite{ATLAS_pileup}.
 
 \subsubsection*{Cosmic background}
 Cosmic high-energy muons or air shower can reach the ATLAS cavern and produce a signal in the detectors.
-They normally have a clear signature because they are out-of-time, but they can sometimes
-be mistaken as high energy jets and fake SUSY or other physics signals. \\
+They normally have a clear signature because they are out-of-time and have a high impact
+parameter , but they can sometimes
+be mistaken as high energy jets and fake SUSY or other physics signals\cite{ATLAS_cosmic}. \\
 
 \bigskip
 
@@ -785,7 +778,7 @@ pile-up in the tracker.
 \subsection{In-time pile-up study}
 
 The transverse momentum, pseudo-rapidity and azimuthal angle distribution of the pile-up particles reconstructible by ITk is shown if Fig.\ref{fig:pileupDists}, as simulated by 
-Pythia. Particles with the following
+Pythia (see appendix \ref{appendix:MC}). Particles with the following
 features are excluded from these plots:
 
 \begin{itemize}
@@ -877,24 +870,27 @@ the result is saved in the HepMC format. \\
 During the \textbf{simulation} step the HepMC file is taken as input, together with
 the detector description complete of all detector and passive materials and services. 
 The Geant4 package\cite{Geant4} is used as
-engine to simulate the interaction of every particle with the material and the decays. This
+engine to simulate the interaction of every particle with the material, the decays and the
+magnetic field. This
 step concludes with the production of a HITS file, that contains the detector physical hits
-with a measure of the released energy, together with the generation information. Simulation 
-is normally the step that requires the longest computational time to process because of the
-complexity and multitude of physics processes that have to be emulated.\\
+with a measure of the released energy, together with the generation information. After
+the generation, this step 
+is normally the one that requires the longest computational time to process because of the
+complexity and the large number of physics processes that have to be emulated.\\
 
 The \textbf{digitization} step takes the HITS file as input and simulates the response of the 
 detector and the readout electronics as ADC counts. In realistic simulations, during this
 stage also the trigger response is simulated (GIUSTO?). The output of this stage is a Raw Data
 Object (RDO) file that is essentially analogous to the raw data produced during a real 
-ATLAS data taking, except that it carries the information from the generation stage.\\
+ATLAS data taking, except that it carries the information from the generation stage with it.\\
 
 Finally, the \textbf{reconstruction} step takes the RDO file as input and implements
 the reconstruction algorithm on the raw data. This results in the formation of tracks that are saved in a Event Summary Data (ESD) file, which contains the detailed output
 of the detector reconstruction and allows rapid tuning of the reconstruction algorithms. It is readable by ROOT but it is large and normally not suitable
 to end-user analysis\cite{ATLASFormats}. The ESD file is processed into an Analysis Object Data (AOD) file, that is
-still readable by the ROOT I/O and is suitable for user analyses.  Finally, this file is converted
-into the xAOD format\cite{xAOD}, which is now a standard and replaced the D3PD format. It contains 
+still readable by the ROOT I/O and is suitable for user analyses.  Finally, this file is first
+converted
+into the DPD format and then to the xAOD format\cite{xAOD}, which is now a standard and replaced the DPD format for most uses. It contains 
 information suitable to specific analyses and it is readable with the ROOT I/O and within the
 ATHENA framework\cite{Athena}.\\
 
@@ -906,38 +902,240 @@ variables of interest.
 
 The fast simulation method developed has, as its main goal, that of efficiently model the
 in-time pile-up effect on the ITk performances and it is based on the identification of 
-regions-of-interest (RoI) at \textbf{generation level}. Particles lying outside of them are not 
-simulated, thus drastically reducing the time required by the simulation stage. \\
+regions-of-interest (RoIs) at \textbf{generation level}. Particles lying outside of them are not 
+simulated, thus drastically reducing the time required by the simulation/digitization/reconstruction stages. \\
 
-The RoIs are computed by simply selecting the particles whose angular distance $\Delta R$
-from the hard-scatter particles is less than a certain value. In this thesis the chosen value
-was $0.1$, that has proven to realistically represent the detector performance (CHECK?).\\
+The RoIs are computed by simply selecting the minimum bias particles (used to model the in-time
+pile-up events) that lies inside a cone with fixed radius $\Delta R = 0.1$ \footnote{see appendix \ref{appendix:perigee} for the $\Delta R$ definition CHECK?}
+around the hard-scatter particles. This particular value has proven to realistically represent the detector performance (CHECK?). A visual
+representation of the method is depicted in Fig.\ref{fig:soshiCone1}.\\
+
+\begin{figure} [h]
+	\centering
+	\includegraphics[scale=0.4]{soshiCone1}
+	\caption{Visual (unrealistic) representation of an event with an hard-scatter particle (in red), 
+	the accepted pile-up particles (in light blue) and the rejected pile-up particles (in grey).
+	The RoI is a cone around the hard-scatter particle with fixed $\Delta R = 0.1$.}
+	\label{fig:soshiCone1}
+\end{figure}
+
 
 The idea at the basis of this method is that to efficiently represent the pile-up effect on the
 detector performances it is not necessary to simulate all the pile-up particles, because most 
 of them are distant from the particles of interest and cannot produce fake hits that 
-alter the reconstructed tracks. The distribution of the $\Delta R$ distance between 
+alter the reconstructed tracks. (PLOT PER CONVINCERE CHE 0.1 E' RAGIONEVOLE?) This 
+method imply some important assumptions:
+\begin{itemize}
+\item The chosen radius value is enough to contain all the pile-up particles that can produce
+fake hits;
+\item As the RoI is computed at generation level, before the simulation of the effect of the
+magnetic field on the charged particles, it is assumed that the curvature does not bring
+particles that were initially outside of the RoI cone inside of it, potentially producing fake hits.
+\item The $\Delta R$ variable is an angular variable which does not take into account the vertex displacement between the particles considered. This leads to the fact that particles 
+that travel approximately parallel to each other but spatially distant can be included into the
+RoI even if they do not produce fake hits in the silicon layers. On the contrary, particles that 
+have different angular parameters and distant vertexes with respect to the hard-scatter
+particles in the event are not included into the RoI but can potentially intersect the silicon 
+layers in points where they can produce fake hits. However, this effect is not expected
+to be much relevant in the innermost layers, where the hit density is larger, and has not been
+taken into account in this analysis. 
+\end{itemize}
+
+The validity of these assumptions has been tested and the results are shown in sec.
+\ref{sec:tracking} (CHECK? FAR VEDERE DISTRIBUZIONE NUM. TRACCE PER EVENTO 
+NEGLI EVENTI ALL'INTERNO DELL'ACCETTANZA e poi STUDIO DR 02)\\
+
+In this thesis two applications of this method are presented, analysing two different aspects
+of ITk performances: particle gun studies and physics studies. \\
+
+Also note that, however the hard-scatter vertex is generated at the origin of the reference
+frame, the ATLAS simulation program includes a hard coded smearing of the primary vertex
+(i.e. the hard-scatter vertex) with a gaussian distribution in z with $\sigma \sim 50\ mm$.
+
+\subsection{Fast simulation method for particle gun samples}
+
+\textbf{Particle gun} studies are very useful to analyse the tracking performances of the
+detector, allowing the study of hits distribution, reconstruction efficiency, resolution and
+fake probability. The generation flow in the fast simulation method studied is shown in Fig.\ref{fig:PGGenerationFlow} and proceeds as follows,
+for every event (i.e. bunch-crossing).\\
+\begin{itemize}
+\item Generation of a "hard scatter" particle with fixed pdgId\footnote{The \textit{pdgId} 
+is a standardized Monte Carlo variable that uniquely identifies the particle species.} and 
+user-defined distribution (for specifics, see sec.\ref{sec:tracking});
+\item For each event, generation of a number of pile-up events extracted from a Poissonian
+distribution with fixed mean $<\mu>$. The vertex is smeared according to the bunch shape
+defined in the generation job option;
+\item For every generated pile-up particle in the final state, if it lies inside a cone of fixed
+$\Delta R = 0.1$ around the hard-scatter particle it is added to a truth vertex, which is added to the vector of output vertexes;
+\item A primary vertex is built with the hard scatter particle placed at the origin of the
+ATLAS reference frame, that will be then automatically smeared with a gaussian distribution
+in z with $\sigma \sim 50\ mm$ by the simulation program.
+\end{itemize}
+
+\begin{figure} [h]
+	\includegraphics[width=\textwidth]{PGGenerationFlow}
+	\caption{The generation flow for the particle gun samples employed in the fast 
+	simulation method. }
+	\label{fig:PGGenerationFlow}
+\end{figure}
+
+At the end of the event, the output vertexes are pushed to the generation file.\\
+
+When samples with different mean pile-up are produced to study the ITk tracking
+performances the initial Pythia seed has been changed, so that pile-up events with
+different mean value does not repeat. \\
+
+\subsection{Fast simulation method for physics samples}
+
+\textbf{Physics} studies are similar to particle gun studies for what concerns the generation technique and 
+consist in the generation of a physics event with a superimposed pile-up distribution. The
+difference is that the analysis is carried out analogously to what would be carried out
+in a real data analysis, so that the physics objects must be identified among all the tracks
+and are not known a priori, whereas in the case of the particle gun studies the main focus
+of the analysis is on the tracking performance of the hard-scatter particle.\\
+
+The generation flow in this case is slightly different from the particle gun case, because 
+the physics objects distribution is not user-defined but previously generated with a Monte
+Carlo generator. It is visually described in Fig.\ref{fig:PhysicsGeneratorFlow} and proceeds as follows:\\
+
+\begin{itemize}
+\item Generation of N proton-proton collisions with the production of the physics process of
+interest;
+\item Extraction of the final state particles of interest to an ASCII file containing their
+position and momentum four-vectors and the pdgId, after applying the appropriate generation cuts;
+\item For every event, generation of a number of minimum bias events extracted from a Poissonian distribution with mean $<\mu>$. The vertex is then smeared according to the
+bunch shape defined in the generation job option;
+\item For every generated final state minimum bias particle, check if it lies inside a cone of 
+$\Delta R = 0.1$ around at least one of the charged particles saved in the ASCII file. If it does,
+it is added to a vertex, which will be in turn added to the list of output vertexes.
+\item The particles contained in the ASCII file are added to a vertex placed at the origin
+of the ATLAS reference frame. This will constitute the primary vertex of the event, which
+will be then smeared during the simulation program with a gaussian distribution with $\sigma \sim 50\ mm$.
+
+\end{itemize}
+
+\begin{figure} [h]
+	\includegraphics[width=\textwidth]{PhysicsGenerationFlow}
+	\caption{The generation flow for the physics samples employed in the fast 
+	simulation method. }
+	\label{fig:PhysicsGenerationFlow}
+\end{figure}
+
+With respect to the particle gun method, the difference is that the number of RoIs (cones in
+$\Delta R$) is not one but it is equal to the number of final state particles that constitutes the
+searched signature. For example,
+in this study is presented the application of this technique to the physics process
+$H \rightarrow ZZ^* \rightarrow 4\mu$, including possible final state photons bremmstrahlung emitted from the muons. Both the muons and the photons are saved into the 
+ASCII file and simulated, but the cones are only drawn for the four muons. This way, the photons can convert and potentially produce hits in the
+tracker and they can also be used to study the effect of underestimation of the parent mass.\\
+
+Also note that the only hard scatter particles simulated in this case are the ones coming from
+the elementary parton-parton collision, excluding the rest of the underlying event. This
+is an approximation that has been considered reasonable because, unless it is not completely
+true that the underlying event is independent from the hard-scatter event, in the high pile-up
+environment of HL-LHC the fake hits are expected to be mainly produced by the vast majority of minimum-bias particles. \\
+
+Due to the incompleteness of the samples obtained with this technique, physics studies are somewhat limited in some aspects, because the 
+concept of fake here is not only related to the presence of fake hits, but also to the kinematic 
+properties of the pile-up tracks, that can have a rather high $p_T$. Thus, the probability to misreconstruct a physics object
+is not directly computable in this case (CHECK?).
+
+\subsection{Comparison between fast simulation method and full simulation method computing time requirements}
+
+In this section the timing requirements of the fast simulation technique developed and the
+standard full simulation method are compared.
+The generation/simulation/digitization/reconstruction chain has been run on a 
+CERN LXPLUS machine in interactive mode, which is considerably faster (a factor $\sim$ 2) than the batch mode running on the same machine,
+but suffers from network connection interrupts issues. For this reason, real samples have been  
+usually produced in batch mode for the generation and simulation stages, which are the slowest, and in interactive
+mode for the others.
+
+The results are shown in Tab.\ref{tab:timing}, where the full simulation (without the
+RoI cut) timing has been extrapolated from the fast simulation by considering the ratio
+between the number of generated particles in the two cases, which crudely assumes that
+the amount of computing time needed per event is proportional to the number of particles
+simulated (VEDERE SE RIESCO A FARE TUTTO IO SENZA ESTRAPOLARE?).
+
+	\begin{table} [h]
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{l || c | c || c | c || c}
+		& \textbf{Fast sim./evt.} & \textbf{Full sim./evt.} & \textbf{Fast sim./50K evt.} &  \textbf{Full sim./50K} & \textbf{Ratio(fast/full)} \\ \hline
+		\textbf{Gen} & 2.45s & 2.45s & 1d 10h & 1d 10h & 100\% \\ \hline
+		\textbf{Sim} & 0.20s & 8 m & 2h 46 & 283d & 0.04\% \\ \hline
+		\textbf{Digit} & 0.04s & 1m 40s & 33m & 57d & 0.04\% \\ \hline
+		\textbf{Reco} & 0.06s & 2m 30s & 50m & 85d & 0.04\% \\ \hline
+		\textbf{Total} & 2.75s & 11m & 1d 14h & 1y & 0.4\% \\ \hline
+	\end{tabular}}
+	\caption{Comparison between fast and full simulation timing requirements. The
+			full simulation results are extrapolated from the simulation stage on, based
+			on the number of generated particles in the two cases.}
+	\label{tab:timing}
+	\end{table}
 
 
+From the result it is noticeable that the time required by the generation is in both cases
+the same, which is due to the fact that in the fast simulation method all the pile-up particles
+are generated and only then discarded if they do not lie inside the RoI. The huge total full
+simulation time for 50 thousand events ($\sim$ one year) show that it is impossible to use
+the employed technology to produce these samples. However, they are being and 
+have been produced by the ATLAS community running the job on GRID\cite{ATLASGrid}, which
+have great parallelization capabilities. The absolute time results in Tab.\ref{tab:timing} are thus to be
+considered as an indication of the difficulties presented by the high pile-up environment of
+HL-LHC, whereas the value of the ratios show the comparison between analogous computing
+frameworks.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{comment}
+FAST: 49s/20 = 2.45 s/evt
+           0.20 
+           0.04
+           0.055
+           
+FULL: 2.45
+\end{comment}
 
 \newpage
+
+\section{Tracking performances}\label{sec:tracking}
+(REMINDER: LA RISOLUZIONE IN PT IN
+ AVANTI PUO' essere recuperate dalle camere dei mu?)
+
+
+\section{$H \rightarrow ZZ^* \rightarrow 4\mu$ performances}
+
 \section{Conclusions}\label{sec:conclusions}
+
+\newpage
+
+\begin{appendices}
+\section{Frame of reference and perigee parameters} \label{appendix:perigee}
+
+\section{Monte Carlo generators}\label{appendix:MC}
+
+\subsection{Minimum bias events: Pythia 8}
+\textbf{Pythia 8} is a program used to generate high-energy collisions that employs a set of physics
+models to simulate the evolution of a hard process from the interaction between few bodies 
+to a possibly complex multihadronic final state\cite{Pythia8}. 	\\
+It employs a \textit{leading-logarithm algorithm} to simulate the hard processes, 
+taking into account inital- and final-state parton shower, multiple interactions, beam remnants
+and hadronisation. 
+
+\subsection{$H \rightarrow ZZ^* \rightarrow 4\mu$: Powheg}
+\textbf{POsitive Weight Hardest Emission Generator} (POWHEG) is a Next-to-leading order (NLO) Monte Carlo generator
+used when the classic leading logarithm methods accuracy is not sufficient to correctly 
+represent the physical process of interest. POWHEG-BOX is a computer framework 
+that implements the theoretical construction of POWHEG, computing the matrix element 
+at NLO\cite{Powheg}. In this thesis, the POWHEG generator is employed to produce
+Higgs samples from gluon-gluon fusion. This process, which is the dominant Higgs production 
+channel at LHC, receives very large NLO QCD corections, which are important to test the 
+electroweak symmetry breaking mechanism\cite{Powheg_ggH}. The residual uncertainty 
+on the total cross section 
+at NLO comes mainly from higher-order QCD effects and from the parton distribution
+functions uncertainties.
+
+\newpage
+
+\end{appendices}
+
 \baselineskip 25pt
 \baselineskip 5pt
 \baselineskip 16pt
