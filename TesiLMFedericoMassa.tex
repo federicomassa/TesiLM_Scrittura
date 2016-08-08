@@ -437,52 +437,6 @@ number of events. In other cases, such as in $WH/ZH, H \rightarrow b\bar{b}$ bot
 energy resolution and the rejection of light jets are crucial for the calculation, and suffer from
 the high pileup environment. \\
 
-\subsubsection*{Inclusive $H \rightarrow ZZ^* \rightarrow 4\mu$ analysis}
-The study of this physics channel is of particular relevance because of the cleanness of the signature and the consequent high accuracy with which it is measured at LHC. In this paragraph, the analysis of this channel performed in \cite{scoping} is described; moreover, a symilar analysis is performed in this thesis, and it will be described in sec.\ref{sec:HZZAnalysis}.\\
-
-In this analysis, no production mode of the Higgs boson is selected and the only background considered is the irreducible dominant $ZZ^{(*)} \rightarrow 4\mu$, while the others are
-expected to have a small effect on the final result. The analysis cuts applied are based on the
-ones of the Run 1 analysis and are:
-
-\begin{itemize}
-\item the event must contain 4 muons.
-\item the ordered $p_T$ of the four muons must be greater than 20 GeV, 15 GeV, 10 GeV, 6 GeV respectively.
-\item the $\Delta R$ distance between the muons must be greater than 0.1.
-\item the pair with mass closest to the Z boson is required to lie in the mass region [50 GeV, 106 GeV].
-\item the other muon pair must lie in the mass region [12 GeV, 115 GeV].
-\item to ensure good mass resolution, at least one of the latter pair must lie in the
-region $|\eta| < 2.7$. 
-\end{itemize}
-
-Furthermore, a simplified version of the Run 1 Z mass constraint is applied, considering only 
-the $p_T$ resolution instead of the full covariance matrix. The overall acceptance of this channel is shown in Fig.\ref{fig:scopingHZZ4muAcceptance}, from which it is inferable an 
-acceptance gain of 21 \% thanks to the coverage extension of the present detector to 
-$|\eta| < 4.0$ that allows an improved measurement of the differential cross section (SPIN MEASUREMENT?). The results of the analysis are shown in Fig.\ref{fig:scopingHZZ4muMassResolution},\ref{fig:scopingHZZ4muNEvents}, where the 
-performances of the three layouts proposed in the Scoping Document are compared. For a description of the aforementioned layouts, see sec.\ref{sec:layout} (CHECK??).
-
-\begin{figure} [h]
-	\centering
-	\includegraphics[scale=0.3]{scopingHZZ4muAcceptance}
-	\caption{Acceptance of the channel $H \rightarrow ZZ* \rightarrow 4\mu$. The blue and 
-	red dashed lines corresponds to the angular selection in which the muon trigger is present.}
-	\label{fig:scopingHZZ4muAcceptance}
-\end{figure}
-
-\begin{figure} [h]
-	\centering
-	\includegraphics[scale=0.3]{scopingHZZ4muMassResolution}
-	\caption{Higgs mass and width measurement, where the samples are divided into three 
-	regions, depending on the value of $|\eta|$ of the most forward muon\cite{scoping}. In the Scoping Document, the only scenario with $|\eta| < 4.0$ coverage is the Reference scenario, see sec.\ref{sec:layouts}??}
-	\label{fig:scopingHZZ4MassResolution}
-\end{figure}
-
-\begin{figure} [h]
-	\centering
-	\includegraphics[scale=0.3]{scopingHZZ4muNEvents}
-	\caption{Number of expected signal and background events at 3000 $fb^{-1}$ integrated
-	luminosity for the three Scoping Documents layout and signal strength accuracy\cite{scoping}.}
-	\label{fig:scopingHZZ4muNEvents}
-\end{figure}
 
 
 \bigskip
@@ -985,7 +939,7 @@ When samples with different mean pile-up are produced to study the ITk tracking
 performances the initial Pythia seed has been changed, so that pile-up events with
 different mean value does not repeat. \\
 
-\subsection{Fast simulation method for physics samples}
+\subsection{Fast simulation method for physics samples}\label{subsec:physicsSimulation}
 
 \textbf{Physics} studies are similar to particle gun studies for what concerns the generation technique and 
 consist in the generation of a physics event with a superimposed pile-up distribution. The
@@ -1050,6 +1004,11 @@ but suffers from network connection interrupts issues. For this reason, real sam
 usually produced in batch mode for the generation and simulation stages, which are the slowest, and in interactive
 mode for the others.
 
+The results are shown in Tab.\ref{tab:timing}.
+
+\begin{comment}
+WITH EXTRAPOLATION
+
 The results are shown in Tab.\ref{tab:timing}, where the full simulation (without the
 RoI cut) timing has been extrapolated from the fast simulation by considering the ratio
 between the number of generated particles in the two cases, which crudely assumes that
@@ -1059,7 +1018,7 @@ simulated (VEDERE SE RIESCO A FARE TUTTO IO SENZA ESTRAPOLARE?).
 	\begin{table} [h]
 	\resizebox{\textwidth}{!}{
 		\begin{tabular}{l || c | c || c | c || c}
-		& \textbf{Fast sim./evt.} & \textbf{Full sim./evt.} & \textbf{Fast sim./50K evt.} &  \textbf{Full sim./50K} & \textbf{Ratio(fast/full)} \\ \hline
+		& \textbf{Fast sim./evt.} & \textbf{Full sim./evt.} & \textbf{Fast sim./50K evt.} &  \textbf{Full sim./50K evt.} & \textbf{Ratio(fast/full)} \\ \hline
 		\textbf{Gen} & 2.45s & 2.45s & 1d 10h & 1d 10h & 100\% \\ \hline
 		\textbf{Sim} & 0.20s & 8 m & 2h 46 & 283d & 0.04\% \\ \hline
 		\textbf{Digit} & 0.04s & 1m 40s & 33m & 57d & 0.04\% \\ \hline
@@ -1069,6 +1028,25 @@ simulated (VEDERE SE RIESCO A FARE TUTTO IO SENZA ESTRAPOLARE?).
 	\caption{Comparison between fast and full simulation timing requirements. The
 			full simulation results are extrapolated from the simulation stage on, based
 			on the number of generated particles in the two cases.}
+	\label{tab:timing}
+	\end{table}
+
+\end{comment}
+
+
+	\begin{table} [h]
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{l || c | c || c | c || c}
+		& \textbf{Fast sim./evt.} & \textbf{Full sim./evt.} & \textbf{Fast sim./50K evt.} &  \textbf{Full sim./50K} & \textbf{Ratio(fast/full)} \\ \hline
+		\textbf{Gen} & 2.45s & 2.45s & 1d 10h & 1d 10h & 100\% \\ \hline
+		\textbf{Sim} & 0.20s & 88 m & 2h 46 & 8y & 0.004\% \\ \hline
+		\textbf{Digit} & 0.04s & 47s & 33m & 27d & 0.1\% \\ \hline
+		\textbf{Reco} & 0.06s & 2m 40s & 50m & 90d & 0.04\% \\ \hline
+		\textbf{Total} & 2.75s & 90m & 1d 14h & 8y & 0.05\% \\ \hline
+	\end{tabular}}
+	\caption{Comparison between fast and full simulation timing requirements. The
+			full simulation results at 50 thousand events have been extrapolated from
+			a sample of 5 events.}
 	\label{tab:timing}
 	\end{table}
 
@@ -1100,17 +1078,202 @@ FULL: 2.45
  AVANTI PUO' essere recuperate dalle camere dei mu?)
 
 
-\section{$H \rightarrow ZZ^* \rightarrow 4\mu$ performances}
+\section{ggF $H \rightarrow ZZ^* \rightarrow 4\mu$ performances}
+In this section the fast simulation technique described in sec.\ref{subsec:PhysicsSimulation} is
+applied to the study of the physics process $H \rightarrow ZZ^* \rightarrow 4\mu$. ITk performances are here compared for the three layouts described in sec.\ref{sec:tracking}, 
+regarding mass resolution, track perigee parameters resolution, efficiency, fake probability
+and track quality.
 
+\subsection{Motivations of the study}
+Measurements of the Higgs boson will be an important goal of the HL-LHC physics programme, both to establish its Standard Model nature by measuring its properties and to 
+discover or exclude non standard predicted couplings. \\
+
+In the Standard Model, the main 
+production mode of the Higgs boson is the gluon-gluon fusion (ggF) process. The second most 
+important production mode, the vector-boson fusion (VBF), is a factor of ten rarer and includes the associate
+production of two hard-scatter jets. The study presented in this section analyses the exclusive
+$ggF H \rightarrow ZZ^* \rightarrow 4\mu$ channel (Fig.\ref{ggFHZZ4mu}), that represents a benchmark process to measure and compare the tracker performances on physics objects reconstruction among several detector
+configurations, while providing an important test bench for the developed fast simulation technique.
+
+\begin{figure} [h]
+	\centering
+	\includegraphics[scale=0.4]{ggFHZZ4mu}
+	\caption{Feynman diagram of the complete production and decay process 
+	ggF $H \rightarrow ZZ^* \rightarrow 4\mu$ studied in 
+	this analysis. }
+	\label{fig:ggFHZZ4mu}
+\end{figure}
+
+In particular, this channel is one of the two most clean channels (together with $H \rightarrow \gamma\gamma$) in which it is possible to measure the Higgs boson properties. While a full 
+simulation including the other ATLAS sub-detectors would allow to study the several Higgs
+production modes selection, which will also result to be important to understand the 
+electroweak symmetry breaking mechanism, the tracker-only proposed study can only
+be applied to the ggF production mode, that provides a clean tracker signature while
+allowing the measurement of basic tracking performance parameters such as Higgs and Z mass resolution.
+
+\subsection{ATLAS Scoping-document analysis: inclusive $H \rightarrow ZZ^* \rightarrow 4\mu$}
+The study of this physics channel is of particular relevance because of the cleanness of the signature and the consequent high accuracy with which it was and is measured at LHC. In this paragraph, the analysis of this channel performed in the ATLAS Phase II Upgrade
+Scoping Document\cite{scoping_HZZ4mu} is described; which is similar to the one carried out in this
+thesis, described in the next sections.\\
+
+In this analysis, no production mode of the Higgs boson is selected and the only background considered is the irreducible dominant $ZZ^{(*)} \rightarrow 4\mu$, while the others are
+expected to have a small effect on the final result. The analysis cuts applied are based on the
+ones of the Run 1 analysis and are:
+
+\begin{itemize}
+\item the event must contain 4 muons.
+\item the ordered $p_T$ of the four muons must be greater than 20 GeV, 15 GeV, 10 GeV, 6 GeV respectively.
+\item the $\Delta R$ distance between the muons must be greater than 0.1.
+\item the pair with mass closest to the Z boson is required to lie in the mass region [50 GeV, 106 GeV].
+\item the other muon pair must lie in the mass region [12 GeV, 115 GeV].
+\item to ensure good mass resolution, at least one of the latter pair must lie in the
+region $|\eta| < 2.7$. 
+\end{itemize}
+
+Furthermore, a simplified version of the Run 1 Z mass constraint is applied, considering only 
+the $p_T$ resolution instead of the full covariance matrix. The overall acceptance of this channel is shown in Fig.\ref{fig:scopingHZZ4muAcceptance}, from which it is inferable an 
+acceptance gain of 21 \% thanks to the coverage extension of the present detector to 
+$|\eta| < 4.0$ that allows an improved measurement of the differential cross section (SPIN MEASUREMENT?). The results of the analysis are shown in Fig.\ref{fig:scopingHZZ4muMassResolution},\ref{fig:scopingHZZ4muNEvents}, where the 
+performances of the three layouts proposed in the Scoping Document are compared. For a description of the aforementioned layouts, see sec.\ref{sec:layout} (CHECK??).
+
+\begin{figure} [h]
+	\centering
+	\includegraphics[scale=0.3]{scopingHZZ4muAcceptance}
+	\caption{Acceptance of the channel $H \rightarrow ZZ* \rightarrow 4\mu$. The blue and 
+	red dashed lines corresponds to the angular selection in which the muon trigger is present.}
+	\label{fig:scopingHZZ4muAcceptance}
+\end{figure}
+
+\begin{figure} [h]
+	\centering
+	\includegraphics[scale=0.3]{scopingHZZ4muMassResolution}
+	\caption{Higgs mass and width measurement, where the samples are divided into three 
+	regions, depending on the value of $|\eta|$ of the most forward muon\cite{scoping}. In the Scoping Document, the only scenario with $|\eta| < 4.0$ coverage is the Reference scenario, see sec.\ref{sec:layouts}??}
+	\label{fig:scopingHZZ4MassResolution}
+\end{figure}
+
+\begin{figure} [h]
+	\centering
+	\includegraphics[scale=0.3]{scopingHZZ4muNEvents}
+	\caption{Number of expected signal and background events at 3000 $fb^{-1}$ integrated
+	luminosity for the three Scoping Documents layout and signal strength accuracy\cite{scoping}.}
+	\label{fig:scopingHZZ4muNEvents}
+\end{figure}
+
+
+\subsection{Signal process generation}
+As described in sec.\ref{subsec:PhysicsSimulation}, the first step of the fast simulaton 
+technique employed is the generation of a number of proton-proton collisions containing the
+ggF production of a Higgs boson decaying into one on-shell and one off-shell Z boson, 
+each of which decaying into a neutral muon pair. This process was generated via
+the Powheg Monte Carlo generator(see \ref{appendix:MC}). \\
+
+\subsubsection*{Selection of the generated events}
+The Higgs boson samples were generated by the Powheg generator with a 
+relativistic Breit-Wigner distribution with mean $125\ GeV$ and $\Gamma = 4\ MeV$ (Full
+width at half maximum), which 
+is shown in Fig.\ref{fig:HZZ4mu:generatedMass}.
+
+\begin{figure} [h]
+	\centering
+	\includegraphics[scale=0.3]{HZZ4mu/generatedMass}
+	\caption{Higgs generated mass distribution.}
+	\label{fig:HZZ4mu:generatedMass}
+\end{figure}
+
+The possible final states of the generated Higgs boson decay are not only the four muons that 
+compose the searched channel signature, but can be generally expressed as $H \rightarrow
+ZZ^* \rightarrow 4\mu + X$, where $X$ are usually final state photons emitted from the muon
+lines of the decay Feynman diagram of Fig.\ref{fig:ggFHZZ4mu}, but can also be electron-positron pairs converted from said photons, or other more complex states. As this analysis
+is carried out by only considering the tracker reconstruction capabilities, to ensure 
+an appropriate reconstruction of the physics objects a selection on the 
+generated events was applied.\\
+
+Before the selection, the Higgs boson decays were categorized into five 
+mutually exclusive categories, whose frequency and kinematic features were separately 
+studied. In the following list, the number between parentheses shows the relative frequency
+of that particular channel:
+
+\begin{itemize}
+\item $4\mu$ channel (25\%);
+\item $4\mu + N\gamma$ channel, $N \geq 1$ (74\%);
+\item $4\mu + e^+e^- + X$ channel (0.5\%);
+\item $4\mu + X$ channel, $X \neq \gamma, e$ ($\sim 10^{-5}$);
+\item $N\mu + X$, $N \neq 4$ (0.06\%).
+\end{itemize}
+
+In order to increase the generation efficiency, the applied selection includes all the elements
+from the first category and part of the ones from the second category passing a kinematic 
+selection. The exclusion of the other categories relies on the approximation that charged
+particles are reconstructed in the tracker, which is false if the $p_{T}$ of the particle is 
+too low or if it lies outside of the geometrical acceptance of the detector. The fail of one 
+of these assumptions is, however, not expected to determine a significant change in the
+physics object reconstruction parameters (resolution, efficiency, etc.), because of the
+small abundance of these events inside the sample and their kinematic properties. 
+In particular, particles emitted from the muon lines have typically low energies, as can be 
+seen from the plot in Fig.\ref{fig:HZZ4mu:genPhotons}. \\
+
+(CITE????) During the ATLAS Run-1 analysis the electromagnetic calorimeter information was used
+in order to account for the system invariant mass underestimation due to the presence of
+unreconstructed photons, with a $p_T$ threshold of $1.5\ GeV$. Assuming that the same
+is applicable under the HL-LHC conditions at ATLAS, events with no photons under said 
+threshold are also included into the generated Higgs boson sample. The $\eta$ distribution
+and the $\Delta R$ distance of the photon from the muon after the $p_T$ cut is shown in Fig.\ref{fig:HZZ4mu:genPhotonsAfterCut}.
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{HZZ4mu/photonPt}
+  \caption{}
+  \label{fig:HZZ4mu:photonPt}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{HZZ4mu/nPhotons}
+  \caption{}
+  \label{fig:HZZ4mu:nPhotons}
+\end{subfigure}
+\caption{(a): $p_T$ spectrum of photons emitted from the muon lines of the process 
+	ggF $H \rightarrow ZZ^* \rightarrow 4\mu$; 
+	(b): Histogram of the number of photons emitted per event.}
+\label{fig:HZZ4mu:genPhotons}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{HZZ4mu/photonEtaAfterCut}
+  \caption{}
+  \label{fig:HZZ4mu:photonEtaAfterCut}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{HZZ4mu/photonDRAfterCut}
+  \caption{}
+  \label{fig:HZZ4mu:photonDRAfterCut}
+\end{subfigure}
+\caption{(a): $\eta$ spectrum of photons emitted from the muon lines of the process 
+	ggF $H \rightarrow ZZ^* \rightarrow 4\mu$ with $p^\gamma_{T, max} = 1.5\ GeV$; 
+	(b): Distribution of the $\Delta R$ distance between photons and muons in the events with $p^\gamma_{T, max} = 1.5\ GeV$.}
+\label{fig:HZZ4mu:genPhotonsAfterCut}
+\end{figure}
+
+Thanks to the inclusion of the events from this category the generated events acceptance has been measured to increase approximately from 25\% to 80\%.
+
+\subsubsection*{Signal process kinematics}
+The kinematic After the generation selection, the 
+
+\newpage
 \section{Conclusions}\label{sec:conclusions}
 
 \newpage
 
 \begin{appendices}
-\section{Frame of reference and perigee parameters} \label{appendix:perigee}
+\section{ATLAS frame of reference and perigee parameters} \label{appendix:perigee}
 
 \section{Monte Carlo generators}\label{appendix:MC}
-
 \subsection{Minimum bias events: Pythia 8}
 \textbf{Pythia 8} is a program used to generate high-energy collisions that employs a set of physics
 models to simulate the evolution of a hard process from the interaction between few bodies 
