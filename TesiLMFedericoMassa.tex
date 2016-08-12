@@ -18,6 +18,7 @@
 \usepackage{hyperref}
 \usepackage{textcomp}
 \usepackage{graphicx}
+\usepackage{amsmath}
 \usepackage{verbatim}
 \graphicspath{ {Images/} }
 
@@ -66,7 +67,7 @@ A causa dell'elevato numero di eventi di pileup ($>200$) previsti, il tempo rich
 \newpage
 
 \section{Introduction} \label{sec:introduction}
-The Large Hadron Collider (LHC) accelerator is scheduled to be upgraded in two different stages: the first one will begin after the end of Run 2 during the Long Shotdown 2 (LS2) in 2019-2020; the second one will start at the end of Run 3 during the Long Shotdown 3 (LS3) in 2024-2026 (Fig.\ref{fig:HLLHC_Plan}). The latter upgrade stage will lead to what is known as High-Luminosity LHC (HL-LHC) during which the
+The Large Hadron Collider (LHC) accelerator is scheduled to be upgraded in two different stages: the first one will begin after the end of Run 2 during the Long shutdown 2 (LS2) in 2019-2020; the second one will start at the end of Run 3 during the Long shutdown 3 (LS3) in 2024-2026 (Fig.\ref{fig:HLLHC_Plan}). The latter upgrade stage will lead to what is known as High-Luminosity LHC (HL-LHC) during which the
 luminosity will reach the maximum value of $7.5 \times 10^{34}\ cm^{-2}s^{-1}$, corresponding to approximately $3000\ fb^{-1}$ during ten years of data taking. \\
 
 \begin{figure} [h]
@@ -723,7 +724,7 @@ the interaction region and an out-of-time signal, so that they are not typically
 \subsubsection*{Cosmic background}
 Cosmic high-energy muons or air shower can reach the ATLAS cavern and produce a signal in the detectors.
 They normally have a clear signature because they are out-of-time and have a high impact
-parameter , but they can sometimes
+parameter, but they can sometimes
 be mistaken as high energy jets and fake SUSY or other physics signals\cite{ATLAS_cosmic}. \\
 
 \bigskip
@@ -819,7 +820,7 @@ A typical ATLAS simulation consists in four steps, as described in Fig.\ref{fig:
 
 During the \textbf{generation} step the proton-proton event of interest is first generated with the Monte
 Carlo (or custom) generator of choice. The collision is typically generated at the ATLAS 
-interaction point and the so obtained vertexes are then smeared to account for the beam 
+interaction point and the so obtained vertices are then smeared to account for the beam 
 shape. The pile-up events are then superimposed and
 the result is saved in the HepMC format. \\
 
@@ -890,7 +891,7 @@ particles that were initially outside of the RoI cone inside of it, potentially 
 \item The $\Delta R$ variable is an angular variable which does not take into account the vertex displacement between the particles considered. This leads to the fact that particles 
 that travel approximately parallel to each other but spatially distant can be included into the
 RoI even if they do not produce fake hits in the silicon layers. On the contrary, particles that 
-have different angular parameters and distant vertexes with respect to the hard-scatter
+have different angular parameters and distant vertices with respect to the hard-scatter
 particles in the event are not included into the RoI but can potentially intersect the silicon 
 layers in points where they can produce fake hits. However, this effect is not expected
 to be much relevant in the innermost layers, where the hit density is larger, and has not been
@@ -922,7 +923,7 @@ user-defined distribution (for specifics, see sec.\ref{sec:tracking});
 distribution with fixed mean $<\mu>$. The vertex is smeared according to the bunch shape
 defined in the generation job option;
 \item For every generated pile-up particle in the final state, if it lies inside a cone of fixed
-$\Delta R = 0.1$ around the hard-scatter particle it is added to a truth vertex, which is added to the vector of output vertexes;
+$\Delta R = 0.1$ around the hard-scatter particle it is added to a truth vertex, which is added to the vector of output vertices;
 \item A primary vertex is built with the hard scatter particle placed at the origin of the
 ATLAS reference frame, that will be then automatically smeared with a gaussian distribution
 in z with $\sigma \sim 50\ mm$ by the simulation program.
@@ -935,7 +936,7 @@ in z with $\sigma \sim 50\ mm$ by the simulation program.
 	\label{fig:PGGenerationFlow}
 \end{figure}
 
-At the end of the event, the output vertexes are pushed to the generation file.\\
+At the end of the event, the output vertices are pushed to the generation file.\\
 
 When samples with different mean pile-up are produced to study the ITk tracking
 performances the initial Pythia seed has been changed, so that pile-up events with
@@ -963,7 +964,7 @@ position and momentum four-vectors and the pdgId, after applying the appropriate
 bunch shape defined in the generation job option;
 \item For every generated final state minimum bias particle, check if it lies inside a cone of 
 $\Delta R = 0.1$ around at least one of the charged particles saved in the ASCII file. If it does,
-it is added to a vertex, which will be in turn added to the list of output vertexes.
+it is added to a vertex, which will be in turn added to the list of output vertices.
 \item The particles contained in the ASCII file are added to a vertex placed at the origin
 of the ATLAS reference frame. This will constitute the primary vertex of the event, which
 will be then smeared during the simulation program with a gaussian distribution with $\sigma \sim 50\ mm$.
@@ -1022,6 +1023,7 @@ simulated (VEDERE SE RIESCO A FARE TUTTO IO SENZA ESTRAPOLARE?).
 		\begin{tabular}{l || c | c || c | c || c}
 		& \textbf{Fast sim./evt.} & \textbf{Full sim./evt.} & \textbf{Fast sim./50K evt.} &  \textbf{Full sim./50K evt.} & \textbf{Ratio(fast/full)} \\ \hline
 		\textbf{Gen} & 2.45s & 2.45s & 1d 10h & 1d 10h & 100\% \\ \hline
+
 		\textbf{Sim} & 0.20s & 8 m & 2h 46 & 283d & 0.04\% \\ \hline
 		\textbf{Digit} & 0.04s & 1m 40s & 33m & 57d & 0.04\% \\ \hline
 		\textbf{Reco} & 0.06s & 2m 30s & 50m & 85d & 0.04\% \\ \hline
@@ -1076,6 +1078,61 @@ FULL: 2.45
 \newpage
 
 \section{Tracking performances}\label{sec:tracking}
+After the publication of the ATLAS Phase II Scoping Document\cite{scoping}, the ATLAS community 
+started the development of a series of ITk layouts divided into steps. In this thesis, the
+performances of the three layouts that make part of the so called \textbf{Step-1 layouts} are studied. In particular,
+this section describes the tracking performances of these layouts using particle gun samples of charged
+pions and muons.
+
+\subsection{The Step-1 layouts}
+As already mentioned in sec.\ref{subsec:detector:ITk}(CHECK?), from the layout point of view 
+and regardless of the particular sensor
+technology employed, the main difference of several proposed ITk layouts with respect
+to the current Inner Detector is the absence of the TRT in favour of the exclusive use of
+pixel and strip layers, with extended angular coverage to $|\eta| < 4.0$, to be compared
+with the current one, that only reaches $|\eta| < 2.7$. The Step-1 layouts were designed to 
+be quite accurate from the point of view of the geometry and sensors description, but
+were not optimized for what concerns the passive material and services description, nor in the
+reconstruction algorithms. Studies that make use of these layouts, such as the one presented
+in this thesis, are thus to be considered with particular care.\\
+
+The three layouts studied are shown in Fig.\ref{fig:tracking:layouts}.
+
+\begin{figure}
+\captionsetup[subfigure]{justification=centering}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.8\textwidth]{ExtBrl4}
+\caption{\ \ \ \ \ The Extended Barrel 4.0 layout (ExtBrl4).}
+\label{fig:tracking:ExtBrl4}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.8\textwidth]{IExtBrl4}
+\caption{\ \ \ \ \ The Inclined Barrel 4.0 layout (IExtBrl4).}
+\label{fig:tracking:IExtBrl4}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.8\textwidth]{InclBrl4}
+\caption{\ \ \ \ \ The Fully Inclined 4.0 layout (InclBrl4).}
+\label{fig:tracking:InclBrl4}
+\end{subfigure}
+\caption{R-z view of the Step-1 layouts.}
+\label{fig:tracking:layouts}
+\end{figure}
+
+They have the same angular coverage, strip and pixel endcap geometry, and only differ in the pixel barrel sector.
+In the \textbf{Extended Barrel 4.0 layout} (ExtBrl4), the two innermost barrel layers are longer and
+reach $\pm\ 1200\ mm$ in the z-axis, while the three remaining extend to $\pm\ 735\ mm$.
+In the \textbf{Inclined Barrel 4.0 layout} (IExtBrl4), the two innermost barrel layers
+are extended in length but are subdivided into a short flat sector ($\pm\ 180\ mm$ and $\pm\ 200\ mm$ respectively) ....TO BE CONTINUED?
+
+
+
+
+\subsection{Blabla}\label{subsec:tracking:matching}
+
 (REMINDER: LA RISOLUZIONE IN PT IN
  AVANTI PUO' essere recuperate dalle camere dei mu?)
 
@@ -1113,7 +1170,7 @@ electroweak symmetry breaking mechanism, the tracker-only proposed study can onl
 be applied to the ggF production mode, that provides a clean tracker signature while
 allowing the measurement of basic tracking performance parameters such as Higgs and Z mass resolution.
 
-\subsection{ATLAS Scoping-document analysis: inclusive $H \rightarrow ZZ^* \rightarrow 4\mu$}
+\subsection{ATLAS Scoping-document analysis: inclusive $H \rightarrow ZZ^* \rightarrow 4\mu$}\label{subsec:physics:scoping}
 The study of this physics channel is of particular relevance because of the cleanness of the signature and the consequent high accuracy with which it was and is measured at LHC. In this paragraph, the analysis of this channel performed in the ATLAS Phase II Upgrade
 Scoping Document\cite{scoping_HZZ4mu} is described; which is similar to the one carried out in this
 thesis, described in the next sections.\\
@@ -1130,7 +1187,7 @@ ones of the Run 1 analysis and are:
 \item the $\Delta R$ distance between the muons must be greater than 0.1.
 \item the pair with mass closest to the Z boson is required to lie in the mass region [50 GeV, 106 GeV].
 \item the other muon pair must lie in the mass region [12 GeV, 115 GeV].
-\item to ensure good mass resolution, at least one of the latter pair must lie in the
+\item to ensure good mass resolution, at least one of the muon candidates from the latter pair must lie in the
 region $|\eta| < 2.7$. 
 \end{itemize}
 
@@ -1165,24 +1222,48 @@ performances of the three layouts proposed in the Scoping Document are compared.
 \end{figure}
 
 
-\subsection{Signal process generation}
-As described in sec.\ref{subsec:PhysicsSimulation}, the first step of the fast simulaton 
+\subsection{Physics process generation}
+As described in sec.\ref{subsec:PhysicsSimulation}, the first step of the fast simulation 
 technique employed is the generation of a number of proton-proton collisions containing the
 ggF production of a Higgs boson decaying into one on-shell and one off-shell Z boson, 
-each of which decaying into a neutral muon pair. This process was generated via
-the Powheg Monte Carlo generator(see \ref{appendix:MC}). \\
+each of which decaying into a neutral muon pair. This production channel represents the more
+frequent way ($\sim$ 86\% of the total cross section at 13 TeV) in which the Higgs boson is produced at LHC and the only one without 
+associated production of other physics objects (usually jets). The other production modes have not been taken
+into account for simplicity, thus assuming a 100\% rejection power. The only background considered is the irreducible $ZZ^{(*)}$, 
+in which each Z boson decays into two muons. Other backgrounds would, instead, 
+result in a small change on the final result\cite{scoping}. 
+
+These processes was generated at $\sqrt{s} = 13\ TeV$ via
+the Powheg Monte Carlo generator(see \ref{appendix:MC}). This center of mass energy choice 
+was made in order to make these results compatible with the ones from the
+Run-2 analysis.\\
 
 \subsubsection*{Selection of the generated events and kinematics}
 The Higgs boson samples were generated by the Powheg generator with a 
 relativistic Breit-Wigner distribution with mean $125\ GeV$ and $\Gamma = 4\ MeV$ (Full
 width at half maximum), which 
-is shown in Fig.\ref{fig:HZZ4mu:generatedMass}.
+is shown in Fig.\ref{fig:HZZ4mu:generatedHiggs} with its generated $p_T$ and $\eta$ distributions.
 
-\begin{figure} [h]
-	\centering
-	\includegraphics[scale=0.3]{HZZ4mu/generatedMass}
-	\caption{Higgs generated mass distribution.}
-	\label{fig:HZZ4mu:generatedMass}
+\begin{figure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{HZZ4mu/generatedMass}
+\caption{}
+\label{fig:HZZ4mu:generatedHiggs}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{HZZ4mu/higgsPt}
+\caption{}
+\label{fig:HZZ4mu:higgsPt}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{HZZ4mu/higgsEta}
+\caption{}
+\label{fig:HZZ4mu:higgsEta}
+\end{subfigure}
+\caption{(a): Higgs generated mass distribution;	Higgs $p_{T}$ (b) and $\eta$ (c) distributions, as generated.}
+\label{fig:HZZ4mu:generatedHiggs}
 \end{figure}
 
 The mass distribution of the two Z bosons is instead shown in Fig.\ref{fig:HZZ4mu:generatedZMass}, where the Z boson with mass closest to the rest mass
@@ -1195,7 +1276,33 @@ is defined as \textit{on-shell} and the other as \textit{off-shell}.
 \label{fig:HZZ4mu:generatedZMass}
 \end{figure}
 
+\subsubsection*{Background process generation}
+The generation efficiency of the background process $ZZ^{(*)}$ was optimized by only
+producing events in selected kinematic regions. In particular, a minimum cut on the mass of
+the Drell-Yan produced $Z^*$ boson was applied at $12\ GeV$, and a cut on the mass of the four muon
+system between $50\ GeV$ and $160\ GeV$. The values of these cuts were chosen so that no events were excluded that could
+have been accepted by the analysis. The distribution of the generated masses is shown 
+in Fig.\ref{fig:ZZ4mu:genMasses}.
 
+\begin{figure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{ZZ4mu/truthOnShellVsOffShell}
+\caption{}
+\label{fig:ZZ4mu:truthOnShellVsOffShell}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{ZZ4mu/gen4muMass}
+\caption{}
+\label{fig:ZZ4mu:gen4muMass}
+\end{subfigure}
+\caption{(a): Z boson generated distributions in the $ZZ \rightarrow 4\mu$ process;\\
+\ \ \ \ \ (b): Mass distribution of the system of four leptons in $ZZ \rightarrow 4\mu$.}
+\label{fig:ZZ4mu:genMasses}
+\end{figure}
+
+
+\subsubsection*{Selection of the generated events}
 The possible final states of the generated Higgs boson decay are not only the four muons that 
 compose the searched channel signature, but can be generally expressed as $H \rightarrow
 ZZ^* \rightarrow 4\mu + X$, where $X$ are usually final state photons emitted from the muon
@@ -1277,6 +1384,8 @@ and the $\Delta R$ distance of the photon from the muon after the $p_T$ cut is s
 
 Thanks to the inclusion of the events from this category the generated events acceptance has been measured to increase approximately from 25\% to 80\%.\\
 
+\subsection{Event simulation and truth analysis}
+
 The kinematics of the muons passing the above generation selection is shown in 
 Fig.\ref{fig:HZZ4mu:muonKinematics}. In particular, a geometrical acceptance of 94.1\%
 is inferable from the number of events in which all muons are within the detector
@@ -1318,22 +1427,174 @@ coverage.
 
 (ALTRO PLOT PER FAR VEDERE CHI E' USCITO DALL'ACCETTANZA? può essere interessante?)
 
-\subsection{Event reconstruction}
 Samples of $5 \cdot 10^4$ events were produced from the selected generated events by running
 the simulation/digitization/reconstruction chain described in sec.\ref{sec:simulation}, in the
-two pile-up scenarios  $<\mu> = 0$ and $<\mu> = 200$ and the three ITk layouts described in sec.\ref{sec:tracking} 
-(referred as ExtBrl4, IExtBrl4 and InclBrl4). 
+two pile-up scenarios  $<\mu>\ =\ 0$ and $<\mu>\ =\ 200$ and the three ITk layouts described in sec.\ref{sec:tracking} 
+(referred as ExtBrl4, IExtBrl4 and InclBrl4). For the events in which the particles are within the detector acceptance, the distribution of
+the number of primary charged particles and the number of reconstructed tracks per event is shown in
+Fig.\ref{fig:HZZ4mu:nTracks}. The difference between the two distributions in Fig.\ref{fig:HZZ4mu:nPrimaryChargedTruth_recotrk1GeV} is
+due to the pile-up tracks reconstruction inefficiency.
+
+\begin{figure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{HZZ4mu/nPrimaryChargedTruth}
+\caption{ }
+\label{fig:HZZ4mu:nPrimaryChargedTruth}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{HZZ4mu/nPrimaryChargedTruth_recotrk1GeV}
+\caption{ }
+\label{fig:HZZ4mu:nPrimaryChargedTruth_recotrk1GeV}
+\end{subfigure}
+\caption{(a): Number of primary charged particles in the events within the acceptance;\\
+                  (b): Number of primary charged particles/reconstructed tracks with $p_{T} > 1\ GeV$ in the events within the acceptance; 
+		The reconstructed tracks are shown, as an example, for the InclBrl4 layout.}
+\label{fig:HZZ4mu:nTracks}
+\end{figure}
 
 \subsubsection*{Identification of the truth event and track matching}
 At the end of the reconstruction stage, the output file contains both the truth and the tracks information. For
 each event, the first step is to identify the simulated physics process within the truth particles. (DEFINIRE BENE TRUTH ?)
 To do so, for every event it was looked for four muons coming from the same vertex with zero total charge, which
-will referred from now on as \textbf{hard-scatter truth} muons. \\
+will referred from now on as \textbf{hard-scatter truth} muons. The extremely unlikely event in which more
+than one truth vertex contains four muons with null total charge is also taken into account. In this case 
+the hard-scatter vertex is chosen as the one in which its outgoing particles have an invariant mass closest to the Higgs mass.\\
 
-The next step was to find an appropriate \textbf{track matching} to every hard-scatter truth muon. Following the same
-arguments described in sec.\ref{subsec:tracking:matching} for the particle gun analysis, a matching is found by looking,
-for every hard-scatter truth muon, the track with minimum angular $\DeltaR$ distance from it. This is only done 
-for the events in which all the hard-scatter truth muons are within the detector acceptance.
+The next step was to find an appropriate \textbf{track matching} to every hard-scatter truth muon. There
+are several ways to define a match, which depend on the intended study. In the following a match is found by looking,
+for every hard-scatter truth muon, for the track whose \textit{back-link} points to it, for every event in which all the muons are within
+the detector acceptance. This link is made available at reconstruction
+level and connects a track with a truth particle based on the value of the so called \textit{truth match probability}.
+This variable is based on the ratio between the number of clusters correctly associated to the truth particle and the total number
+of clusters forming the track. Unfortunately the definition still employs a weight system to account for the different Inner Detector sections,
+which was optimized for the Run-1 reconstruction with the presence of the TRT. Still, it is useful for tracking performances studies 
+because its definition does not implement biased cuts on the track quality. (PENSARCI ANCORA?)
+
+\subsection{Hard-scatter muons tracking performances}
+From the comparison between the kinematic distributions of the hard-scatter truth muons and the correspondent matched 
+tracks it is possible to define basic tracking performance parameters, such as resolutions and efficiencies. \\
+
+\subsubsection*{Resolution}
+The resolution of the generic variable $x$ (usually a perigee parameter, see appendix \ref{appendix:perigee}) as a function of $|\eta|$ is defined, for every hard-scatter muon, from the distribution of the residual 
+$\Delta_x = x_{truth-matched track} - x_{truth}$ for many $|\eta_{truth}|$ bins, analogously to the study presented in sec.\ref{sec:tracking:resolution}. 
+The results for the hard-scatter muons are shown in Fig.\ref{fig:HZZ4mu:muonResolution}.
+
+\begin{figure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{HZZ4mu/sigPt}
+\caption{}
+\label{fig:HZZ4mu:sigPt}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{HZZ4mu/sigQPt}
+\caption{}
+\label{fig:HZZ4mu:sigQPt}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{HZZ4mu/sigEta}
+\caption{}
+\label{fig:HZZ4mu:sigEta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{HZZ4mu/sigPhi}
+\caption{}
+\label{fig:HZZ4mu:sigPhi}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{HZZ4mu/sigD0}
+\caption{}
+\label{fig:HZZ4mu:sigD0}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{HZZ4mu/sigZ0}
+\caption{}
+\label{fig:HZZ4mu:sigZ0}
+\end{subfigure}
+
+\caption{Perigee parameters resolution of the hard-scatter muons in the process $H \rightarrow ZZ^* \rightarrow 4\mu$.}
+\end{figure}
+
+\subsubsection*{Efficiency}
+DIPENDE DALLA DEFINIZIONE DI FAKE, CHIEDERE? SECONDO ME ANCHE NON METTERE NEL CAPITOLO DI FISICA. MAGARI METTIAMO 
+QUALCOSA SUI MU NEL CAPITOLO TRACKING E Lì POSSIAMO ANCHE USARE DEFINIZIONE DI FAKE VARIABILE CON PT
+
+\subsubsection*{Track quality}
+The distribution of the number of \textit{total silicon hits}\footnote{Here with total silicon hits it is meant the sum of the number
+of pixel space points plus the number of SCT clusters (one per side).} is shown separately for truth-matched tracks and pile-up tracks in
+Fig.\ref{fig:HZZ4mu:trackQuality}.
+
+\begin{figure}
+\centering
+\includegraphics[width=.5\textwidth]{HZZ4mu/nSiHits_matchedVsPileup}
+\caption{Distribution of the number of total silicon hits for truth-matched and pile-up tracks.}
+\label{fig:HZZ4mu:trackQuality}
+\end{figure}
+
+To minimize the fake rate, a \textbf{track quality cut} of 10 total hits was then applied for every muon candidate in the physics analysis carried
+out in this section.
+
+\subsection{Physics analysis}
+To compare with the results of the Scoping document, that 
+are based on different ITk layouts and briefly summarized in sec.\ref{subsec:physics:scoping}, 
+the same analysis cuts have been initially (CHECK ONLY INITIALLY?) applied. \\
+
+\subsubsection*{Identification of track candidates}
+An initial set of tracks is selected by stacking into a vector all the tracks passing a minimum
+$p_{T}$ cut of $6\ GeV$ and a track quality cut of 10 total hits. The searched signal consists
+of four muons coming compatibly from the primary vertex. As no primary vertex finding algorithm
+was available in the employed reconstruction algorithm (DIRE DA QUALCHE PARTE LA RELEASE?),
+a cut was applied on the distance between the track $z_0$ parameter and the true primary vertex
+z position. (E D0? Si potrebbe fare lo stesso, il primary truth D0 è sempre 0). As the 
+$z_0$ resolution heavily depends on the track pseudorapidity, as can be seen in Fig.
+\ref{fig:HZZ4mu:sigZ0}, the cut was applied in the following way:
+
+\begin{equation*}
+|z_0\ (track) - z\ (truth\ primary\ vertex)| < 5 \times \sigma_{z} (\eta)
+\end{equation*}
+
+with $\sigma_{z} (\eta) = 50\ \mu m$ for $|\eta| < 2.7$, $150\ \mu m$ for $2.7 < |\eta| < 3.2$
+and $500\ \mu m$ for $3.2 < |\eta| < 4.0$. 
+
+A very loose (CHECK?) isolation cut was then applied to further reduce the rate of events
+in which more than four tracks pass all the cuts, which is similar to the one used during
+the Run-1 analysis\cite{HZZ4mu_run1}. It was applied by requiring that the sum of the 
+$p_T$ of the tracks inside a cone of size $\Delta R = 0.1$ around the muon
+candidate, divided by its $p_T$ is smaller than 1.
+
+At this point, it has been verified that the number of events in which more than four tracks
+pass all the cuts is below the 
+
+If the number of tracks 
+passing this selection is:
+\begin{itemize}
+\item \textbf{smaller} than four $\rightarrow$ the event is discarded;
+\item \textbf{equal} to four $\rightarrow$ the final state is immediately reconstructible and the analysis cuts evaluated;
+\item \textbf{larger} than four $\rightarrow$ a combinatorial process takes place.
+\end{itemize}
+
+The combinatorial problem is to identify, among combinations of four candidate tracks, the one that represent the Higgs candidate.
+The selection of the \textit{best} combination proceeds as follows:
+\begin{itemize}
+\item Exclusion of the combinations of four tracks that do not form an electrically neutral system;
+\item Exclusion of the combinations that do not pass the ordered $p_{T}$ cut, as in sec.\ref{subsec:physics:scoping};
+\item From all the track pairs, identification of the one that form an electrically neutral system with invariant mass closest to the mass of the Z boson;
+\item Among all combinations that contains this muon pair, selection of the one with highest invariant mass.
+\end{itemize}
+
+
+
+\subsubsection*{Physics analysis}
+At this point, an event is either discarded or a combination of four tracks is identified. The remaining cuts are applied sequentially, with the
+same order of sec.\ref{subsec:physics:scoping}. 
+
+EFFICIENZE DI TAGLIO, ECC
+
+\subsubsection*{Higgs reconstruction performance}
+The events passing the analysis cuts have been divided into three kinematic regions, depending on the $|\eta|$ value of the
+most forward muon candidate. This division is useful to compare the reconstruction resolution and the signal significance 
+as a function of the detector coverage. In Tab.(!!!!!!??????????) the value of the total Higgs and Z boson mass resolution divided
+into the three regions is shown for the three ITk layouts considered. 
+
 
 \newpage
 \section{Conclusions}\label{sec:conclusions}
@@ -1365,7 +1626,6 @@ at NLO comes mainly from higher-order QCD effects and from the parton distributi
 functions uncertainties.
 
 \newpage
-
 \end{appendices}
 
 \baselineskip 25pt
