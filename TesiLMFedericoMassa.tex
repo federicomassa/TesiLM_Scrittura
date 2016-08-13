@@ -19,6 +19,7 @@
 \usepackage{textcomp}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{xcolor}
 \usepackage{verbatim}
 \graphicspath{ {Images/} }
 
@@ -30,6 +31,8 @@ urlcolor=blue
 \urlstyle{same}
 
 \pagestyle{headings}
+
+\definecolor{dred}{RGB}{200,0,0}
 
 %\title{\textsc{Analysis of performance of ATLAS experiment Phase 2 inner tracker}}
 %\author{Federico Massa}
@@ -1185,10 +1188,11 @@ ones of the Run 1 analysis and are:
 \item the event must contain 4 muons.
 \item the ordered $p_T$ of the four muons must be greater than 20 GeV, 15 GeV, 10 GeV, 6 GeV respectively.
 \item the $\Delta R$ distance between the muons must be greater than 0.1.
-\item the pair with mass closest to the Z boson is required to lie in the mass region [50 GeV, 106 GeV].
-\item the other muon pair must lie in the mass region [12 GeV, 115 GeV].
-\item to ensure good mass resolution, at least one of the muon candidates from the latter pair must lie in the
-region $|\eta| < 2.7$. 
+\item defining the \textit{on-shell} muon pair as the one with mass closest to that of the Z boson and \textit{off-shell} the remaining pair,
+ at least one of the off-shell muon candidates must lie in the
+region $|\eta| < 2.7$.	
+\item the on-shell pair mass is required to lie in the mass region [50 GeV, 106 GeV].
+\item the off-shell pair mass must lie in the mass region [12 GeV, 115 GeV].
 \end{itemize}
 
 Furthermore, a simplified version of the Run 1 Z mass constraint is applied, considering only 
@@ -1384,9 +1388,10 @@ and the $\Delta R$ distance of the photon from the muon after the $p_T$ cut is s
 
 Thanks to the inclusion of the events from this category the generated events acceptance has been measured to increase approximately from 25\% to 80\%.\\
 
-\subsection{Event simulation and truth analysis}
+\subsection{Signal event simulation and truth analysis}
 
-The kinematics of the muons passing the above generation selection is shown in 
+The kinematics of the muons passing the above generation selection for the 
+signal sample is shown in 
 Fig.\ref{fig:HZZ4mu:muonKinematics}. In particular, a geometrical acceptance of 94.1\%
 is inferable from the number of events in which all muons are within the detector
 coverage.
@@ -1430,7 +1435,8 @@ coverage.
 Samples of $5 \cdot 10^4$ events were produced from the selected generated events by running
 the simulation/digitization/reconstruction chain described in sec.\ref{sec:simulation}, in the
 two pile-up scenarios  $<\mu>\ =\ 0$ and $<\mu>\ =\ 200$ and the three ITk layouts described in sec.\ref{sec:tracking} 
-(referred as ExtBrl4, IExtBrl4 and InclBrl4). For the events in which the particles are within the detector acceptance, the distribution of
+(referred as ExtBrl4, IExtBrl4 and InclBrl4). Unless specified, the plots refers to the $<\mu> = 200$ sample, which is the reference
+value for the HL-LHC operations. For the events in which the particles are within the detector acceptance, the distribution of
 the number of primary charged particles and the number of reconstructed tracks per event is shown in
 Fig.\ref{fig:HZZ4mu:nTracks}. The difference between the two distributions in Fig.\ref{fig:HZZ4mu:nPrimaryChargedTruth_recotrk1GeV} is
 due to the pile-up tracks reconstruction inefficiency.
@@ -1511,6 +1517,9 @@ The results for the hard-scatter muons are shown in Fig.\ref{fig:HZZ4mu:muonReso
 \label{fig:HZZ4mu:sigZ0}
 \end{subfigure}
 
+In general, the ExtBrl4 shows worse performances in the forward region (but sometimes better in the central region, WHY??). This is expected for the same reasons described in sec.\ref{sec:tracking:resolution}. (CHECK).
+
+
 \caption{Perigee parameters resolution of the hard-scatter muons in the process $H \rightarrow ZZ^* \rightarrow 4\mu$.}
 \end{figure}
 
@@ -1538,7 +1547,7 @@ To compare with the results of the Scoping document, that
 are based on different ITk layouts and briefly summarized in sec.\ref{subsec:physics:scoping}, 
 the same analysis cuts have been initially (CHECK ONLY INITIALLY?) applied. \\
 
-\subsubsection*{Identification of track candidates}
+\subsubsection*{Identification of the track candidates}
 An initial set of tracks is selected by stacking into a vector all the tracks passing a minimum
 $p_{T}$ cut of $6\ GeV$ and a track quality cut of 10 total hits. The searched signal consists
 of four muons coming compatibly from the primary vertex. As no primary vertex finding algorithm
@@ -1559,35 +1568,197 @@ A very loose (CHECK?) isolation cut was then applied to further reduce the rate 
 in which more than four tracks pass all the cuts, which is similar to the one used during
 the Run-1 analysis\cite{HZZ4mu_run1}. It was applied by requiring that the sum of the 
 $p_T$ of the tracks inside a cone of size $\Delta R = 0.1$ around the muon
-candidate, divided by its $p_T$ is smaller than 1.
+candidate, divided by its $p_T$ is smaller than 1.\\
 
-At this point, it has been verified that the number of events in which more than four tracks
-pass all the cuts is below the 
+At this point, it has been verified that the fraction of events in which more than four tracks
+pass all the cuts is below the $10^{-4}$ level. For the sake of generality, the worst 
+case has also been taken into account. In this case, combinations of four tracks are formed
+first excluding the ones that do not form an electrically neutral system. Then, subsequent
+cuts are applied to the combinations, starting from the transverse momenta cuts. If more
+than one combination pass all the cuts, the one with the highest four-muon mass is chosen. 
+This could result in the introduction of a bias, but it is not a worrying issue in this analysis due to
+the extreme rarity of this event.\\
 
-If the number of tracks 
-passing this selection is:
-\begin{itemize}
-\item \textbf{smaller} than four $\rightarrow$ the event is discarded;
-\item \textbf{equal} to four $\rightarrow$ the final state is immediately reconstructible and the analysis cuts evaluated;
-\item \textbf{larger} than four $\rightarrow$ a combinatorial process takes place.
-\end{itemize}
+The remaining cuts are applied sequentially in the same order described in sec.\ref{sec:HZZ4mu:scoping}.
 
-The combinatorial problem is to identify, among combinations of four candidate tracks, the one that represent the Higgs candidate.
-The selection of the \textit{best} combination proceeds as follows:
-\begin{itemize}
-\item Exclusion of the combinations of four tracks that do not form an electrically neutral system;
-\item Exclusion of the combinations that do not pass the ordered $p_{T}$ cut, as in sec.\ref{subsec:physics:scoping};
-\item From all the track pairs, identification of the one that form an electrically neutral system with invariant mass closest to the mass of the Z boson;
-\item Among all combinations that contains this muon pair, selection of the one with highest invariant mass.
-\end{itemize}
+\subsubsection*{Results of the analysis}
+
+The cut efficiencies have been studied for the signal and background samples. They are summarized in 
+tab.\ref{tab:cutEfficiency}, \ref{tab:cutEfficiency27}, \ref{tab:cutEfficiency32}, \ref{tab:cutEfficiency4}.
+
+\begin{table} [h]
+	\resizebox{\textwidth}{!}{
+\begin{tabular}{l || c | c || c | c || c | c }
+	& \multicolumn{2}{c}{\textbf{ExtBrl4}} & \multicolumn{2}{c}{\textbf{IExtBrl4}} & \multicolumn{2}{c}{\textbf{InclBrl4}} \\ 
+	& \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} \\ \hline
+\textbf{Number of tracks} & 0.992 & 0.975 & 0.991 & 0.970 & 0.991 & 0.971 \\ \hline
+\textbf{Hits}             & 0.995 & 0.985 & 0.999 & 0.998 & 0.999 & 0.997 \\ \hline
+\boldmath$p^T_4$          & 0.700 & 0.590 & 0.715 & 0.614 & 0.717 & 0.615 \\ \hline
+\boldmath$\Delta z$       & 0.959 & 0.935 & 0.969 & 0.950 & 0.971 & 0.952 \\ \hline
+\textbf{Isolation}        & 0.987 & 0.990 & 0.988 & 0.990 & 0.987 & 0.990 \\ \hline
+\textbf{Charge}           & 0.996 & 0.992 & 0.994 & 0.989 & 0.995 & 0.987 \\ \hline
+\boldmath$p^T_1$          & 0.991 & 0.935 & 0.990 & 0.934 & 0.990 & 0.930 \\ \hline
+\boldmath$p^T_2$          & 0.981 & 0.944 & 0.981 & 0.941 & 0.981 & 0.946 \\ \hline
+\boldmath$p^T_3$          & 0.967 & 0.905 & 0.967 & 0.903 & 0.966 & 0.901 \\ \hline
+\textbf{Off-shell muons}  & 0.983 & 0.952 & 0.978 & 0.939 & 0.977 & 0.936 \\ \hline
+\textbf{On-shell mass}    & 0.990 & 0.844 & 0.991 & 0.842 & 0.991 & 0.840 \\ \hline
+\textbf{Off-shell mass}   & 0.920 & 0.996 & 0.921 & 0.996 & 0.921 & 0.996 \\ \hline\hline
+\textbf{Total} & \color{dred} 0.548 & \color{dred} 0.332 & \color{dred} 0.565 & \color{dred} 0.345 & \color{dred} 0.566 & \color{dred} 0.344 \\ \hline 
+\end{tabular}}
+	\caption{Relative and total cut efficiencies for the three ITk layouts considered. The error on the total efficiency is not shown for graphical 
+	clarity and it is 0.002 for the Higgs sample and 0.003 for the ZZ sample.}
+	\label{tab:cutEfficiency}
+\end{table}
+
+\begin{table} [h]
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{l || c | c | c | c | c | c }
+		& \multicolumn{2}{c}{\textbf{ExtBrl4}} & \multicolumn{2}{c}{\textbf{IExtBrl4}} & \multicolumn{2}{c}{\textbf{InclBrl4}} \\ \hline
+		& \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} \\ 
+		\textbf{Number of tracks} & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 \\ \hline
+\textbf{Hits}             & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 \\ \hline
+\boldmath$p^T_4$          & 0.783 & 0.721 & 0.782 & 0.723 & 0.785 & 0.722 \\ \hline
+\boldmath$\Delta z$       & 0.972 & 0.964 & 0.976 & 0.962 & 0.977 & 0.967 \\ \hline
+\textbf{Isolation}        & 0.987 & 0.992 & 0.987 & 0.992 & 0.987 & 0.992 \\ \hline
+\textbf{Charge}           & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 \\ \hline
+\boldmath$p^T_1$          & 0.995 & 0.949 & 0.995 & 0.949 & 0.995 & 0.947 \\ \hline
+\boldmath$p^T_2$          & 0.987 & 0.952 & 0.987 & 0.951 & 0.987 & 0.953 \\ \hline
+\boldmath$p^T_3$          & 0.973 & 0.912 & 0.973 & 0.912 & 0.972 & 0.911 \\ \hline
+\textbf{Off-shell muons}  & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 \\ \hline
+\textbf{On-shell mass}    & 0.997 & 0.846 & 0.997 & 0.848 & 0.997 & 0.843 \\ \hline
+\textbf{Off-shell mass}   & 0.918 & 0.998 & 0.918 & 0.998 & 0.918 & 0.998 \\ \hline\hline
+\textbf{Total} & \color{dred} 0.657 & \color{dred} 0.480 & \color{dred} 0.659 & \color{dred} 0.480 & \color{dred} 0.661 & \color{dred} 0.480 \\ \hline 
+		\end{tabular}}
+	\caption{Relative and total cut efficiencies for the three ITk layouts considered, only for the
+		events with $|\eta^\mu_{max}| < 2.7$. The error on the total efficiency is not shown for graphical 
+	clarity and it is 0.003 for the Higgs sample and 0.005 for the ZZ sample.}
+	\label{tab:cutEfficiency27}
+\end{table}
 
 
+\begin{table} [h]
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{l || c | c | c | c | c | c }
+		& \multicolumn{2}{c}{\textbf{ExtBrl4}} & \multicolumn{2}{c}{\textbf{IExtBrl4}} & \multicolumn{2}{c}{\textbf{InclBrl4}} \\ 
+		& \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} \\ \hline
+\textbf{Number of tracks} & 1.000 & 1.000 & 1.000 & 1.000 & 0.999 & 1.000 \\ \hline
+\textbf{Hits}             & 0.994 & 0.991 & 1.000 & 1.000 & 1.000 & 1.000 \\ \hline
+\boldmath$p^T_4$          & 0.628 & 0.625 & 0.697 & 0.686 & 0.699 & 0.695 \\ \hline
+\boldmath$\Delta z$       & 0.928 & 0.895 & 0.954 & 0.938 & 0.957 & 0.944 \\ \hline
+\textbf{Isolation}        & 0.991 & 0.993 & 0.991 & 0.991 & 0.990 & 0.990 \\ \hline
+\textbf{Charge}           & 1.000 & 0.998 & 1.000 & 1.000 & 1.000 & 1.000 \\ \hline
+\boldmath$p^T_1$          & 0.977 & 0.915 & 0.977 & 0.915 & 0.977 & 0.907 \\ \hline
+\boldmath$p^T_2$          & 0.962 & 0.933 & 0.961 & 0.934 & 0.964 & 0.937 \\ \hline
+\boldmath$p^T_3$          & 0.951 & 0.886 & 0.951 & 0.885 & 0.947 & 0.879 \\ \hline
+\textbf{Off-shell muons}  & 0.965 & 0.942 & 0.956 & 0.937 & 0.957 & 0.937 \\ \hline
+\textbf{On-shell mass}    & 0.979 & 0.853 & 0.986 & 0.848 & 0.988 & 0.849 \\ \hline
+\textbf{Off-shell mass}   & 0.924 & 0.993 & 0.926 & 0.996 & 0.926 & 0.995 \\ \hline\hline
+\textbf{Total} & \color{dred} 0.448 & \color{dred} 0.33 & \color{dred} 0.513 & \color{dred} 0.38 & \color{dred} 0.516 & \color{dred} 0.38 \\ \hline
+		\end{tabular}}
+	\caption{Relative and total cut efficiencies for the three ITk layouts considered, only for the
+		events with $2.7 < |\eta^\mu_{max}| < 3.2$. The error on the total efficiency is not shown for graphical 
+	clarity and it is 0.006 for the Higgs sample and 0.01 for the ZZ sample.}
+	\label{tab:cutEfficiency32}
+\end{table}
 
-\subsubsection*{Physics analysis}
-At this point, an event is either discarded or a combination of four tracks is identified. The remaining cuts are applied sequentially, with the
-same order of sec.\ref{subsec:physics:scoping}. 
 
-EFFICIENZE DI TAGLIO, ECC
+\begin{table} [h]
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{l || c | c | c | c | c | c }
+		& \multicolumn{2}{c}{\textbf{ExtBrl4}} & \multicolumn{2}{c}{\textbf{IExtBrl4}} & \multicolumn{2}{c}{\textbf{InclBrl4}} \\ 
+		& \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} \\ \hline
+\textbf{Number of tracks} & 0.999 & 1.000 & 0.998 & 1.000 & 0.999 & 1.000 \\ \hline
+\textbf{Hits}             & 0.989 & 0.991 & 0.999 & 1.000 & 0.999 & 1.000 \\ \hline
+\boldmath$p^T_4$          & 0.558 & 0.548 & 0.628 & 0.640 & 0.630 & 0.638 \\ \hline
+\boldmath$\Delta z$       & 0.903 & 0.886 & 0.946 & 0.936 & 0.951 & 0.926 \\ \hline
+\textbf{Isolation}        & 0.982 & 0.979 & 0.988 & 0.984 & 0.987 & 0.984 \\ \hline
+\textbf{Charge}           & 0.958 & 0.955 & 0.940 & 0.944 & 0.953 & 0.936 \\ \hline
+\boldmath$p^T_1$          & 0.970 & 0.891 & 0.969 & 0.900 & 0.971 & 0.890 \\ \hline
+\boldmath$p^T_2$          & 0.949 & 0.923 & 0.957 & 0.909 & 0.953 & 0.928 \\ \hline
+\boldmath$p^T_3$          & 0.934 & 0.888 & 0.940 & 0.883 & 0.936 & 0.882 \\ \hline
+\textbf{Off-shell muons}  & 0.828 & 0.736 & 0.809 & 0.709 & 0.804 & 0.688 \\ \hline
+\textbf{On-shell mass}    & 0.917 & 0.820 & 0.937 & 0.807 & 0.926 & 0.816 \\ \hline
+\textbf{Off-shell mass}   & 0.946 & 0.989 & 0.943 & 0.986 & 0.946 & 0.988 \\ \hline \hline
+\textbf{Total} & \color{dred} 0.289  & \color{dred} 0.196  & \color{dred} 0.343  & \color{dred} 0.227  & \color{dred} 0.343  & \color{dred} 0.220 \\ \hline
+	\end{tabular}}
+	\caption{Relative and total cut efficiencies for the three ITk layouts considered, only for the
+		events with $3.2 < |\eta^\mu_{max}| < 4.0$. The error on the total efficiency is not shown for graphical 
+	clarity and it is 0.006 for the Higgs sample and 0.007 for the ZZ sample.}
+	\label{tab:cutEfficiency4}
+\end{table}
+
+The Inclined (IExtBrl4) and Fully Inclined (InclBrl4) layouts produce
+very similar results, whereas the Extended (ExtBrl4) layout shows slightly worse efficiencies, 
+due to the worse $p_T$ and $z_0$ resolution in the forward region (tab.\ref{tab:cutEfficiency32}, \ref{tab:cutEfficiency4}).\\
+
+The dependency on the number of simulated pile-up events was also studied comparing these efficiencies with
+a $<\mu> = 0$ sample, and the results are shown in Tab.\ref{tab:cutEfficiencyPU}, \ref{tab:cutEfficiencyPU27}, \ref{tab:cutEfficiencyPU32}, \ref{tab:cutEfficiencyPU4}. 
+The errors indicated are statistical and include generation and simulation fluctuations, but
+the hard-scatter event sample in the two pile-up scenarios is the same, so that the error
+is overestimated when comparing the two samples by an unknown value (CHECK?). 
+A very weak systematic decrease of the efficiency with the pile-up appears to be present, 
+which can be indication of resolution degradation, but it is not statistically significant.
+
+
+\begin{table} [h]
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{l || c | c | c | c | c | c }
+		& \multicolumn{2}{c}{\textbf{ExtBrl4}} & \multicolumn{2}{c}{\textbf{IExtBrl4}} & \multicolumn{2}{c}{\textbf{InclBrl4}} \\ 
+		& \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} \\ \hline \hline
+\boldmath$<\mu> = 0$   & 0.551  &  0.332  & 0.567  &  0.348  & 0.568  &  0.347 \\ \hline
+\boldmath$<\mu> = 200$   &   0.548 &  0.332 &  0.565 &  0.345 &  0.566 & 0.344 \\ \hline
+	\end{tabular}}
+	\caption{Total cut efficiencies for the three ITk layouts considered and two pile-up scenarios. The error on the total efficiency is not shown for graphical 
+	clarity and it is 0.002 for the Higgs sample and 0.003 for the ZZ sample.}
+	\label{tab:cutEfficiencyPU}
+\end{table}
+
+
+\begin{table} [h]
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{l || c | c | c | c | c | c }
+		& \multicolumn{2}{c}{\textbf{ExtBrl4}} & \multicolumn{2}{c}{\textbf{IExtBrl4}} & \multicolumn{2}{c}{\textbf{InclBrl4}} \\ 
+		& \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} \\ \hline \hline
+\boldmath$<\mu> = 0$   & 0.658  &  0.478  & 0.662  &  0.482  & 0.663  &  0.481 \\ \hline
+\boldmath$<\mu> = 200$   &  0.657 & 0.480 & 0.659 & 0.480 & 0.661 & 0.480 \\ \hline
+	\end{tabular}}
+	\caption{Total cut efficiencies for the three ITk layouts considered and two pile-up scenarios, only for the
+		events with $|\eta^\mu_{max}| < 2.7$. The error on the total efficiency is not shown for graphical 
+	clarity and it is 0.003 for the Higgs sample and 0.005 for the ZZ sample.}
+	\label{tab:cutEfficiencyPU27}
+\end{table}
+
+
+\begin{table} [h]
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{l || c | c | c | c | c | c }
+		& \multicolumn{2}{c}{\textbf{ExtBrl4}} & \multicolumn{2}{c}{\textbf{IExtBrl4}} & \multicolumn{2}{c}{\textbf{InclBrl4}} \\ 
+		& \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} \\ \hline \hline
+\boldmath$<\mu> = 0$   & 0.453  &  0.34  & 0.519  &  0.40  & 0.519  &  0.40 \\ \hline
+\boldmath$<\mu> = 200$   &  0.448 & 0.33 &  0.513 & 0.38 &  0.516 &  0.38 \\ \hline
+	\end{tabular}}
+	\caption{Total cut efficiencies for the three ITk layouts considered and two pile-up scenarios, only for the
+		events with $2.7 < |\eta^\mu_{max}| < 3.2$. The error on the total efficiency is not shown for graphical 
+	clarity and it is 0.006 for the Higgs sample and 0.01 for the ZZ sample.}
+	\label{tab:cutEfficiencyPU32}
+\end{table}
+
+
+\begin{table} [h]
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{l || c | c | c | c | c | c }
+		& \multicolumn{2}{c}{\textbf{ExtBrl4}} & \multicolumn{2}{c}{\textbf{IExtBrl4}} & \multicolumn{2}{c}{\textbf{InclBrl4}} \\ 
+		& \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} & \textbf{Higgs} & \textbf{ZZ} \\ \hline \hline
+\boldmath$<\mu> = 0$   & 0.297  &  0.191  & 0.345  &  0.221  & 0.345  &  0.222 \\ \hline
+\boldmath$<\mu> = 200$   & 0.289  &  0.196  & 0.343  &  0.227  & 0.343  &  0.220 \\ \hline
+	\end{tabular}}
+	\caption{Total cut efficiencies for the three ITk layouts considered and two pile-up scenarios, only for the
+		events with $3.2 < |\eta^\mu_{max}| < 4.0$. The error on the total efficiency is not shown for graphical 
+	clarity and it is 0.006 for the Higgs sample and 0.007 for the ZZ sample.}
+	\label{tab:cutEfficiencyPU4}
+\end{table}
+
+
 
 \subsubsection*{Higgs reconstruction performance}
 The events passing the analysis cuts have been divided into three kinematic regions, depending on the $|\eta|$ value of the
