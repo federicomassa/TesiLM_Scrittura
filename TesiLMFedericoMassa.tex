@@ -1099,9 +1099,7 @@ with the current one, that only reaches $|\eta| < 2.7$. The Step-1 layouts were 
 be quite accurate from the point of view of the geometry and sensors description, but
 were not optimized for what concerns the passive material and services description, nor in the
 reconstruction algorithms. Studies that make use of these layouts, such as the one presented
-in this thesis, are thus to be considered with particular care.\\
-
-The three layouts studied are shown in Fig.\ref{fig:tracking:layouts}.
+in this thesis, are thus to be considered with particular care. \\
 
 \begin{figure}
 \captionsetup[subfigure]{justification=centering}
@@ -1127,11 +1125,37 @@ The three layouts studied are shown in Fig.\ref{fig:tracking:layouts}.
 \label{fig:tracking:layouts}
 \end{figure}
 
-They have the same angular coverage, strip and pixel endcap geometry, and only differ in the pixel barrel sector.
+The three layouts studied are shown in Fig.\ref{fig:tracking:layouts}. They have the same angular coverage, strip and pixel endcap geometry, and only differ in the pixel barrel sector.
 In the \textbf{Extended Barrel 4.0 layout} (ExtBrl4), the two innermost barrel layers are longer and
 reach $\pm\ 1200\ mm$ in the z-axis, while the three remaining extend to $\pm\ 735\ mm$.
 In the \textbf{Inclined Barrel 4.0 layout} (IExtBrl4), the two innermost barrel layers
-are extended in length but are subdivided into a short flat sector ($\pm\ 180\ mm$ and $\pm\ 200\ mm$ respectively) ....TO BE CONTINUED?
+are extended in length but are subdivided into a short flat sector ($\pm\ 180\ mm$ and $\pm\ 200\ mm$ respectively) and 
+in a \textit{inclined} sector, in which the modules (17 per side in the innermost, 18 in the second layer) are tilted at a fixed angle of around 50 degrees with respect to the orizontal plane.
+Each module in this sector is formed by two pixel modules at a distance of 8 mm from each other. In the \textbf{Fully Inclined 4.0} (InclBrl4) layout,
+the all pixel barrel layers are subdivided into a central flat sector and an inclined sector. In this case the length of the flat sector depends
+on the layer and increases from $\pm\ 180\ mm$ in the innermost layer to $\pm 320\ mm$ in the outermost layer. The inclined sector extends
+to $\pm\ 1200\ mm$ for the two innermost layers and to $\pm 700\ mm$ for the others. The number of the inclined modules is the same as the IExtBrl4 layout for the two innermost
+layers and is 13 for the other layers. The endcap disks extend to $\pm 3000\ mm$. Their 
+number depends on the layer and ranges from 15 to 20 per detector side. The radii of the barrel layers are, for the three layouts, 40 mm, 85 mm, 155 mm, 212 mm, 270 mm. \\
+
+The strip system is identical for the three layouts. It is composed by four barrel layers of identical length ($\pm 1350\ mm$), at radii 400 mm, 560 mm, 760 mm and 1000 mm. There
+are six endcap disks per side, ranging in z from 1500 mm to 3000 mm. \\
+
+For the studies that are presented in this thesis, it is useful to identify critical pseudo-rapidity regions for the three layouts. The region $0 < |\eta| < 1.0$ is completely covered by
+flat barrel layers in all the layouts; in the region $1.0 < |\eta| < 1.4$ the InclBrl4 layout starts the transition to the inclined barrel modules in the three outermost layers; in the
+region $1.4 < |\eta| < 1.8$ the same happens for the innermost layers; the region $1.8 < |\eta| < 2.2$ is the transition region from barrel to endcap; the region $2.2 < |\eta| > 3.2$ is purely endcap
+both in the pixel and in the strips, except for the two innermost barrel layers and there is the transition from pixel and strips to pixel only; the most forward region $3.2 < |\eta| < 4.0$ counts only on the innermost barrel layer and the pixel endcap disks.\\
+
+One of the problems connected with the angular coverage extension proposed in these layouts is the formation of \textit{long clusters} in the forward region. This effect is a purely 
+geometrical one and emerges from the fact that particles with high pseudo-rapidity traverse the finite-depth flat sensors ionising the material in a broad z region. This effect is minimized in
+the inclined layouts, where the inclined sensors ensures that the particle traverses a smaller amount of material. However, a sophisticated reconstruction algorithm could reduce the impact
+of this effect in the ExtBrl4 layout by using the charge release distribution information. Unfortunately in the Step-1 layouts the reconstruction algorithm still needs to be optimized, so that
+the results are to be taken carefully, especially when looking at the ExtBrl4 performances in the forward region.\\
+
+
+
+
+
 
 
 
@@ -1143,9 +1167,9 @@ are extended in length but are subdivided into a short flat sector ($\pm\ 180\ m
 
 
 \section{$H \rightarrow ZZ^* \rightarrow 4\mu$ performances}
-In this section the fast simulation technique described in sec.\ref{subsec:PhysicsSimulation} is
-applied to the study of the physics process $ggF H \rightarrow ZZ^* \rightarrow 4\mu$. ITk performances are here compared for the three layouts described in sec.\ref{sec:tracking}, 
-regarding mass resolution, track perigee parameters resolution, efficiency, fake probability
+In this section the fast simulation technique described in sec.\ref{sec:physicsSimulation} is
+applied to the study of the physics process $ggF\ H \rightarrow ZZ^* \rightarrow 4\mu$. ITk performances are here compared for the three layouts described in sec.\ref{sec:tracking} 
+in mass resolution, track perigee parameters (see appendix \ref{appendix:perigee}) (CHECK?) resolution, efficiency, fake probability
 and track quality.
 
 \subsection{Motivations of the study}
@@ -1154,9 +1178,9 @@ discover or exclude non standard predicted couplings. \\
 
 In the Standard Model, the main 
 production mode of the Higgs boson is the gluon-gluon fusion (ggF) process. The second most 
-important production mode, the vector-boson fusion (VBF), is a factor of ten rarer and includes the associate
+important production mode, the vector-boson fusion (VBF), is a factor of ten less frequent and includes the associate
 production of two hard-scatter jets. The study presented in this section analyses the exclusive
-$ggF H \rightarrow ZZ^* \rightarrow 4\mu$ channel (Fig.\ref{ggFHZZ4mu}), that represents a benchmark process to measure and compare the tracker performances on physics objects reconstruction among several detector
+$ggF H \rightarrow ZZ^* \rightarrow 4\mu$ channel (Fig.\ref{fig:ggFHZZ4mu}), that represents a benchmark process to measure and compare the tracker performances on physics objects reconstruction among several detector
 configurations, while providing an important test bench for the developed fast simulation technique.
 
 \begin{figure} [h]
@@ -1169,9 +1193,8 @@ configurations, while providing an important test bench for the developed fast s
 \end{figure}
 
 In particular, this channel is one of the two most clean channels (together with $H \rightarrow \gamma\gamma$) in which it is possible to measure the Higgs boson properties. While a full 
-simulation including the other ATLAS sub-detectors would allow to study the several Higgs
-production modes selection, which will also result to be important to understand the 
-electroweak symmetry breaking mechanism, the tracker-only proposed study can only
+simulation including the other ATLAS sub-detectors would allow to include the several Higgs
+production modes, the tracker-only proposed study can only
 be applied to the ggF production mode, that provides a clean tracker signature while
 allowing the measurement of basic tracking performance parameters such as Higgs and Z mass resolution.
 
@@ -1180,28 +1203,30 @@ The study of this physics channel is of particular relevance because of the clea
 Scoping Document\cite{scoping_HZZ4mu} is described; which is similar to the one carried out in this
 thesis, described in the next sections.\\
 
-The ITk layout chosen for this analysis was different to the ones described in sec.\ref{sec:tracking}, but the angular coverage is the same ($|\eta| < 4.0$) (ALTRO DA DIRE SUI LAYOUT? VEDIAMO SE FACCIAMO IL CONFRONTO).
+The ITk layout chosen for this analysis was different to the ones described in sec.\ref{sec:tracking}, but the angular coverage is the same ($|\eta| < 4.0$) and its details
+can be found in \cite{scoping}.\\
 
-In this analysis, no production mode of the Higgs boson is selected and the only background considered is the irreducible dominant $ZZ^{(*)} \rightarrow 4\mu$, while the others are
+In this analysis, no particular production mode of the Higgs boson was selected and the only background considered is the irreducible dominant $ZZ^{(*)} \rightarrow 4\mu$, while the others are
 expected to have a small effect on the final result. The analysis cuts applied are based on the
-ones of the Run 1 analysis and are:
+ones of the Run-1 analysis and are:
 
 \begin{itemize}
-\item the event must contain 4 muons.
-\item the ordered $p_T$ of the four muons must be greater than 20 GeV, 15 GeV, 10 GeV, 6 GeV respectively.
-\item the $\Delta R$ distance between the muons must be greater than 0.1.
-\item defining the \textit{on-shell} muon pair as the one with mass closest to that of the Z boson and \textit{off-shell} the remaining pair,
+\item the event must contain 2 pairs of candidate muons, each with 2
+opposite charge tracks;
+\item the ordered $p_T$ of the four muons must be larger than 20 GeV, 15 GeV, 10 GeV, 6 GeV respectively;
+\item the $\Delta R$ distance between the candidate muons must be greater than 0.1.
+\item defining the \textit{on-shell} candidate muon pair as the neutral one with mass closest to that of the Z boson and \textit{off-shell} the remaining neutral pair,
  at least one of the off-shell muon candidates must lie in the
-region $|\eta| < 2.7$.	
-\item the on-shell pair mass is required to lie in the mass region [50 GeV, 106 GeV].
-\item the off-shell pair mass must lie in the mass region [12 GeV, 115 GeV].
+region $|\eta| < 2.7$;	
+\item the on-shell pair mass is required to lie in the mass region [50 GeV, 106 GeV];
+\item the off-shell pair mass must lie in the mass region [12 GeV, 115 GeV];
 \end{itemize}
 
 Furthermore, a simplified version of the Run 1 Z mass constraint is applied, considering only 
 the $p_T$ resolution instead of the full covariance matrix. The overall acceptance of this channel is shown in Fig.\ref{fig:scopingHZZ4muAcceptance}, from which it is inferable an 
 acceptance gain of 21 \% thanks to the coverage extension of the present detector from $|\eta| < 2.7$ to 
-$|\eta| < 4.0$ that allows an improved measurement of the differential cross section (SPIN MEASUREMENT?). The results of the analysis are shown in Fig.\ref{fig:scopingHZZ4muMassResolution},\ref{fig:scopingHZZ4muNEvents}, where the 
-performances of the three layouts proposed in the Scoping Document are compared. For a description of the aforementioned layouts, see sec.\ref{sec:layout} (CHECK??).
+$|\eta| < 4.0$. The results of the analysis are shown in Fig.\ref{fig:scopingHZZ4muMassResolution},\ref{fig:scopingHZZ4muNEvents}, where the 
+performances of the three layouts proposed in the Scoping Document are compared. 
 
 \begin{figure} [h]
 	\centering
@@ -1215,8 +1240,8 @@ performances of the three layouts proposed in the Scoping Document are compared.
 	\centering
 	\includegraphics[scale=0.3]{scopingHZZ4muMassResolution}
 	\caption{Higgs mass and width measurement, where the samples are divided into three 
-	regions, depending on the value of $|\eta|$ of the most forward muon\cite{scoping}. In the Scoping Document, the only scenario with $|\eta| < 4.0$ coverage is the Reference scenario, see sec.\ref{sec:layouts}??}
-	\label{fig:scopingHZZ4MassResolution}
+	regions, depending on the value of $|\eta|$ of the most forward muon\cite{scoping}. In the Scoping Document, the only scenario with $|\eta| < 4.0$ coverage is the Reference scenario.}
+	\label{fig:scopingHZZ4muMassResolution}
 \end{figure}
 
 \begin{figure} [h]
@@ -1229,23 +1254,20 @@ performances of the three layouts proposed in the Scoping Document are compared.
 
 
 \subsection{Physics process generation}
-As described in sec.\ref{subsec:PhysicsSimulation}, the first step of the fast simulation 
+As described in sec.\ref{subsec:physicsSimulation}, the first step of the fast simulation 
 technique employed is the generation of a number of proton-proton collisions containing the
 ggF production of a Higgs boson decaying into one on-shell and one off-shell Z boson, 
 each of which decaying into a neutral muon pair. This production channel represents the more
 frequent way ($\sim$ 86\% of the total cross section at 13 TeV) in which the Higgs boson is produced at LHC and the only one without 
 associated production of other physics objects (usually jets). The other production modes have not been taken
 into account for simplicity, thus assuming a 100\% rejection power. The only background considered is the irreducible $ZZ^{(*)}$, 
-in which each Z boson decays into two muons. Other backgrounds would, instead, 
-result in a small change on the final result\cite{scoping}. 
+in which each Z boson decays into two muons. The inclusion of other backgrounds are expected to 
+result in a small change on the final result\cite{scoping}. (IL SECONDO FONDO PIu IMPORTANTE SAREBBE Z + jets?).\\
 
-These processes was generated at $\sqrt{s} = 13\ TeV$ via
-the Powheg Monte Carlo generator(see \ref{appendix:MC}). This center of mass energy choice 
-was made in order to make these results compatible with the ones from the
-Run-2 analysis.\\
+\subsubsection{Higgs generation}
 
-\subsubsection*{Selection of the generated events and kinematics}
-The Higgs boson samples were generated by the Powheg generator with a 
+The Higgs boson samples were generated by the Powheg generator at 13 TeV (to make these results compatible with the ones from the
+Run-2 analysis) with a 
 relativistic Breit-Wigner distribution with mean $125\ GeV$ and $\Gamma = 4\ MeV$ (Full
 width at half maximum), which 
 is shown in Fig.\ref{fig:HZZ4mu:generatedHiggs} with its generated $p_T$ and $\eta$ distributions.
@@ -1278,7 +1300,8 @@ is defined as \textit{on-shell} and the other as \textit{off-shell}.
 \begin{figure}
 \centering
   \includegraphics[width=0.8\textwidth]{HZZ4mu/genZMass}
-  \caption{Generated mass distributions of the \textit{on-shell} and \textit{off-shell} Z boson.}
+  \caption{Generated mass distributions of the \textit{on-shell} and \textit{off-shell} Z boson 
+  in the $H \rightarrow ZZ^* \rightarrow 4\mu$ process.}
 \label{fig:HZZ4mu:generatedZMass}
 \end{figure}
 
@@ -1308,7 +1331,7 @@ in Fig.\ref{fig:ZZ4mu:genMasses}.
 \end{figure}
 
 
-\subsubsection*{Selection of the generated events}
+\subsubsection{Selection of the generated events}
 The possible final states of the generated Higgs boson decay are not only the four muons that 
 compose the searched channel signature, but can be generally expressed as $H \rightarrow
 ZZ^* \rightarrow 4\mu + X$, where $X$ are usually final state photons emitted from the muon
@@ -1324,13 +1347,14 @@ of that particular channel:
 
 \begin{itemize}
 \item $4\mu$ channel (25\%);
-\item $4\mu + N\gamma$ channel, $N \geq 1$ (74\%);
+\item $4\mu + N\gamma$ channel, $N \geq 1$ (74.5\%);
 \item $4\mu + e^+e^- + X$ channel (0.5\%);
 \item $4\mu + X$ channel, $X \neq \gamma, e$ ($\sim 10^{-5}$);
 \item $N\mu + X$, $N \neq 4$ (0.06\%).
 \end{itemize}
 
-In order to increase the generation efficiency, the applied selection includes all the elements
+As the detector is not always able to discriminate against these categories, the chosen selection attempts to include all the events that can be reconstructed as purely leptonic from
+the detector, thus including all the events
 from the first category and part of the ones from the second category passing a kinematic 
 selection. The exclusion of the other categories relies on the approximation that charged
 particles are reconstructed in the tracker, which is false if the $p_{T}$ of the particle is 
@@ -1338,13 +1362,13 @@ too low or if it lies outside of the geometrical acceptance of the detector. The
 of these assumptions is, however, not expected to determine a significant change in the
 physics object reconstruction parameters (resolution, efficiency, etc.), because of the
 small abundance of these events inside the sample and their kinematic properties. 
-In particular, particles emitted from the muon lines have typically low energies, as can be 
+In particular, particles emitted from the muon lines have typically low transverse momenta, as can be 
 seen from the plot in Fig.\ref{fig:HZZ4mu:genPhotons}. \\
 
-(CITE????) During the ATLAS Run-1 analysis the electromagnetic calorimeter information was used
+During the ATLAS Run-1 analysis the electromagnetic calorimeter information was used
 in order to account for the system invariant mass underestimation due to the presence of
-unreconstructed photons, with a $p_T$ threshold of $1.5\ GeV$. Assuming that the same
-is applicable under the HL-LHC conditions at ATLAS, events with no photons under said 
+unreconstructed photons, with a $p_T$ threshold of $1.5\ GeV$\cite{HZZ4mu_run1}. Assuming that the same
+is applicable under the HL-LHC conditions at ATLAS, events with no photons above said 
 threshold are also included into the generated Higgs boson sample. The $\eta$ distribution
 and the $\Delta R$ distance of the photon from the muon after the $p_T$ cut is shown in Fig.\ref{fig:HZZ4mu:genPhotonsAfterCut}.
 
@@ -1437,7 +1461,7 @@ coverage.
 Samples of $5 \cdot 10^4$ events were produced from the selected generated events by running
 the simulation/digitization/reconstruction chain described in sec.\ref{sec:simulation}, in the
 two pile-up scenarios  $<\mu>\ =\ 0$ and $<\mu>\ =\ 200$ and the three ITk layouts described in sec.\ref{sec:tracking} 
-(referred as ExtBrl4, IExtBrl4 and InclBrl4). Unless specified, the plots refers to the $<\mu> = 200$ sample, which is the reference
+(referred as ExtBrl4, IExtBrl4 and InclBrl4). Unless specified, the plots refer to the $<\mu> = 200$ sample, which is the reference
 value for the HL-LHC operations. For the events in which the particles are within the detector acceptance, the distribution of
 the number of primary charged particles and the number of reconstructed tracks per event is shown in
 Fig.\ref{fig:HZZ4mu:nTracks}. The difference between the two distributions in Fig.\ref{fig:HZZ4mu:nPrimaryChargedTruth_recotrk1GeV} is
@@ -1455,8 +1479,7 @@ due to the pile-up tracks reconstruction inefficiency.
 \label{fig:HZZ4mu:nPrimaryChargedTruth_recotrk1GeV}
 \end{subfigure}
 \caption{(a): Number of primary charged particles in the events within the acceptance;\\
-                  (b): Number of primary charged particles/reconstructed tracks with $p_{T} > 1\ GeV$ in the events within the acceptance; 
-		The reconstructed tracks are shown, as an example, for the InclBrl4 layout.}
+                  (b): Number of primary charged particles/reconstructed tracks with $p_{T} > 1\ GeV$ in the events within the acceptance; the reconstructed tracks are shown, as an example, for the InclBrl4 layout.}
 \label{fig:HZZ4mu:nTracks}
 \end{figure}
 
@@ -1466,7 +1489,7 @@ each event, the first step is to identify the simulated physics process within t
 To do so, for every event it was looked for four muons coming from the same vertex with zero total charge, which
 will referred from now on as \textbf{hard-scatter truth} muons. The extremely unlikely event in which more
 than one truth vertex contains four muons with null total charge is also taken into account. In this case 
-the hard-scatter vertex is chosen as the one in which its outgoing particles have an invariant mass closest to the Higgs mass.\\
+the hard-scatter vertex is chosen as the one in which its outgoing particles have the invariant mass closest to the Higgs boson mass.\\
 
 The next step was to find an appropriate \textbf{track matching} to every hard-scatter truth muon. There
 are several ways to define a match, which depend on the intended study. In the following a match is found by looking,
@@ -1475,8 +1498,7 @@ the detector acceptance. This link is made available at reconstruction
 level and connects a track with a truth particle based on the value of the so called \textit{truth match probability}.
 This variable is based on the ratio between the number of clusters correctly associated to the truth particle and the total number
 of clusters forming the track. Unfortunately the definition still employs a weight system to account for the different Inner Detector sections,
-which was optimized for the Run-1 reconstruction with the presence of the TRT. Still, it is useful for tracking performances studies 
-because its definition does not implement biased cuts on the track quality. (PENSARCI ANCORA?)
+which was optimized for the Run-1 reconstruction with the presence of the TRT. Still, it is useful for tracking performances studies.
 
 \subsection{Hard-scatter muons tracking performances}
 From the comparison between the kinematic distributions of the hard-scatter truth muons and the correspondent matched 
@@ -1484,8 +1506,10 @@ tracks it is possible to define basic tracking performance parameters, such as r
 
 \subsubsection*{Resolution}
 The resolution of the generic variable $x$ (usually a perigee parameter, see appendix \ref{appendix:perigee}) as a function of $|\eta|$ is defined, for every hard-scatter muon, from the distribution of the residual 
-$\Delta_x = x_{truth-matched track} - x_{truth}$ for many $|\eta_{truth}|$ bins, analogously to the study presented in sec.\ref{sec:tracking:resolution}. 
+$\Delta_x = x_{matched} - x_{truth}$ for different $|\eta_{truth}|$ bins, analogously to the study presented in sec.\ref{sec:tracking:resolution}. 
 The results for the hard-scatter muons are shown in Fig.\ref{fig:HZZ4mu:muonResolution}.
+The resolution generally tends to decrease 
+with increasing pseudo-rapidity for several reasons that have been described in sec.\ref{sec:tracking}.
 
 \begin{figure}
 \begin{subfigure}{.5\linewidth}
@@ -1547,9 +1571,9 @@ out in this section.
 \subsection{Physics analysis}\label{sec:physics:analysis}
 To compare with the results of the Scoping document, that 
 are based on different ITk layouts and briefly summarized in sec.\ref{subsec:physics:scoping}, 
-the same analysis cuts have been initially (CHECK ONLY INITIALLY?) applied. \\
+similar analysis cuts have been applied. \\
 
-\subsubsection*{Identification of the track candidates}
+\subsubsection{Identification of the track candidates}
 An initial set of tracks is selected by stacking into a vector all the tracks passing a minimum
 $p_{T}$ cut of $6\ GeV$ and a track quality cut of 10 total hits. The searched signal consists
 of four muons coming compatibly from the primary vertex. As no primary vertex finding algorithm
@@ -1581,12 +1605,12 @@ than one combination pass all the cuts, the one with the highest four-muon mass 
 This could result in the introduction of a bias, but it is not a worrying issue in this analysis due to
 the extreme rarity of this event.\\
 
-The remaining cuts are applied sequentially in the same order described in sec.\ref{sec:HZZ4mu:scoping}.
+The remaining cuts are applied sequentially in the same order described in sec.\ref{subsec:physics:scoping}.
 
-\subsubsection*{Results of the analysis}
+\subsubsection{Reconstruction efficiencies}\label{subsec:recoEfficiency}
 
 The cut efficiencies have been studied for the signal and background samples. They are summarized in 
-tab.\ref{tab:cutEfficiency}, \ref{tab:cutEfficiency27}, \ref{tab:cutEfficiency32}, \ref{tab:cutEfficiency4}.
+tab.\ref{tab:cutEfficiency}, \ref{tab:cutEfficiency27}, \ref{tab:cutEfficiency32}, \ref{tab:cutEfficiency4}.\\
 
 \begin{table} [h]
 	\resizebox{\textwidth}{!}{
@@ -1699,18 +1723,17 @@ tab.\ref{tab:cutEfficiency}, \ref{tab:cutEfficiency27}, \ref{tab:cutEfficiency32
 	\label{tab:cutEfficiency4}
 \end{table}
 
-The Inclined (IExtBrl4) and Fully Inclined (InclBrl4) layouts produce
+The Inclined (IExtBrl4) and Fully Inclined (InclBrl4) layouts have found to produce
 very similar results, whereas the Extended (ExtBrl4) layout shows slightly worse efficiencies, 
-due to the worse $p_T$ and $z_0$ resolution in the forward region (tab.\ref{tab:cutEfficiency32}, \ref{tab:cutEfficiency4}).\\
+due to the worse $p_T$ and $z_0$ resolution in the forward region.\\
 
 The dependency on the number of simulated pile-up events was also studied comparing these efficiencies with
 a $<\mu> = 0$ sample, and the results are shown in Tab.\ref{tab:cutEfficiencyPU}, \ref{tab:cutEfficiencyPU27}, \ref{tab:cutEfficiencyPU32}, \ref{tab:cutEfficiencyPU4}. 
 The errors indicated are statistical and include generation and simulation fluctuations, but
-the hard-scatter event sample in the two pile-up scenarios is the same, so that the error
-is overestimated when comparing the two samples by an unknown value (CHECK?). 
+the hard-scatter event sample in the two pile-up scenarios is the same, so that the errors
+are correlated and the comparison is more consistent. 
 A very weak systematic decrease of the efficiency with the pile-up appears to be present, 
 which can be indication of resolution degradation, but it is not statistically significant.
-
 
 \begin{table} [h]
 	\resizebox{\textwidth}{!}{
@@ -1772,12 +1795,12 @@ which can be indication of resolution degradation, but it is not statistically s
 
 
 
-\subsubsection*{Higgs reconstruction performance}
+\subsubsection{Higgs reconstruction performance}
 The events passing the analysis cuts have been divided into three kinematic regions, depending on the $|\eta|$ value of the
 most forward muon candidate. This division is useful to compare the reconstruction resolution and the signal significance 
-as a function of the detector coverage. Fig.\ref{fig:HZZ4mu:recoMasses} is shown the distribution
-of the reconstructed on-shell and off-shell muon pair mass and the four-muon mass for the
-signal sample.
+as a function of the detector coverage. In fig.\ref{fig:HZZ4mu:recoMasses} is shown the distribution
+of the reconstructed on-shell and off-shell candidate muon pair mass and the four-muon mass for the
+signal sample.\\
 
 \begin{figure}
 \begin{subfigure}{.5\linewidth}
@@ -1797,7 +1820,7 @@ signal sample.
 \end{figure}
 
 
- The resolution of the same reconstructed quantities is shown in Fig.\ref{fig:HZZ4mu:massResolution}, divided into the three kinematic regions, for the InclBrl4 layout, as an example. Fig.\ref{fig:HZZ4mu:layoutMassResolution} shows instead the comparison between the mass resolution in the three ITk layouts considered.
+ The resolution of the same reconstructed quantities is shown in Fig.\ref{fig:HZZ4mu:massResolution}, divided into the three kinematic regions, for the InclBrl4 layout, as an example. Fig.\ref{fig:HZZ4mu:layoutMassResolution} shows instead the comparison between the mass resolution in the three ITk layouts considered.\\
 
 \begin{figure}
 \begin{subfigure}{.5\linewidth}
@@ -1848,9 +1871,10 @@ three considered ITk layouts separately for the events with $|\eta^\mu_{max}| < 
 
 These distributions were fitted with a gaussian shape employing an iterative method 
 (IN APPENDICE DESCRIVE IL METODO?). The results are summarized in 
-Tab.\ref{tab:massResolutions}.
+Tab.\ref{tab:massResolutions}, which show that the ExtBrl4 layout produces worse performances in the forward region, as
+expected. \\
 
-\begin{table} [h]
+\begin{table} [h!]
 	\resizebox{\textwidth}{!}{
 		\begin{tabular}{l || c | c | c  }
 		& \textbf{ExtBrl4} & \textbf{IExtBrl4} & \textbf{InclBrl4} \\ \hline \hline
@@ -1897,13 +1921,17 @@ Tab.\ref{tab:massResolutions}.
 	\label{tab:massResolutions}
 \end{table}
 
-The results show that the ExtBrl4 layout has worse performances in the forward region, as
-expected. TRA 2.7 e 3.2 PERO' PRIMA ERA MOLTO PEGGIO L'EXT, POI SONO TUTTI UGUALI CIRCA, PERCHE? \\
 
 The reconstructed $p_T$ and $\eta$ distributions and resolution of the $4\mu$ system 
 are shown in Fig.\ref{fig:HZZ4mu:recoPtEtaPhi}, Fig.\ref{fig:HZZ4mu:sigRecoPtEtaPhi} for the
 InclBrl4 layout. As for the masses, these distributions have been fitted with a gaussian shape
-and the results are summarized in Tab.\ref{tab:ptEtaPhiResolutions}.
+and the results are summarized in Tab.\ref{tab:ptEtaPhiResolutions}. \\
+
+Compared with the results of the Scoping Document (fig.\ref{fig:scopingHZZ4muMassResolution}), the found $4\mu$ resolutions
+are worse, but in this case no Z mass constraint is present, so that the comparison
+is not consistent. With increasing the pseudo-rapidity of the most forward candidate,
+the resolutions decrease very significantly, but the measurement also suffers from the
+decrease of the statistics in those regions.
 
 \begin{figure}
 \begin{subfigure}{.5\linewidth}
@@ -1975,15 +2003,42 @@ and the results are summarized in Tab.\ref{tab:ptEtaPhiResolutions}.
 	\label{tab:ptEtaPhiResolutions}
 \end{table}
 
+To assess the impact of the final-state radiation selection applied, a special sample
+of reduced statistics has been generated with the inclusion of all the events, without 
+photon $p_{T}$ cut. The resolution on the $4\mu$ mass system is summarized
+in tab.\ref{tab:massResolutionWithPhotons}.
+
+\begin{table} [h]
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{l || c | c | c | c | c | c }
+		& \multicolumn{2}{c}{\textbf{ExtBrl4}} & \multicolumn{2}{c}{\textbf{IExtBrl4}} & \multicolumn{2}{c}{\textbf{InclBrl4}} \\ \hline \hline
+	& \textbf{\boldmath$p_{T}$ cut}  & \textbf{No cut} & \textbf{\boldmath$p_{T}$ cut}  & \textbf{No cut} & \textbf{\boldmath$p_{T}$ cut}  & \textbf{No cut} \\ \hline
+	
+	\boldmath$|\eta^\mu_{max}| < 2.7$ & 1.46 $\pm$ 0.01 & 1.8 $\pm$ 0.1 & 1.42 $\pm$ 0.01 & 1.8 $\pm$ 0.1 & 1.42 $\pm$ 0.01 & 1.8 $\pm$ 0.1 \\ \hline
+
+	\boldmath$2.7 < |\eta^\mu_{max}| < 3.2$ & 4.10 $\pm$ 0.10 & 4.8 $\pm$ 0.5 & 3.69 $\pm$ 0.08 & 4.6 $\pm$ 0.5 & 3.72 $\pm$ 0.09 &  4.3 $\pm$ 0.5 \\ \hline
+
+	\boldmath$3.2 < |\eta^\mu_{max}| < 4.0$ & 9.2 $\pm$ 0.3 & 17 $\pm$ 2 & 8.4 $\pm$ 0.2 & 
+11 $\pm$ 1 & 8.6 $\pm$ 0.2 & 9 $\pm$ 1 \\ \hline \hline
+	
+	\end{tabular}}
+	\caption{Comparison between the $4\mu$ mass resolutions with or without
+	the $p_{T}$ selection applied during the generation stage. The values are expressed
+	in GeV.}
+	\label{tab:massResolutionWithPhotons}
+\end{table}
+
+The results show that the resolution worsens in all the kinematic regions, but the InclBrl4
+layout shows good performances in the forward region.
 
 \subsubsection*{Fake analysis}
 As explained in sec.\ref{subsec:physicsSimulation}, the employed fast simulation technique 
-present some limitations when defining a fake event in a physics process. One of the
+presents some limitations when defining a fake event in a physics process. One of the
 possible sources of fake events, especially at HL-LHC, could be the inclusion of a 
 track produced by a pile-up particle into the combination of hard-scatter candidates.
 The absence of the entire sample of tracks in the employed samples makes it impossible
-to correctly assess this effect. However, this kind of study can be done with the 
-available samples and provides an underestimation of this effect.\\
+to correctly assess the importance of this effect. However, this kind of study can be done with the 
+available samples and will provide an underestimation of the rate at which it happens.\\
 
 In this study, we define a fake event as an event that passes the cuts in which:\\
 \begin{itemize}
@@ -2007,38 +2062,39 @@ and InclBrl4 layout, which is an effect at the $10^{-3}$ level. No events in whi
 track was incorrectly linked were found.  It has been verified that the reason for which 
 the truth link fails to identify the hard-scatter muon is that the muon itself has produced
 a secondary particle in one of the first layers, so that the track is mostly due to the muon
-after the interaction, which has been slightly deviated.
-Only one event has been found in the ExtBrl4 layout
+after the interaction, which has been slightly deviated. Thus, no events in which a pile-up 
+track has faked a muon candidate has been found.\\
+
+Finally, only one event has been found in the ExtBrl4 layout
 in which an event passed all the cuts but a muon was outside of the detector acceptance.\\
 
-The fake rate is thus extremely low and does not depend on pile-up at this level.
+The measured fake rate is thus essentially zero and does not depend on pile-up at this level.
 
 \subsubsection*{Channel significance}
 The selected events, both for the signal and the background processes, have been
 scaled to an integrated luminosity of 3000 $fb^{-1}$, which is the expected
 value at the end of HL-LHC operations, in 2036. Note that the processes
-were generated at $\sqrt{s} = 13\ TeV$, at a lower cross section. The channel
-significance will thus be underestimated by a factor that will be roughly estimated
-assuming that the cuts efficiencies remain the same. The scaling factor has been
+were generated at $\sqrt{s} = 13\ TeV$, at a lower cross section with respect
+to the expected HL-LHC one, thus underestimating the channel significance. The scaling factor has been
 computed with the theoretical values of the cross sections and the branching ratios,
 and the measured generation and analysis efficiencies. The number of expected
 events at a particular integrated luminosity is given by: 
 
 \begin{equation*}
-N = (\sigma \times BR)\cdot \mathcal{L}\cdot \epsilon_{gen. cuts} \epsilon_{gen. selection} \cdot \epsilon_{analysis},
+N = (\sigma \times BR)\cdot \mathcal{L}\cdot \epsilon_{gen. cuts}\cdot \epsilon_{gen. selection} \cdot \epsilon_{analysis},
 \end{equation*}
 
 where $\epsilon_{gen. cuts}$ is the fraction of events passing the generation cuts applied in order to optimize the generation process, as described in sec.\ref{physics:bkgGeneration}, 
 $\epsilon_{gen. selection}$ is the fraction of events being passed to the sim/digit/reco chain with respect to the generated sample and $\epsilon_{cuts}$ is the 
 analysis cut efficiency, $\sigma \times BR$ is the production cross section for the particular decay mode and $\mathcal{L}$ is the integrated luminosity. The measured values are $\epsilon_{gen. cuts} = 100\ \%$, $\epsilon_{gen. selection} = 81.2 \pm 0.1\ \%$ for the Higgs sample and 
 $\epsilon_{gen. cuts} = 25\ \%$, $\epsilon_{gen. selection} = 80.8 \pm 0.2\ \%$ for
-the background sample. The analysis efficiencies have been described in this section and depend weakly on the considered ITk layout. The employed values for the cross sections are
+the background sample. The analysis efficiencies have been described in sec.\ref{subsec:recoEfficiency} and depend weakly on the considered ITk layout. The employed values for the cross sections are
 $\sigma \times BR = 1.64\ fb$ for the signal process and $\sigma \times BR = 24\ fb$ for the background process.\\
 
 In order to evaluate the effect of the ITk angular coverage extension on the significance of this channel, the analysis has been also carried out with limited $\eta$ coverage by selecting 
 the events with $|\eta^\mu_{max}| < 2.7$, $|\eta^\mu_{max}| < 3.2$ and $|\eta^\mu_{max}| < 4.0$. The results are shown for the InclBrl4 layout in Fig.\ref{fig:SB}.\\
 
-To define the signal, we integrate a region of $\pm 1.5\ \sigma$ around the measured resonance peak in the $4\mu$ invariant mass distribution. The fit has been performed iteratively 
+To define the signal measurement, we integrate a region of $\pm 1.5\ \sigma$ around the measured resonance peak in the $4\mu$ invariant mass distribution. The fit has been performed iteratively 
 with a gaussian shape. The results for the different layouts and angular coverage are summarized in tab.\ref{tab:SB}.
 
 \begin{figure}
@@ -2069,27 +2125,24 @@ with a gaussian shape. The results for the different layouts and angular coverag
 		\begin{tabular}{l || c | c | c | c }
 \multicolumn{2}{c}{\hspace{32mm}\textbf{S}}		& \multicolumn{1}{c}{\textbf{B}} & \multicolumn{1}{c}{\textbf{S/B}} & \textbf{S/\boldmath$\sqrt{S+B}$} \\ 
  \multicolumn{5}{l}{\textbf{ExtBrl4}} \rule{0pt}{4ex} \\ \hline \hline
-\boldmath$|\eta^\mu_{max}| < 2.7$ & 1648 $\pm$ 8 & 183 $\pm$ 3 & 9.0 & 38.5 $\pm$ 0.7 \\ \hline
-\boldmath$|\eta^\mu_{max}| < 3.2$ & 1756 $\pm$ 8 & 227 $\pm$ 3 & 7.7 & 39.4 $\pm$ 0.7 \\ \hline
-\boldmath$|\eta^\mu_{max}| < 4.0$ & 1788 $\pm$ 8 & 255 $\pm$ 3 & 7.0 & 39.6 $\pm$ 0.7 \\ 
+\boldmath$|\eta^\mu_{max}| < 2.7$ & 1648 $\pm$ 41 & 183 $\pm$ 14 & 9.0 & 38.5 $\pm$ 0.7 \\ \hline
+\boldmath$|\eta^\mu_{max}| < 3.2$ & 1756 $\pm$ 42 & 227 $\pm$ 15 & 7.7 & 39.4 $\pm$ 0.7 \\ \hline
+\boldmath$|\eta^\mu_{max}| < 4.0$ & 1788 $\pm$ 42 & 255 $\pm$ 16 & 7.0 & 39.6 $\pm$ 0.7 \\ 
  \multicolumn{5}{l}{\textbf{IExtBrl4}} \rule{0pt}{4ex} \\ \hline \hline
-\boldmath$|\eta^\mu_{max}| < 2.7$ & 1655 $\pm$ 8 & 168 $\pm$ 2 & 9.8 & 38.8 $\pm$ 0.7 \\ \hline
-\boldmath$|\eta^\mu_{max}| < 3.2$ & 1790 $\pm$ 8 & 226 $\pm$ 3 & 7.9 & 39.9 $\pm$ 0.7 \\ \hline
-\boldmath$|\eta^\mu_{max}| < 4.0$ & 1830 $\pm$ 8 & 266 $\pm$ 3 & 6.9 & 40.0 $\pm$ 0.7 \\ 
+\boldmath$|\eta^\mu_{max}| < 2.7$ & 1655 $\pm$ 41 & 168 $\pm$ 13 & 9.8 & 38.8 $\pm$ 0.7 \\ \hline
+\boldmath$|\eta^\mu_{max}| < 3.2$ & 1790 $\pm$ 42 & 226 $\pm$ 15 & 7.9 & 39.9 $\pm$ 0.7 \\ \hline
+\boldmath$|\eta^\mu_{max}| < 4.0$ & 1830 $\pm$ 43 & 266 $\pm$ 16 & 6.9 & 40.0 $\pm$ 0.7 \\ 
  \multicolumn{5}{l}{\textbf{InclBrl4}} \rule{0pt}{4ex} \\ \hline \hline
-\boldmath$|\eta^\mu_{max}| < 2.7$ & 1672 $\pm$ 8 & 175 $\pm$ 2 & 9.6 & 38.9 $\pm$ 0.7 \\ \hline
-\boldmath$|\eta^\mu_{max}| < 3.2$ & 1809 $\pm$ 8 & 230 $\pm$ 3 & 7.9 & 40.1 $\pm$ 0.7 \\ \hline
-\boldmath$|\eta^\mu_{max}| < 4.0$ & 1851 $\pm$ 8 & 266 $\pm$ 3 & 7.0 & 40.2 $\pm$ 0.7 \\ 
+\boldmath$|\eta^\mu_{max}| < 2.7$ & 1672 $\pm$ 41 & 175 $\pm$ 13 & 9.6 & 38.9 $\pm$ 0.7 \\ \hline
+\boldmath$|\eta^\mu_{max}| < 3.2$ & 1809 $\pm$ 43 & 230 $\pm$ 15 & 7.9 & 40.1 $\pm$ 0.7 \\ \hline
+\boldmath$|\eta^\mu_{max}| < 4.0$ & 1851 $\pm$ 43 & 266 $\pm$ 16 & 7.0 & 40.2 $\pm$ 0.7 \\ 
 	\end{tabular}}
 	\caption{Expected signal, background, signal-to-background ratio and significance for different ITk layouts 
-		and detector coverage. The indicated errors on the signal and backgrounds purely statistical (it has been verified
-		that the scale errors are negligible).}
+		and detector coverage. The indicated errors on the signal and backgrounds are purely statistical. Scale errors due to efficiency measurement errors are negligible.}
 	\label{tab:SB}
 \end{table}
 
-CORREGGERE ERRORI S B ?
-
-The results show compatibility of the layouts within the errors. As a function of the angular coverage, the 
+The results show compatibility of the significance of the layouts within the errors. As a function of the angular coverage, the 
 signal-to-background ratio worsens, but the significance, defined as $\frac{S}{\sqrt{S+B}}$, increases. 
 Compared with the results from the Scoping Document in the Reference Scenario 
 ($|\eta| < 4.0$ coverage, fig.\ref{fig:scopingHZZ4muNEvents}), the obtained number of
@@ -2098,13 +2151,13 @@ different factors:\\
 \begin{itemize}
 \item the samples were generated at $\sqrt{s} = 13\ TeV$ instead of $14\ TeV$ in the present study. The Higgs
 production cross section is smaller by a factor of 1.13; the branching ratio increases by a factor of ??? NON LO TROVO.
-\item the Scoping Document study includes all the Higgs production modes, the ggF process represents the 86\% of 
+\item the Scoping Document study includes all the Higgs production modes, whereas the ggF process represents the 86\% of 
 the total;
 \item the applied generation selection excluded the 20\% of the events, that could have been recovered with
 	the electromagnetic calorimeter.
 \end{itemize} 
 
-For the background process the discrepancy can be partially due to the same reasons (except the production modes). 
+For the background process the discrepancy can be partially due to the same reasons (except the production modes), but other effects tend to increase the difference. 
 An important difference between the two analyses is that the Scoping Document analysis employs a Z mass constraint
 in the reconstruction algorithm. In the Reference Scenario, this was very helpful in the on-shell pair reconstruction and
 has the effect of lowering the resolution in the forward regions, producing better resolutions compared to the
