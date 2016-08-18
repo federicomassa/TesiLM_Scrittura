@@ -632,7 +632,7 @@ Z mass in the decay $Z \rightarrow e^+e^-$.
 
 \subsection{Hadronic $\tau$ decays}
 The $\tau$ lepton, being much heavier than the electron, does not emit appreciable 
-bremmstrahlung radiation and, due to its relatively long lifetime, can cover a significative 
+bremmstrahlung radiation and, due to its relatively long lifetime, can cover a significant 
 (O(1mm) di D0?) space before decaying, resulting in the identification of a secondary vertex.
 The hadronic decay channels of the $\tau$ lepton with larger branching ratio are the 
 one-prong and three-prongs decays with charged and neutral pions, and neutrinos. The
@@ -914,7 +914,7 @@ Also note that, however the hard-scatter vertex is generated at the origin of th
 frame, the ATLAS simulation program includes a hard coded smearing of the primary vertex
 (i.e. the hard-scatter vertex) with a gaussian distribution in z with $\sigma \sim 50\ mm$.
 
-\subsection{Fast simulation method for particle gun samples}
+\subsection{Fast simulation method for particle gun samples}\label{sec:simulation:pg}
 
 \textbf{Particle gun} studies are very useful to analyse the tracking performances of the
 detector, allowing the study of hits distribution, reconstruction efficiency, resolution and
@@ -1053,7 +1053,8 @@ simulated (VEDERE SE RIESCO A FARE TUTTO IO SENZA ESTRAPOLARE?).
 		\textbf{Reco} & 0.06s & 2m 40s & 50m & 90d & 0.04\% \\ \hline
 		\textbf{Total} & 2.75s & 90m & 1d 14h & 8y & 0.05\% \\ \hline
 	\end{tabular}}
-	\caption{Comparison between fast and full simulation timing requirements. The
+	\caption{Comparison between fast and full simulation timing requirements at $<\mu> = 200$, for
+	a muon particle gun. The
 			full simulation results at 50 thousand events have been extrapolated from
 			a sample of 5 events.}
 	\label{tab:timing}
@@ -1094,7 +1095,7 @@ As already mentioned in sec.\ref{subsec:detector:ITk}(CHECK?), from the layout p
 and regardless of the particular sensor
 technology employed, the main difference of several proposed ITk layouts with respect
 to the current Inner Detector is the absence of the TRT in favour of the exclusive use of
-pixel and strip layers, with extended angular coverage to $|\eta| < 4.0$, to be compared
+pixel and SCT layers, with extended angular coverage to $|\eta| < 4.0$, to be compared
 with the current one, that only reaches $|\eta| < 2.7$. The Step-1 layouts were designed to 
 be quite accurate from the point of view of the geometry and sensors description, but
 were not optimized for what concerns the passive material and services description, nor in the
@@ -1125,7 +1126,7 @@ in this thesis, are thus to be considered with particular care. \\
 \label{fig:tracking:layouts}
 \end{figure}
 
-The three layouts studied are shown in Fig.\ref{fig:tracking:layouts}. They have the same angular coverage, strip and pixel endcap geometry, and only differ in the pixel barrel sector.
+The three layouts studied are shown in Fig.\ref{fig:tracking:layouts}. They have the same angular coverage, SCT and pixel endcap geometry, and only differ in the pixel barrel sector.
 In the \textbf{Extended Barrel 4.0 layout} (ExtBrl4), the two innermost barrel layers are longer and
 reach $\pm\ 1200\ mm$ in the z-axis, while the three remaining extend to $\pm\ 735\ mm$.
 In the \textbf{Inclined Barrel 4.0 layout} (IExtBrl4), the two innermost barrel layers
@@ -1138,33 +1139,557 @@ to $\pm\ 1200\ mm$ for the two innermost layers and to $\pm 700\ mm$ for the oth
 layers and is 13 for the other layers. The endcap disks extend to $\pm 3000\ mm$. Their 
 number depends on the layer and ranges from 15 to 20 per detector side. The radii of the barrel layers are, for the three layouts, 40 mm, 85 mm, 155 mm, 212 mm, 270 mm. \\
 
-The strip system is identical for the three layouts. It is composed by four barrel layers of identical length ($\pm 1350\ mm$), at radii 400 mm, 560 mm, 760 mm and 1000 mm. There
+The SCT system is identical for the three layouts. It is composed by four barrel layers of identical length ($\pm 1350\ mm$), at radii 400 mm, 560 mm, 760 mm and 1000 mm. There
 are six endcap disks per side, ranging in z from 1500 mm to 3000 mm. \\
 
 For the studies that are presented in this thesis, it is useful to identify critical pseudo-rapidity regions for the three layouts. The region $0 < |\eta| < 1.0$ is completely covered by
 flat barrel layers in all the layouts; in the region $1.0 < |\eta| < 1.4$ the InclBrl4 layout starts the transition to the inclined barrel modules in the three outermost layers; in the
-region $1.4 < |\eta| < 1.8$ the same happens for the innermost layers; the region $1.8 < |\eta| < 2.2$ is the transition region from barrel to endcap; the region $2.2 < |\eta| > 3.2$ is purely endcap
-both in the pixel and in the strips, except for the two innermost barrel layers and there is the transition from pixel and strips to pixel only; the most forward region $3.2 < |\eta| < 4.0$ counts only on the innermost barrel layer and the pixel endcap disks.\\
+region $1.4 < |\eta| < 1.8$ the same happens for the innermost layers (IExtBrl4 and InclBrl4); also, the region $1.0 < |\eta| < 1.8$ marks the tranition from SCT barrel to SCT endcap; the region $1.8 < |\eta| < 2.2$ is the transition region from pixel barrel to pixel endcap; the region $2.2 < |\eta| < 2.7$ relies on pixel and SCT endcap; the region $2.7 < |\eta| < 3.2$  is pixel only (two innermost barrel layers + pixel endcap); the most forward region $3.2 < |\eta| < 4.0$ counts only on the innermost barrel layer and the pixel endcap disks.\\
 
 One of the problems connected with the angular coverage extension proposed in these layouts is the formation of \textit{long clusters} in the forward region. This effect is a purely 
-geometrical one and emerges from the fact that particles with high pseudo-rapidity traverse the finite-depth flat sensors ionising the material in a broad z region. This effect is minimized in
-the inclined layouts, where the inclined sensors ensures that the particle traverses a smaller amount of material. However, a sophisticated reconstruction algorithm could reduce the impact
-of this effect in the ExtBrl4 layout by using the charge release distribution information. Unfortunately in the Step-1 layouts the reconstruction algorithm still needs to be optimized, so that
-the results are to be taken carefully, especially when looking at the ExtBrl4 performances in the forward region.\\
+geometrical one and emerges from the fact that particles with high pseudo-rapidity traverse the finite-depth flat sensors releasing a charge that spans over a broad z region. This effect is
+minimized in the inclined layouts, where the inclined sensors ensures that the particle traverses a smaller amount of material. However, a sophisticated reconstruction algorithm could reduce
+the impact of this effect in the ExtBrl4 layout by using the charge release distribution information. Unfortunately in the Step-1 layouts the reconstruction algorithm still needs to be optimized,
+so that it is early to draw final conclusions from the comparison of the layouts. This effect especially affects the ExtBrl4 performances in the forward region.\\
+
+\subsection{Sample production}\label{sec:tracking:sampleProduction}
+Particle gun samples of $5\cdot 10^4$ events have been generated with charged pions following the technique described in sec.\ref{sec:simulation:pg}. The charge of the pion
+is chosen randomly for each event.
+Each sample contains pions distributed with flat $\eta$ in the range [-5,5], flat $\phi$ in the range [-$\pi$, $\pi$] and fixed transverse momentum (5 GeV, 15 GeV, 50 GeV, 100 GeV). 
+A flat $\eta$ distribution was chosen to study all the parts of the detector with the same statistics, whereas the chosen $\eta$ range, that extends well beyond the detector coverage ($|\eta| < 4.0$),
+is a standard within the ITk tracking studies and it allows to study possible edge effects. 
+To compare the performances of the detector under different pile-up conditions, samples were produced with $<\mu>$ = 0, 50, 100, 200, for the three ITk layouts described (ExtBrl4,
+IExtBrl4, InclBrl4).
+
+\subsection{Motivations of the study}
+Particle gun studies are a particularly useful tool to measure the tracking performances of the detector, because they allow to perform
+specific measurements under well controlled conditions (fixed $p_{T}$ for example). The idea is to generate a typically hard particle that
+simulates a hard-scatter process, and superimpose a number of pile-up events. Measurements of interest that can be performed 
+with these studies include track quality parameters, reconstruction efficiency, fake probability and perigee parameters resolution.\\
+
+The choice of the kind of particle (charged pions (AND MUONS?) in this case) was based on different reasons. Pions are the most frequently
+produced charged particle in the collisions, and are also the most frequent secondary particle produced by the strong interaction of hadrons with
+the nuclei. They typically lose energy in the tracker continuously by ionization, with a Landau distribution very similar to that of the muons (the mass
+is close), but they can also undergo strong interactions, with the production of several secondary particles. The reconstruction of these objects
+is thus more difficult than in the case of the muons and poses interesting tracking problems.
+
+\subsection{Event features}\label{subsec:tracking:eventFeatures}
+After the generation step, each sample was produced by running the complete simulation/digitization/reconstruction chain. The final xAOD file contains the information at both
+truth and reconstruction level. For the different pile-up scenarios, the number of reconstructed tracks and the number of simulated primary and secondary charged particles per event
+(inside the simulated region of interest) are shown in fig.\ref{fig:tracking:nPrimaryChargedTruth}, \ref{fig:tracking:nSecondaryChargedTruth},\ref{fig:tracking:nRecoTracks} for the ExtBrl4 layout, as an example, and with pion $p_{T} = 15\ GeV$. The plots show the increase in the number of particles produced with increasing the average number of generated pile-up events and
+the correspondent increase in the number of reconstructed tracks. In this latter plot, the number of events in which no track is reconstructed is mostly due to the geometrical acceptance (80\%), but part is caused by the reconstruction efficiency, that will be later calculated. \\
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{Tracking/nPrimaryChargedTruth}
+\caption{Number of simulated primary charged particles per event in different pile-up scenarios, for the ExtBrl4 layout.}
+\label{fig:tracking:nPrimaryChargedTruth}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{Tracking/nSecondaryChargedTruth}
+\caption{Number of simulated secondary charged particles per event in different pile-up scenarios, for the ExtBrl4 layout.}
+\label{fig:tracking:nSecondaryChargedTruth}
+\end{figure}
 
 
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{Tracking/nRecoTracks}
+\caption{Number of reconstructed tracks per event in different pile-up scenarios, for the ExtBrl4 layout.}
+\label{fig:tracking:nRecoTracks}
+\end{figure}
+
+From the distribution of the number of tracks per event in the $<\mu> = 0$ scenario it is visible
+how the single simulated pion can produce more than one track due to the production of hard secondary particles, that must be produced not too far, otherwise a track would
+not be reconstructed. To see this, the plot in fig.\ref{fig:nSecondaryChargedTruth1GeV} shows the number of secondary charged particles produced by the pion (in the $<\mu> = 0$ scenario)
+with a 1 GeV cut on the transverse momentum. In the employed sample there are X events in which more than one track is reconstructed and Y events with at least one hard secondary 
+particle is produced, corresponding to a fraction of X/Y of the events. (METTERE NUMERI?)
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{Tracking/nSecondaryChargedTruth1GeV}
+\caption{Number of secondary charged particles with $p_T > 1\ GeV$ in the $<\mu> = 0$ sample, in the ExtBrl4 layout.}
+\label{fig:tracking:nSecondaryChargedTruth1GeV}
+\end{figure}
+
+\subsection{Track matching}\label{subsec:tracking:matching}
+To identify the "hard-scatter" pion generated with the particle gun we look, among the primary particles, for a match in pdgId and $p_{T}$. The
+track with the minimum $\Delta R$ distance from this particle is \textit{matched} with it if this distance is less than 0.1 and the reconstructed $p_{T}$ is 
+larger than 3 GeV. The chosen value corresponds to the amplitude of the employed
+region of interest and is well larger than the track resolution in $\eta$ and $\phi$. In the other cases a match
+is not found, thus excluding most of the events outside of the geometrical acceptance and those where the pion is not reconstructed and there is no other 
+high $p_{T}$ track that can fake it. There could be cases in which the hard-scatter pion lies beyond the geometrical acceptance but close to the detector edge 
+and a high $p_{T}$ track is reconstructed from the pile-up particles. These cases are included by the employed matching algorithm. The so found matched track
+represent the "hard-scatter" candidate of the event.
+
+\subsection{Track quality}\label{subsec:tracking:quality}
+
+\subsubsection*{Comparison between matched and unmatched tracks}
+
+Two parameters that measures the track quality were studied, separately for matched and unmatched tracks (the latter mainly due to pile-up particles), which
+are the \textbf{number of hits} that constitutes the track, and the value of the \textbf{chi square per degree of freedom}. When dealing with the number
+of hits, it is important to remember that each SCT sensor is two-sided, so that the number.\\ CHECK SUL SIGNIFICATO DI HIT??? SCRITTO ANCHE NELLA FISICA
+
+The results are shown in fig.\ref{fig:tracking:nHits}, \ref{fig:tracking:chiSquare}. \\
+
+\begin{figure}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.75\textwidth]{Tracking/nPixHits}
+\label{fig:tracking:nPixHits}
+\caption{}
+\end{subfigure}
+
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.75\textwidth]{Tracking/nSCTHits}
+\label{fig:tracking:nSCTHits}
+\caption{}
+\end{subfigure}
+
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.75\textwidth]{Tracking/nSiHits}
+\label{fig:tracking:nSiHits}
+\caption{}
+\end{subfigure}
+\label{fig:tracking:nHits}
+\caption{Number of pixel (a), SCT (b) and total (c) hits for matched and unmatched tracks in the sample with a generated pion with $p_{T} = 15\ GeV$ and $<\mu> = 200$, in the ExtBrl4 layout.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{Tracking/chiSquarePerDof}
+\label{fig:tracking:chiSquare}
+\caption{Distribution of the $\chi^2/DOF$ for the matched and unmatched tracks in the sample with a generated pion with $p_{T} = 15\ GeV$ and $<\mu> = 200$, in the ExtBrl4 layout.}
+\end{figure}
+
+The hit distributions are quite similar but a tendency of the matched tracks to produce tracks with more hits it is noticeable (especially in the total hits distribution) and expected, because of their larger transverse momentum on average. It is important to note that the shape of these distributions depend on the generated $\eta$ distribution of the hard-scatter particle, which
+also reflects on the $\eta$ distribution of the secondary and pile-up tracks because of the region of interest selection. The $\chi^2/DOF$ distribution of the unmatched tracks is broader and denotes a generally worse quality reconstruction for the secondary 
+and pile-up particles with respect to the hard-scatter pion. \\
+
+\subsubsection*{Track quality of matched tracks}
+As a function of the pseudo-rapidity, the distributions of the number of pixel, SCT and total hits are shown for the three layouts in fig.\ref{fig:tracking:nHits_eta_ExtBrl4},
+ \ref{fig:tracking:nHits_eta_IExtBrl4}, \ref{fig:tracking:nHits_eta_InclBrl4}. The average number of hits for the three layouts is summarized in tab.\ref{tab:tracking:nHits}. DA AGGIORNARE ? COMMENTO SU EXTBRL4 MENO HIT? A requirement on the total number of hits of 9 for $|\eta_{track}| < 2.4$ and of 5 for $|\eta_{track}| > 2.4$ is present in the reconstruction algorithm
+ and is clearly visible in the total number of hits plots. Also, with increasing $|\eta_{track}|$ the distribution of the number of hits becomes broader, which is an indication of the increasing
+ difficulty of the reconstruction.  \\
+
+\begin{figure}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/nPixHits_eta_ExtBrl4}
+\label{fig:tracking:nPixHits_eta_ExtBrl4}
+\caption{}
+\end{subfigure}
+
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/nSCTHits_eta_ExtBrl4}
+\label{fig:tracking:nSCTHits_eta_ExtBrl4}
+\caption{}
+\end{subfigure}
+
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/nSiHits_eta_ExtBrl4}
+\label{fig:tracking:nSiHits_eta_ExtBrl4}
+\caption{}
+\end{subfigure}
+
+\label{fig:tracking:nHits_eta_ExtBrl4}
+\caption{Number of pixel (a), SCT (b) and total (c) hits of the matched tracks as a function of the pseudo-rapidity in the sample with a generated pion with $p_{T} = 15\ GeV$ and $<\mu> = 200$, for the ExtBrl4 layout. The content of each $\eta$ bin was independently normalized so that the overall distribution does not depend on the $\eta$ distribution of the track.}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/nPixHits_eta_ExtBrl4}
+\label{fig:tracking:nPixHits_eta_IExtBrl4}
+\caption{}
+\end{subfigure}
+
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/nSCTHits_eta_ExtBrl4}
+\label{fig:tracking:nSCTHits_eta_IExtBrl4}
+\caption{}
+\end{subfigure}
+
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/nSiHits_eta_ExtBrl4}
+\label{fig:tracking:nSiHits_eta_IExtBrl4}
+\caption{}
+\end{subfigure}
+
+\label{fig:tracking:nHits_eta_IExtBrl4}
+\caption{Number of pixel (a), SCT (b) and total (c) hits of the matched tracks as a function of the pseudo-rapidity in the sample with a generated pion with $p_{T} = 15\ GeV$ and $<\mu> = 200$, for the IExtBrl4. The content of each $\eta$ bin was independently normalized so that the overall distribution does not depend on the $\eta$ distribution of the track.}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/nPixHits_eta_ExtBrl4}
+\label{fig:tracking:nPixHits_eta_InclBrl4}
+\caption{}
+\end{subfigure}
+
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/nSCTHits_eta_ExtBrl4}
+\label{fig:tracking:nSCTHits_eta_InclBrl4}
+\caption{}
+\end{subfigure}
+
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/nSiHits_eta_ExtBrl4}
+\label{fig:tracking:nSiHits_eta_InclBrl4}
+\caption{}
+\end{subfigure}
+\label{fig:tracking:nHits_eta_InclBrl4}
+\caption{Number of pixel (a), SCT (b) and total (c) hits of the matched tracks as a function of the pseudo-rapidity in the sample with a generated pion with $p_{T} = 15\ GeV$ and $<\mu> = 200$, for the InclBrl4. The content of each $\eta$ bin was independently normalized so that the overall distribution does not depend on the $\eta$ distribution of the track.}
+\end{figure}
+
+\begin{table} [h]
+\centering
+	\resizebox{.8\textwidth}{!}{
+\begin{tabular}{l || c | c || c }
+ & \textbf{Pixel} & \textbf{SCT} & \textbf{Total} \\ \hline \hline
+\textbf{ExtBrl4} & 7.93 $\pm$ 0.02 & 5.64 $\pm$ 0.02 & 13.57 $\pm$ 0.01 \\ \hline
+\textbf{ExtBrl4} & 7.93 $\pm$ 0.02 & 5.64 $\pm$ 0.02 & 13.57 $\pm$ 0.01 \\ \hline
+\textbf{ExtBrl4} & 7.93 $\pm$ 0.02 & 5.64 $\pm$ 0.02 & 13.57 $\pm$ 0.01 \\ \hline
+\end{tabular}}
+	\caption{Average number of pixel, SCT and total hits in the three ITk layouts considered.}
+	\label{tab:tracking:nHits}
+\end{table}
+
+FIGURE DA AGGIORNARE?
+ 
+The number of holes in the pixel and SCT system, defined as the number of layers that are traversed by the fitted track but where no hit was found, was measured. It was found to be
+a quite small effect (around 1\% of the matched tracks) and limited to the pixel system (no tracks with holes in the SCT were found). The distribution of holes in the pixel systems is shown in fig.\ref{fig:tracking:nHoles} for the three 
+layouts. The number of holes was found to be independent on the track transverse momentum within the statistical uncertainties. (and layouts?) (CHECK SE E' VERO?) In the
+considered ITk layouts, no inefficiencies due to dead channels are assumed. \\
+
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{Tracking/nPixHoles}
+\label{fig:tracking:nHoles}
+\caption{Number of holes in the pixel system for the three ITk layouts considered, at $<\mu> = 200$ and $p_{T} = 15\ GeV$.}
+\end{figure}
+
+The distribution of the average value of the $\chi^{2}/DOF$ in the different $|\eta_{truth}|$ bins is shown in fig.\ref{fig:tracking:chiSqPerDof_eta}. The obtained distribution 
+is correlated to the distribution of the total number of hits, in that the $\chi^{2}/DOF$ increases in the $|\eta$ regions with a larger number of total hits. Also, the value of this variable
+is significantly smaller than 1, which can be an indication of the overestimation of the hit position uncertainties (CHECK with pull??) or of a significant departure from the gaussian model 
+(PIU' PROBABILE?).
+
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{Tracking/chiSquarePerDof_eta}
+\label{fig:tracking:chiSqPerDof_eta}
+\caption{Average value of the $\chi^{2}/DOF$ variable for the matched tracks as a function of the track pseudo-rapidity, in the three ITk layouts considered, for a $p_{T} = 15\ GeV$ pion
+and in the $<\mu> = 200$ scenario.}
+\end{figure}
+
+\subsection{Perigee parameters reconstruction}\label{sec:tracking:resolution}
+The reconstruction resolution and bias of the perigee parameters were calculated for different $|\eta_{truth}|$ bins by considering the distributions of the residual between the reconstructed
+variable of interest in the matched track and in the hard-scatter truth:\\
+$$
+\Delta_{x} = x_{matched} - x_{truth}
+$$
+
+only for the events in which a match was found and $|\eta_{truth}| \in bin_{i}$. For each bin, an iterative gaussian fit was performed (appendix \ref{appendix:gaussFit}). The \textbf{resolution}
+is defined as the $\sigma$ parameter extracted from the fit, while the \textbf{bias} is defined as the mean parameter extracted from the fit. The results are shown for the different layouts at
+fixed pion $p_{T} = 15 GeV$ and $<\mu> = 200$ in fig.\ref{fig:tracking:pionResolution}, \ref{fig:tracking:pionBias}. Other cases are shown in appendix \ref{appendix:tracking:resolution}. SCRIVERE ANCHE I CHI2 dei FIT IN APPENDICE?\\
+
+\begin{figure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sigPt_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sigPt_abseta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sigQPt_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sigQPt_abseta}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sigEta_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sigEta_abseta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sigPhi_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sigPhi_abseta}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sigD0_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sigD0_abseta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sigZ0_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sigZ0_abseta}
+\end{subfigure}
+\label{fig:tracking:pionResolution}
+\caption{Resolution of the reconstructed perigee parameters for the three ITk layouts considered, in the sample with pion $p_{T} = 15\ GeV$ and $<\mu> = 200$.}
+\end{figure}
 
 
+\begin{figure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sysPt_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sysPt_abseta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sysQPt_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sysQPt_abseta}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sysEta_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sysEta_abseta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sysPhi_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sysPhi_abseta}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sysD0_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sysD0_abseta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sysZ0_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sysZ0_abseta}
+\end{subfigure}
+\label{fig:tracking:pionBias}
+\caption{Bias of the reconstructed perigee parameters for the three ITk layouts considered, in the sample with pion $p_{T} = 15\ GeV$ and $<\mu> = 200$.}
+\end{figure}
+
+(CONTROLLARE SE HO FATTO LO STESSO DISCORSO IN HZZ4mu) \\
+The results of the resolutions show a substantial decrease of performances with increasing track pseudo-rapidity. This is caused by different effects: 
+
+\begin{itemize}
+\item the decrease of the angle between  the track and the magnetic field causes the particle to describe, for the same $p_{T}$ and thus same curvature radius, a helix with larger pitch, in
+	which is reconstructed with higher uncertainty. This only affects the track $p_{T}$ reconstruction;
+\item the decrease of the angle between the track and the beam axis causes the $d_{0}$ and $z_{0}$ reconstruction uncertainties to increase for a purely geometrical reason;
+\item the increase of the angle between the particle and the pixel surface causes the charge to be released in a broader space, producing a longer cluster and thus diminishing the resolution, 
+	especially in the ExtBrl4 layout, which does not implement (at this stage) an optimized reconstruction algorithm;
+\item for the same reason the amount of material traversed by the particle is larger, so the interaction probability and the amount of energy lost by the primary particle is larger, which also causes a resolution decrease.
+\end{itemize}
+
+The increase of the uncertainty is not due to a lack of statistics, which has been avoided by generating the hard-scatter particle with a flat $\eta$ distribution, but to the
+worsening of the gaussian fit quality, which, at high $\eta$, poorly describes the real distribution of the residual.\\
+
+(VEDERE SE è UGUALE PER PI+ E PI-?)
+The results also show significant reconstruction biases for the variables $p_{T}$, $\phi$ and $d_{0}$ in different $|\eta|$ regions. The $p_{T}$ results systematically underestimated in the region
+$|\eta| > 3.0$; 	$\phi$ is underestimated in the region $2.6 < |\eta| < 3.2$ and $d_{0}$  is underestimated in the region $|\eta| < 2.6$. This latter is particularly evident and credible because
+it happens in the central region where the resolution is optimal. This effect was also seen by other research groups and revealed an error in the geometry that was corrected in sequent geometry versions of the Step-1 layouts. 
+The resolution as a function of the hard-scatter pion $p_{T}$ is shown in fig.\ref{fig:tracking:pionResolutionPt}, for the ExtBrl4 layout, in the $<\mu> = 200$ scenario. (ALTRI IN APPENDICE?).\\ 
+
+\begin{figure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigPt_abseta}
+\caption{}
+\label{fig:tracking:pipu200_sigPt_abseta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigQPt_abseta}
+\caption{}
+\label{fig:tracking:pipu200_sigQPt_abseta}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigEta_abseta}
+\caption{}
+\label{fig:tracking:pipu200_sigEta_abseta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigPhi_abseta}
+\caption{}
+\label{fig:tracking:pipu200_sigPhi_abseta}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigD0_abseta}
+\caption{}
+\label{fig:tracking:pipu200_sigD0_abseta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigZ0_abseta}
+\caption{}
+\label{fig:tracking:pipu200_sigZ0_abseta}
+\end{subfigure}
+\label{fig:tracking:pionResolutionPt}
+\caption{Resolution of the reconstructed perigee parameters for the ExtBrl4 layout, in the $<\mu> = 200$ scenario, as a function of the generated pion $p_{T}$.}
+\end{figure}
+
+The resolution as a function of the average number of pile-up events is shown in fig.\ref{fig:tracking:resolutionPileup_ExtBrl4}, \ref{fig:tracking:resolutionPileup_IExtBrl4}, \ref{fig:tracking:resolutionPileup_InclBrl4}. COMMENTO ROBUSTEZZA?
+
+\begin{figure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigPt_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigPt_abseta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigQPt_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigQPt_abseta_ExtBrl4}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigEta_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigEta_abseta_ExtBrl4}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigPhi_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigPhi_abseta_ExtBrl4}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigD0_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigD0_abseta_ExtBrl4}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigZ0_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigZ0_abseta_ExtBrl4}
+\end{subfigure}
+\label{fig:tracking:resolutionPileup_ExtBrl4}
+\caption{Resolution of the reconstructed perigee parameters for the $p_{T} = 15\ GeV$ sample, for the different pile-up scenarios in the ExtBrl4 layout.}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigPt_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigPt_abseta_IExtBrl4}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigQPt_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigQPt_abseta_IExtBrl4}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigEta_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigEta_abseta_IExtBrl4}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigPhi_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigPhi_abseta_IExtBrl4}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigD0_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigD0_abseta_IExtBrl4}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigZ0_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigZ0_abseta_IExtBrl4}
+\end{subfigure}
+\label{fig:tracking:resolutionPileup_IExtBrl4}
+\caption{Resolution of the reconstructed perigee parameters for the $p_{T} = 15\ GeV$ sample, for the different pile-up scenarios in the IExtBrl4 layout.}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigPt_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigPt_abseta_InclBrl4}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigQPt_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigQPt_abseta_InclBrl4}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigEta_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigEta_abseta_InclBrl4}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigPhi_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigPhi_abseta_InclBrl4}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigD0_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigD0_abseta_InclBrl4}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_sigZ0_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigZ0_abseta_InclBrl4}
+\end{subfigure}
+\label{fig:tracking:resolutionPileup_InclBrl4}
+\caption{Resolution of the reconstructed perigee parameters for the $p_{T} = 15\ GeV$ sample, for the different pile-up scenarios in the InclBrl4 layout.}
+\end{figure}
+
+Another quantity of interest to assess the correct uncertainty estimation and the correctness of the geometry is the significance of the parameters, defined as:
+$$
+x_{signif} = \frac{x_{matched} - x_{truth}}{x_{err}}
+$$
+
+where $x_{err}$ is the uncertainty on the variable $x$ as estimated from the fit. If the variable is gaussian distributed, this distribution should be compatible with
+a standard gaussian distribution. In fig.\ref{fig:tracking:pull}, for the sample with a $p_{T} = 15\ GeV$ generated pion, $<\mu> = 200$ in the ExtBrl4 layout, the significance is shown for the different
+perigee parameters. The results show a general overestimation of the fit error, that causes the an estimated $\sigma$ significantly smaller than one and confirm the presence of 
+a negative bias, especially in the $d_{0}$ reconstruction. BIAS VISIBILE SOLO IN EXT O ANCHE NEGLI ALTRI?\\
+
+\begin{figure}
+
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/eta_pull}
+\caption{}
+\label{fig:tracking:eta_pull}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/phi_pull}
+\caption{}
+\label{fig:tracking:phi_pull}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/d0_pull}
+\caption{}
+\label{fig:tracking:d0_pull}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\includegraphics[width=\textwidth]{Tracking/z0_pull}
+\caption{}
+\label{fig:tracking:z0_pull}
+\end{subfigure}
+
+\label{fig:tracking:pull}
+\caption{Distribution of the significance of the different reconstructed perigee parameters, in the sample with $p_{T} = 15\ GeV$ and $<\mu> = 200$, for the ExtBrl4 layout. The
+uncertainties shown are taken from the fit covariance matrix.}
+\end{figure}
+
+\subsection{Fake probability}
+There is no unique way to define a fake track. The standard way to define a fake in the ITk community is based on the determination of the fraction of hits common to the track and the truth divided by the number of total hits, with the pixel hits being weighed twice with respect to the SCT hits\footnote{A different weigh is applied because every hit on a SCT sensor only gives two coordinates, so that both sides of the strip are typically needed to form a good space point.}: \\
+$$
+f = \frac{N_{pixel, common} + 1/2 N_{SCT, common}}{N_{pixel, tot} + 1/2 N_{SCT, tot}}
+$$
+
+A fake track is defined as a track with $f < 50\%$. Unfortunately the detailed information on the clusters is lost in the xAOD file and such analysis should be performed directly on the AOD file
+which is produced at the end of the reconstruction stage. A different definition was studied, which is based on the distribution of the $\Delta R$ distance between the matched track and
+the hard-scatter pion. 
+
+\subsection{Efficiency}
 
 
-
-
-
-\subsection{Blabla}\label{subsec:tracking:matching}
-
-(REMINDER: LA RISOLUZIONE IN PT IN
- AVANTI PUO' essere recuperate dalle camere dei mu?)
-
+\newpage
 
 \section{$H \rightarrow ZZ^* \rightarrow 4\mu$ performances}
 In this section the fast simulation technique described in sec.\ref{sec:physicsSimulation} is
@@ -1181,14 +1706,14 @@ production mode of the Higgs boson is the gluon-gluon fusion (ggF) process. The 
 important production mode, the vector-boson fusion (VBF), is a factor of ten less frequent and includes the associate
 production of two hard-scatter jets. The study presented in this section analyses the exclusive
 $ggF H \rightarrow ZZ^* \rightarrow 4\mu$ channel (Fig.\ref{fig:ggFHZZ4mu}), that represents a benchmark process to measure and compare the tracker performances on physics objects reconstruction among several detector
-configurations, while providing an important test bench for the developed fast simulation technique.
+configurations, while providing an important test bench for the developed fast simulation technique.\\
 
 \begin{figure} [h]
 	\centering
 	\includegraphics[scale=0.4]{ggFHZZ4mu}
 	\caption{Feynman diagram of the complete production and decay process 
 	ggF $H \rightarrow ZZ^* \rightarrow 4\mu$ studied in 
-	this analysis. }
+	this analysis.}
 	\label{fig:ggFHZZ4mu}
 \end{figure}
 
@@ -1507,7 +2032,7 @@ tracks it is possible to define basic tracking performance parameters, such as r
 \subsubsection*{Resolution}
 The resolution of the generic variable $x$ (usually a perigee parameter, see appendix \ref{appendix:perigee}) as a function of $|\eta|$ is defined, for every hard-scatter muon, from the distribution of the residual 
 $\Delta_x = x_{matched} - x_{truth}$ for different $|\eta_{truth}|$ bins, analogously to the study presented in sec.\ref{sec:tracking:resolution}. 
-The results for the hard-scatter muons are shown in Fig.\ref{fig:HZZ4mu:muonResolution}.
+The results for the hard-scatter muons are shown in Fig.\ref{fig:tracking:pionResolution}.
 The resolution generally tends to decrease 
 with increasing pseudo-rapidity for several reasons that have been described in sec.\ref{sec:tracking}.
 
@@ -1542,6 +2067,8 @@ with increasing pseudo-rapidity for several reasons that have been described in 
 \caption{}
 \label{fig:HZZ4mu:sigZ0}
 \end{subfigure}
+\label{fig:HZZ4mu:muonResolution}
+\caption{Resolution of the reconstructed perigee parameters for the three ITk layouts considered, in the sample with $<\mu> = 200$.}
 
 In general, the ExtBrl4 shows worse performances in the forward region (but sometimes better in the central region, WHY??). This is expected for the same reasons described in sec.\ref{sec:tracking:resolution}. (CHECK).
 
