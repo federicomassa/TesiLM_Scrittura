@@ -15,8 +15,10 @@
 \usepackage{unipitesi}
 \usepackage[font=small]{caption}
 \usepackage{subcaption}
+\usepackage{tabu}
 \usepackage{hyperref}
 \usepackage{textcomp}
+\usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -1084,19 +1086,51 @@ FULL: 2.45
 \newpage
 
 \section{Tracking performances}\label{sec:tracking}
-After the publication of the ATLAS Phase II Scoping Document\cite{scoping}, the ATLAS community 
-started the development of a series of ITk layouts divided into steps. In this thesis, the
-performances of the three layouts that make part of the so called \textbf{Step-1 layouts} are studied. In particular,
-this section describes the tracking performances of these layouts using particle gun samples of charged
-pions and muons.
+
+\subsection{The ATLAS tracker upgrade: ITk}
+The current ATLAS Inner Detector was designed to operate for 10 years at a maximum luminosity of $10^{34}\ cm^{-2} s^{-1}$, 
+average number of in-time pile-up events $<\mu> = 23$ per 25 ns bunch-crossing, with a L1 trigger rate of 100 kHz\cite{loi}. It
+was described in sec.\ref{sec:detector:tracker} and consists of 3 pixel layers (plus the Insertable B-Layer, IBL), 4 layers of silicon microstrips (SCT)
+and a straw tube tracker (TRT). The HL-LHC conditions are particularly challenging, and the current tracker will not be able to perform adequately, leading to the necessity of a completely new tracker, called \textbf{Inner Tracker} (ITk). The main limitations of the current Inner Detector under the HL-LHC conditions are the following:
+
+\begin{itemize}
+\item both the pixel (including IBL) and the SCT detector were designed to withstand a radiation fluence much smaller
+than that expected at HL-LHC;
+\item due to limitations in the buffering and the communication between the module local electronics and the read-out card, which
+were designed for a maximum number of pile-up events of $50$,
+at a luminosity of $3 \cdot 10^{34}\ cm^{-2}s^{-1}$, both the pixel and the SCT detectors are expected to be inefficient, with
+a consequent data loss;
+\item the present SCT would be unable to resolve close particles in particularly dense events (hith $p_{T}$ jets), and the TRT straws
+	will approach 100\% occupancy.
+\end{itemize}
+
+Due to the increase of the instantaneous luminosity to $\mathcal{L} = 5 - 7.5 \cdot 10^{34}\ cm^{-2}s^{-1}$ and the center of mass energy increase to 
+14 TeV with the consequent proton-proton INELASTIC? cross section increase, the number of expected average collisions per bunch crossing will 
+reach the value $<\mu> = 200$, with an expected beam spot of $\sigma_{z} = 75\ mm$. The main requirements of the new Inner Tracker will be to:
+
+\begin{itemize}
+\item measure the momentum of isolated charged particles, in particular electrons and muons, the latter being reconstructed and identified also with
+the help of the muon spectrometer;
+\item reconstruct the vertices and identify the primary vertex corresponding to the hard-interaction;
+\item identify secondary vertices in b-jets with high efficiency and purity;
+\item measure tracks in the core of high $p_{T}$ jets with good double-track resolution;
+\item identify $\tau$ lepton decays with the measurement of the impact parameter;
+\item reconstruct the tracks corresponding to a converted photon;
+\end{itemize}
+
+In the next paragraph are presented some of the proposed layouts for the future ITk detector.
 
 \subsection{The Step-1 layouts}
-As already mentioned in sec.\ref{subsec:detector:ITk}(CHECK?), from the layout point of view 
-and regardless of the particular sensor
-technology employed, the main difference of several proposed ITk layouts with respect
+After the publication of the ATLAS Phase II Scoping Document\cite{scoping}, the ATLAS community 
+started the development of a series of ITk layouts whose optimization process was divided into steps. In this thesis, the
+tracking performances of the three layouts that make part of the so called \textbf{Step-1 layouts} are studied. In particular,
+this section describes the tracking performances of these layouts using particle gun samples of charged
+pions and muons.\\
+
+The main difference of several proposed ITk layouts with respect
 to the current Inner Detector is the absence of the TRT in favour of the exclusive use of
 pixel and SCT layers, with extended angular coverage to $|\eta| < 4.0$, to be compared
-with the current one, that only reaches $|\eta| < 2.7$. The Step-1 layouts were designed to 
+with the current one, that only reaches $|\eta| < 2.5$. The Step-1 layouts were designed to 
 be quite accurate from the point of view of the geometry and sensors description, but
 were not optimized for what concerns the passive material and services description, nor in the
 reconstruction algorithms. Studies that make use of these layouts, such as the one presented
@@ -1126,29 +1160,38 @@ in this thesis, are thus to be considered with particular care. \\
 \label{fig:tracking:layouts}
 \end{figure}
 
-The three layouts studied are shown in Fig.\ref{fig:tracking:layouts}. They have the same angular coverage, SCT and pixel endcap geometry, and only differ in the pixel barrel sector.
+
+The three layouts studied are shown in Fig.\ref{fig:tracking:layouts}. They have the same angular coverage, SCT and pixel endcap geometry, and only differ in the \textbf{pixel barrel} sector.
 In the \textbf{Extended Barrel 4.0 layout} (ExtBrl4), the two innermost barrel layers are longer and
 reach $\pm\ 1200\ mm$ in the z-axis, while the three remaining extend to $\pm\ 735\ mm$.
 In the \textbf{Inclined Barrel 4.0 layout} (IExtBrl4), the two innermost barrel layers
 are extended in length but are subdivided into a short flat sector ($\pm\ 180\ mm$ and $\pm\ 200\ mm$ respectively) and 
-in a \textit{inclined} sector, in which the modules (17 per side in the innermost, 18 in the second layer) are tilted at a fixed angle of around 50 degrees with respect to the orizontal plane.
+ an \textit{inclined} sector, in which the modules (17 per side in the innermost, 18 in the second layer) are tilted at a fixed angle of around 50 degrees (MISURATO, GIUSTO?) with respect to the horizontal plane.
 Each module in this sector is formed by two pixel modules at a distance of 8 mm from each other. In the \textbf{Fully Inclined 4.0} (InclBrl4) layout,
-the all pixel barrel layers are subdivided into a central flat sector and an inclined sector. In this case the length of the flat sector depends
+all of the pixel barrel layers are subdivided into a central flat sector and an inclined sector. In this case the length of the flat sector depends
 on the layer and increases from $\pm\ 180\ mm$ in the innermost layer to $\pm 320\ mm$ in the outermost layer. The inclined sector extends
 to $\pm\ 1200\ mm$ for the two innermost layers and to $\pm 700\ mm$ for the others. The number of the inclined modules is the same as the IExtBrl4 layout for the two innermost
-layers and is 13 for the other layers. The endcap disks extend to $\pm 3000\ mm$. Their 
-number depends on the layer and ranges from 15 to 20 per detector side. The radii of the barrel layers are, for the three layouts, 40 mm, 85 mm, 155 mm, 212 mm, 270 mm. \\
+layers and is 13 for the other layers. The radii of the barrel layers are, for the three layouts, 40 mm, 85 mm, 155 mm, 212 mm, 270 mm. \\\\
 
-The SCT system is identical for the three layouts. It is composed by four barrel layers of identical length ($\pm 1350\ mm$), at radii 400 mm, 560 mm, 760 mm and 1000 mm. There
+The \textbf{pixel endcap disks} extend to $\pm 3000\ mm$. Their 
+number depends on the layer and ranges from 15 to 20 per detector side. \\
+
+The \textbf{SCT system} is identical for the three layouts. It is composed by four barrel layers of identical length ($\pm 1350\ mm$), at radii 400 mm, 560 mm, 760 mm and 1000 mm. There
 are six endcap disks per side, ranging in z from 1500 mm to 3000 mm. \\
 
-For the studies that are presented in this thesis, it is useful to identify critical pseudo-rapidity regions for the three layouts. The region $0 < |\eta| < 1.0$ is completely covered by
+For the studies that will be presented in this thesis, it is useful to identify critical pseudo-rapidity regions for the three layouts. The region $0 < |\eta| < 1.0$ is completely covered by
 flat barrel layers in all the layouts; in the region $1.0 < |\eta| < 1.4$ the InclBrl4 layout starts the transition to the inclined barrel modules in the three outermost layers; in the
 region $1.4 < |\eta| < 1.8$ the same happens for the innermost layers (IExtBrl4 and InclBrl4); also, the region $1.0 < |\eta| < 1.8$ marks the tranition from SCT barrel to SCT endcap; the region $1.8 < |\eta| < 2.2$ is the transition region from pixel barrel to pixel endcap; the region $2.2 < |\eta| < 2.7$ relies on pixel and SCT endcap; the region $2.7 < |\eta| < 3.2$  is pixel only (two innermost barrel layers + pixel endcap); the most forward region $3.2 < |\eta| < 4.0$ counts only on the innermost barrel layer and the pixel endcap disks.\\
 
+With respect to the current Inner Detector, the momentum resolution will benefit from the longer lever arm, a high number of silicon hits (typically 13, also to account for
+possible dead modules), smaller pixel sizes ($25 \times 150\ \mu m^2$ in the innermost layers, $50 \times 250 \mu m^{2}$ in the remaining, with $150\ \mu m^{2}$ thickness) and smaller strip lenghts ($23.8\ mm$ in the innermost
+layers and $47.8\ mm$ in the remaining, $75\ \mu m^{2}$ pitch and $300 - 320 \ \mu m^{2}$ thickness)\cite{scoping}. Also, the material contribution in terms of radiation lengths 
+will be significantly smaller than that of the current Inner Detector ($< 0.7 X_{0}$ against $1.2 X_{0}$), for a broad pseudo-rapidity region, which will be important to minimize
+strong interactions for hadrons, bremmstrahlung for electrons and photon conversions. \\
+
 One of the problems connected with the angular coverage extension proposed in these layouts is the formation of \textit{long clusters} in the forward region. This effect is a purely 
-geometrical one and emerges from the fact that particles with high pseudo-rapidity traverse the finite-depth flat sensors releasing a charge that spans over a broad z region. This effect is
-minimized in the inclined layouts, where the inclined sensors ensures that the particle traverses a smaller amount of material. However, a sophisticated reconstruction algorithm could reduce
+geometrical one and emerges from the fact that particles with high pseudo-rapidity traverse the depth of the sensors releasing a charge that spans over a broader region. This effect is
+minimized in the inclined layouts, where the inclined sensors ensure that the particle traverses a smaller amount of material. However, a sophisticated reconstruction algorithm could reduce
 the impact of this effect in the ExtBrl4 layout by using the charge release distribution information. Unfortunately in the Step-1 layouts the reconstruction algorithm still needs to be optimized,
 so that it is early to draw final conclusions from the comparison of the layouts. This effect especially affects the ExtBrl4 performances in the forward region.\\
 
@@ -1156,27 +1199,26 @@ so that it is early to draw final conclusions from the comparison of the layouts
 Particle gun samples of $5\cdot 10^4$ events have been generated with charged pions following the technique described in sec.\ref{sec:simulation:pg}. The charge of the pion
 is chosen randomly for each event.
 Each sample contains pions distributed with flat $\eta$ in the range [-5,5], flat $\phi$ in the range [-$\pi$, $\pi$] and fixed transverse momentum (5 GeV, 15 GeV, 50 GeV, 100 GeV). 
-A flat $\eta$ distribution was chosen to study all the parts of the detector with the same statistics, whereas the chosen $\eta$ range, that extends well beyond the detector coverage ($|\eta| < 4.0$),
-is a standard within the ITk tracking studies and it allows to study possible edge effects. 
+A flat $\eta$ distribution was chosen to study all the regions of the detector with the same statistics, whereas the chosen $\eta$ range, that extends well beyond the detector coverage ($|\eta| < 4.0$),
+is a standard within the ITk tracking studies and it allows to study possible effects at the detector edges. 
 To compare the performances of the detector under different pile-up conditions, samples were produced with $<\mu>$ = 0, 50, 100, 200, for the three ITk layouts described (ExtBrl4,
 IExtBrl4, InclBrl4).
 
 \subsection{Motivations of the study}
 Particle gun studies are a particularly useful tool to measure the tracking performances of the detector, because they allow to perform
-specific measurements under well controlled conditions (fixed $p_{T}$ for example). The idea is to generate a typically hard particle that
-simulates a hard-scatter process, and superimpose a number of pile-up events. Measurements of interest that can be performed 
+specific measurements in well controlled conditions (fixed $p_{T}$ in our case). The idea is to generate a hard particle that
+simulates a hard-scatter process, and superimpose a certain number of pile-up events. Measurements of interest that can be performed 
 with these studies include track quality parameters, reconstruction efficiency, fake probability and perigee parameters resolution.\\
 
-The choice of the kind of particle (charged pions (AND MUONS?) in this case) was based on different reasons. Pions are the most frequently
-produced charged particle in the collisions, and are also the most frequent secondary particle produced by the strong interaction of hadrons with
-the nuclei. They typically lose energy in the tracker continuously by ionization, with a Landau distribution very similar to that of the muons (the mass
-is close), but they can also undergo strong interactions, with the production of several secondary particles. The reconstruction of these objects
+The choice of generating charged pions was based on several reasons. Pions are the most frequently
+produced charged particles in the collisions, and are also the most frequent secondary particle produced by the strong interaction of hadrons with
+the nuclei. They typically lose energy in the tracker continuously by ionization, with a Landau distribution very similar to that of the muons, but they can also undergo strong interactions, with the production of several secondary particles. The reconstruction of these objects
 is thus more difficult than in the case of the muons and poses interesting tracking problems.
 
 \subsection{Event features}\label{subsec:tracking:eventFeatures}
 After the generation step, each sample was produced by running the complete simulation/digitization/reconstruction chain. The final xAOD file contains the information at both
-truth and reconstruction level. For the different pile-up scenarios, the number of reconstructed tracks and the number of simulated primary and secondary charged particles per event
-(inside the simulated region of interest) are shown in fig.\ref{fig:tracking:nPrimaryChargedTruth}, \ref{fig:tracking:nSecondaryChargedTruth},\ref{fig:tracking:nRecoTracks} for the ExtBrl4 layout, as an example, and with pion $p_{T} = 15\ GeV$. The plots show the increase in the number of particles produced with increasing the average number of generated pile-up events and
+truth and reconstruction level. For the several pile-up scenarios, the number of reconstructed tracks and the number of simulated primary and secondary charged particles per event
+(inside the simulated region of interest) are shown in fig. \ref{fig:tracking:nPrimaryChargedTruth}, \ref{fig:tracking:nSecondaryChargedTruth}, \ref{fig:tracking:nRecoTracks} for the ExtBrl4 layout, as an example, and with pion $p_{T} = 15\ GeV$. The plots show the increase in the number of particles produced with increasing average number of generated pile-up events and
 the correspondent increase in the number of reconstructed tracks. In this latter plot, the number of events in which no track is reconstructed is mostly due to the geometrical acceptance (80\%), but part is caused by the reconstruction efficiency, that will be later calculated. \\
 
 \begin{figure}
@@ -1202,10 +1244,10 @@ the correspondent increase in the number of reconstructed tracks. In this latter
 \end{figure}
 
 From the distribution of the number of tracks per event in the $<\mu> = 0$ scenario it is visible
-how the single simulated pion can produce more than one track due to the production of hard secondary particles, that must be produced not too far, otherwise a track would
-not be reconstructed. To see this, the plot in fig.\ref{fig:nSecondaryChargedTruth1GeV} shows the number of secondary charged particles produced by the pion (in the $<\mu> = 0$ scenario)
+how the single simulated pion can produce more than one track due to the production of hard secondary particles, that must be produced not too far in R, otherwise a track would
+not be reconstructed because it would not produce a sufficient number of hits in the detector. The plot in fig.\ref{fig:tracking:nSecondaryChargedTruth1GeV} shows the number of secondary charged particles produced by the pion (in the $<\mu> = 0$ scenario)
 with a 1 GeV cut on the transverse momentum. In the employed sample there are X events in which more than one track is reconstructed and Y events with at least one hard secondary 
-particle is produced, corresponding to a fraction of X/Y of the events. (METTERE NUMERI?)
+particle is produced, corresponding to a fraction of X/Y of the events in which these secondary particles are reconstructed. (METTERE NUMERI QUANDO HO I CAMPIONI?)
 
 \begin{figure}
 \centering
@@ -1218,61 +1260,60 @@ particle is produced, corresponding to a fraction of X/Y of the events. (METTERE
 To identify the "hard-scatter" pion generated with the particle gun we look, among the primary particles, for a match in pdgId and $p_{T}$. The
 track with the minimum $\Delta R$ distance from this particle is \textit{matched} with it if this distance is less than 0.1 and the reconstructed $p_{T}$ is 
 larger than 3 GeV. The chosen value corresponds to the amplitude of the employed
-region of interest and is well larger than the track resolution in $\eta$ and $\phi$. In the other cases a match
+region of interest and is well larger than the track resolution in $\eta$ and $\phi$, which will be shown in sec. \ref{sec:tracking:resolution}. In the other cases a match
 is not found, thus excluding most of the events outside of the geometrical acceptance and those where the pion is not reconstructed and there is no other 
 high $p_{T}$ track that can fake it. There could be cases in which the hard-scatter pion lies beyond the geometrical acceptance but close to the detector edge 
-and a high $p_{T}$ track is reconstructed from the pile-up particles. These cases are included by the employed matching algorithm. The so found matched track
-represent the "hard-scatter" candidate of the event.
+and a high $p_{T}$ track is reconstructed from the pile-up particles. These cases are included by the employed matching algorithm and can potentially contribute
+to the number of fake tracks. The so found matched track
+represent the "hard-scatter" candidate of the event.  
 
 \subsection{Track quality}\label{subsec:tracking:quality}
 
-\subsubsection*{Comparison between matched and unmatched tracks}
+\subsubsection{Comparison between matched and unmatched tracks}
 
 Two parameters that measures the track quality were studied, separately for matched and unmatched tracks (the latter mainly due to pile-up particles), which
 are the \textbf{number of hits} that constitutes the track, and the value of the \textbf{chi square per degree of freedom}. When dealing with the number
-of hits, it is important to remember that each SCT sensor is two-sided, so that the number.\\ CHECK SUL SIGNIFICATO DI HIT??? SCRITTO ANCHE NELLA FISICA
-
-The results are shown in fig.\ref{fig:tracking:nHits}, \ref{fig:tracking:chiSquare}. \\
+of hits, it is important to remember that each SCT module is two-sided, so that it typically produces two hits per layer. The results are shown in fig. \ref{fig:tracking:nHits}, \ref{fig:tracking:chiSquare}. \\
 
 \begin{figure}
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.75\textwidth]{Tracking/nPixHits}
-\label{fig:tracking:nPixHits}
 \caption{}
+\label{fig:tracking:nPixHits}
 \end{subfigure}
 
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.75\textwidth]{Tracking/nSCTHits}
-\label{fig:tracking:nSCTHits}
 \caption{}
+\label{fig:tracking:nSCTHits}
 \end{subfigure}
 
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.75\textwidth]{Tracking/nSiHits}
-\label{fig:tracking:nSiHits}
 \caption{}
+\label{fig:tracking:nSiHits}
 \end{subfigure}
-\label{fig:tracking:nHits}
 \caption{Number of pixel (a), SCT (b) and total (c) hits for matched and unmatched tracks in the sample with a generated pion with $p_{T} = 15\ GeV$ and $<\mu> = 200$, in the ExtBrl4 layout.}
+\label{fig:tracking:nHits}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=.8\textwidth]{Tracking/chiSquarePerDof}
-\label{fig:tracking:chiSquare}
 \caption{Distribution of the $\chi^2/DOF$ for the matched and unmatched tracks in the sample with a generated pion with $p_{T} = 15\ GeV$ and $<\mu> = 200$, in the ExtBrl4 layout.}
+\label{fig:tracking:chiSquare}
 \end{figure}
 
 The hit distributions are quite similar but a tendency of the matched tracks to produce tracks with more hits it is noticeable (especially in the total hits distribution) and expected, because of their larger transverse momentum on average. It is important to note that the shape of these distributions depend on the generated $\eta$ distribution of the hard-scatter particle, which
 also reflects on the $\eta$ distribution of the secondary and pile-up tracks because of the region of interest selection. The $\chi^2/DOF$ distribution of the unmatched tracks is broader and denotes a generally worse quality reconstruction for the secondary 
 and pile-up particles with respect to the hard-scatter pion. \\
 
-\subsubsection*{Track quality of matched tracks}
+\subsubsection{Track quality of matched tracks}
 As a function of the pseudo-rapidity, the distributions of the number of pixel, SCT and total hits are shown for the three layouts in fig.\ref{fig:tracking:nHits_eta_ExtBrl4},
- \ref{fig:tracking:nHits_eta_IExtBrl4}, \ref{fig:tracking:nHits_eta_InclBrl4}. The average number of hits for the three layouts is summarized in tab.\ref{tab:tracking:nHits}. DA AGGIORNARE ? COMMENTO SU EXTBRL4 MENO HIT? A requirement on the total number of hits of 9 for $|\eta_{track}| < 2.4$ and of 5 for $|\eta_{track}| > 2.4$ is present in the reconstruction algorithm
+ \ref{fig:tracking:nHits_eta_IExtBrl4}, \ref{fig:tracking:nHits_eta_InclBrl4}. The average number of hits for the three layouts is summarized in tab.\ref{tab:tracking:nHits}. DA AGGIORNARE ? COMMENTO SU EXTBRL4 MENO HIT? A requirement on the total number of hits of 9 for $|\eta_{track}| < 2.4$ and of 5 for $|\eta_{track}| > 2.4$ is implicit in the reconstruction algorithm
  and is clearly visible in the total number of hits plots. Also, with increasing $|\eta_{track}|$ the distribution of the number of hits becomes broader, which is an indication of the increasing
  difficulty of the reconstruction.  \\
 
@@ -1280,22 +1321,22 @@ As a function of the pseudo-rapidity, the distributions of the number of pixel, 
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.7\textwidth]{Tracking/nPixHits_eta_ExtBrl4}
-\label{fig:tracking:nPixHits_eta_ExtBrl4}
 \caption{}
+\label{fig:tracking:nPixHits_eta_ExtBrl4}
 \end{subfigure}
 
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.7\textwidth]{Tracking/nSCTHits_eta_ExtBrl4}
-\label{fig:tracking:nSCTHits_eta_ExtBrl4}
 \caption{}
+\label{fig:tracking:nSCTHits_eta_ExtBrl4}
 \end{subfigure}
 
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.7\textwidth]{Tracking/nSiHits_eta_ExtBrl4}
-\label{fig:tracking:nSiHits_eta_ExtBrl4}
 \caption{}
+\label{fig:tracking:nSiHits_eta_ExtBrl4}
 \end{subfigure}
 
 \label{fig:tracking:nHits_eta_ExtBrl4}
@@ -1306,51 +1347,50 @@ As a function of the pseudo-rapidity, the distributions of the number of pixel, 
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.7\textwidth]{Tracking/nPixHits_eta_ExtBrl4}
-\label{fig:tracking:nPixHits_eta_IExtBrl4}
 \caption{}
+\label{fig:tracking:nPixHits_eta_IExtBrl4}
 \end{subfigure}
 
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.7\textwidth]{Tracking/nSCTHits_eta_ExtBrl4}
-\label{fig:tracking:nSCTHits_eta_IExtBrl4}
 \caption{}
+\label{fig:tracking:nSCTHits_eta_IExtBrl4}
 \end{subfigure}
 
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.7\textwidth]{Tracking/nSiHits_eta_ExtBrl4}
-\label{fig:tracking:nSiHits_eta_IExtBrl4}
 \caption{}
+\label{fig:tracking:nSiHits_eta_IExtBrl4}
 \end{subfigure}
-
-\label{fig:tracking:nHits_eta_IExtBrl4}
 \caption{Number of pixel (a), SCT (b) and total (c) hits of the matched tracks as a function of the pseudo-rapidity in the sample with a generated pion with $p_{T} = 15\ GeV$ and $<\mu> = 200$, for the IExtBrl4. The content of each $\eta$ bin was independently normalized so that the overall distribution does not depend on the $\eta$ distribution of the track.}
+\label{fig:tracking:nHits_eta_IExtBrl4}
 \end{figure}
 
 \begin{figure}
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.7\textwidth]{Tracking/nPixHits_eta_ExtBrl4}
-\label{fig:tracking:nPixHits_eta_InclBrl4}
 \caption{}
+\label{fig:tracking:nPixHits_eta_InclBrl4}
 \end{subfigure}
 
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.7\textwidth]{Tracking/nSCTHits_eta_ExtBrl4}
-\label{fig:tracking:nSCTHits_eta_InclBrl4}
 \caption{}
+\label{fig:tracking:nSCTHits_eta_InclBrl4}
 \end{subfigure}
 
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.7\textwidth]{Tracking/nSiHits_eta_ExtBrl4}
-\label{fig:tracking:nSiHits_eta_InclBrl4}
 \caption{}
+\label{fig:tracking:nSiHits_eta_InclBrl4}
 \end{subfigure}
-\label{fig:tracking:nHits_eta_InclBrl4}
 \caption{Number of pixel (a), SCT (b) and total (c) hits of the matched tracks as a function of the pseudo-rapidity in the sample with a generated pion with $p_{T} = 15\ GeV$ and $<\mu> = 200$, for the InclBrl4. The content of each $\eta$ bin was independently normalized so that the overall distribution does not depend on the $\eta$ distribution of the track.}
+\label{fig:tracking:nHits_eta_InclBrl4}
 \end{figure}
 
 \begin{table} [h]
@@ -1376,33 +1416,32 @@ considered ITk layouts, no inefficiencies due to dead channels are assumed. \\
 \begin{figure}
 \centering
 \includegraphics[width=.75\textwidth]{Tracking/nPixHoles}
-\label{fig:tracking:nHoles}
 \caption{Number of holes in the pixel system for the three ITk layouts considered, at $<\mu> = 200$ and $p_{T} = 15\ GeV$.}
+\label{fig:tracking:nHoles}
 \end{figure}
 
 The distribution of the average value of the $\chi^{2}/DOF$ in the different $|\eta_{truth}|$ bins is shown in fig.\ref{fig:tracking:chiSqPerDof_eta}. The obtained distribution 
-is correlated to the distribution of the total number of hits, in that the $\chi^{2}/DOF$ increases in the $|\eta$ regions with a larger number of total hits. Also, the value of this variable
-is significantly smaller than 1, which can be an indication of the overestimation of the hit position uncertainties (CHECK with pull??) or of a significant departure from the gaussian model 
-(PIU' PROBABILE?).
+is correlated to the distribution of the total number of hits, in that the $\chi^{2}/DOF$ increases in the $|\eta|$ regions with a larger number of total hits. Also, the value of this variable
+is significantly smaller than 1, which can be an indication of the overestimation of the hit position uncertainties and/or of a significant departure from the gaussian model.
 
 \begin{figure}
 \centering
 \includegraphics[width=.75\textwidth]{Tracking/chiSquarePerDof_eta}
-\label{fig:tracking:chiSqPerDof_eta}
 \caption{Average value of the $\chi^{2}/DOF$ variable for the matched tracks as a function of the track pseudo-rapidity, in the three ITk layouts considered, for a $p_{T} = 15\ GeV$ pion
 and in the $<\mu> = 200$ scenario.}
+\label{fig:tracking:chiSqPerDof_eta}
 \end{figure}
 
 \subsection{Perigee parameters reconstruction}\label{sec:tracking:resolution}
 The reconstruction resolution and bias of the perigee parameters were calculated for different $|\eta_{truth}|$ bins by considering the distributions of the residual between the reconstructed
-variable of interest in the matched track and in the hard-scatter truth:\\
+variable of interest $x$ in the matched track and in the hard-scatter truth:\\
 $$
 \Delta_{x} = x_{matched} - x_{truth}
 $$
 
 only for the events in which a match was found and $|\eta_{truth}| \in bin_{i}$. For each bin, an iterative gaussian fit was performed (appendix \ref{appendix:gaussFit}). The \textbf{resolution}
 is defined as the $\sigma$ parameter extracted from the fit, while the \textbf{bias} is defined as the mean parameter extracted from the fit. The results are shown for the different layouts at
-fixed pion $p_{T} = 15 GeV$ and $<\mu> = 200$ in fig.\ref{fig:tracking:pionResolution}, \ref{fig:tracking:pionBias}. Other cases are shown in appendix \ref{appendix:tracking:resolution}. SCRIVERE ANCHE I CHI2 dei FIT IN APPENDICE?\\
+fixed pion $p_{T} = 15\ GeV$ and $<\mu> = 200$ in fig.\ref{fig:tracking:pionResolution}, \ref{fig:tracking:pionBias}. Other cases are shown in appendix \ref{appendix:tracking:resolution}. SCRIVERE ANCHE I CHI2 dei FIT IN APPENDICE?\\
 
 \begin{figure}
 \begin{subfigure}{.5\linewidth}
@@ -1435,8 +1474,8 @@ fixed pion $p_{T} = 15 GeV$ and $<\mu> = 200$ in fig.\ref{fig:tracking:pionResol
 \caption{}
 \label{fig:tracking:pi15pu200_sigZ0_abseta}
 \end{subfigure}
-\label{fig:tracking:pionResolution}
 \caption{Resolution of the reconstructed perigee parameters for the three ITk layouts considered, in the sample with pion $p_{T} = 15\ GeV$ and $<\mu> = 200$.}
+\label{fig:tracking:pionResolution}
 \end{figure}
 
 
@@ -1471,29 +1510,28 @@ fixed pion $p_{T} = 15 GeV$ and $<\mu> = 200$ in fig.\ref{fig:tracking:pionResol
 \caption{}
 \label{fig:tracking:pi15pu200_sysZ0_abseta}
 \end{subfigure}
-\label{fig:tracking:pionBias}
 \caption{Bias of the reconstructed perigee parameters for the three ITk layouts considered, in the sample with pion $p_{T} = 15\ GeV$ and $<\mu> = 200$.}
+\label{fig:tracking:pionBias}
 \end{figure}
 
 (CONTROLLARE SE HO FATTO LO STESSO DISCORSO IN HZZ4mu) \\
 The results of the resolutions show a substantial decrease of performances with increasing track pseudo-rapidity. This is caused by different effects: 
 
 \begin{itemize}
-\item the decrease of the angle between  the track and the magnetic field causes the particle to describe, for the same $p_{T}$ and thus same curvature radius, a helix with larger pitch, in
-	which is reconstructed with higher uncertainty. This only affects the track $p_{T}$ reconstruction;
+\item the decrease of the angle between  the track and the magnetic field causes the particle to describe, for the same $p_{T}$ and thus same curvature radius, a helix with larger pitch,
+	which is reconstructed with higher uncertainty. This particularly affects the track $p_{T}$ reconstruction;
 \item the decrease of the angle between the track and the beam axis causes the $d_{0}$ and $z_{0}$ reconstruction uncertainties to increase for a purely geometrical reason;
 \item the increase of the angle between the particle and the pixel surface causes the charge to be released in a broader space, producing a longer cluster and thus diminishing the resolution, 
 	especially in the ExtBrl4 layout, which does not implement (at this stage) an optimized reconstruction algorithm;
 \item for the same reason the amount of material traversed by the particle is larger, so the interaction probability and the amount of energy lost by the primary particle is larger, which also causes a resolution decrease.
 \end{itemize}
 
-The increase of the uncertainty is not due to a lack of statistics, which has been avoided by generating the hard-scatter particle with a flat $\eta$ distribution, but to the
+The increase of the uncertainty at high $|\eta|$ is not due to a lack of statistics, which has been avoided by generating the hard-scatter particle with a flat $\eta$ distribution, but to the
 worsening of the gaussian fit quality, which, at high $\eta$, poorly describes the real distribution of the residual.\\
 
-(VEDERE SE è UGUALE PER PI+ E PI-?)
 The results also show significant reconstruction biases for the variables $p_{T}$, $\phi$ and $d_{0}$ in different $|\eta|$ regions. The $p_{T}$ results systematically underestimated in the region
 $|\eta| > 3.0$; 	$\phi$ is underestimated in the region $2.6 < |\eta| < 3.2$ and $d_{0}$  is underestimated in the region $|\eta| < 2.6$. This latter is particularly evident and credible because
-it happens in the central region where the resolution is optimal. This effect was also seen by other research groups and revealed an error in the geometry that was corrected in sequent geometry versions of the Step-1 layouts. 
+it happens in the central region where the resolution is optimal. This effect was also seen by other research groups and revealed an error in the geometry that was corrected in sequent geometry versions of the Step-1 layouts (VERO?). 
 The resolution as a function of the hard-scatter pion $p_{T}$ is shown in fig.\ref{fig:tracking:pionResolutionPt}, for the ExtBrl4 layout, in the $<\mu> = 200$ scenario. (ALTRI IN APPENDICE?).\\ 
 
 \begin{figure}
@@ -1527,8 +1565,8 @@ The resolution as a function of the hard-scatter pion $p_{T}$ is shown in fig.\r
 \caption{}
 \label{fig:tracking:pipu200_sigZ0_abseta}
 \end{subfigure}
-\label{fig:tracking:pionResolutionPt}
 \caption{Resolution of the reconstructed perigee parameters for the ExtBrl4 layout, in the $<\mu> = 200$ scenario, as a function of the generated pion $p_{T}$.}
+\label{fig:tracking:pionResolutionPt}
 \end{figure}
 
 The resolution as a function of the average number of pile-up events is shown in fig.\ref{fig:tracking:resolutionPileup_ExtBrl4}, \ref{fig:tracking:resolutionPileup_IExtBrl4}, \ref{fig:tracking:resolutionPileup_InclBrl4}. COMMENTO ROBUSTEZZA?
@@ -1564,8 +1602,8 @@ The resolution as a function of the average number of pile-up events is shown in
 \caption{}
 \label{fig:tracking:pi15_sigZ0_abseta_ExtBrl4}
 \end{subfigure}
-\label{fig:tracking:resolutionPileup_ExtBrl4}
 \caption{Resolution of the reconstructed perigee parameters for the $p_{T} = 15\ GeV$ sample, for the different pile-up scenarios in the ExtBrl4 layout.}
+\label{fig:tracking:resolutionPileup_ExtBrl4}
 \end{figure}
 
 \begin{figure}
@@ -1599,8 +1637,8 @@ The resolution as a function of the average number of pile-up events is shown in
 \caption{}
 \label{fig:tracking:pi15_sigZ0_abseta_IExtBrl4}
 \end{subfigure}
-\label{fig:tracking:resolutionPileup_IExtBrl4}
 \caption{Resolution of the reconstructed perigee parameters for the $p_{T} = 15\ GeV$ sample, for the different pile-up scenarios in the IExtBrl4 layout.}
+\label{fig:tracking:resolutionPileup_IExtBrl4}
 \end{figure}
 
 \begin{figure}
@@ -1634,8 +1672,8 @@ The resolution as a function of the average number of pile-up events is shown in
 \caption{}
 \label{fig:tracking:pi15_sigZ0_abseta_InclBrl4}
 \end{subfigure}
-\label{fig:tracking:resolutionPileup_InclBrl4}
 \caption{Resolution of the reconstructed perigee parameters for the $p_{T} = 15\ GeV$ sample, for the different pile-up scenarios in the InclBrl4 layout.}
+\label{fig:tracking:resolutionPileup_InclBrl4}
 \end{figure}
 
 Another quantity of interest to assess the correct uncertainty estimation and the correctness of the geometry is the significance of the parameters, defined as:
@@ -1645,11 +1683,11 @@ $$
 
 where $x_{err}$ is the uncertainty on the variable $x$ as estimated from the fit. If the variable is gaussian distributed, this distribution should be compatible with
 a standard gaussian distribution. In fig.\ref{fig:tracking:pull}, for the sample with a $p_{T} = 15\ GeV$ generated pion, $<\mu> = 200$ in the ExtBrl4 layout, the significance is shown for the different
-perigee parameters. The results show a general overestimation of the fit error, that causes the an estimated $\sigma$ significantly smaller than one and confirm the presence of 
-a negative bias, especially in the $d_{0}$ reconstruction. BIAS VISIBILE SOLO IN EXT O ANCHE NEGLI ALTRI?\\
+perigee parameters. The results show a general overestimation of the fit uncertainty, that causes the estimated $\sigma$ significantly smaller than 1 and confirm the presence of 
+a negative bias, especially in the $d_{0}$ reconstruction. BIAS VISIBILE SOLO IN EXT O ANCHE NEGLI ALTRI? This could also partially explain the systematically $\chi^2/DOF < 1$ measured in
+fig.\ref{fig:tracking:chiSqPerDof_eta}.\\
 
 \begin{figure}
-
 \begin{subfigure}{.5\linewidth}
 \includegraphics[width=\textwidth]{Tracking/eta_pull}
 \caption{}
@@ -1671,23 +1709,204 @@ a negative bias, especially in the $d_{0}$ reconstruction. BIAS VISIBILE SOLO IN
 \label{fig:tracking:z0_pull}
 \end{subfigure}
 
-\label{fig:tracking:pull}
 \caption{Distribution of the significance of the different reconstructed perigee parameters, in the sample with $p_{T} = 15\ GeV$ and $<\mu> = 200$, for the ExtBrl4 layout. The
 uncertainties shown are taken from the fit covariance matrix.}
+\label{fig:tracking:pull}
 \end{figure}
 
 \subsection{Fake probability}
-There is no unique way to define a fake track. The standard way to define a fake in the ITk community is based on the determination of the fraction of hits common to the track and the truth divided by the number of total hits, with the pixel hits being weighed twice with respect to the SCT hits\footnote{A different weigh is applied because every hit on a SCT sensor only gives two coordinates, so that both sides of the strip are typically needed to form a good space point.}: \\
+There is no unique way to define a fake track, which should in general represent a track that was badly reconstructed. As the samples were produced using a fast simulation technique that
+only includes the particles inside a region of interest around the generated hard-scatter particle, it is not possible to measure the total fake rate but only what will from now on be referred
+as the \textbf{fake probability}, which is defined as the probability of a matched track to be fake. The standard way to define a fake track in the ITk community is based on the determination of the fraction of hits common to the track and the truth divided by the number of total hits, with the pixel hits being weighed twice with respect to the SCT hits\footnote{A different weigh is applied because every hit on a SCT sensor only gives two coordinates, so that both sides of the strip are typically needed to form a good space point.}: \\
 $$
 f = \frac{N_{pixel, common} + 1/2 N_{SCT, common}}{N_{pixel, tot} + 1/2 N_{SCT, tot}}
 $$
 
-A fake track is defined as a track with $f < 50\%$. Unfortunately the detailed information on the clusters is lost in the xAOD file and such analysis should be performed directly on the AOD file
-which is produced at the end of the reconstruction stage. A different definition was studied, which is based on the distribution of the $\Delta R$ distance between the matched track and
-the hard-scatter pion. 
+In this definition, a fake track is defined as a track with $f < 50\%$. Unfortunately the detailed information on the clusters is lost in the xAOD file and such analysis should be performed directly on the AOD file
+which is produced at the end of the reconstruction stage\footnote{A software package based on the InDetPhysValMonitoring package was used to measure the fraction of fake tracks (matched and unmatched) using this definition. The results were around the $3\cdot 10^{-4}$ level, but they are not realistic because of the region of interest selection applied in these samples.}. An alternative criteria was then studied, which is an operative definition based on the distribution of the $\Delta R$ distance between the matched track and
+the hard-scatter pion. From the plot in fig.\ref{fig:tracking:pionMatchingDR}, which refers to a sample with a $p_{T} = 15\ GeV$ generated pion, $<\mu> = 0$ in the ExtBrl4 layout, shows 
+that two $\Delta R$ regions are identifiable. In the region with $\Delta R_{truth-track} < 0.02$ there is an approximately exponential decrease, whereas at the right of that region the distribution is approximately flat. This critical value has been measured in all the samples and appeared to only depend on the $p_{T}$ of the generated pion. In particular, for the samples with a generated pion of $p_{T} = 5\ GeV$ this value was 0.04, for $p_{T} = 15\ GeV$ it was 0.02, for $p_{T} = 50\ GeV$ it was 0.01 and for $p_{T} = 100\ GeV$ the measured value was ???. No significant dependence on the average number of pile-up events or the layout was observed. By defining
+a \textbf{fake track} as a track in which the $\Delta R$ distance between the matched track and the hard-scatter truth is larger than this critical value, we are essentially selecting the tracks
+which are reconstructed with a distance from the hard-scatter truth which is large compared to the track angular resolution. As this resolution also depend on $\eta$, as was seen in fig.
+\ref{fig:tracking:pi15pu200_sigEta_abseta}, \ref{fig:tracking:pi15pu200_sigPhi_abseta}, the found critical value is an average over the whole angular spectrum.\\
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{Tracking/pionMatchingDR}
+\caption{$\Delta R$ distance between the matched track and the hard-scatter pion, at $p_{T} = 15\ GeV$, $<\mu> = 0$.} 
+\label{fig:tracking:pionMatchingDR}
+\end{figure}
+
+
+The dependence of the fake probability on the track pseudo-rapidity is shown, for the ExtBrl4 layout, in fig.\ref{fig:tracking:fakeProb_abseta}, for a generated pion with $p_{T} = 15\ GeV$, for 
+different values of $<\mu>$. Due to the small fake probability and statistics, no significant dependence on the average number of pile-up events is observed in any $\eta$ bin. To minimize
+the uncertainty, the fake probability has also been computed by integrating over the whole $\eta$ spectrum. Tab.\ref{tab:tracking:fakeProbability} summarizes the results for the three layouts considered, as a function of the generated pion $p_{T}$ and average number of pile-up events. (COMMENTO ROBUSTEZZA E CONFRONTO LAYOUT?)\\ 
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{Tracking/ExtBrl4/pi15_fakeProb_abseta}
+\caption{Fake probability as a function of the hard-scatter pion pseudo-rapidity for the ExtBrl4 layout, pion $p_{T} = 15\ GeV$, as a function of $<\mu>$.} 
+\label{fig:tracking:fakeProbability}
+\end{figure}
+
+\begin{table}
+{\tabulinesep=1.2mm
+   \begin{tabu}{ c | c || c | c | c }
+\boldmath$p_{T}$ & \boldmath$<\mu>$ & \textbf{ExtBrl4} & \textbf{IExtBrl4} & \textbf{InclBrl4} \\ \hline \hline
+\multirow{4}{*}{15 GeV}  & 0 & 1.49 $\pm$ 0.09 \% & 1.49 $\pm$ 0.09 \% & 1.49 $\pm$ 0.09 \%\\ \cline{2-5}
+ & 50 & 1.49 $\pm$ 0.06 \% & 1.49 $\pm$ 0.06 \% & 1.49 $\pm$ 0.06 \%\\ \cline{2-5}
+ & 140 & 1.46 $\pm$ 0.06 \% & 1.46 $\pm$ 0.06 \% & 1.46 $\pm$ 0.06 \%\\ \cline{2-5}
+ & 200 & 1.43 $\pm$ 0.06 \% & 1.43 $\pm$ 0.06 \% & 1.43 $\pm$ 0.06 \%\\ \hline
+\multirow{4}{*}{15 GeV}  & 0 & 1.49 $\pm$ 0.09 \% & 1.49 $\pm$ 0.09 \% & 1.49 $\pm$ 0.09 \%\\ \cline{2-5}
+ & 50 & 1.49 $\pm$ 0.06 \% & 1.49 $\pm$ 0.06 \% & 1.49 $\pm$ 0.06 \%\\ \cline{2-5}
+ & 140 & 1.46 $\pm$ 0.06 \% & 1.46 $\pm$ 0.06 \% & 1.46 $\pm$ 0.06 \%\\ \cline{2-5}
+ & 200 & 1.43 $\pm$ 0.06 \% & 1.43 $\pm$ 0.06 \% & 1.43 $\pm$ 0.06 \%\\ \hline
+\multirow{4}{*}{15 GeV}  & 0 & 1.49 $\pm$ 0.09 \% & 1.49 $\pm$ 0.09 \% & 1.49 $\pm$ 0.09 \%\\ \cline{2-5}
+ & 50 & 1.49 $\pm$ 0.06 \% & 1.49 $\pm$ 0.06 \% & 1.49 $\pm$ 0.06 \%\\ \cline{2-5}
+ & 140 & 1.46 $\pm$ 0.06 \% & 1.46 $\pm$ 0.06 \% & 1.46 $\pm$ 0.06 \%\\ \cline{2-5}
+ & 200 & 1.43 $\pm$ 0.06 \% & 1.43 $\pm$ 0.06 \% & 1.43 $\pm$ 0.06 \%\\ \hline
+\multirow{4}{*}{15 GeV}  & 0 & 1.49 $\pm$ 0.09 \% & 1.49 $\pm$ 0.09 \% & 1.49 $\pm$ 0.09 \%\\ \cline{2-5}
+ & 50 & 1.49 $\pm$ 0.06 \% & 1.49 $\pm$ 0.06 \% & 1.49 $\pm$ 0.06 \%\\ \cline{2-5}
+ & 140 & 1.46 $\pm$ 0.06 \% & 1.46 $\pm$ 0.06 \% & 1.46 $\pm$ 0.06 \%\\ \cline{2-5}
+ & 200 & 1.43 $\pm$ 0.06 \% & 1.43 $\pm$ 0.06 \% & 1.43 $\pm$ 0.06 \%\\ \hline 
+\end{tabu}}
+	\caption{Average fake probability as a function of the layout, generated pion $p_{T}$ and $<\mu>$.}
+	\label{tab:tracking:fakeProbability}
+\end{table}
+
+\subsubsection{Region of interest size study}
+By definition, the fake probability should become asymptotically independent on the size of the region of interest selected in the fast simulation. When the size is small, however,
+a dependence could emerge for several reasons, that also depend on the chosen definition of fake track. The chosen size of the region of interest, which is a cone with $\Delta R = 0.1$, 
+has first of all to be compared with the resolutions in $\eta$ and $\phi$ measured in sec.\ref{sec:tracking:resolution} and is typically at least two order of magnitude larger. However, as the 
+main contribution to fake hits from pile-up particles emerges in the innermost pixel layers, the resolution is not the only important parameter but the optimal size should take into account 
+the particular detector geometry, especially the radius of the first pixel layers. Moreover, low $p_{T}$ pile-up particles which are initially distant in $\Delta R$ from the
+generated hard-scatter truth could be significantly deflected by the magnetic field and potentially produce hits near the hard-scatter particle. This effect is expected to become less and less
+significant with increasing size of the region of interest. A study on the dependence of the fake probability on this size was carried out by generating a sample with larger cone $\Delta R = 0.2$.
+The time required by the simulation increases approximately with the square of the cone size, so that it becomes soon difficult to produce samples with the large statistics necessary to assess
+a difference on the fake probability, which is also quite low. These samples were produced before the publication of the Step-1 layouts, with a similar layout that was proposed in the
+ATLAS Letter of Intent Document\cite{loi}, in the $<\mu> = 200$ scenario. The measured fake probability was $0.59 \pm 0.05\ \%$ for the $\Delta R = 0.1$ sample and $0.63 \pm 0.05\ \%$,
+which shows compatibility within the statistical uncertainties. Unfortunately, the uncertainty is quite high due to the small fake probability, even with the relatively high statistics generated ($5\cdot 10^{4}$
+events). However, no critical increase was measured, which is an indication of the correctness of the chosen cone size value.
 
 \subsection{Efficiency}
+The track reconstruction efficiency is defined, as a function of $\eta$ or $\phi$, as the probability of the track being correctly reconstructed (thus excluding the fake tracks) given that
+the hard scatter particle's $\eta$ or $\phi$ is in a certain bin and within the detector acceptance. Thus, it is operatively computed as the ratio, for each bin, of the $\eta$ or $\phi$ distribution
+of the matched tracks and the hard scatter truth, the latter being filled exclusively for the events within the geometrical acceptance. The results are shown for the three layouts, in the
+sample with a generated pion with $p_{T} = 15\ GeV$, $<\mu> = 200$ in fig.\ref{fig:tracking:effLayout}. The efficiencies are also shown as a function of the generated pion $p_{T}$ and $<\mu>$ for the ExtBrl4 layout in fig.\ref{fig:tracking:effPt}, \ref{fig:tracking:effPileup}. The uniformity of the efficiency in $\phi$ was tested with a $\chi^{2}$ test for the three layouts, that 
+showed compatibility with a p-value of around 20\%. The total efficiency has also been computed by dividing the number of matched tracks by the number of total hard-scatter truth within
+the detector acceptance. The results are summarized in tab.\ref{tab:tracking:totalEfficiency}. (COMMENTO QUANDO SONO PRONTI I CAMPIONI).\\
 
+\begin{figure}
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_eff_abseta}
+\caption{} 
+\label{fig:tracking:pi15pu200_eff_abseta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_eff_phi}
+\caption{} 
+\label{fig:tracking:pi15pu200_eff_phi}
+\end{subfigure}
+\caption{Pion reconstruction efficiency in the three ITk layouts considered, in the sample with a generated $p_{T} = 15\ GeV$ and $<\mu> = 200$.}
+\label{fig:tracking:effLayout}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_eff_abseta}
+\caption{} 
+\label{fig:tracking:pipu200_eff_abseta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pipu200_eff_phi}
+\caption{} 
+\label{fig:tracking:pipu200_eff_phi}
+\end{subfigure}
+\caption{Pion reconstruction efficiency in the ExtBrl4 layout, in the sample with $<\mu> = 200$, as a function of the generated pion $p_{T}$.}
+\label{fig:tracking:effPt}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pi15_eff_abseta}
+\caption{} 
+\label{fig:tracking:pi15_eff_abseta}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pi15_eff_phi}
+\caption{} 
+\label{fig:tracking:pi15_eff_phi}
+\end{subfigure}
+\caption{Pion reconstruction efficiency in the ExtBrl4, in the sample with a generated $p_{T} = 15\ GeV$, as a function of $<\mu>$.}
+\label{fig:tracking:effPileup}
+\end{figure}
+
+\begin{table}
+{\tabulinesep=1.2mm
+   \begin{tabu}{ c | c || c | c | c }
+\boldmath$p_{T} (GeV)$ & \boldmath$<\mu>$ & \textbf{ExtBrl4} & \textbf{IExtBrl4} & \textbf{InclBrl4} \\ \hline \hline
+ \multirow{4}{*}{15 GeV}  & 0 & 93.3 $\pm$ 0.2 \% & 93.3 $\pm$ 0.2 \% & 93.3 $\pm$ 0.2 \%\\ \cline{2-5}
+ & 50 & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \%\\ \cline{2-5}
+ & 140 & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \%\\ \cline{2-5}
+ & 200 & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \%\\ \hline
+\multirow{4}{*}{15 GeV}  & 0 & 93.3 $\pm$ 0.2 \% & 93.3 $\pm$ 0.2 \% & 93.3 $\pm$ 0.2 \%\\ \cline{2-5}
+ & 50 & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \%\\ \cline{2-5}
+ & 140 & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \%\\ \cline{2-5}
+ & 200 & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \%\\ \hline
+\multirow{4}{*}{15 GeV}  & 0 & 93.3 $\pm$ 0.2 \% & 93.3 $\pm$ 0.2 \% & 93.3 $\pm$ 0.2 \%\\ \cline{2-5}
+ & 50 & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \%\\ \cline{2-5}
+ & 140 & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \%\\ \cline{2-5}
+ & 200 & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \%\\ \hline
+\multirow{4}{*}{15 GeV}  & 0 & 93.3 $\pm$ 0.2 \% & 93.3 $\pm$ 0.2 \% & 93.3 $\pm$ 0.2 \%\\ \cline{2-5}
+ & 50 & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \%\\ \cline{2-5}
+ & 140 & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \%\\ \cline{2-5}
+ & 200 & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \% & 93.4 $\pm$ 0.1 \%\\ \hline
+\end{tabu}}
+	\caption{Total reconstruction efficiency as a function of the layout, generated pion $p_{T}$ and $<\mu>$.}
+	\label{tab:tracking:totalEfficiency}
+\end{table}
+\newpage
+
+It was also verified that no significant dependence of the efficiency on the hard-scatter particle charge existed. The results were also compared with
+the Letter of Intent Document\cite{loi} layout, which was different in the geometry (4 pixel + 5 SCT layers) but essentially confirm the plausibility of the results (see fig.\ref{fig:tracking:loiEfficiencies}).
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{Tracking/loiEfficiencies}
+\caption{Efficiency of single muons, pions and electrons in the Letter Of Intent Document\cite{loi} layout, with $p_{T} = 5\ GeV$ and $<\mu> = 200$.}
+\label{fig:tracking:loiEfficiencies}
+\end{figure} 
+
+
+\subsection{Muon study}
+As the study presented
+in the next section uses muons as primary generated particles, it is interesting to measure their reconstruction efficiency. A sample of 
+single muons with $p_{T} = 50\ GeV$ and $<\mu> = 200$ was generated, and the efficiency as a function of the muon pseudo-rapidity is
+shown in fig.\ref{fig:tracking:muonEff_abseta}. The efficiency is essentially 100\% in all $\eta$ regions, except for the very forward region in which it starts to drop.
+The difference with respect to the pion reconstruction is due to the absence of strong interactions. This is also confirmed by the Letter of Intent\cite{loi} results shown in fig.\ref{fig:tracking:loiEfficiencies}.\\
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{Tracking/muonEff_abseta}
+\caption{Efficiency of single muons with $p_{T} = 50\ GeV$ and $<\mu> = 200$ in the InclBrl4 layout.}
+\label{fig:tracking:muonEff_abseta}
+\end{figure} 
+
+The distribution of the $\Delta R$ between the matched tracks and the hard-scatter truth was also studied, and revealed essentially no fake tracks. The distribution is
+shown in fig.\ref{fig:tracking:muonMatchedDR}.
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{Tracking/muonMatchedDR}
+\caption{Distribution of the $\Delta R$ distance between the matched tracks and the hard-scatter muon, in the sample with a muon with $p_{T} = 50\ GeV$, $<\mu> = 200$, in the InclBrl4 layout.}
+\label{fig:tracking:muonMatchedDR}
+\end{figure} 
 
 \newpage
 
@@ -1695,7 +1914,7 @@ the hard-scatter pion.
 In this section the fast simulation technique described in sec.\ref{sec:physicsSimulation} is
 applied to the study of the physics process $ggF\ H \rightarrow ZZ^* \rightarrow 4\mu$. ITk performances are here compared for the three layouts described in sec.\ref{sec:tracking} 
 in mass resolution, track perigee parameters (see appendix \ref{appendix:perigee}) (CHECK?) resolution, efficiency, fake probability
-and track quality.
+and track quality.\\
 
 \subsection{Motivations of the study}
 Measurements of the Higgs boson will be an important goal of the HL-LHC physics programme, both to establish its Standard Model nature by measuring its properties and to 
@@ -1751,7 +1970,7 @@ Furthermore, a simplified version of the Run 1 Z mass constraint is applied, con
 the $p_T$ resolution instead of the full covariance matrix. The overall acceptance of this channel is shown in Fig.\ref{fig:scopingHZZ4muAcceptance}, from which it is inferable an 
 acceptance gain of 21 \% thanks to the coverage extension of the present detector from $|\eta| < 2.7$ to 
 $|\eta| < 4.0$. The results of the analysis are shown in Fig.\ref{fig:scopingHZZ4muMassResolution},\ref{fig:scopingHZZ4muNEvents}, where the 
-performances of the three layouts proposed in the Scoping Document are compared. 
+performances of the three layouts proposed in the Scoping Document are compared. \\
 
 \begin{figure} [h]
 	\centering
@@ -1787,7 +2006,7 @@ frequent way ($\sim$ 86\% of the total cross section at 13 TeV) in which the Hig
 associated production of other physics objects (usually jets). The other production modes have not been taken
 into account for simplicity, thus assuming a 100\% rejection power. The only background considered is the irreducible $ZZ^{(*)}$, 
 in which each Z boson decays into two muons. The inclusion of other backgrounds are expected to 
-result in a small change on the final result\cite{scoping}. (IL SECONDO FONDO PIu IMPORTANTE SAREBBE Z + jets?).\\
+result in a small change on the final result\cite{scoping}. (IL SECONDO FONDO PIu IMPORTANTE SAREBBE Z + jets?).
 
 \subsubsection{Higgs generation}
 
@@ -1795,7 +2014,7 @@ The Higgs boson samples were generated by the Powheg generator at 13 TeV (to mak
 Run-2 analysis) with a 
 relativistic Breit-Wigner distribution with mean $125\ GeV$ and $\Gamma = 4\ MeV$ (Full
 width at half maximum), which 
-is shown in Fig.\ref{fig:HZZ4mu:generatedHiggs} with its generated $p_T$ and $\eta$ distributions.
+is shown in Fig.\ref{fig:HZZ4mu:generatedHiggs} with its generated $p_T$ and $\eta$ distributions.\\
 
 \begin{figure}
 \begin{subfigure}{.5\linewidth}
@@ -1836,7 +2055,7 @@ producing events in selected kinematic regions. In particular, a minimum cut on 
 the Drell-Yan produced $Z^*$ boson was applied at $12\ GeV$, and a cut on the mass of the four muon
 system between $50\ GeV$ and $160\ GeV$. The values of these cuts were chosen so that no events were excluded that could
 have been accepted by the analysis. The distribution of the generated masses is shown 
-in Fig.\ref{fig:ZZ4mu:genMasses}.
+in Fig.\ref{fig:ZZ4mu:genMasses}.\\
 
 \begin{figure}
 \begin{subfigure}{.5\linewidth}
@@ -1895,7 +2114,7 @@ in order to account for the system invariant mass underestimation due to the pre
 unreconstructed photons, with a $p_T$ threshold of $1.5\ GeV$\cite{HZZ4mu_run1}. Assuming that the same
 is applicable under the HL-LHC conditions at ATLAS, events with no photons above said 
 threshold are also included into the generated Higgs boson sample. The $\eta$ distribution
-and the $\Delta R$ distance of the photon from the muon after the $p_T$ cut is shown in Fig.\ref{fig:HZZ4mu:genPhotonsAfterCut}.
+and the $\Delta R$ distance of the photon from the muon after the $p_T$ cut is shown in Fig.\ref{fig:HZZ4mu:genPhotonsAfterCut}.\\
 
 \begin{figure}
 \centering
@@ -1945,7 +2164,7 @@ The kinematics of the muons passing the above generation selection for the
 signal sample is shown in 
 Fig.\ref{fig:HZZ4mu:muonKinematics}. In particular, a geometrical acceptance of 94.1\%
 is inferable from the number of events in which all muons are within the detector
-coverage.
+coverage.\\
 
 
 \begin{figure}
@@ -1980,8 +2199,6 @@ coverage.
         	        }
 \label{fig:HZZ4mu:muonKinematics}
 \end{figure}
-
-(ALTRO PLOT PER FAR VEDERE CHI E' USCITO DALL'ACCETTANZA? può essere interessante?)
 
 Samples of $5 \cdot 10^4$ events were produced from the selected generated events by running
 the simulation/digitization/reconstruction chain described in sec.\ref{sec:simulation}, in the
@@ -2159,7 +2376,7 @@ tab.\ref{tab:cutEfficiency}, \ref{tab:cutEfficiency27}, \ref{tab:cutEfficiency32
 \textbf{Total efficiency} & \color{dred} 0.548 & \color{dred} 0.332 & \color{dred} 0.565 & \color{dred} 0.345 & \color{dred} 0.566 & \color{dred} 0.344 \\ \hline 
 \end{tabular}}
 	\caption{Relative and total cut efficiencies for the three ITk layouts considered. Relative efficiencies are defined as the fraction of events passing the cuts from the
-	previous step, while the total efficiency is the fraction of events passing all the cuts with respect to the total number of generated events. The error on the total efficiency is not shown for graphical 
+	previous step, while the total efficiency is the fraction of events passing all the cuts with respect to the total number of generated events. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.002 for the Higgs sample and 0.003 for the ZZ sample.}
 	\label{tab:cutEfficiency}
 \end{table}
@@ -2187,7 +2404,7 @@ tab.\ref{tab:cutEfficiency}, \ref{tab:cutEfficiency27}, \ref{tab:cutEfficiency32
 	\caption{Relative and total cut efficiencies for the three ITk layouts considered, only for the
 		events with $|\eta^\mu_{max}| < 2.7$. Relative efficiencies are defined as the fraction of events passing the cuts from the
 	previous step. Partial efficiency is the fraction of events passing all the cuts with respect to the total number of generated events in the kinematic region. Total efficiency is the
-	fraction of events passing all the cuts with respect to the total number of generated events. The error on the total efficiency is not shown for graphical 
+	fraction of events passing all the cuts with respect to the total number of generated events. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.003 for the Higgs sample and 0.005 for the ZZ sample.}
 	\label{tab:cutEfficiency27}
 \end{table}
@@ -2216,7 +2433,7 @@ tab.\ref{tab:cutEfficiency}, \ref{tab:cutEfficiency27}, \ref{tab:cutEfficiency32
 	\caption{Relative and total cut efficiencies for the three ITk layouts considered, only for the
 		events with $2.7 < |\eta^\mu_{max}| < 3.2$. Relative efficiencies are defined as the fraction of events passing the cuts from the
 	previous step. Partial efficiency is the fraction of events passing all the cuts with respect to the total number of generated events in the kinematic region. Total efficiency is the
-	fraction of events passing all the cuts with respect to the total number of generated events. The error on the total efficiency is not shown for graphical 
+	fraction of events passing all the cuts with respect to the total number of generated events. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.006 for the Higgs sample and 0.01 for the ZZ sample.}
 	\label{tab:cutEfficiency32}
 \end{table}
@@ -2245,7 +2462,7 @@ tab.\ref{tab:cutEfficiency}, \ref{tab:cutEfficiency27}, \ref{tab:cutEfficiency32
 	\caption{Relative and total cut efficiencies for the three ITk layouts considered, only for the
 		events with $3.2 < |\eta^\mu_{max}| < 4.0$. Relative efficiencies are defined as the fraction of events passing the cuts from the
 	previous step. Partial efficiency is the fraction of events passing all the cuts with respect to the total number of generated events in the kinematic region. Total efficiency is the
-	fraction of events passing all the cuts with respect to the total number of generated events. The error on the total efficiency is not shown for graphical 
+	fraction of events passing all the cuts with respect to the total number of generated events. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.006 for the Higgs sample and 0.007 for the ZZ sample.}
 	\label{tab:cutEfficiency4}
 \end{table}
@@ -2270,7 +2487,7 @@ which can be indication of resolution degradation, but it is not statistically s
 \boldmath$<\mu> = 0$   & 0.551  &  0.332  & 0.567  &  0.348  & 0.568  &  0.347 \\ \hline
 \boldmath$<\mu> = 200$   &   0.548 &  0.332 &  0.565 &  0.345 &  0.566 & 0.344 \\ \hline
 	\end{tabular}}
-	\caption{Total cut efficiencies for the three ITk layouts considered and two pile-up scenarios. The error on the total efficiency is not shown for graphical 
+	\caption{Total cut efficiencies for the three ITk layouts considered and two pile-up scenarios. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.002 for the Higgs sample and 0.003 for the ZZ sample.}
 	\label{tab:cutEfficiencyPU}
 \end{table}
@@ -2285,7 +2502,7 @@ which can be indication of resolution degradation, but it is not statistically s
 \boldmath$<\mu> = 200$   &  0.657 & 0.480 & 0.659 & 0.480 & 0.661 & 0.480 \\ \hline
 	\end{tabular}}
 	\caption{Total cut efficiencies for the three ITk layouts considered and two pile-up scenarios, only for the
-		events with $|\eta^\mu_{max}| < 2.7$. The error on the total efficiency is not shown for graphical 
+		events with $|\eta^\mu_{max}| < 2.7$. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.003 for the Higgs sample and 0.005 for the ZZ sample.}
 	\label{tab:cutEfficiencyPU27}
 \end{table}
@@ -2300,7 +2517,7 @@ which can be indication of resolution degradation, but it is not statistically s
 \boldmath$<\mu> = 200$   &  0.448 & 0.33 &  0.513 & 0.38 &  0.516 &  0.38 \\ \hline
 	\end{tabular}}
 	\caption{Total cut efficiencies for the three ITk layouts considered and two pile-up scenarios, only for the
-		events with $2.7 < |\eta^\mu_{max}| < 3.2$. The error on the total efficiency is not shown for graphical 
+		events with $2.7 < |\eta^\mu_{max}| < 3.2$. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.006 for the Higgs sample and 0.01 for the ZZ sample.}
 	\label{tab:cutEfficiencyPU32}
 \end{table}
@@ -2315,7 +2532,7 @@ which can be indication of resolution degradation, but it is not statistically s
 \boldmath$<\mu> = 200$   & 0.289  &  0.196  & 0.343  &  0.227  & 0.343  &  0.220 \\ \hline
 	\end{tabular}}
 	\caption{Total cut efficiencies for the three ITk layouts considered and two pile-up scenarios, only for the
-		events with $3.2 < |\eta^\mu_{max}| < 4.0$. The error on the total efficiency is not shown for graphical 
+		events with $3.2 < |\eta^\mu_{max}| < 4.0$. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.006 for the Higgs sample and 0.007 for the ZZ sample.}
 	\label{tab:cutEfficiencyPU4}
 \end{table}
