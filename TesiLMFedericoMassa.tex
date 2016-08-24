@@ -369,14 +369,14 @@ to discover or improve the current limits on new physics.\\
 This section briefly describes some of the physics channels that will mostly benefit
 from the high luminosity phase.
 
-\subsection{Measurements of the Higgs boson}
-One of the main topics of interest is the study of the Higgs boson properties, the precise determination of its characteristics
-and of its couplings to fermions and vector bosons\cite{loi}. \\
+\subsection{Measurements of the Higgs boson properties}
+The most important part of the physics programme at the HL-LHC is probably the study of the Higgs boson, with the precise determination of its characteristics, 
+and its couplings to fermions and vector bosons\cite{loi}. \\
 
 At LHC the Higgs boson is produced in several processes, shown in Fig.\ref{fig:HiggsProductionFeynman}, with
-the dominant one being the gluon-gluon fusion, as can be seen in Fig.\ref{fig:HiggsProductionCrossSection}. It is observed
+the dominant one being the gluon-gluon fusion, as can be seen in Fig.\ref{fig:HiggsProductionCrossSection}. It can be observed
 in a large number of final states, whose SM branching ratios are shown in Fig.\ref{fig:HiggsBranchingRatio}. There are, however, models that
-predict Higgs bosons with couplings that can be different to the ones described in the
+predict Higgs bosons with couplings that can be different from the ones described in the
 SM, for example in some models predicting other heavy Higgs states. For this reason, an important goal of future studies is
 to measure the Higgs couplings as precisely as possible to search for potential new physics. \\
 
@@ -408,7 +408,6 @@ ratios of the SM Higgs boson as a function of its mass, with the measured mass r
 \label{fig:test}
 \end{figure}
 
-==================================
 The large value of the luminosity at HL-LHC will allow to study the Higgs boson in a large number of
 production and decay modes. Fig.\ref{fig:HiggsStrengths} shows the precision on the measurement
 of the signal strength in each of them. The table in fig.\ref{fig:HiggsTable} summarizes
@@ -417,23 +416,39 @@ dominated by the experimental contribution at 300 $fb^{-1}$ it is expected that
 they will be dominated by
 the theoretical contribution at 3000 $fb^{-1}$, assuming the current precision on
 the models. The dominant production mode, $gg \rightarrow H$, is expected to reach
-a precision of around 4\%, which is very close to the limit imposed by the luminosity 
+an experimental precision of around 4\%, which is very close to the limit imposed by the luminosity 
 measurement, 3\%, providing an important test of the Standard Model. Besides, cross
 sections of rare production modes, like $t\bar{t}H$ will be
-measured with an expected precision around 10\%.  \\
+measured with an expected precision around 10\%. The channels that most profit from the
+luminosity upgrade in terms of measurement accuracy are the $\gamma\gamma$ and $ZZ^*$
+as in those channels the uncertainties are dominated by statistics. In other cases, such as in $WH/ZH, H \rightarrow b\bar{b}$ both the jet
+energy resolution and the rejection of light jets are crucial for the calculation, and suffer from
+the high pileup environment. \\
 
 The data that will be gathered during the HL-LHC programme will also allow to
 measure many different Higgs couplings with a good precision. The results, extrapolated
-at 300 $fb^{-1}$ and 3000 $fb^{-1}$ are shown in fig.\ref{fig:higgsCouplings}.
+at 300 $fb^{-1}$ and 3000 $fb^{-1}$ are shown in fig.\ref{fig:higgsCouplings}.\\
 
 
 
 \begin{figure} [h]
+\begin{subfigure}{.5\linewidth}
 	\centering
-	\includegraphics[width=.5\textwidth]{HiggsStrengthsDetail}
-	\caption{Expected measurement precision of the signal strength $\mu = (\sigma \times BR)/(\sigma \times BR)_{SM}$\cite{loi} at different integrated luminosity, for different
-	production channels. The experimental and current theoretical uncertainties are shown separately, respectively with filled and hashed areas.}
+	\includegraphics[width=.8\textwidth]{HiggsStrengthsDetail}
+	\caption{}
 	\label{fig:HiggsStrengths}
+\end{subfigure}
+\begin{subfigure}{.5\linewidth}
+	\centering
+	\includegraphics[width=.8\textwidth]{HiggsCouplings2}
+	\caption{}
+	\label{fig:higgsCouplings}
+\end{subfigure}
+\caption{(a): Expected measurement precision of the signal strength $\mu = (\sigma \times BR)/(\sigma \times BR)_{SM}$\cite{loi} at different integrated luminosity, for different
+	production channels. (b): Expected measurement precision of the ratio between the
+	Higgs couplings, assuming a SM Higgs boson with a mass of 125 GeV and with different integrated luminosities.
+	 The experimental and current theoretical uncertainties are shown separately, respectively with filled and hashed areas\cite{higgsNote}.}
+\label{fig:higgsMeasurement}
 \end{figure}
 
 \begin{figure} [h]
@@ -448,21 +463,9 @@ the different experimental sub-categories for the same final state, while “(in
 	\label{fig:HiggsTable}
 \end{figure}
 
-\begin{figure} [h]
-	\centering
-	\includegraphics[width=.5\textwidth]{HiggsCouplings}
-	\caption{Expected measurement precision of the ratio between the
-	Higgs couplings, assuming a SM Higgs boson with a mass of 125 GeV and with 
-	300 $fb^{-1}$ and 3000 $fb^{-1}$. The experimental and current theoretical uncertainties are shown separately, respectively with filled and hashed areas.}
-	\label{fig:higgsCouplings}
-\end{figure}
 
-
-=================================
-
-Several analyses have been performed simulating the full proposed ITk detector by
-parametrising the calorimeter and muon spectrometer response based on the results of
-Run 1 analysis\cite{loi}\cite{scoping}:
+Several analyses, based on the results of Run-1 analysis, have been performed simulating the proposed upgraded
+detector by parametrising the calorimeter and muon spectrometer response\cite{loi}\cite{scoping}:
 
 \begin{itemize}
 \item $H \rightarrow \gamma\gamma$ in the 0-jet and the 2-jet final state.
@@ -472,24 +475,13 @@ Run 1 analysis\cite{loi}\cite{scoping}:
 \item $H \rightarrow \tau^+\tau^-$ in the 2-jet final state.
 \end{itemize}
 
-as well as channels which are too rare for LHC but are expected to have a good significance
-in HL-LHC:
+as well as some channels which are too rare for LHC but are expected to have a good chance
+to be observed in the high-luminosity phase:
 \begin{itemize}
 \item $WH/ZH/t\bar{t}H, H \rightarrow \gamma\gamma$.
 \item $H \rightarrow \mu\mu$.
 \item $t\bar{t}H \rightarrow \mu\mu$.
 \end{itemize}
-
-The expected measurement precision on the signal strength (E I RAPPORTI TRA PARTIAL WIDTHS???) is shown if Fig.\ref{fig:HiggsStrengthsDetail} for several Higgs decay channels. CORREGGERE PER IMMAGINE SPOSTATA?\\
-
-
-
-As can be seen from this figure, channels that most profit from the
-luminosity upgrade in terms of measurement accuracy are the $\gamma\gamma$ and $ZZ^*$
-as in those channels the uncertainties are dominated by statistics. In other cases, such as in $WH/ZH, H \rightarrow b\bar{b}$ both the jet
-energy resolution and the rejection of light jets are crucial for the calculation, and suffer from
-the high pileup environment. \\
-
 
 
 \bigskip
@@ -518,7 +510,7 @@ the ones of the CMS experiment, a $30\ \%$ measurement should be feasible at HL-
 \subsection{Weak boson scattering}
 The weak boson scattering (WBS) is a promising new physics channel because the predicted increase of
 its cross-section
-in the longitudinal mode would violate unitarity at the TeV energy scale (NON SO COSA VOGLIA DIRE?). In the SM the Higgs
+in the longitudinal mode would violate unitarity at the TeV energy scale. In the SM the Higgs
 boson is responsible for its damping, while other theoretical models, such as Technicolour and 
 little Higgs, predicts TeV-scale resonances and a light scalar particle that can achieve the same effect. Even if the Higgs
 mechanism was established, other mechanisms can produce an observable difference in
@@ -527,7 +519,7 @@ dependence of this cross-section. In \cite{WBS} it is shown that, thanks to the 
 statistics of HL-LHC, the channel $ZZjj \rightarrow lllljj$ can be pushed to the level of discovery and its cross section be measured with a statistical precision of about $10\ \%$.
 
 \subsection{Supersymmetry searches}
-The study of weak scale (?) supersymmetry (SUSY) remains one of the top priorities at LHC.
+The study of weak scale supersymmetry (SUSY) remains one of the top priorities at LHC.
 SUSY models predict that every SM particle has a supersymmetric partner and Run 1 analysis
 has already excluded, assuming a light LSP, that the 1st and 2nd generation of squarks (supersymmetric partner of the quarks) and the gluino (supersymmetric partner of the gluon) lies in the mass region below 1.4 TeV and 1.0
 TeV respectively. Because of the flexibility on the parameters of the SUSY models, 
@@ -737,10 +729,22 @@ the number of hits in the MS.
 \end{description}
 
 The Loose, Medium and Tight selections are inclusive, so a muon passing the Tight selection also pass the Medium and the Loose. With increasing the level of the selection, the efficiency decreases
-while the purity increases. (METTO LA TABELLA A PAG.5 DELL'ARTICOLO DEI MU?)
+while the purity increases, as can be seen in fig. \ref{fig:muonEfficienciesTable}
 
-\subsubsection*{Muon identification in this analysis}
-The analysis presented in this thesis uses the simulated data coming from ITk exclusively, so there is no information coming from the muon spectrometer. We chose to make the hypothesis of 100\% identification efficiency of the muons that pass a track quality selection and with a minimum $p_{T}$, as described in sec.\ref{sec:trackingPerformance}. (POSSIAMO SAPERE L'EFFICIENZA DI IDENTIFICAZIONE DEI MUONI REALI CON QUESTI TAGLI?). 
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{muonEfficienciesTable}
+\caption{Efficiency for prompt muons from W decays and hadrons decaying in-flight
+and misidentified as prompt muons computed using a $t\bar{t}$ MC sample\cite{muonReconstruction}. The results are shown for the 
+four identification criteria separating low and high momentum muons for candidates
+within the ID acceptance.}
+\label{fig:muonEfficienciesTable}
+\end{figure}
+
+\subsubsection*{Muon identification in the presented analysis}
+The analysis on the $H \rightarrow ZZ^{*} \rightarrow 4\mu$ channel presented in this thesis uses the simulated data coming from ITk exclusively, so there is no information coming from the muon spectrometer. We chose to make the hypothesis of 100\% identification efficiency of the muons that pass a track quality selection and with a minimum $p_{T}$, as described in sec.\ref{sec:physics}. Considering the efficiencies shown in fig. \ref{fig:muonEfficienciesTable}
+and the fact that for this channel a loose muon identification was chosen for Run 1, this
+approximation is not expected to drastically affect the presented results.(?AGGIUNTO ORA, CONTROLLARE?)
 
 \subsection{Electrons and photons}
 Electrons and photons produce a very similar energy release in the electromagnetic calorimeter and are typically completely absorbed before reaching the hadronic calorimeter for a broad (NON CAPISCO LA CORREZIONE?) range of energies. The identification of the
@@ -822,7 +826,8 @@ Other overlaps are caused by particles that are not direct products of the bunch
 An HL-LHC bunch will consist of hundreds of billions of protons. The elementary
 proton-proton collisions that take place in the same bunch of the hard-scatter event of
 interest constitute the \textit{in-time pile-up} events. These events are essentially inelastic proton collisions and are modelled by the so called
-\textit{minimum-bias} events, which were simulated using the Pythia generator (see appendix ref{appendix:MC}). These events are the most
+\textit{minimum-bias} events, which were simulated using the Pythia generator (see appendix ref{appendix:MC}), whose parameters
+are trimmed to reproduce ATLAS data. These events are the most
 important source of pile-up in the tracker and the only taken into account in the study presented in this thesis.
 (SCRIVERE CALCOLETTO NUMERO DI PILEUP A HL LHC?)   \\
 
@@ -853,7 +858,7 @@ was not very relevant in LHC, but it could be in the luminosity upgrade phase\ci
 
 \subsubsection*{Beam halo}
 These events come from the collision of protons with collimators upstream of the 
-interaction point. They typically consist of muons and produce a quite characteristic signal (for example, they are out-of-time), so they are normally easily removed. They are mainly seen by the muon chambers and sometimes
+interaction point. They typically consist of muons and produce a quite characteristic signal (for example, they are out-of-time), so are normally easily removed. They are mainly seen by the muon chambers and sometimes
 can leave a measurable signal in the calorimeter\cite{ATLAS_pileup}. 
 
 \subsubsection*{Beam-gas events}
@@ -867,15 +872,12 @@ They normally have a clear signature because they are out-of-time and have a hig
 parameter, but they can sometimes
 be mistaken as high energy jets and fake SUSY or other physics signals\cite{ATLAS_cosmic}. \\
 
-\bigskip
-
-In this thesis, only the in-time pile-up is considered, because it represents the main source of
-pile-up in the tracker.
-
 \subsection{In-time pile-up study}
 
 The transverse momentum, pseudo-rapidity and azimuthal angle distribution of the pile-up particles reconstructible by ITk is shown if Fig.\ref{fig:pileupDists}, as simulated by 
-Pythia (see appendix \ref{appendix:MC}). Particles with the following
+Pythia (see appendix \ref{appendix:MC}).\\
+
+Particles with the following
 features are excluded from these plots:
 
 \begin{itemize}
@@ -906,12 +908,12 @@ features are excluded from these plots:
 \label{fig:pileupDists}
 \end{figure}
 
-The particle composition of the pile-up events after the described cuts is as shown in Fig.
+The particle composition of the pile-up events after the selection is as shown in Fig.
 \ref{fig:pileupComposition}. 
 
 \begin{figure} [h]
-	\includegraphics[width=\textwidth]{pileupComposition}
-	\caption{Pile-up particle composition after the cut in $p_{T}$ and excluding stable neutral particles.}
+	\includegraphics[width=\textwidth]{pileupComposition2}
+	\caption{Pile-up particle composition after the $p_{T}$ selection and excluding stable neutral particles.}
 	\label{fig:pileupComposition}
 \end{figure}
 
@@ -932,28 +934,27 @@ The particle composition of the pile-up events after the described cuts is as sh
 
 \end{comment}
 
-The particles belonging to the soft part of the pile-up ($p_{T} < 500\ MeV$) are numerically more consistent but 
+Particles belonging to the soft part of the pile-up ($p_{T} < 500\ MeV$) are numerically more consistent but 
 they are not reconstructed as tracks by ITk. However, they can travel in spirals around the 
 detector layers or, more generally, traverse the detector sensors at an angle very different
-from 90 degrees and produce hits that can be mistaken for hard scatter or hard pile-up particles
-(i.e. that can be reconstructed) hits, thus contributing to the fake rate and to the
-deterioration of spatial resolution, above all in the innermost layers. (SI VEDRà NEI RISULTATI?)
-The number of hard pile-up particles produced in a proton-proton collision is very high (42, on average), 
-half of which consists of charged pions. A minimum-bias events geometrical acceptance of $67\%$ has 
-been computed from the $\eta$ distribution considering the number of particles that 
-lie inside the region $|\eta| < 4.0$, thus resulting in 15 charged pions per proton collision in 
-the geometrical acceptance. Considering an expected average number of pile-up events per bunch-crossing of 200, an average of 3000 pion tracks per bunch-crossing is expected at ITk.
-Due to the high pion cross section and their abundance in the pile-up events, these particles produce
-a large number of secondary particles that have to be tracked and simulated by the simulation
-program, increasing drastically the necessary amount of time to perform a full tracker simulation\footnote{An estimate of this time can be found in sec.\ref{sec:fullSimEstimate}(??)}. As of today, ITk full simulation samples are mainly available for tracking studies but they
-lack in the physics sector. Due to the prohibitive time required to perform full tracker 
-simulation privately, in the following section a possible fast simulation method is described.
+from 90 degrees and produce hits that can become problematic for the patter recognition, increase the fake rate and deteriorate the tracking
+performances. \\
+
+The number of hard pile-up particles produced in a proton-proton collision passing the selection is very high (42, on average), 
+half of which consists of charged pions. A geometrical acceptance of $67\%$ for the minimum-bias events was computed from the $\eta$ distribution, taking into account the number of particles that 
+lie inside the region $|\eta| < 4.0$, thus resulting in $\simeq$ 15 charged pions per proton collision in 
+the acceptance.\\
+
+Considering an expected average number of pile-up events per bunch-crossing of 200, an average number of 3000 charged pion tracks per bunch-crossing is expected at ITk.
+Due to the very large number of particles exiting from the collision points, and to the generation of secondaries in their interactions, the time
+needed to perform a full simulation of each event becomes too large.
+As of today, ITk full simulation samples are mainly available for tracking studies. In the following section a faster simulation method is presented.
 
 \subsection{General structure of an ATLAS simulation}
 A typical ATLAS simulation consists in four steps, as described in Fig.\ref{fig:simulationFlow}.
 
 \begin{figure} [h]
-	\includegraphics[width=\textwidth]{SimulationFlow}
+	\includegraphics[width=\textwidth]{SimulationFlow3}
 	\caption{The ATLAS simulation flow. }
 	\label{fig:simulationFlow}
 \end{figure}
@@ -961,13 +962,11 @@ A typical ATLAS simulation consists in four steps, as described in Fig.\ref{fig:
 During the \textbf{generation} step the proton-proton event of interest is first generated with the Monte
 Carlo (or custom) generator of choice. The collision is typically generated at the ATLAS 
 interaction point and the so obtained vertices are then smeared to account for the beam 
-shape. The pile-up events are then superimposed and
-the result is saved in the HepMC format. \\
+shape. The pile-up events are also generated, typically with the Pythia Monte Carlo generator. The outputs are saved in the HepMC format. \\
 
-During the \textbf{simulation} step the HepMC file is taken as input, together with
+During the \textbf{simulation} step the HepMC files are taken as input, together with
 the detector description complete of all detector and passive materials and services. 
-The Geant4 package\cite{Geant4} is used as
-engine to simulate the interaction of every particle with the material, the decays and the
+The Geant4 package\cite{Geant4} is used to simulate the interaction of each particle with the material, the decays and the
 magnetic field. This
 step concludes with the production of a HITS file, that contains the detector physical hits
 with a measure of the released energy, together with the generation information. After
@@ -976,97 +975,100 @@ is normally the one that requires the longest computational time to process beca
 complexity and the large number of physics processes that have to be emulated.\\
 
 The \textbf{digitization} step takes the HITS file as input and simulates the response of the 
-detector and the readout electronics as ADC counts. In realistic simulations, during this
-stage also the trigger response is simulated (GIUSTO?). The output of this stage is a Raw Data
-Object (RDO) file that is essentially analogous to the raw data produced during a real 
-ATLAS data taking, except that it carries the information from the generation stage with it.\\
+detector and the readout electronics as ADC counts. The output of this stage is a Raw Data
+Object (RDO) file that is essentially identical to the raw data produced during a real 
+ATLAS data taking, except that it carries the information from the generation stage.\\
 
 Finally, the \textbf{reconstruction} step takes the RDO file as input and implements
-the reconstruction algorithm on the raw data. This results in the formation of tracks that are saved in a Event Summary Data (ESD) file, which contains the detailed output
+the reconstruction algorithm on the raw data. The results are stored in different file formats
+depending on the specific user needs\cite{ATLASFormats}. For what concerns the analysis presented in this thesis,
+the output file produced in this stage in an xAOD file, which contains information suitable to specific analyses and it is readable by the ROOT framework\cite {ROOT} and 
+within the ATHENA framework\cite{Athena}, and is (since the start of Run-2) the ATLAS standard. \\
+
+\begin{comment}
+These results in the formation of tracks that are saved in a Event Summary Data (ESD) file, which contains the detailed output
 of the detector reconstruction and allows rapid tuning of the reconstruction algorithms. It is readable by ROOT but it is large and normally not suitable
-to end-user analysis\cite{ATLASFormats}. The ESD file is processed into an Analysis Object Data (AOD) file, that is
+to end-user analysis. The ESD file is processed into an Analysis Object Data (AOD) file, that is
 still readable by the ROOT I/O and is suitable for user analyses.  Finally, this file is first
 converted
 into the DPD format and then to the xAOD format\cite{xAOD}, which is now a standard and replaced the DPD format for most uses. It contains 
 information suitable to specific analyses and it is readable with the ROOT I/O and within the
 ATHENA framework\cite{Athena}.\\
-
-The user can then perform a specific analysis with the xAOD file and compute the physical
-variables of interest.
+\end{comment}
 
 \subsection{The fast simulation method}
-(NON POSSO CITARE SOSHI?)
 
-The fast simulation method developed has, as its main goal, that of efficiently model the
-in-time pile-up effect on the ITk performances and it is based on the identification of 
-regions-of-interest (RoIs) at \textbf{generation level}. Particles lying outside of them are not 
+This method, based on an original idea by S. Tsuno\cite{Soshi}, has, as its main goal, to study the effects
+of the on-time pile-up on the ITk performances and it is based on the identification of 
+the regions-of-interest (RoIs) at \textbf{generation level}. Particles lying outside of a RoI are not 
 simulated, thus drastically reducing the time required by the simulation/digitization/reconstruction stages. \\
 
-The RoIs are computed by simply selecting the minimum bias particles (used to model the in-time
-pile-up events) that lies inside a cone with fixed radius $\Delta R = 0.1$ \footnote{see appendix \ref{appendix:perigee} for the $\Delta R$ definition CHECK?}
-around the hard-scatter particles. This particular value has proven to realistically represent the detector performance (CHECK?). A visual
+The RoIs are computed by selecting the pile-up particles that lie inside a cone with fixed radius $\Delta R\footnote{see appendix \ref{appendix:perigee}} = 0.1$ 
+around the hard-scattering particles. The value was chosen as it is the typical RoI width used by ATLAS (IN CHE TIPO DI STUDI?). A visual
 representation of the method is depicted in Fig.\ref{fig:soshiCone1}.\\
 
 \begin{figure} [h]
 	\centering
 	\includegraphics[scale=0.4]{soshiCone1}
-	\caption{Visual (unrealistic) representation of an event with an hard-scatter particle (in red), 
+	\caption{Visual (unrealistic) representation of an event with a "hard-scattering" particle (in red), 
 	the accepted pile-up particles (in light blue) and the rejected pile-up particles (in grey).
 	The RoI is a cone around the hard-scatter particle with fixed $\Delta R = 0.1$.}
 	\label{fig:soshiCone1}
 \end{figure}
 
-
 The idea at the basis of this method is that to efficiently represent the pile-up effect on the
 detector performances it is not necessary to simulate all the pile-up particles, because most 
 of them are distant from the particles of interest and cannot produce fake hits that 
-alter the reconstructed tracks. (PLOT PER CONVINCERE CHE 0.1 E' RAGIONEVOLE?) This 
+alter the reconstructed tracks. This 
 method imply some important assumptions:
 \begin{itemize}
 \item The chosen radius value is enough to contain all the pile-up particles that can produce
 fake hits;
 \item As the RoI is computed at generation level, before the simulation of the effect of the
 magnetic field on the charged particles, it is assumed that the curvature does not bring
-particles that were initially outside of the RoI cone inside of it, potentially producing fake hits.
+particles that were initially outside of the RoI cone inside of it, potentially producing fake hits;
 \item The $\Delta R$ variable is an angular variable which does not take into account the vertex displacement between the particles considered. This leads to the fact that particles 
 that travel approximately parallel to each other but spatially distant can be included into the
 RoI even if they do not produce fake hits in the silicon layers. On the contrary, particles that 
 have different angular parameters and distant vertices with respect to the hard-scatter
 particles in the event are not included into the RoI but can potentially intersect the silicon 
-layers in points where they can produce fake hits. However, this effect is not expected
-to be much relevant in the innermost layers, where the hit density is larger, and has not been
-taken into account in this analysis. 
+layers in points where they can produce fake hits. It is assumed that these particles do 
+not contribute appreciably to the fake rate.
 \end{itemize}
 
-The validity of these assumptions has been tested and the results are shown in sec.
-\ref{sec:tracking} (CHECK? FAR VEDERE DISTRIBUZIONE NUM. TRACCE PER EVENTO 
-NEGLI EVENTI ALL'INTERNO DELL'ACCETTANZA e poi STUDIO DR 02)\\
+The validity of these assumptions were tested by simulating a limited number of samples with
+a larger value of the RoI size, and are shown in \ref{sec:tracking}.\\
 
-In this thesis two applications of this method are presented, analysing two different aspects
-of ITk performances: particle gun studies and physics studies. \\
-
+===== NON LO METTIAMO? ALMENO QUELLO DEL PILEUP? =====\\
 Also note that, however the hard-scatter vertex is generated at the origin of the reference
 frame, the ATLAS simulation program includes a hard coded smearing of the primary vertex
-(i.e. the hard-scatter vertex) with a gaussian distribution in z with $\sigma \sim 50\ mm$.
+(i.e. the hard-scatter vertex) with a gaussian distribution in z with $\sigma \sim 50\ mm$.\\
+=====================================================\\
 
-\subsection{Fast simulation method for particle gun samples}\label{sec:simulation:pg}
+In this thesis two applications of this method are presented, analysing two different aspects
+of ITk performances: particle gun studies and physics studies, the latter
+in the $H \rightarrow ZZ^{*} \rightarrow 4\mu$ channel. \\
 
-\textbf{Particle gun} studies are very useful to analyse the tracking performances of the
+
+\subsection{Fast simulation method to particle gun studies}\label{sec:simulation:pg}
+
+Single particle studies, from now on dubbed \textbf{particle gun}, are a very useful tool to analyse the tracking performances of the
 detector, allowing the study of hits distribution, reconstruction efficiency, resolution and
-fake probability. The generation flow in the fast simulation method studied is shown in Fig.\ref{fig:PGGenerationFlow} and proceeds as follows,
+fake probability. In these studies, one particle at a time is injected in the simulation with given theoretical properties.\\
+
+The generation flow in the fast simulation method studied is shown in Fig.\ref{fig:PGGenerationFlow} and proceeds as follows,
 for every event (i.e. bunch-crossing).\\
 \begin{itemize}
-\item Generation of a "hard scatter" particle with fixed pdgId\footnote{The \textit{pdgId} 
+\item Generation of a single particle of fixed type ("pdgId"\footnote{The \textit{pdgId} 
 is a standardized Monte Carlo variable that uniquely identifies the particle species.} and 
 user-defined distribution (for specifics, see sec.\ref{sec:tracking});
 \item For each event, generation of a number of pile-up events extracted from a Poissonian
 distribution with fixed mean $<\mu>$. The vertex is smeared according to the bunch shape
-defined in the generation job option;
+defined in the generation job option ($\sigma_{z} = 75\ mm$, $\sigma_{x,y} = 15\ \mu m$);
 \item For every generated pile-up particle in the final state, if it lies inside a cone of fixed
 $\Delta R = 0.1$ around the hard-scatter particle it is added to a truth vertex, which is added to the vector of output vertices;
 \item A primary vertex is built with the hard scatter particle placed at the origin of the
-ATLAS reference frame, that will be then automatically smeared with a gaussian distribution
-in z with $\sigma \sim 50\ mm$ by the simulation program.
+ATLAS reference frame.
 \end{itemize}
 
 \begin{figure} [h]
@@ -1076,22 +1078,28 @@ in z with $\sigma \sim 50\ mm$ by the simulation program.
 	\label{fig:PGGenerationFlow}
 \end{figure}
 
-At the end of the event, the output vertices are pushed to the generation file.\\
+At the end of the event, the output vertices are pushed to the generation file, which is then
+sent as input to the standard ATLAS simulation/digitization/reconstruction chain.\\
 
-When samples with different mean pile-up are produced to study the ITk tracking
-performances the initial Pythia seed has been changed, so that pile-up events with
-different mean value does not repeat. \\
+Samples with different parameters were produced by using a different initial Pythia seed to 
+avoid repetitions in the pile-up sample. \\
 
-\subsection{Fast simulation method for physics samples}\label{subsec:physicsSimulation}
+\subsection{Fast simulation method applied to physics studies}\label{subsec:physicsSimulation}
 
 \textbf{Physics} studies are similar to particle gun studies for what concerns the generation technique and 
-consist in the generation of a physics event with a superimposed pile-up distribution. The
+consist in the generation of a physics event with a superimposed pile-up distribution. There is a difference as
+the physics events are generated separately and then used at the generation phase, replacing the particle gun
+section.\\
+
+\begin{comment}
+The
 difference is that the analysis is carried out analogously to what would be carried out
 in a real data analysis, so that the physics objects must be identified among all the tracks
 and are not known a priori, whereas in the case of the particle gun studies the main focus
 of the analysis is on the tracking performance of the hard-scatter particle.\\
+\end{comment}
 
-The generation flow in this case is slightly different from the particle gun case, because 
+The generation flow in this case is then slightly different from the particle gun case, because 
 the physics objects distribution is not user-defined but previously generated with a Monte
 Carlo generator. It is visually described in Fig.\ref{fig:PhysicsGenerationFlow} and proceeds as follows:\\
 
@@ -1099,53 +1107,53 @@ Carlo generator. It is visually described in Fig.\ref{fig:PhysicsGenerationFlow}
 \item Generation of N proton-proton collisions with the production of the physics process of
 interest;
 \item Extraction of the final state particles of interest to an ASCII file containing their
-position and momentum four-vectors and the pdgId, after applying the appropriate generation cuts;
-\item For every event, generation of a number of minimum bias events extracted from a Poissonian distribution with mean $<\mu>$. The vertex is then smeared according to the
-bunch shape defined in the generation job option;
-\item For every generated final state minimum bias particle, check if it lies inside a cone of 
+position and momentum four-vectors and the pdgId, after applying the appropriate generation selection;
+\item For each event, generation of a number of minimum bias events extracted from a Poissonian distribution with mean $<\mu>$;
+\item For each generated final state minimum bias particle, check if it lies inside a cone of 
 $\Delta R = 0.1$ around at least one of the charged particles saved in the ASCII file. If it does,
-it is added to a vertex, which will be in turn added to the list of output vertices.
+it is added to a vertex, which will be in turn added to the list of output vertices;
 \item The particles contained in the ASCII file are added to a vertex placed at the origin
-of the ATLAS reference frame. This will constitute the primary vertex of the event, which
-will be then smeared during the simulation program with a gaussian distribution with $\sigma \sim 50\ mm$.
+of the ATLAS reference frame that will constitute the primary vertex of the event.
 
 \end{itemize}
 
 \begin{figure} [h]
-	\includegraphics[width=\textwidth]{PhysicsGenerationFlow}
+	\includegraphics[width=\textwidth]{PhysicsGenerationFlow2}
 	\caption{The generation flow for the physics samples employed in the fast 
 	simulation method. }
 	\label{fig:PhysicsGenerationFlow}
 \end{figure}
 
-With respect to the particle gun method, the difference is that the number of RoIs (cones in
+With respect to the particle gun method, a difference is that the number of RoIs (cones in
 $\Delta R$) is not one but it is equal to the number of final state particles that constitutes the
 searched signature. For example,
-in this study is presented the application of this technique to the physics process
-$H \rightarrow ZZ^* \rightarrow 4\mu$, including possible final state photons bremmstrahlung emitted from the muons. Both the muons and the photons are saved into the 
-ASCII file and simulated, but the cones are only drawn for the four muons. This way, the photons can convert and potentially produce hits in the
-tracker and they can also be used to study the effect of underestimation of the parent mass.\\
+in this study we present an application of this technique to the physics process
+$H \rightarrow ZZ^* \rightarrow 4\mu$, including possible final state bremmstrahlung photons emitted from the muons. Both the muons and the photons are saved into the 
+ASCII file and simulated, but the cones are only drawn for the four muons. In this way, the photons can convert and potentially produce hits in the
+tracker and they can also be used to study the effect on the estimate of the Higgs boson mass.\\
 
 Also note that the only hard scatter particles simulated in this case are the ones coming from
-the elementary parton-parton collision, excluding the rest of the underlying event. This
-is an approximation that has been considered reasonable because, unless it is not completely
-true that the underlying event is independent from the hard-scatter event, in the high pile-up
-environment of HL-LHC the fake hits are expected to be mainly produced by the vast majority of minimum-bias particles. \\
+the elementary parton-parton collision, excluding the remaining part of the underlying event. This
+is an approximation that was considered reasonable as, although it is not completely
+true that the underlying event is independent from the hard-scattering event, in the high pile-up
+environment of HL-LHC fake hits are expected to be mainly due to pile-up particles. \\
 
-Due to the incompleteness of the samples obtained with this technique, physics studies are somewhat limited in some aspects, because the 
+Due to the incompleteness of the samples obtained with this technique, physics studies have some limitations to be taken into
+account when looking at the findings.
+
+\begin{comment}
+are somewhat limited in some aspects, because the 
 concept of fake here is not only related to the presence of fake hits, but also to the kinematic 
 properties of the pile-up tracks, that can have a rather high $p_T$. Thus, the probability to misreconstruct a physics object
 is not directly computable in this case (CHECK?).
+\end{comment}
 
-\subsection{Comparison between fast simulation method and full simulation method computing time requirements}
+\subsection{Time requirements}
 
-In this section the timing requirements of the fast simulation technique developed and the
+In this section the timing requirements of the fast simulation technique and the
 standard full simulation method are compared.
-The generation/simulation/digitization/reconstruction chain has been run on a 
-CERN LXPLUS machine in interactive mode, which is considerably faster (a factor $\sim$ 2) than the batch mode running on the same machine,
-but suffers from network connection interrupts issues. For this reason, real samples have been  
-usually produced in batch mode for the generation and simulation stages, which are the slowest, and in interactive
-mode for the others.
+The generation/simulation/digitization/reconstruction chain was run (NON CAPISCO CORREZIONE AL VERBO?) on a 
+CERN LXPLUS machine. \\
 
 The results are shown in Tab.\ref{tab:timing}.
 
@@ -1153,7 +1161,7 @@ The results are shown in Tab.\ref{tab:timing}.
 WITH EXTRAPOLATION
 
 The results are shown in Tab.\ref{tab:timing}, where the full simulation (without the
-RoI cut) timing has been extrapolated from the fast simulation by considering the ratio
+RoI selection) timing has been extrapolated from the fast simulation by considering the ratio
 between the number of generated particles in the two cases, which crudely assumes that
 the amount of computing time needed per event is proportional to the number of particles
 simulated (VEDERE SE RIESCO A FARE TUTTO IO SENZA ESTRAPOLARE?).
@@ -1177,6 +1185,7 @@ simulated (VEDERE SE RIESCO A FARE TUTTO IO SENZA ESTRAPOLARE?).
 
 \end{comment}
 
+HO PERSO IL LOG, DEVO RIFARE I CAMPIONI\\
 
 	\begin{table} [h]
 	\resizebox{\textwidth}{!}{
@@ -1205,7 +1214,7 @@ have been produced by the ATLAS community running the job on GRID\cite{ATLASGrid
 have great parallelization capabilities. The absolute time results in Tab.\ref{tab:timing} are thus to be
 considered as an indication of the difficulties presented by the high pile-up environment of
 HL-LHC, whereas the value of the ratios show the comparison between analogous computing
-frameworks.
+frameworks. (DA AGGIORNARE CON CPU TIME E VEDERE SE TORNA CON IL RAPPORTO 8/0.1*6.28/0.1!!?)
 
 \begin{comment}
 FAST: 49s/20 = 2.45 s/evt
@@ -1238,7 +1247,7 @@ a consequent data loss;
 \end{itemize}
 
 Due to the increase of the instantaneous luminosity to $\mathcal{L} = 5 - 7.5 \cdot 10^{34}\ cm^{-2}s^{-1}$ and the center of mass energy increase to 
-14 TeV with the consequent proton-proton INELASTIC? cross section increase, the number of expected average collisions per bunch crossing will 
+14 TeV with the consequent proton-proton inelastic cross section increase, the number of expected average collisions per bunch crossing will 
 reach the value $<\mu> = 200$, with an expected beam spot of $\sigma_{z} = 75\ mm$. The main requirements of the new Inner Tracker will be to:
 
 \begin{itemize}
@@ -1251,13 +1260,24 @@ the help of the muon spectrometer;
 \item reconstruct the tracks corresponding to a converted photon;
 \end{itemize}
 
+The resolution requirements were defined in \cite{PerformanceRequirements} and are
+shown in fig. \ref{fig:tracking:ITkRequirements}.\\
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{ITkRequirements}
+\caption{Expected track resolutions at large transverse momentum, with an
+average number of pile-up events $<\mu>  = 200$.}
+\label{fig:tracking:ITkRequirements}
+\end{figure}
+
 In the next paragraph are presented some of the proposed layouts for the future ITk detector.
 
 \subsection{The Step-1 layouts}
 After the publication of the ATLAS Phase II Scoping Document\cite{scoping}, the ATLAS community 
-started the development of a series of ITk layouts whose optimization process was divided into steps. In this thesis, the
-tracking performances of the three layouts that make part of the so called \textbf{Step-1 layouts} are studied. In particular,
-this section describes the tracking performances of these layouts using particle gun samples of charged
+started to study several different ITk layouts whose optimization process was divided into steps. In this thesis, the
+tracking performances of the three current layouts at \textbf{Step-1} are studied. In particular,
+this section describes the tracking performances of these layouts using "particle gun" samples of charged
 pions and muons.\\
 
 The main difference of several proposed ITk layouts with respect
@@ -1267,7 +1287,8 @@ with the current one, that only reaches $|\eta| < 2.5$. The Step-1 layouts were 
 be quite accurate from the point of view of the geometry and sensors description, but
 were not optimized for what concerns the passive material and services description, nor in the
 reconstruction algorithms. Studies that make use of these layouts, such as the one presented
-in this thesis, are thus to be considered with particular care. \\
+in this thesis, are thus to be considered with particular care. However, as the main
+task for HL-LHC is to study the (?NON CAPISCO?) properties, it is important that physics performances are fulfilled. \\
 
 \begin{figure}
 \captionsetup[subfigure]{justification=centering}
@@ -1296,21 +1317,43 @@ in this thesis, are thus to be considered with particular care. \\
 
 The three layouts studied are shown in Fig.\ref{fig:tracking:layouts}. They have the same angular coverage, SCT and pixel endcap geometry, and only differ in the \textbf{pixel barrel} sector.
 In the \textbf{Extended Barrel 4.0 layout} (ExtBrl4), the two innermost barrel layers are longer and
-reach $\pm\ 1200\ mm$ in the z-axis, while the three remaining extend to $\pm\ 735\ mm$.
+reach $\pm\ 1215\ mm$ in the z-axis, while the three remaining extend to $\pm\ 730\ mm$.
 In the \textbf{Inclined Barrel 4.0 layout} (IExtBrl4), the two innermost barrel layers
 are extended in length but are subdivided into a short flat sector ($\pm\ 180\ mm$ and $\pm\ 200\ mm$ respectively) and 
- an \textit{inclined} sector, in which the modules (17 per side in the innermost, 18 in the second layer) are tilted at a fixed angle of around 50 degrees (MISURATO, GIUSTO?) with respect to the horizontal plane.
-Each module in this sector is formed by two pixel modules at a distance of 8 mm from each other. In the \textbf{Fully Inclined 4.0} (InclBrl4) layout,
+ an \textit{inclined} sector, in which the layers are tilted at a fixed angle of around 35 degrees with respect to the horizontal plane.
+Each module in this sector is formed by two pixel modules at a distance of 4 mm from each other. In the \textbf{Fully Inclined 4.0} (InclBrl4) layout,
 all of the pixel barrel layers are subdivided into a central flat sector and an inclined sector. In this case the length of the flat sector depends
 on the layer and increases from $\pm\ 180\ mm$ in the innermost layer to $\pm 320\ mm$ in the outermost layer. The inclined sector extends
 to $\pm\ 1200\ mm$ for the two innermost layers and to $\pm 700\ mm$ for the others. The number of the inclined modules is the same as the IExtBrl4 layout for the two innermost
-layers and is 13 for the other layers. The radii of the barrel layers are, for the three layouts, 40 mm, 85 mm, 155 mm, 212 mm, 270 mm. \\\\
+layers and is 13 for the other layers. The value of the radii of the barrel layers are summarized in 
+tab. \ref{tab:tracking:barrelRadii}. \\
 
 The \textbf{pixel endcap disks} extend to $\pm 3000\ mm$. Their 
 number depends on the layer and ranges from 15 to 20 per detector side. \\
 
-The \textbf{SCT system} is identical for the three layouts. It is composed by four barrel layers of identical length ($\pm 1350\ mm$), at radii 400 mm, 560 mm, 760 mm and 1000 mm. There
+The \textbf{SCT system} is identical for the three layouts. It is composed by four barrel layers of identical length ($\pm 1350\ mm$). The value of the radii are shown in tab. 
+\ref{tab:tracking:barrelRadii}. There
 are six endcap disks per side, ranging in z from 1500 mm to 3000 mm. \\
+
+\begin{table} [h]
+\centering
+	\resizebox{.8\textwidth}{!}{
+\begin{tabular}{l || c | c  }
+& \textbf{Layer} & \textbf{Radius (mm)} \\ \hline
+\multirow{5}{*}{\textbf{Pixel}} & 1 &  39 \\
+& 2 & 75 \\
+& 3 & 155 \\
+& 4 & 213 \\
+& 5 & 271 \\ \hline 
+\multirow{5}{*}{\textbf{SCT}} & 1 &  405 \\
+& 2 & 562 \\
+& 3 & 762 \\
+& 4 & 1000 \\ \hline
+\end{tabular}}
+	\caption{For the three Step-1 layouts considered, values of the barrel layers radii in the Pixel and SCT layers. The second pixel layer is 75 mm only for the ExtBrl4 layout, and is 
+	85 mm in the IExtBrl4 and InclBrl4 layouts.}
+	\label{tab:tracking:barrelRadii}
+\end{table}
 
 For the studies that will be presented in this thesis, it is useful to identify critical pseudo-rapidity regions for the three layouts. The region $0 < |\eta| < 1.0$ is completely covered by
 flat barrel layers in all the layouts; in the region $1.0 < |\eta| < 1.4$ the InclBrl4 layout starts the transition to the inclined barrel modules in the three outermost layers; in the
@@ -1379,7 +1422,7 @@ the correspondent increase in the number of reconstructed tracks. In this latter
 From the distribution of the number of tracks per event in the $<\mu> = 0$ scenario it is visible
 how the single simulated pion can produce more than one track due to the production of hard secondary particles, that must be produced not too far in R, otherwise a track would
 not be reconstructed because it would not produce a sufficient number of hits in the detector. The plot in fig.\ref{fig:tracking:nSecondaryChargedTruth1GeV} shows the number of secondary charged particles produced by the pion (in the $<\mu> = 0$ scenario)
-with a 1 GeV cut on the transverse momentum. In the employed sample there are X events in which more than one track is reconstructed and Y events with at least one hard secondary 
+with a 1 GeV requirement on the transverse momentum. In the employed sample there are X events in which more than one track is reconstructed and Y events with at least one hard secondary 
 particle is produced, corresponding to a fraction of X/Y of the events in which these secondary particles are reconstructed. (METTERE NUMERI QUANDO HO I CAMPIONI?)
 
 \begin{figure}
@@ -2084,8 +2127,7 @@ The ITk layout chosen for this analysis was different to the ones described in s
 can be found in \cite{scoping}.\\
 
 In this analysis, no particular production mode of the Higgs boson was selected and the only background considered is the irreducible dominant $ZZ^{(*)} \rightarrow 4\mu$, while the others are
-expected to have a small effect on the final result. The analysis cuts applied are based on the
-ones of the Run-1 analysis and are:
+expected to have a small effect on the final result. The analysis selection applied is based on the Run-1 analysis:
 
 \begin{itemize}
 \item the event must contain 2 pairs of candidate muons, each with 2
@@ -2184,9 +2226,9 @@ is defined as \textit{on-shell} and the other as \textit{off-shell}.
 
 \subsubsection{Background process generation}\label{physics:bkgGeneration}
 The generation efficiency of the background process $ZZ^{(*)}$ was optimized by only
-producing events in selected kinematic regions. In particular, a minimum cut on the mass of
-the Drell-Yan produced $Z^*$ boson was applied at $12\ GeV$, and a cut on the mass of the four muon
-system between $50\ GeV$ and $160\ GeV$. The values of these cuts were chosen so that no events were excluded that could
+producing events in selected kinematic regions. In particular, a minimum value of 12 GeV for the mass of
+the Drell-Yan produced $Z^*$ boson was required, while the invariant mass of the four muon system is required
+to lie in the region between 50 GeV and 160 GeV. These values were chosen so that no events were excluded that could
 have been accepted by the analysis. The distribution of the generated masses is shown 
 in Fig.\ref{fig:ZZ4mu:genMasses}.\\
 
