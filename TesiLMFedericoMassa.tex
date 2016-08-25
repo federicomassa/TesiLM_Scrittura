@@ -48,12 +48,12 @@ urlcolor=blue
 
 %\maketitle
 
-\titolo{\textit{Studio delle prestazioni dei} \\
-			\textit{ layout di ITk nelle misure di $H\rightarrow ZZ^{*}\rightarrow 4\mu$ }}
+\titolo{\textit{Tracking performances of the ATLAS detector} \\
+			\textit{and impact on the $H\rightarrow ZZ^{*}\rightarrow 4\mu$ channel}}
 \laureando{Federico Massa} 
 \corsodilaureamagistrale{Fisica} 
 \relatore[Prof.]{Giorgio Chiarelli} 
-%\secondorelatore[Prof.]{prof2} s
+\secondorelatore[Dott.]{Claudia Gemme} 
 %\controrelatore[Prof.]{prof3} 
 \annoaccademico{2015-2016} 
 \data{data}
@@ -65,16 +65,21 @@ urlcolor=blue
 %%\listoftables
 \newpage
 
+\begin{comment}
 \begin{abstract}
 La fase di High Luminosity LHC offrirà nuove opportunità per esplorare eventi estremamente rari, ed in particolare per studiare la fisica e le proprietà del bosone di Higgs.
 L’esperimento ATLAS, per sfruttare al massimo questa possibilità, sostituirà l’Inner Tracker  all’attuale Inner Detector.
 A causa dell'elevato numero di eventi di pileup ($>200$) previsti, il tempo richiesto dalla simulazione Monte Carlo risulta proibitivo. E’ stato, pertanto, sviluppato un metodo ad-hoc che permette di simulare solo le regioni di interesse in modo accurato, confrontando differenti configurazioni del rivelatore. In questo studio presentero' i risultati ottenuti relativamente al canale\\ {$H\rightarrow ZZ^*\rightarrow 4\mu$}
 \end{abstract}
+\end{comment}
 
 \newpage
 
-\section{Introduction} \label{sec:introduction}
-The Large Hadron Collider (LHC) accelerator is scheduled to be upgraded in two different stages: the first one will begin after the end of Run 2 during the Long shutdown 2 (LS2) in 2019-2020; the second one will start at the end of Run 3 during the Long shutdown 3 (LS3) in 2024-2026 (Fig.\ref{fig:HLLHC_Plan}). The latter upgrade stage will lead to what is known as High-Luminosity LHC (HL-LHC) during which the
+\section*{Introduction} \label{sec:introduction}
+This thesis aims to illustrate the tracking performances of the ATLAS Inner Tracker (ITk) which will substitute the current Inner Detector in the context
+of the High Luminosity LHC upgrade scheduled for 2026. \\
+
+The Large Hadron Collider (LHC) accelerator worked at a center-of-mass energy of 7 TeV during Run-1 and 13 TeV during Run-2. It is scheduled to be upgraded in two different stages: the first one will begin after the end of Run 2 during the Long shutdown 2 (LS2) in 2019-2020, when LHC will reach its maximum design energy of 14 TeV; the second one will start at the end of Run 3 during the Long shutdown 3 (LS3) in 2024-2026 (Fig.\ref{fig:HLLHC_Plan}). The latter upgrade stage will lead to what is known as High-Luminosity LHC (HL-LHC) during which the
 luminosity will reach the maximum value of $7.5 \times 10^{34}\ cm^{-2}s^{-1}$, corresponding to approximately $3000\ fb^{-1}$ during ten years of data taking. \\
 
 \begin{figure} [h]
@@ -84,33 +89,28 @@ luminosity will reach the maximum value of $7.5 \times 10^{34}\ cm^{-2}s^{-1}$, 
 \end{figure}
 
 HL-LHC will allow to study new physics processes, such as extra dimensions or the ones predicted by SUSY models, as well as improve Standard Model measurements. In particular, Higgs boson 
-couplings are expected to be measured with a precision between 5\% and 30\%\cite{loi}. Thanks to the increased luminosity, it will be possible to observe the Higgs boson in rare
-channels such as  $H \rightarrow \mu\mu$, vector boson 
-fusion production of $H \rightarrow \gamma\gamma$ and $H \rightarrow \tau\tau$, associated production $t\bar{t}H$ with $H \rightarrow \gamma\gamma$, as well as Higgs self couplings
-such as in $HH \rightarrow \tau\tau b b$, $HH \rightarrow \gamma\gamma b b$.\\
+couplings are expected to be measured with a precision between 5\% and 30\%\cite{loi}. Thanks to the increased luminosity, it will be possible to observe the Higgs boson in extremely
+rare channels, which are impossible to measure at LHC.\\
 
 By the end of Run 3, ATLAS detector will be using 15-20 years old components. In particular,
 the highly irradiated Inner Detector pixels and strips will have reached the end of their
 lifetime and the transition radiation tracker will reach 100\% occupancy at that luminosity. Thus, the Inner Detector must be completely substituted by the Inner Tracker (ITk), which will
 have to guarantee the same or an improved performance in the harsh conditions of HL-LHC while maximizing the acceptance. At design luminosity, the expected number of in-time pileup events will be $<\mu > = 200$, a much
 higher value than the one expected at the end of Run 3 ($<\mu > = 80$) and even more if 
-compared to the current one ($<\mu > = 35$??), introducing new challenges in the pattern
+compared to the current one ($<\mu > = 23$), introducing new challenges in the pattern
 recognition. The increase of the number
 of collisions per bunch crossing leads to new requirements on the front-end electronics, trigger and data acquisition system that cannot be met by the current apparatus, thus leading to a 
-substantial upgrade of the electronics. Moreover, in the Reference Scenario of the Scoping Document\cite{scoping} the geometrical acceptance of ATLAS detector is increased with respect to 
-the current one thanks to the extension of the $|\eta|$ coverage to $4.0$, which requires either the substitution (such as in the case of ITk) or the addition of new detectors (muon chambers,
+substantial upgrade of the electronics. Moreover, the Reference Scenario of the Scoping Document\cite{scoping} proposes an increase of the geometrical acceptance of the detector by extending the $|\eta|$ coverage to $4.0$, which requires either the substitution (such as in the case of ITk) or the addition of new detectors (muon chambers,
 calorimeter system). \\
 
 Other than detector and hardware upgrades, HL-LHC will require software upgrades to meet the needs of the new detectors, handle large event samples and adapt to multi-processor
-architectures. To deal with the simulation size and time requirements it will be necessary to mix fast simulation techniques (using detector parametrisations) with full simulation at event level.
+architectures. To deal with the simulation size and time requirements it will be necessary to mix fast simulation techniques (using detector parametrisations) with full simulation at event level.\\
 
-
-\subsection{Coordinate system - perigee parameters definition - maybe in appendix}
-
+Here we present a fast simulation method that allows to simulate the effect of the high number of pile-up events on the tracking and physics performances, applied to single pion and $H \rightarrow ZZ^{*} \rightarrow 4\mu$ Monte Carlo samples. 
 
 \clearpage
 
-\section{Detector} \label{Detector}
+\section{ATLAS Detector} \label{sec:detector}
 
 \begin{figure} [h]
 	\includegraphics[width=\textwidth]{atlasdet}
@@ -118,18 +118,18 @@ architectures. To deal with the simulation size and time requirements it will be
 	\label{fig:current_atlasdet}
 \end{figure}
 
-This section briefly describes the current experimental apparatus, shown in Figure \ref{fig:current_atlasdet}, and the reasons as to why it cannot withstand the conditions of HL-LHC. The ATLAS detector is currently composed by the following components:
+This section briefly describes the current experimental apparatus, shown in Figure \ref{fig:current_atlasdet}, and the reasons as to why it cannot withstand the conditions of HL-LHC. The ATLAS detector is is a magnetic spectrometer, therefore its components are:
 \begin{itemize}
-\item a \textbf{magnet system};
-\item an \textbf{inner detector};
-\item an \textbf{electromagnetic calorimeter};
-\item an \textbf{hadronic calorimeter};
-\item a \textbf{muon spectrometer};
-\item a \textbf{trigger system};
-\item a \textbf{data acquisition system (DAQ)}.
+\item the \textbf{magnet system};
+\item the \textbf{inner detector};
+\item the \textbf{electromagnetic calorimeter};
+\item the \textbf{hadronic calorimeter};
+\item the \textbf{muon spectrometer};
+\item the\textbf{trigger system};
+\item the\textbf{data acquisition system (DAQ)}.
 \end{itemize}
 
-In the following sections these elements are briefly described, outlining the main upgrades that will be applied for HL-LHC. 
+In the following sections these elements are briefly described, outlining the main upgrades that will be applied for the high luminosity phase. 
 
 \subsection{The magnet system}\label{sec:magnet}
 
@@ -142,37 +142,38 @@ In the following sections these elements are briefly described, outlining the ma
 
 The current magnet system (Fig.\ref{fig:magnet_system_picture}) comprises four superconducting magnets\cite{magnet_system}, for charged particles bending and momentum measurement in the $8000\ m^3$ volume of the apparatus.\\
 
-The \textit{Central Solenoid Magnet} encloses the tracking volume and provides a $2\ T$ magnetic field and minimal thickness in order to reduce the degradation of photon and electron energy resolution in the subsequent calorimeter layers.\\
+The \textit{Central Solenoid Magnet} encloses the tracking volume and provides a $2\ T$ magnetic field along the beam axis and minimal thickness in order to reduce the degradation of photon and electron energy resolution in the subsequent calorimeter layers.\\
 
 The \textit{Barrel} and \textit{Endcap Toroids} provide a tangential magnetic field of about $1\ T$ for the muon detectors, both in the radial and the forward region.\\
 
 As the current magnet system already matches HL-LHC needs, it will not require an
 upgrade.
 
-\subsection{The Inner Detector}
+\subsection{The Inner Detector}\label{sec:detector:tracker}
 
 \begin{figure} [h]
-	\includegraphics[width=\textwidth]{IDLayout}
-	\caption{ATLAS Inner Detector layout\cite{Aad:2008zzm}. IBL is not shown in this layout.}
+\centering
+	\includegraphics[width=.75\textwidth, angle=-90]{NewID}
+	\caption{ATLAS Inner Detector layout\cite{Aad:2008zzm}.}
 	\label{fig:IDLayout}
 \end{figure}
 
-The ATLAS \textbf{Inner Detector} (ID), whose layout is shown if Fig.\ref{fig:IDLayout}, is designed to measure the momentum of the
-charged particles tracks with $p_{T}$ larger than a typical threshold of $500\ MeV$ and 
-within $|\eta| < 2.5$, identifying both primary and secondary vertices\cite{Aad:2008zzm}. \\
+The ATLAS \textbf{Inner Detector} (ID), whose current layout is shown if Fig.\ref{fig:IDLayout}, is designed to measure the momentum of the
+charged particles tracks with $p_{T}$ greater than $\simeq$ $500\ MeV$ and 
+within $|\eta| < 2.5$, with the capability to reconstruct multiple primary vertices, as well as vertices displaced from the primary\cite{Aad:2008zzm}. \\
 
 The ID is contained in a cylindrical envelope (with the axis along the z-axis) that extends
 $\pm\ 3512\ mm$ in length and $1150\ mm$ in radius. The whole system is placed inside
-a solenoid magnet which produces a field parallel to the beam line of $2\ T$(see sec.\ref{sec:magnet}). The ID is composed by three sub-detectors: the innermost section provides
-high resolution pattern recognition using \textit{silicon pixel layers}, the middle one consists of stereo pairs of \textit{silicon microstrip} (SCT) layers and the outermost one consists of the \textit{Transition Radiation Tracker} (TRT). During 2014 ATLAS upgrade, the \textit{Insertable B-Layer} (IBL), a fourth pixel barrel layer, was added to avoid the decrease of performances after the luminosity upgrade. \\
+the central solenoid magnet. The ID is consists of three sub-detectors: the innermost section provides
+high resolution pattern recognition and secondary vertexing capability using \textit{silicon pixel layers}, the middle one consists of stereo pairs of \textit{silicon microstrip} (SCT) layers and the outermost one consists of the \textit{Transition Radiation Tracker} (TRT). During 2014 ATLAS upgrade, the \textit{Insertable B-Layer} (IBL), a fourth pixel barrel layer, was added to avoid the decrease of performances after the luminosity upgrade of LS1. \\
 
-Each one of these detectors is subdivided into a \textit{barrel} region, in which the sensor modules 
+Each one of these detectors is subdivided into a \textit{barrel} ($|\eta$ \lesssim 1.0$) region, in which the sensor modules 
 are organized tangentially with respect to a circle around the beam axis and an \textit{end-cap} region, in which they are placed perpendicularly with respect to the beam axis, producing
 a disk resemblant shape.\\
 
-The \textit{pixel} barrel layout consists of 3 layers placed at approximate radii $50.5\ mm$, $88.5\ mm$ and $122.5\ mm$ with respect to the beam 
-axis. A fourth layer called \textit{Insertable B-Layer} (IBL) was added during the LS1 as the
-innermost pixel layer at radius $32.7\ mm$. In the end-cap region, three disks per side were chosen,
+The \textit{pixel} barrel layout consists of 3 layers placed at approximate radii $50.5$, $88.5$ and $122.5\ mm$ with respect to the beam 
+axis. The IBL was added during the LS1 as the
+innermost pixel layer at radius $33.5\ mm$. In the end-cap region, three disks per side were chosen,
 at z position respectively $495\ mm$, $580\ mm$, $650\ mm$. \\
 
 The \textit{SCT} barrel layout consists of four layers at radii $300\ mm$, $373\ mm$, $447\ mm$ and $520\ mm$. The end-cap region is instead composed by 9 disks per side with variable
@@ -182,24 +183,22 @@ The \textit{TRT} barrel layout is formed by straws parallel to the beam axis at 
 while the end-cap region consists of radially wound straws with z ranging from $850\ mm$ to 
 $2710\ mm$. This detector can track particles up to $|\eta| < 2.0$.
 
-\subsubsection*{Pixel and SCT} (DIFFERENZE CON TDR: dimensioni diverse dei singoli pixel)
+\subsubsection*{Pixel and SCT}
 
 The pixel and SCT sensors are designed to maintain their performance during the detector
 lifetime at nominal luminosity\cite{Aad:2008zzm}. As the integrated radiation dose has significant consequences
 on these sensors, they are operated at a temperature between $-10\ ^{\circ}C$ and $-5\ ^{\circ}C$.\\
 
-\textit{Pixel sensors} of the Run 1 ID (thus excluding IBL) are $250\ \mu m$ thick detectors which are mounted on oxygenated n-type wafers, with the pixel on the $n^+$ side(??). About 90\% of the pixel on a sensor have a nominal 
+\textit{Pixel sensors} of the Run 1 ID (thus excluding IBL) are $250\ \mu m$ thick detectors which are mounted on oxygenated n-type wafers, with the pixel on the $n^+$ side. About 90\% of the pixel on a sensor have a nominal 
 size of $50 \times 400\ \mu m^2$, while the rest are $50 \times 600\ \mu m^2$ large and are placed
-at the front-end chips on a module. There are a total of 1744 identical pixel sensors(modules??) with an external dimension of $19 \times 63\ mm^2$, each composed by 47232 pixels. For reasons of space, there are four ganged pixels on each column of the front-end chip, thus resulting in a total of 46080 readout channels. \\
-
-\textit{IBL pixels} are, instead, $50 \times 250\ \mu m^2$ large to 
+at the front-end chips on a module. There are a total of 1744 identical pixel sensors with an external dimension of $19 \times 63\ mm^2$, each composed by 47232 pixels. For reasons of space, there are four ganged pixels on each column of the front-end chip, thus resulting in a total of 46080 readout channels. \textit{IBL pixels} are, instead, $50 \times 250\ \mu m^2$ large to 
 ensure a highly precise measurement of the coordinates near the interaction point\cite{IBL}. Two 
 different technologies have been implemented in the central and forward IBL region, which
-results in a different sensor thickness and chip size.\\
+results in a different sensor thickness and module sizes.\\
 
-The \textit{SCT} consists of a total of 15912 sensors with thickness $285\ \pm\ 15\ \mu m$. Every sensor consists of 768 strips of $12\ cm$ length, with average pitch of $80\ \mu m$.
+The \textit{SCT} consists of a total of 15912 silicon strips sensors with thickness $285 \mu m$. Each sensor consists of 768 strips of $12\ cm$ length, with average pitch of $80\ \mu m$.
 On each SCT module there are two back-to-back sensors with a relative angle of $40\ mrad$,
-which allows the extraction of a second coordinate.\\
+which allows the extraction of a second coordinate. The readout electronis is placed at the end of each sensor.\\
 
 Pixel and SCT system will be completely replaced for HL-LHC, as described in sec.\ref{sec:tracking}.
 
@@ -214,13 +213,13 @@ for a total of 420000 electronic channels\cite{ATLAS:1997ag}. This detector typi
 an almost continuous tracking of the particles traversing it, with an average of 36 measurements per track.\\
 
 Due to the strict requirement of HL-LHC, the TRT will be removed, and its space will be allocated for the new
-Inner Tracker (ITk), which is the main focus of this thesis and will be covered in sec.\ref{sec:ITkLayouts}.
-
+Inner Tracker (ITk), which is the main focus of this thesis and will be described in detail in sec.\ref{sec:tracking}.
 
 \subsection{Calorimeter system}
 
 The ATLAS experiment  relies on an electromagnetic and a hadronic calorimeter to identify and measures energies and direction of photons, electrons, hadrons, jets and neutrinos. 
-Both compartments are divided into a central and a forward region (Fig.\ref{fig:current_Cals}).
+Both compartments are divided into a central and a forward region (Fig.\ref{fig:current_Cals}). The electromagnetic calorimeters are based on the liquid Argon technology,
+whereas the hadron calorimeters are either liquid Argon (forward region) or tile calorimeter (central).\\
 
 \begin{figure} [h]
 	\includegraphics[width=\textwidth]{current_Cals}
@@ -231,52 +230,50 @@ Both compartments are divided into a central and a forward region (Fig.\ref{fig:
 \subsubsection*{Liquid Argon Calorimeters}\label{sec:LAr}
 Several components of the ATLAS calorimeter use liquid Argon (LAr) as active medium\cite{current_EMCal}. The electromagnetic barrel and endcap (EMEC) are entirely built this way, but also the Hadronic Endcap Calorimeter (HEC) and the Forward Calorimeter (FCal). \\[2pt]
 The \textbf{electromagnetic calorimeter} uses lead as absorber and is designed to trigger on and to provide precision measurements of electrons, photons, jets, and missing $E_T$ .
-The full cryostat of the \textit{barrel section} is $6.8\ m$ long, with the inner and outer radius being respectively $1.15\ m$ and $2.25\ m$ and ranges in $|\eta|$ from 0 to 1.7.  The \textit{endcap section} consists of two concentric wheels, the larger one ranging in $|\eta|$ from 1.4 to 2.5, the smaller from 2.5 to 3.2. In addition, a \textit{presampler} layer is inserted behind the cryostat wall to estimate corrections due to losses in the upstream material. 
+The full cryostat of the \textit{barrel section} is $6.8\ m$ long, with the inner and outer radius being respectively $1.15\ m$ and $2.25\ m$ and ranges in $|\eta|$ from 0 to 1.7.  The \textit{endcap section} consists of two concentric wheels, the larger one ranging in $|\eta|$ from 1.4 to 2.5, the smaller from 2.5 to 3.2. In addition, a \textit{presampler} layer was inserted behind the cryostat wall to correct for the losses in the upstream material. 
 %The amount of inactive material due to the solenoid
 %accounts for $0.63\ X_0$ and, as cited in Sec.\ref{sec:magnet}, has been optimized. 
-Detailed simulations based on the response to high energy photons and electrons have
-measured the thickness of the calorimeter to be about $24\ X_0$ in the barrel and $26\ X_0$ in the endcap. Each section is physically divided into towers which produce the signal and are so responsible
+Detailed studies based on the response to high energy photons and electrons have
+measured the thickness of the calorimeter to be about $24\ X_0$ in the barrel and $26\ X_0$ in the endcap. Each section is physically divided into longitudinal projective towers which produce the signal and are so responsible
 for the granularity of the calorimeter.
 High granularity is especially required in the central regions, where it reaches the value of 
-$\Delta\eta\ \times\ \Delta\phi\ =\ 0.025\ \times\ 0.025$, sometimes allowing to combine the information
-coming from the inner detector to improve rejection power.
+$\Delta\eta\ \times\ \Delta\phi\ =\ 0.025\ \times\ 0.025$.
 \begin{comment}
  In this region it is possible to combine the signal of the calorimeter with the information coming from the inner detector to improve the rejection power of $\pi_0$ against photons. Indeed, granularity is less and less relevant to the overall performance with increasing $|\eta|$. 
 \end{comment}
-Hermeticity is also a very important feature for the measurement of missing $E_T$ and has been maximized using a transition gap between the barrel and endcap cryostats of 95 mm. \\
+Hermeticity is also a very important feature for the measurement of missing $E_T$ and has been maximized using a transition gap detector between the barrel and endcap cryostats. \\
 
-\textbf{HEC}\cite{hec} is a sampling calorimeter with copper absorber plates and consists of two wheels of outer radius $2.03\ m$, made of 32 identical modules. It ranges in $|\eta|$ from 1.4 to 3.2 and every half of it shares the cryostat with the EMEC and FCal. \\[2pt]
+\textbf{HEC}\cite{hec} is a sampling calorimeter with copper absorber plates and consists of two wheels of outer radius $2.03\ m$, made of 32 identical modules. It ranges in $|\eta|$ from 1.4 to 3.2 and every half of it shares the cryostat with the EMEC and FCal. The thickness of the active part of the calorimeter is about 12$\lambda$.\\
 
-\textbf{FCal} has to cope with a high level of radiation, which makes it a particularly challenging detector. 
+\textbf{FCal} has to cope with a high level of radiation, which makes it a particularly challenging detector.  The high material density employed allows to reach the required $9.5\ \lambda$ in a reduced space and to minimize the endcap calorimeter pileup signal.  \\
 
 \begin{comment}
 To avoid an excessive neutron albedo in the central cavity the detector is actually recessed by 
 $1.2\ m$ with respect to the frontal face of the electromagnetic calorimeter. FCal is a high density mixed copper-tungsten calorimeter and covers the range of $3.0\ < |\eta|\ <\ 4.9$. 
 \end{comment}
 
- The high material density employed allows to reach the required $9.5\ \lambda$ in a reduced space and to minimize the endcap calorimeter pileup signal.  \\[2pt]
+
 
 \subsubsection*{Hadron Tile calorimeters}
-The main requirement for the \textbf{Tile Calorimeter} is to reconstruct the energy of the jets produced and, due to the large center-of-mass energy at LHC, it has to assure 
-good performances in a wide range of energies. Also thanks to the use of an extended barrel, the HEC, together with the FCal, are able to provide a good $p_T^{miss}$ reconstruction.\\
+The main requirement for the \textbf{Tile Calorimeter} is to reconstruct the energy of the jets produced and, due to the large center-of-mass energy at LHC, it must provide
+good response in a large energy range. Also thanks to the use of an extended barrel, the HEC, together with the FCal, are able to provide a good $p_T^{miss}$ reconstruction.\\
 
 The Tile calorimeter is a sampling calorimeter composed by alternated layers of scintillating tiles (used as active medium) and steel (as an absorber). The signal is transmitted from each module using optical fibres, which can then run through the calorimeter. It is segmented with a granularity of
 $\Delta\eta \times \Delta\phi\ = 0.1 \times 0.1$.\\
 The Tile Calorimeter is composed by one barrel ($5.64\ m$ long) and two extended barrel ($2.91\ m$ long) parts, with a gap of $60\ cm$ in between. It consists of a cylindrical structure of inner radius $2.28\ m$ and $4.23\ m$. The barrel covers the region $0\ <\ |\eta|\ <\ 1.0$ whereas the extended barrel covers the region $0.8\ <\ |\eta|\ <\ 1.7$. The overlap region from 0.8 to 1.0 is
-occupied by the Intermediate Tile Calorimeter (ITC).\\
+occupied by the Intermediate Tile Calorimeter (ITC). The three longitudinal layers are approximately 1.4, 4.0 and 1.8 $\lambda$ thick. \\
 
 \subsubsection*{Upgrade of the electromagnetic calorimeter}
 
-The performance required by the HL-LHC barrel electromagnetic calorimeter is the same as the current one, and it does not need an upgrade. In contrast to that, the FCal performances will be degraded by the conditions of HL-LHC. In the Reference Scenario of the ATLAS Scoping Document\cite{scoping} the replacement of the current FCal with a high-granularity Small-Gap Forward Calorimeter (sFCal) is foreseen. Its design has better performances with respect to the current one thanks to smaller LAr gaps. The improved granularity will also be helpful with the new 
-tracker. Also, the addition of a High Granularity Timing Detector (HGTD) is planned, which will be hopefully installed in front of the LAr Calorimeter endcaps and will be needed to deal with the
-pile-up. It will cover the range $2.4 < |\eta| < 4.3$ and it will measure the arrival time of charged particles, assigning them to different collision vertices. The readout electronics will also need to be upgraded due to insufficient radiation tolerance and poor performances. In the Middle and Low cost 
+The performance requirement of the barrel electromagnetic calorimeter during the high luminosity phase will not change, thus no major change is foreseen. In contrast to that, the FCal performances will be degraded by the conditions of HL-LHC. In the Reference Scenario of the ATLAS Scoping Document\cite{scoping} the replacement of the current FCal with a high-granularity Small-Gap Forward Calorimeter (sFCal) is foreseen. Its design has better performances with respect to the current one thanks to smaller LAr gaps. The improved granularity will also be helpful with the new 
+tracker. Furthermore, the addition of a High Granularity Timing Detector (HGTD) is planned, which will be hopefully installed in front of the LAr Calorimeter endcaps and will be needed to deal with the
+pile-up. It will cover the range $2.4 < |\eta| < 4.3$ and it will measure the arrival time of charged particles, assigning them to different collision vertices. The readout electronics will also be upgraded due to insufficient radiation tolerance and inadequate performances for the requirements of the upgraded trigger. In the Middle and Low cost 
 scenarios, on the contrary, no upgrades in the endcap and forward region are foreseen, unless new issues arise. \\
 
 \subsubsection*{Upgrade of the Tile Calorimeter}
 
 The Tile Calorimeter maintains the required performance even during the HL-LHC phase and
-so it does not need replacement. On the contrary, the readout electronics will need to be upgraded due to limited radiation tolerance and to accommodate the new trigger requirements in terms of rates and latencies. This will be fulfilled, as in the case of the LAr (see
-Sec.\ref{sec:LAr}), by substituting the on-detector front-end electronics, the optical links, the off-detector signal processing unit, the powering system and the interface modules to the TTC and DAQ systems. (??).
+so it does not need replacement. However, the readout electronics will be upgraded due to limited radiation tolerance and to accommodate the new trigger requirements in terms of rates and latencies. This will be fulfilled, as in the case of the LAr, by substituting the on-detector front-end electronics, the optical links, the off-detector signal processing unit, the powering system and the interface modules to the TTC and DAQ systems. R\&D is ingoing to verify that the current photomultipliers can survive the radiation dose.
 
 \subsection{Muon Spectrometer}\label{sec:muon}\cite{muon_tdr}\cite{Aad:2008zzm}
 
@@ -290,7 +287,7 @@ Sec.\ref{sec:LAr}), by substituting the on-detector front-end electronics, the o
 The ATLAS \textbf{muon spectrometer} is designed to track charged particles that manage to pass through the whole calorimetric system, and to perform stand-alone measurements of their momentum, in the range 
 $3\ GeV < p_{T} < 3\ TeV$. Even at the upper limit, the detector is still able to provide adequate momentum resolution and charge sign measurement.\\
 
-The layout of the current  ATLAS muon spectrometer is shown if Fig. \ref{fig:muonSystem}. It is divided into three main regions of pseudo-rapidity: in the range $|\eta| < 1.0$ the bending power
+The layout of the current  ATLAS muon spectrometer is shown in fig. \ref{fig:muonSystem}. It is divided into three main regions of pseudo-rapidity: in the range $|\eta| < 1.0$ the bending power
 is provided by a barrel magnet composed by eight coils; the region $1.4 < |\eta| < 2.7$ is covered by a pair of \textit{end-cap toroids} placed at the tips of the barrel toroid; the \textit{transition
 region}, $1.0 < |\eta| < 1.4$, is covered by a combination of the two. The system is built so that it provides a field that is mostly orthogonal to the particle direction while minimizing the contribution to multiple scattering. A \textit{trigger system} is also available for $|\eta| < 2.4$. \\
 
@@ -304,13 +301,13 @@ different regions.  \textit{Monitored drift tube chambers}(MDT) are employed in 
 For the muon trigger system, \textit{Resistive Plate Chambers}(RPC) are used in the barrel region, while \textit{Thin Gap Chambers}(TGC) were chosen for transition and endcap regions. Besides, they also provide a measurement of the coordinate in the non-bending plane to the MDTs. 
 
 \subsubsection*{Upgrade of the muon spectrometer}\cite{scoping}
-During the HL-LHC upgrade, the huge increase in the average number of pileup events leads to a number of difficulties that must be overcome by a corresponding improvement of the performances.\\
+During the HL-LHC upgrade, the huge increase in the average number of pileup events leads to a number of difficulties that must be overcome by a corresponding improvement of the performances\cite{scoping}.\\
 
 In particular, the innermost endcap layer will be substituted by \textit{New Small Wheels}(NSW) that combines small strip TGCs and MicroMegas chambers, both for triggering and 
 precision tracking. The MDTs, together with the New Small Wheels, should already be able to provide an adequate performance and will not be substituted. Its read-out electronics, instead, will not 
-be able to cope with the high hit rate and the new ATLAS L0/L1 trigger scheme, so it will have to be substituted. The same also applies to the RPCs and TGCs. In the case of RPCs, moreover,
+be able to cope with the high hit rate and the new ATLAS L0/L1 trigger scheme, so it will be replaced. The same also applies to the RPCs and TGCs. In the case of RPCs, moreover,
 the gas gain will be lowered to ensure safety in the expected high rate environment and protract its life. New RPCs with increased rate capabilities will be located in the innermost barrel layer to maintain a
-good trigger efficiency, while new high resolution TGCs will substitute the present ones in the middle endcap disk to keep fake rate at a minimum.\\
+good trigger efficiency, while new high resolution TGCs will replace the present ones in the middle endcap disk to keep fake rate at a minimum.\\
 
 The possibility to extend the coverage to $|\eta| < 4$ to identify muons and tag inner detector tracks in that range will be made possible by inserting micro-pattern gaseous or silicon pixel
 detectors in the region $2.7 < |\eta| < 4.0$.
@@ -328,27 +325,29 @@ The current ATLAS \textbf{trigger system} is structured in three levels of event
 with the event filter, form the \textit{High-Level Trigger} (HLT). Due to the high level of integration between the trigger and the DAQ system they are sometimes referred as a single system (TDAQ).\\
 %\cite{Green:2010zza}.\\
 
-At LHC, a bunch crossing happens every 25 ns (i.e. $40\ MHz$), resulting in a trigger to the detector . The goal of L1 trigger is to search for signatures from high $p_{T}$ muons, electrons,
+At LHC, a bunch crossing takes place every 25 ns (therefore with a frequency of $40\ MHz$). Crossings in which a collision is identified generate a "trigger" signal to the whole TDAQ. The goal of L1 trigger is to search for signatures from high $p_{T}$ muons, electrons,
 photons, jets and $\tau$ decaying into hadrons. It also searches for events with large $E_{T}^{miss}$ or large $E_{T}$. It manipulates reduced granularity data coming from the muon
-spectrometer (RPCs and TGCs) and calorimeters. L1 trigger is designed to work with an accept rate of $100\ kHZ$, with a latency of $2.5\ \mu s$. A \textit{Central Trigger Processor} applies
+spectrometer (RPCs and TGCs) and calorimeters. L1 trigger is designed to work without dead time with an accept rate of $100\ kHZ$, with a latency of $2.5\ \mu s$. A \textit{Central Trigger Processor} applies
 the selection and, if the event passes it, the data is
-sent to the DAQ and to the \textit{RoI Builder}, which computes the regions of interest for the next trigger level.\\
-L2 trigger is designed to select events so that the event rate diminishes from the $100\ kHz$ of the L1 trigger to $3.5\ kHz$, with an average processing time of $40\ ms$ per event, by
-exploiting a distributed architecture. This
-level takes the regions of interest from the L1 trigger as input and send a data request to the network, based on these RoI. The events are distributed among the nodes and the selection is applied. If an event passes the selection it is sent to the \textit{event filter}, which applies a more sophisticated selection with high latency, taking the event rate from $3.5\ kHz$ to $\approx 200 Hz$, which are stored in a permanent memory area by the DAQ system.
+sent to the DAQ and to the \textit{RoI\footnote{Region-of-interest} Builder}, which computes the regions of interest for the next trigger level.\\
+L2 trigger is designed to select events so that the event rate is reduced from the $100\ kHz$ of the L1 trigger to $3.5\ kHz$, with an average processing time of $40\ ms$ per event, by
+exploiting a distributed architecture. This trigger
+level takes as input the regions of interest from the L1 trigger as input and send a data request to the DAQ network, based on these RoI. A quick reconstruction is performed
+distributing the information among the nodes and a selection is applied. If an event passes this selection is then sent to the \textit{event filter}, which applies a more sophisticated selection 
+(similar to the offline) with high latency, taking the event rate from $3.5\ kHz$ to $\approx 200 Hz$, which are stored in a permanent memory area by the DAQ system.
 
 \subsubsection*{Upgrade of the TDAQ system}
 The trigger system and electronics were designed to operate at the initial luminosity 
 $\mathcal{L} = 10^{33}\ cm^{-2}s^{-1}$ at low trigger thresholds and at the Run2
 luminosity, $\mathcal{L} = 10^{34}\ cm^{-2}s^{-1}$, with higher thresholds\cite{scoping}.\\
 
-With the increase of the luminosity to $\mathcal{L} = 2-3 \cdot 10^{34} cm^{-2}s^{-1}$ during
-the Phase-I upgrade and then to a maximum of $\mathcal{L} = 7.5 \cdot 10^{34} cm^{-2}s^{-1}$, the entire TDAQ system will have to be significantly improved. During the Phase-I upgrade the NSW will be installed, together with a higher-granularity calorimeter
-trigger and the L1 trigger will become more selective, keeping the latency and the accept rate unchanged. During this phase also the \textit{Fast TracKer trigger} (FTK)\cite{FTK_TDR} will be installed, which will perform
-full tracking on the events accepted by the L1 trigger. \\
+Tp cope with the increase of the luminosity to $\mathcal{L} = 2-3 \cdot 10^{34} cm^{-2}s^{-1}$ during
+the Phase-I upgrade and then to a maximum of $\mathcal{L} = 7.5 \cdot 10^{34} cm^{-2}s^{-1}$, the entire TDAQ system will have to be significantly improved. During the Phase-I upgrade the New Small Wheels will be installed, together with a finer granularity calorimeter
+trigger and the L1 trigger will become more selective, with the goal of keeping the latency and the accept rate unchanged. During this phase also the \textit{Fast TracKer trigger} (FTK)\cite{FTK_TDR}, which will perform
+full tracking on the events accepted by the L1 trigger, will be installed. \\
 
 During the HL-LHC phase, when the luminosity will reach its maximum, it will be necessary
-to increase the maximum rate and latency of the trigger system and install an additional Level 0 hardware trigger (L0), which relies on the muon and calorimeter trigger information. The L0 trigger is designed to decrease the data flow from $40\ MHz$ to $1\ MHz$, with a maximum latency of $6\ \mu s$. The upgraded L1 trigger will be seeded by the regions of interest (RoIs) provided by the L0
+to increase the maximum rate and latency of the trigger system and install an additional Level 0 hardware trigger (L0), which will be based on the muon and calorimeter trigger information. The L0 trigger is designed to decrease the data flow from $40\ MHz$ to $1\ MHz$, with a maximum latency of $6\ \mu s$. The upgraded L1 trigger will be seeded by the regions of interest (RoIs) provided by the L0
 trigger and it will use full calorimeter readout with higher-granularity data. It is designed to
 operate with a maximum latency of $30\ \mu s$ and an accept rate of $400\ kHz$ (in the Reference scenario of the \textit{Scoping Document}\cite{scoping}). The Phase-II DAQ system is designed to make 
 efficient use of commercial networking and computing hardware. 
@@ -453,7 +452,7 @@ at 300 $fb^{-1}$ and 3000 $fb^{-1}$ are shown in fig.\ref{fig:higgsCouplings}.\\
 
 \begin{figure} [h]
 	\centering
-	\includegraphics[width=.5\textwidth]{HiggsStrengthsTable}
+	\includegraphics[width=.7\textwidth]{HiggsStrengthsTable}
 	\caption{Relative uncertainty on the signal strength $\mu$ for the combination of Higgs analyses at 14 TeV,
 with 300 $fb^{-1}$ (left) and 3000 $fb^{-1}$ (right), assuming a SM Higgs boson with a mass of 125 GeV and
 assuming production cross sections as in the SM. For both 300 and 3000 $fb^{-1}$ the first column shows
@@ -492,7 +491,7 @@ to be observed in the high-luminosity phase:
 From a phenomenological standpoint, to find out if the Higgs mechanism is the one responsible
 for electroweak symmetry breaking, it is important to measure the Higgs self-couplings.
 In particular, the Higgs boson trilinear self-coupling $\lambda_{HHH}$ can be measured
-in the double Higgs boson production channel. ???? whose cross section in the Standard Model is
+in the double Higgs boson production channel. (CORREZIONE CHE NON CAPISCO????) whose cross section in the Standard Model is
 $34^{+6}_{-5}$ (QCD scale) $\pm 1$ (PDF) fb, which is about three orders of magnitude
 smaller than the total Higgs production cross section and thus needs high
 luminosity to be measured. \\
@@ -502,7 +501,7 @@ $HH \rightarrow b\bar{b}W^+W^-$ and $HH \rightarrow b\bar{b}\gamma\gamma$. Their
 indistinguishable from the $H \rightarrow t\bar{t}$, so that it suffers from a huge background
 that makes impossible to measure the Higgs self coupling; the latter has a small branching
 ratio, but its signature is clear and is expected to produce $\simeq$ 260 events in 3000 $fb^{-1}$. After the analysis selection this channel is expected to provide a S/B ratio of around 0.6, with the background
-dominated by $t\bar{t}H$ (??? DOVE FINISCONO LE W?). The preliminary results of these
+dominated by $t\bar{t}H$. The preliminary results of these
 studies show that none on these channels, taken alone, can provide a measurement of
 the Higgs self coupling, but it is expected that, combining the results of all the channels with 
 the ones of the CMS experiment, a $30\ \%$ measurement should be feasible at HL-LHC.
@@ -551,7 +550,7 @@ $\widetilde{\chi}_1^\pm \rightarrow W^{\pm(*)} \widetilde{\chi}_1^0$ and
 $\widetilde{\chi}_2^0 \rightarrow Z^{(*)}\widetilde{\chi}_1^0$, the event selection can be
 performed by looking for final states with three charged leptons and missing transverse momentum,
 where a pair of same flavour and opposite sign leptons comes from a Z boson. The main
-backgrounds consists of $t\bar{t}$ (DOVE SONO I TRE LEPTONI?) and $WZ$ production.
+backgrounds consists of $t\bar{t}$ and $WZ$ production.
 At the end of the LHC program, scenarios with chargino masses up to 500 GeV can be probed
 with a neutralino mass below 100 GeV, while at HL-LHC it will be possible to probe scenarios
 with chargino masses up to 800 GeV and neutralino masses below 300 GeV.
@@ -569,7 +568,7 @@ topologies. They can be observed in two complementary channels, which are the di
 from W+jets background and to the loss of the top quark identification capability when the two jets merge. In this channel, b-tagging is fundamental to reduce the huge light flavour jet
 background. The dileptonic channel cannot measure the resonance mass and suffers from the irreducible $t\bar{t}$ background but
 it is less susceptible to the top quark jets merging because the leptons are more easily 
-identified when they are close to the b-jet (?).  The increase in sensitivity at HL-LHC depends
+identified when they are close to the b-jet.  The increase in sensitivity at HL-LHC depends
 on the particular resonance mass considered, but it can improve the mass limits by up to
 2 TeV.\\
 
@@ -795,15 +794,15 @@ ideal for tracking studies, in which we are interested only in the response of I
 somewhat 
 limits the potential of the analysis of physics processes because of the small number of physics objects that can be reconstructed with the tracker only (muons, charged pions and kaons, photon conversion). Furthermore, no particle identification is possible without the other sub-detectors, so some
  hypotheses had to be made on the identification efficiency and rejection power.
-As described in sec.\ref{sec:introduction} (CHECK?), the HL-LHC environment is particularly
+As already mentioned in the introduction of this thesis, the HL-LHC environment is particularly
 challenging due to the very high number of average proton-proton collisions per bunch crossing ($\sim 200$). Thus, full ITk simulation including all the tracks is computationally challenging 
 and the production of samples of this kind with acceptable statistics is very difficult
 to achieve.\\
 
 In this thesis, a fast simulation technique that
-significantly reduces the computational time necessary to produce the samples was developed and applied to particle gun samples and physics samples, the latter 
+significantly reduces the computational time necessary to produce the samples was developed and applied to single particle ("particle gun") and physics samples, the latter 
 in the $H \rightarrow ZZ^{*} \rightarrow 4\mu$ channel. In this section,
-the pile-up modelization employed and the fast simulation technique is described.
+the pile-up modelling and the fast simulation technique is described.
 
 \subsection{Overlapping events}
 Besides the products of the proton-proton collision of interest, other particles can traverse the detector, resulting in an overlap of signals. The term \textit{pile-up event} refers to an occurred proton-proton collision different from the one of interest. At LHC, two sources of pile-up are present:
@@ -826,10 +825,9 @@ Other overlaps are caused by particles that are not direct products of the bunch
 An HL-LHC bunch will consist of hundreds of billions of protons. The elementary
 proton-proton collisions that take place in the same bunch of the hard-scatter event of
 interest constitute the \textit{in-time pile-up} events. These events are essentially inelastic proton collisions and are modelled by the so called
-\textit{minimum-bias} events, which were simulated using the Pythia generator (see appendix ref{appendix:MC}), whose parameters
+\textit{minimum-bias} events, which were simulated using the Pythia generator (see appendix \ref{appendix:MC}), whose parameters
 are trimmed to reproduce ATLAS data. These events are the most
-important source of pile-up in the tracker and the only taken into account in the study presented in this thesis.
-(SCRIVERE CALCOLETTO NUMERO DI PILEUP A HL LHC?)   \\
+important source of pile-up in the tracker and the only taken into account in the study presented in this thesis. \\
 
 \begin{comment}
 Most of the proton-proton collisions that take place during an LHC run do not result in the 
@@ -1004,7 +1002,7 @@ the regions-of-interest (RoIs) at \textbf{generation level}. Particles lying out
 simulated, thus drastically reducing the time required by the simulation/digitization/reconstruction stages. \\
 
 The RoIs are computed by selecting the pile-up particles that lie inside a cone with fixed radius $\Delta R\footnote{see appendix \ref{appendix:perigee}} = 0.1$ 
-around the hard-scattering particles. The value was chosen as it is the typical RoI width used by ATLAS (IN CHE TIPO DI STUDI?). A visual
+around the hard-scattering particles. The value was chosen as it is the typical RoI width used by ATLAS (IN CHE TIPO DI STUDI?) and it was studied in sec. \ref{sec:tracking:dRStudy}. A visual
 representation of the method is depicted in Fig.\ref{fig:soshiCone1}.\\
 
 \begin{figure} [h]
@@ -1084,7 +1082,7 @@ sent as input to the standard ATLAS simulation/digitization/reconstruction chain
 Samples with different parameters were produced by using a different initial Pythia seed to 
 avoid repetitions in the pile-up sample. \\
 
-\subsection{Fast simulation method applied to physics studies}\label{subsec:physicsSimulation}
+\subsection{Fast simulation method applied to physics studies}\label{sec:simulation:physicsSimulation}
 
 \textbf{Physics} studies are similar to particle gun studies for what concerns the generation technique and 
 consist in the generation of a physics event with a superimposed pile-up distribution. There is a difference as
@@ -1152,7 +1150,7 @@ is not directly computable in this case (CHECK?).
 
 In this section the timing requirements of the fast simulation technique and the
 standard full simulation method are compared.
-The generation/simulation/digitization/reconstruction chain was run (NON CAPISCO CORREZIONE AL VERBO?) on a 
+The chain from generation to reconstruction was run (NON CAPISCO CORREZIONE AL VERBO?) on a 
 CERN LXPLUS machine. \\
 
 The results are shown in Tab.\ref{tab:timing}.
@@ -1321,7 +1319,7 @@ reach $\pm\ 1215\ mm$ in the z-axis, while the three remaining extend to $\pm\ 7
 In the \textbf{Inclined Barrel 4.0 layout} (IExtBrl4), the two innermost barrel layers
 are extended in length but are subdivided into a short flat sector ($\pm\ 180\ mm$ and $\pm\ 200\ mm$ respectively) and 
  an \textit{inclined} sector, in which the layers are tilted at a fixed angle of around 35 degrees with respect to the horizontal plane.
-Each module in this sector is formed by two pixel modules at a distance of 4 mm from each other. In the \textbf{Fully Inclined 4.0} (InclBrl4) layout,
+Each module in this sector is formed by two pixel modules at a distance of 4 mm (?? NON ERANO 8??) from each other. In the \textbf{Fully Inclined 4.0} (InclBrl4) layout,
 all of the pixel barrel layers are subdivided into a central flat sector and an inclined sector. In this case the length of the flat sector depends
 on the layer and increases from $\pm\ 180\ mm$ in the innermost layer to $\pm 320\ mm$ in the outermost layer. The inclined sector extends
 to $\pm\ 1200\ mm$ for the two innermost layers and to $\pm 700\ mm$ for the others. The number of the inclined modules is the same as the IExtBrl4 layout for the two innermost
@@ -1331,13 +1329,17 @@ tab. \ref{tab:tracking:barrelRadii}. \\
 The \textbf{pixel endcap disks} extend to $\pm 3000\ mm$. Their 
 number depends on the layer and ranges from 15 to 20 per detector side. \\
 
-The \textbf{SCT system} is identical for the three layouts. It is composed by four barrel layers of identical length ($\pm 1350\ mm$). The value of the radii are shown in tab. 
-\ref{tab:tracking:barrelRadii}. There
-are six endcap disks per side, ranging in z from 1500 mm to 3000 mm. \\
+The \textbf{SCT system} is identical for the three layouts. It is composed by four barrel layers of identical length ($\pm 1372\ mm$). The value of the radii are shown in tab. 
+\ref{tab:tracking:barrelRadii}. The reduced number of SCT layers is one of the most important changes
+with respect to the Scoping Document\cite{scoping}. There
+are six endcap disks per side, ranging in z from 1500 mm to 3000 mm. Each strip module
+has strips in each side, with a relative tilt of 40 mrad. This is necessary to obtain a
+measurement of the third coordinate when a particle produces hits on both sides of the
+strip.\\
 
 \begin{table} [h]
 \centering
-	\resizebox{.8\textwidth}{!}{
+	\resizebox{.5\textwidth}{!}{
 \begin{tabular}{l || c | c  }
 & \textbf{Layer} & \textbf{Radius (mm)} \\ \hline
 \multirow{5}{*}{\textbf{Pixel}} & 1 &  39 \\
@@ -1359,21 +1361,21 @@ For the studies that will be presented in this thesis, it is useful to identify 
 flat barrel layers in all the layouts; in the region $1.0 < |\eta| < 1.4$ the InclBrl4 layout starts the transition to the inclined barrel modules in the three outermost layers; in the
 region $1.4 < |\eta| < 1.8$ the same happens for the innermost layers (IExtBrl4 and InclBrl4); also, the region $1.0 < |\eta| < 1.8$ marks the tranition from SCT barrel to SCT endcap; the region $1.8 < |\eta| < 2.2$ is the transition region from pixel barrel to pixel endcap; the region $2.2 < |\eta| < 2.7$ relies on pixel and SCT endcap; the region $2.7 < |\eta| < 3.2$  is pixel only (two innermost barrel layers + pixel endcap); the most forward region $3.2 < |\eta| < 4.0$ counts only on the innermost barrel layer and the pixel endcap disks.\\
 
-With respect to the current Inner Detector, the momentum resolution will benefit from the longer lever arm, a high number of silicon hits (typically 13, also to account for
-possible dead modules), smaller pixel sizes ($25 \times 150\ \mu m^2$ in the innermost layers, $50 \times 250 \mu m^{2}$ in the remaining, with $150\ \mu m^{2}$ thickness) and smaller strip lenghts ($23.8\ mm$ in the innermost
-layers and $47.8\ mm$ in the remaining, $75\ \mu m^{2}$ pitch and $300 - 320 \ \mu m^{2}$ thickness)\cite{scoping}. Also, the material contribution in terms of radiation lengths 
+With respect to the current Inner Detector, the momentum resolution will benefit from the longer lever arm, a large number of silicon hits (typically 13, also to account for
+possible dead modules), smaller pixel sizes ($50 \times 50\ \mu m^2$, with $150\ \mu m$ sensor thickness) and smaller strip lenghts ($23.8\ mm$ in the two innermost
+layers and $47.6\ mm$ in the remaining, $75\ \mu m$ pitch and $320\ \mu m$ thickness)\cite{scoping}. Also, the material contribution in terms of radiation lengths 
 will be significantly smaller than that of the current Inner Detector ($< 0.7 X_{0}$ against $1.2 X_{0}$), for a broad pseudo-rapidity region, which will be important to minimize
 strong interactions for hadrons, bremmstrahlung for electrons and photon conversions. \\
 
-One of the problems connected with the angular coverage extension proposed in these layouts is the formation of \textit{long clusters} in the forward region. This effect is a purely 
-geometrical one and emerges from the fact that particles with high pseudo-rapidity traverse the depth of the sensors releasing a charge that spans over a broader region. This effect is
+One of the problems connected with the angular coverage extension proposed in these layouts is the generation of \textit{long clusters} in the forward region. This effect is a purely 
+geometrical one and emerges from the fact that particles with large pseudo-rapidity traverse the depth of the sensors releasing energy that spans over a broader region. This effect is
 minimized in the inclined layouts, where the inclined sensors ensure that the particle traverses a smaller amount of material. However, a sophisticated reconstruction algorithm could reduce
-the impact of this effect in the ExtBrl4 layout by using the charge release distribution information. Unfortunately in the Step-1 layouts the reconstruction algorithm still needs to be optimized,
-so that it is early to draw final conclusions from the comparison of the layouts. This effect especially affects the ExtBrl4 performances in the forward region.\\
+the impact of this effect in the ExtBrl4 layout by using the energy distribution information. Unfortunately in the Step-1 layouts the reconstruction algorithm still needs to be optimized,
+so that it is too early to draw final conclusions from the comparison of the layouts in the forward region. \\
 
-\subsection{Sample production}\label{sec:tracking:sampleProduction}
-Particle gun samples of $5\cdot 10^4$ events have been generated with charged pions following the technique described in sec.\ref{sec:simulation:pg}. The charge of the pion
-is chosen randomly for each event.
+\subsection{Monte Carlo samples}\label{sec:tracking:sampleProduction}
+Particle gun samples of $4.5\cdot 10^4$ events have been generated with charged pions following the technique described in sec.\ref{sec:simulation:pg}. The charge of the pion
+is chosen randomly for each event. (CONTROLLI A L.317, DOPO CHE GENERA LA DISTRIBUZIONE DEL GUN, DOVREBBE TROVARE UN pdgID1 CHE CAMBIA SEGNO?)
 Each sample contains pions distributed with flat $\eta$ in the range [-5,5], flat $\phi$ in the range [-$\pi$, $\pi$] and fixed transverse momentum (5 GeV, 15 GeV, 50 GeV, 100 GeV). 
 A flat $\eta$ distribution was chosen to study all the regions of the detector with the same statistics, whereas the chosen $\eta$ range, that extends well beyond the detector coverage ($|\eta| < 4.0$),
 is a standard within the ITk tracking studies and it allows to study possible effects at the detector edges. 
@@ -1389,13 +1391,15 @@ with these studies include track quality parameters, reconstruction efficiency, 
 The choice of generating charged pions was based on several reasons. Pions are the most frequently
 produced charged particles in the collisions, and are also the most frequent secondary particle produced by the strong interaction of hadrons with
 the nuclei. They typically lose energy in the tracker continuously by ionization, with a Landau distribution very similar to that of the muons, but they can also undergo strong interactions, with the production of several secondary particles. The reconstruction of these objects
-is thus more difficult than in the case of the muons and poses interesting tracking problems.
+is thus more difficult than in the case of the muons and poses interesting problems for further studies.
 
 \subsection{Event features}\label{subsec:tracking:eventFeatures}
-After the generation step, each sample was produced by running the complete simulation/digitization/reconstruction chain. The final xAOD file contains the information at both
-truth and reconstruction level. For the several pile-up scenarios, the number of reconstructed tracks and the number of simulated primary and secondary charged particles per event
-(inside the simulated region of interest) are shown in fig. \ref{fig:tracking:nPrimaryChargedTruth}, \ref{fig:tracking:nSecondaryChargedTruth}, \ref{fig:tracking:nRecoTracks} for the ExtBrl4 layout, as an example, and with pion $p_{T} = 15\ GeV$. The plots show the increase in the number of particles produced with increasing average number of generated pile-up events and
-the correspondent increase in the number of reconstructed tracks. In this latter plot, the number of events in which no track is reconstructed is mostly due to the geometrical acceptance (80\%), but part is caused by the reconstruction efficiency, that will be later calculated. \\
+After the generation step, each sample was processed using the full simulation/digitization/reconstruction chain. The final xAOD file contains the information at both
+truth and reconstruction level. \\
+
+For the different pile-up scenarios, the number of reconstructed tracks, the number of simulated primary and secondary charged particles per event
+(inside the simulated region of interest) are shown in fig. \ref{fig:tracking:nPrimaryChargedTruth}, \ref{fig:tracking:nSecondaryChargedTruth}, \ref{fig:tracking:nRecoTracks} for the ExtBrl4 layout, as an example, and with pion $p_{T}$ = 15 GeV. The plots show the growth in the number of particles produced with increasing average number of generated pile-up events and
+the correspondent increase in the number of reconstructed tracks. In the latter plot, the number of events in which no track is reconstructed is mostly due to the geometrical acceptance (80\%), but part is caused by the reconstruction efficiency. \\
 
 \begin{figure}
 \centering
@@ -1419,11 +1423,14 @@ the correspondent increase in the number of reconstructed tracks. In this latter
 \label{fig:tracking:nRecoTracks}
 \end{figure}
 
-From the distribution of the number of tracks per event in the $<\mu> = 0$ scenario it is visible
-how the single simulated pion can produce more than one track due to the production of hard secondary particles, that must be produced not too far in R, otherwise a track would
-not be reconstructed because it would not produce a sufficient number of hits in the detector. The plot in fig.\ref{fig:tracking:nSecondaryChargedTruth1GeV} shows the number of secondary charged particles produced by the pion (in the $<\mu> = 0$ scenario)
-with a 1 GeV requirement on the transverse momentum. In the employed sample there are X events in which more than one track is reconstructed and Y events with at least one hard secondary 
+From the distribution of the number of tracks per event in the $<\mu> = 0$ scenario is visible
+how the single simulated pion can produce more than one track due to the production of hard secondary particles. The plot in fig.\ref{fig:tracking:nSecondaryChargedTruth1GeV} shows the number of secondary charged particles produced by the pion (in the $<\mu> = 0$ scenario)
+with a 1 GeV minimum transverse momentum requirement. \\
+
+\begin{comment}
+In the employed sample we calculated a fraction of  X events in which more than one track is reconstructed and Y events with at least one hard secondary 
 particle is produced, corresponding to a fraction of X/Y of the events in which these secondary particles are reconstructed. (METTERE NUMERI QUANDO HO I CAMPIONI?)
+\end{comment}
 
 \begin{figure}
 \centering
@@ -1433,22 +1440,22 @@ particle is produced, corresponding to a fraction of X/Y of the events in which 
 \end{figure}
 
 \subsection{Track matching}\label{subsec:tracking:matching}
-To identify the "hard-scatter" pion generated with the particle gun we look, among the primary particles, for a match in pdgId and $p_{T}$. The
-track with the minimum $\Delta R$ distance from this particle is \textit{matched} with it if this distance is less than 0.1 and the reconstructed $p_{T}$ is 
-larger than 3 GeV. The chosen value corresponds to the amplitude of the employed
-region of interest and is well larger than the track resolution in $\eta$ and $\phi$, which will be shown in sec. \ref{sec:tracking:resolution}. In the other cases a match
-is not found, thus excluding most of the events outside of the geometrical acceptance and those where the pion is not reconstructed and there is no other 
-high $p_{T}$ track that can fake it. There could be cases in which the hard-scatter pion lies beyond the geometrical acceptance but close to the detector edge 
-and a high $p_{T}$ track is reconstructed from the pile-up particles. These cases are included by the employed matching algorithm and can potentially contribute
-to the number of fake tracks. The so found matched track
-represent the "hard-scatter" candidate of the event.  
+To identify the pion generated with the particle gun we look, among the primary particles, for a match in pdgID and $p_{T}$. The
+reconstructed track closest in $\Delta R$ from this particle is \textit{matched} with it if this distance is less than 0.1 and the reconstructed $p_{T}$ is 
+larger than 3 GeV. The $\Delta R$ value corresponds to the size of the 
+region of interest and is significantly bigger (CORREZIONE NON CAPISCO?) than the track resolution in $\eta$ and $\phi$, as shown in sec. \ref{sec:tracking:resolution}. In the other cases a match
+is not found. This excludes most of the events outside the geometrical acceptance, and those where the pion is not reconstructed and there is no other 
+high $p_{T}$ track faking it. There could be events in which the hard-scatter pion lies beyond the geometrical acceptance but close to the detector edge 
+and a high $p_{T}$ track is reconstructed from the pile-up particles. These cases are included by the matching algorithm and can potentially contribute
+to the number of fake tracks. The "matched track"
+represent the reconstructed "hard-scattering" candidate of the event.  
 
 \subsection{Track quality}\label{subsec:tracking:quality}
 
 \subsubsection{Comparison between matched and unmatched tracks}
 
-Two parameters that measures the track quality were studied, separately for matched and unmatched tracks (the latter mainly due to pile-up particles), which
-are the \textbf{number of hits} that constitutes the track, and the value of the \textbf{chi square per degree of freedom}. When dealing with the number
+We studied two parameters that measures the track quality, separately for matched and unmatched tracks (the latter mainly due to pile-up particles). These
+are the \textbf{number of hits}\footnote{From now on what we call "hits" are actually clusters.}. that constitutes the track, and the value of the \textbf{chi square per degree of freedom}. When dealing with the number
 of hits, it is important to remember that each SCT module is two-sided, so that it typically produces two hits per layer. The results are shown in fig. \ref{fig:tracking:nHits}, \ref{fig:tracking:chiSquare}. \\
 
 \begin{figure}
@@ -1479,18 +1486,20 @@ of hits, it is important to remember that each SCT module is two-sided, so that 
 \begin{figure}
 \centering
 \includegraphics[width=.8\textwidth]{Tracking/chiSquarePerDof}
-\caption{Distribution of the $\chi^2/DOF$ for the matched and unmatched tracks in the sample with a generated pion with $p_{T} = 15\ GeV$ and $<\mu> = 200$, in the ExtBrl4 layout.}
+\caption{ExtBrl4 layout: distribution of the $\chi^2/DOF$ for matched and unmatched tracks in the sample with a generated pion with $p_{T}$ = 15 GeV and $<\mu> = 200$.}
 \label{fig:tracking:chiSquare}
 \end{figure}
 
-The hit distributions are quite similar but a tendency of the matched tracks to produce tracks with more hits it is noticeable (especially in the total hits distribution) and expected, because of their larger transverse momentum on average. It is important to note that the shape of these distributions depend on the generated $\eta$ distribution of the hard-scatter particle, which
-also reflects on the $\eta$ distribution of the secondary and pile-up tracks because of the region of interest selection. The $\chi^2/DOF$ distribution of the unmatched tracks is broader and denotes a generally worse quality reconstruction for the secondary 
-and pile-up particles with respect to the hard-scatter pion. \\
+The hit distributions are quite similar but a tendency of the matched tracks to produce tracks with more hits is noticeable (especially in the total hits distribution). It is important to note that the shape of these distributions depend on the generated $\eta$ distribution of the hard-scatter particle, which
+also affects the $\eta$ distribution of the secondary and pile-up tracks due to the region of interest selection. \\
+
+The $\chi^2/DOF$ distribution of the unmatched tracks is broader and denotes a generally worse quality reconstruction for the secondary 
+and pile-up particles. \\
 
 \subsubsection{Track quality of matched tracks}
-As a function of the pseudo-rapidity, the distributions of the number of pixel, SCT and total hits are shown for the three layouts in fig.\ref{fig:tracking:nHits_eta_ExtBrl4},
- \ref{fig:tracking:nHits_eta_IExtBrl4}, \ref{fig:tracking:nHits_eta_InclBrl4}. The average number of hits for the three layouts is summarized in tab.\ref{tab:tracking:nHits}. DA AGGIORNARE ? COMMENTO SU EXTBRL4 MENO HIT? A requirement on the total number of hits of 9 for $|\eta_{track}| < 2.4$ and of 5 for $|\eta_{track}| > 2.4$ is implicit in the reconstruction algorithm
- and is clearly visible in the total number of hits plots. Also, with increasing $|\eta_{track}|$ the distribution of the number of hits becomes broader, which is an indication of the increasing
+As a function $|\eta|$, the distributions of the number of pixel, SCT and total hits are shown for the three layouts in fig.\ref{fig:tracking:nHits_eta_ExtBrl4},
+ \ref{fig:tracking:nHits_eta_IExtBrl4}, \ref{fig:tracking:nHits_eta_InclBrl4}. The average number of hits for the three layouts is summarized in tab.\ref{tab:tracking:nHits}. DA AGGIORNARE ? COMMENTO SU EXTBRL4 MENO HIT? A requirement on the total number of hits of 9 for $|\eta_{track}| < 2.4$ and of 5 for $|\eta_{track}| > 2.4$ applies in the reconstruction algorithm
+ and is clearly visible in the distribution of the total number of hits. Also, with increasing $|\eta_{track}|$ the distribution of the number of hits becomes broader. This is an indication of the increasing
  difficulty of the reconstruction.  \\
 
 \begin{figure}
@@ -1514,9 +1523,8 @@ As a function of the pseudo-rapidity, the distributions of the number of pixel, 
 \caption{}
 \label{fig:tracking:nSiHits_eta_ExtBrl4}
 \end{subfigure}
-
-\label{fig:tracking:nHits_eta_ExtBrl4}
 \caption{Number of pixel (a), SCT (b) and total (c) hits of the matched tracks as a function of the pseudo-rapidity in the sample with a generated pion with $p_{T} = 15\ GeV$ and $<\mu> = 200$, for the ExtBrl4 layout. The content of each $\eta$ bin was independently normalized so that the overall distribution does not depend on the $\eta$ distribution of the track.}
+\label{fig:tracking:nHits_eta_ExtBrl4}
 \end{figure}
 
 \begin{figure}
@@ -1586,8 +1594,8 @@ FIGURE DA AGGIORNARE?
  
 The number of holes in the pixel and SCT system, defined as the number of layers that are traversed by the fitted track but where no hit was found, was measured. It was found to be
 a quite small effect (around 1\% of the matched tracks) and limited to the pixel system (no tracks with holes in the SCT were found). The distribution of holes in the pixel systems is shown in fig.\ref{fig:tracking:nHoles} for the three 
-layouts. The number of holes was found to be independent on the track transverse momentum within the statistical uncertainties. (and layouts?) (CHECK SE E' VERO?) In the
-considered ITk layouts, no inefficiencies due to dead channels are assumed. \\
+layouts. The number of holes was found to be independent on the track transverse momentum within the statistical uncertainties. (and layouts?) (CHECK SE E' VERO?). 
+This "holes" correspond to small geometrical effects. The actual inefficiencies due to dead channels, readout errors and other effects are not considered in this phase.\\
 
 \begin{figure}
 \centering
@@ -1597,8 +1605,8 @@ considered ITk layouts, no inefficiencies due to dead channels are assumed. \\
 \end{figure}
 
 The distribution of the average value of the $\chi^{2}/DOF$ in the different $|\eta_{truth}|$ bins is shown in fig.\ref{fig:tracking:chiSqPerDof_eta}. The obtained distribution 
-is correlated to the distribution of the total number of hits, in that the $\chi^{2}/DOF$ increases in the $|\eta|$ regions with a larger number of total hits. Also, the value of this variable
-is significantly smaller than 1, which can be an indication of the overestimation of the hit position uncertainties and/or of a significant departure from the gaussian model.
+is correlated to the distribution of the total number of hits, as the $\chi^{2}/DOF$ increases in the $|\eta|$ regions with a larger number of total hits. Also, the value of this variable
+is significantly smaller than 1, which could be an indication of the overestimation of the uncertainties and/or of a significant departure from the gaussian model.
 
 \begin{figure}
 \centering
@@ -1608,15 +1616,15 @@ and in the $<\mu> = 200$ scenario.}
 \label{fig:tracking:chiSqPerDof_eta}
 \end{figure}
 
-\subsection{Perigee parameters reconstruction}\label{sec:tracking:resolution}
+\subsection{Track parameters reconstruction}\label{sec:tracking:resolution}
 The reconstruction resolution and bias of the perigee parameters were calculated for different $|\eta_{truth}|$ bins by considering the distributions of the residual between the reconstructed
-variable of interest $x$ in the matched track and in the hard-scatter truth:\\
+variable of interest $x$ in the matched track and in the "particle gun" truth:\\
 $$
 \Delta_{x} = x_{matched} - x_{truth}
 $$
 
-only for the events in which a match was found and $|\eta_{truth}| \in bin_{i}$. For each bin, an iterative gaussian fit was performed (appendix \ref{appendix:gaussFit}). The \textbf{resolution}
-is defined as the $\sigma$ parameter extracted from the fit, while the \textbf{bias} is defined as the mean parameter extracted from the fit. The results are shown for the different layouts at
+only for the events in which a match was found and $|\eta_{truth}| \in bin_{i}$. For each bin, an iterative gaussian fit was performed (appendix \ref{appendix:iterativeFit}). The \textbf{resolution}
+is defined as the $\sigma$ parameter extracted from the fit, while the \textbf{bias} is defined as the mean parameter extracted from the fit. Results are shown for the different layouts at
 fixed pion $p_{T} = 15\ GeV$ and $<\mu> = 200$ in fig.\ref{fig:tracking:pionResolution}, \ref{fig:tracking:pionBias}. Other cases are shown in appendix \ref{appendix:tracking:resolution}. SCRIVERE ANCHE I CHI2 dei FIT IN APPENDICE?\\
 
 \begin{figure}
@@ -1690,24 +1698,23 @@ fixed pion $p_{T} = 15\ GeV$ and $<\mu> = 200$ in fig.\ref{fig:tracking:pionReso
 \label{fig:tracking:pionBias}
 \end{figure}
 
-(CONTROLLARE SE HO FATTO LO STESSO DISCORSO IN HZZ4mu) \\
 The results of the resolutions show a substantial decrease of performances with increasing track pseudo-rapidity. This is caused by different effects: 
 
 \begin{itemize}
-\item the decrease of the angle between  the track and the magnetic field causes the particle to describe, for the same $p_{T}$ and thus same curvature radius, a helix with larger pitch,
-	which is reconstructed with higher uncertainty. This particularly affects the track $p_{T}$ reconstruction;
-\item the decrease of the angle between the track and the beam axis causes the $d_{0}$ and $z_{0}$ reconstruction uncertainties to increase for a purely geometrical reason;
-\item the increase of the angle between the particle and the pixel surface causes the charge to be released in a broader space, producing a longer cluster and thus diminishing the resolution, 
-	especially in the ExtBrl4 layout, which does not implement (at this stage) an optimized reconstruction algorithm;
+\item the decrease of the angle between  the track and the magnetic field causes the particle to describe, for the same $p_{T}$, a helix with larger pitch,
+	which is reconstructed with greater uncertainty. This particularly affects the track $p_{T}$ reconstruction;
+\item the decrease of the angle between the track and the beam axis causes the $d_{0}$ and $z_{0}$ reconstruction uncertainties to increase for purely geometrical reasons;
+\item the increase of the angle between the particle and the pixel surface causes a spread over a large area of the energy released, producing a longer cluster. As already
+said, this is especially true for the ExtBrl4 layout, which does not implement (at this stage) an optimized reconstruction algorithm;
 \item for the same reason the amount of material traversed by the particle is larger, so the interaction probability and the amount of energy lost by the primary particle is larger, which also causes a resolution decrease.
 \end{itemize}
 
-The increase of the uncertainty at high $|\eta|$ is not due to a lack of statistics, which has been avoided by generating the hard-scatter particle with a flat $\eta$ distribution, but to the
-worsening of the gaussian fit quality, which, at high $\eta$, poorly describes the real distribution of the residual.\\
+The increase of the uncertainty at high $|\eta|$ is not due to a lack of statistics but to the
+worsening of the gaussian fit quality, which, at large $|\eta|$, poorly describes the real distribution of the residual.\\
 
 The results also show significant reconstruction biases for the variables $p_{T}$, $\phi$ and $d_{0}$ in different $|\eta|$ regions. The $p_{T}$ results systematically underestimated in the region
 $|\eta| > 3.0$; 	$\phi$ is underestimated in the region $2.6 < |\eta| < 3.2$ and $d_{0}$  is underestimated in the region $|\eta| < 2.6$. This latter is particularly evident and credible because
-it happens in the central region where the resolution is optimal. This effect was also seen by other research groups and revealed an error in the geometry that was corrected in sequent geometry versions of the Step-1 layouts (VERO?). 
+it happens in the central region where the resolution is optimal. This effect was also seen by other research groups and revealed an error in the geometry that was corrected in sequent geometry versions of the Step-1 layouts. 
 The resolution as a function of the hard-scatter pion $p_{T}$ is shown in fig.\ref{fig:tracking:pionResolutionPt}, for the ExtBrl4 layout, in the $<\mu> = 200$ scenario. (ALTRI IN APPENDICE?).\\ 
 
 \begin{figure}
@@ -1745,7 +1752,7 @@ The resolution as a function of the hard-scatter pion $p_{T}$ is shown in fig.\r
 \label{fig:tracking:pionResolutionPt}
 \end{figure}
 
-The resolution as a function of the average number of pile-up events is shown in fig.\ref{fig:tracking:resolutionPileup_ExtBrl4}, \ref{fig:tracking:resolutionPileup_IExtBrl4}, \ref{fig:tracking:resolutionPileup_InclBrl4}. COMMENTO ROBUSTEZZA?
+The resolution as a function of the average number of pile-up events is shown in fig.\ref{fig:tracking:resolutionPileup_ExtBrl4}, \ref{fig:tracking:resolutionPileup_IExtBrl4}, \ref{fig:tracking:resolutionPileup_InclBrl4}. COMMENTO ROBUSTEZZA?\\
 
 \begin{figure}
 \begin{subfigure}{.5\linewidth}
@@ -1852,16 +1859,17 @@ The resolution as a function of the average number of pile-up events is shown in
 \label{fig:tracking:resolutionPileup_InclBrl4}
 \end{figure}
 
-Another quantity of interest to assess the correct uncertainty estimation and the correctness of the geometry is the significance of the parameters, defined as:
+Another quantity of interest to assess the quality of the reconstruction is the significance of the parameters, defined as:
 $$
 x_{signif} = \frac{x_{matched} - x_{truth}}{x_{err}}
 $$
 
 where $x_{err}$ is the uncertainty on the variable $x$ as estimated from the fit. If the variable is gaussian distributed, this distribution should be compatible with
-a standard gaussian distribution. In fig.\ref{fig:tracking:pull}, for the sample with a $p_{T} = 15\ GeV$ generated pion, $<\mu> = 200$ in the ExtBrl4 layout, the significance is shown for the different
-perigee parameters. The results show a general overestimation of the fit uncertainty, that causes the estimated $\sigma$ significantly smaller than 1 and confirm the presence of 
-a negative bias, especially in the $d_{0}$ reconstruction. BIAS VISIBILE SOLO IN EXT O ANCHE NEGLI ALTRI? This could also partially explain the systematically $\chi^2/DOF < 1$ measured in
-fig.\ref{fig:tracking:chiSqPerDof_eta}.\\
+a gaussian distribution with mean = 0 and $\sigma$ = 1. In fig.\ref{fig:tracking:pull}, for the sample with a $p_{T} = 15\ GeV$ generated pion, $<\mu> = 200$ in the ExtBrl4 layout, the significance is shown for the different
+track parameters. The results show a general overestimation of the fit uncertainty, that causes the $\sigma$ to be significantly smaller than one and confirm the presence of 
+a negative bias, especially in the $d_{0}$ reconstruction. This could also partially explain the systematically $\chi^2/DOF < 1$ measured in
+fig.\ref{fig:tracking:chiSqPerDof_eta}. BIAS VISIBILE SOLO IN EXT O ANCHE NEGLI ALTRI? To verify if this effect was due to $\eta$ asymmetries in the detector geometry, 
+we also looked at the $d_{0}$ significance distribution separately for tracks with $\eta > 0$ and $\eta < 0$, but no significant difference was found. \\
 
 \begin{figure}
 \begin{subfigure}{.5\linewidth}
@@ -1892,19 +1900,21 @@ uncertainties shown are taken from the fit covariance matrix.}
 
 \subsection{Fake probability}
 There is no unique way to define a fake track, which should in general represent a track that was badly reconstructed. As the samples were produced using a fast simulation technique that
-only includes the particles inside a region of interest around the generated hard-scatter particle, it is not possible to measure the total fake rate but only what will from now on be referred
-as the \textbf{fake probability}, which is defined as the probability of a matched track to be fake. The standard way to define a fake track in the ITk community is based on the determination of the fraction of hits common to the track and the truth divided by the number of total hits, with the pixel hits being weighed twice with respect to the SCT hits\footnote{A different weigh is applied because every hit on a SCT sensor only gives two coordinates, so that both sides of the strip are typically needed to form a good space point.}: \\
+only includes the particles inside a region of interest around the generated particle, it is not possible to measure the total fake rate but only what will from now on be referred
+as the \textbf{fake probability}, which is defined as the probability of a matched track to be fake. \\
+
+The standard way to define a fake track in the ITk community is based on the determination of the fraction of hits common to the track and the truth divided by the number of total hits, with the pixel hits being weighed twice with respect to the SCT hits to take into account that a pixel hit has two coordinates: \\
 $$
-f = \frac{N_{pixel, common} + 1/2 N_{SCT, common}}{N_{pixel, tot} + 1/2 N_{SCT, tot}}
+f = \frac{2N_{pixel, common} + N_{SCT, common}}{2N_{pixel, tot} + N_{SCT, tot}}
 $$
 
 In this definition, a fake track is defined as a track with $f < 50\%$. Unfortunately the detailed information on the clusters is lost in the xAOD file and such analysis should be performed directly on the AOD file
-which is produced at the end of the reconstruction stage\footnote{A software package based on the InDetPhysValMonitoring package was used to measure the fraction of fake tracks (matched and unmatched) using this definition. The results were around the $3\cdot 10^{-4}$ level, but they are not realistic because of the region of interest selection applied in these samples.}. An alternative criteria was then studied, which is an operative definition based on the distribution of the $\Delta R$ distance between the matched track and
-the hard-scatter pion. From the plot in fig.\ref{fig:tracking:pionMatchingDR}, which refers to a sample with a $p_{T} = 15\ GeV$ generated pion, $<\mu> = 0$ in the ExtBrl4 layout, shows 
-that two $\Delta R$ regions are identifiable. In the region with $\Delta R_{truth-track} < 0.02$ there is an approximately exponential decrease, whereas at the right of that region the distribution is approximately flat. This critical value has been measured in all the samples and appeared to only depend on the $p_{T}$ of the generated pion. In particular, for the samples with a generated pion of $p_{T} = 5\ GeV$ this value was 0.04, for $p_{T} = 15\ GeV$ it was 0.02, for $p_{T} = 50\ GeV$ it was 0.01 and for $p_{T} = 100\ GeV$ the measured value was ???. No significant dependence on the average number of pile-up events or the layout was observed. By defining
-a \textbf{fake track} as a track in which the $\Delta R$ distance between the matched track and the hard-scatter truth is larger than this critical value, we are essentially selecting the tracks
-which are reconstructed with a distance from the hard-scatter truth which is large compared to the track angular resolution. As this resolution also depend on $\eta$, as was seen in fig.
-\ref{fig:tracking:pi15pu200_sigEta_abseta}, \ref{fig:tracking:pi15pu200_sigPhi_abseta}, the found critical value is an average over the whole angular spectrum.\\
+which is produced at the end of the reconstruction stage\footnote{A software package based on the InDetPhysValMonitoring package was used to measure the fraction of fake tracks (matched and unmatched) using this definition. The results were around the $3\cdot 10^{-4}$ level, but they are not realistic because of the region of interest selection applied in these samples.}. We studied an operative definition based on the distribution of the $\Delta R$ distance between the matched track and
+the generated pion. Plot in fig. \ref{fig:tracking:pionMatchingDR}, which refers to a sample with a $p_{T} = 15\ GeV$ generated pion, $<\mu> = 0$ in the ExtBrl4 layout, shows 
+that two $\Delta R$ regions are identifiable. The region with $\Delta R_{truth-track} < 0.02$ appears to be approximately made by two exponentials, whereas at the right of that, the distribution is approximately flat. This critical value has been measured in all the samples and appeared to depend only on the $p_{T}$ of the generated pion. In particular, for the samples with a generated pion of $p_{T} = 5\ GeV$ this value was 0.04, for $p_{T} = 15\ GeV$ it was 0.02, for $p_{T} = 50\ GeV$ it was 0.01 and for $p_{T} = 100\ GeV$ the measured value was ???. No significant dependence on the average number of pile-up events or the layout was observed. By defining
+a \textbf{fake track} as a track in which the $\Delta R_{truth-track}$ is larger than this critical value, we are essentially selecting the tracks
+which are reconstructed with a distance from the "particle gun" truth which is large compared to the track angular resolution. As this resolution also depend on $\eta$, as was seen in fig.
+\ref{fig:tracking:pi15pu200_sigEta_abseta}, \ref{fig:tracking:pi15pu200_sigPhi_abseta}, this critical value is an average over the whole angular spectrum.\\
 
 \begin{figure}
 \centering
@@ -1913,10 +1923,10 @@ which are reconstructed with a distance from the hard-scatter truth which is lar
 \label{fig:tracking:pionMatchingDR}
 \end{figure}
 
-
-The dependence of the fake probability on the track pseudo-rapidity is shown, for the ExtBrl4 layout, in fig.\ref{fig:tracking:fakeProb_abseta}, for a generated pion with $p_{T} = 15\ GeV$, for 
+The dependence of the fake probability on the track $|\eta|$ is shown, for the ExtBrl4 layout, in fig.\ref{fig:tracking:fakeProbability}, for a generated pion with $p_{T} = 15\ GeV$, for 
 different values of $<\mu>$. Due to the small fake probability and statistics, no significant dependence on the average number of pile-up events is observed in any $\eta$ bin. To minimize
-the uncertainty, the fake probability has also been computed by integrating over the whole $\eta$ spectrum. Tab.\ref{tab:tracking:fakeProbability} summarizes the results for the three layouts considered, as a function of the generated pion $p_{T}$ and average number of pile-up events. (COMMENTO ROBUSTEZZA E CONFRONTO LAYOUT?)\\ 
+the uncertainty, the fake probability is computed by integrating over the whole $\eta$ spectrum. Tab.\ref{tab:tracking:fakeProbability} summarizes the results for the three layouts considered, as a function of the generated pion $p_{T}$ and average number of pile-up events. (COMMENTO ROBUSTEZZA E CONFRONTO LAYOUT? These preliminary results confirm that
+all the layouts have similar behaviour and performances in the HL-LHC scenario.)\\ 
 
 \begin{figure}
 \centering
@@ -1950,14 +1960,16 @@ the uncertainty, the fake probability has also been computed by integrating over
 	\label{tab:tracking:fakeProbability}
 \end{table}
 
-\subsubsection{Region of interest size study}
-By definition, the fake probability should become asymptotically independent on the size of the region of interest selected in the fast simulation. When the size is small, however,
-a dependence could emerge for several reasons, that also depend on the chosen definition of fake track. The chosen size of the region of interest, which is a cone with $\Delta R = 0.1$, 
-has first of all to be compared with the resolutions in $\eta$ and $\phi$ measured in sec.\ref{sec:tracking:resolution} and is typically at least two order of magnitude larger. However, as the 
+\subsubsection{Region of interest size study}\label{sec:tracking:dRStudy}
+By definition, the fake probability should become asymptotically independent of the size of the region of interest selected in the fast simulation. When the size is small, however,
+a dependence could emerge for several reasons, that also depend on the definition of fake track. The size of the region of interest, which is a cone with $\Delta R = 0.1$, 
+has first to be compared with the resolutions in $\eta$ and $\phi$ measured in sec.\ref{sec:tracking:resolution}, and is typically at least two order of magnitude larger. However, as the 
 main contribution to fake hits from pile-up particles emerges in the innermost pixel layers, the resolution is not the only important parameter but the optimal size should take into account 
 the particular detector geometry, especially the radius of the first pixel layers. Moreover, low $p_{T}$ pile-up particles which are initially distant in $\Delta R$ from the
 generated hard-scatter truth could be significantly deflected by the magnetic field and potentially produce hits near the hard-scatter particle. This effect is expected to become less and less
-significant with increasing size of the region of interest. A study on the dependence of the fake probability on this size was carried out by generating a sample with larger cone $\Delta R = 0.2$.
+significant with increasing size of the region of interest. \\
+
+A study on the dependence of the fake probability on this size was carried out by generating a sample with larger cone $\Delta R = 0.2$.
 The time required by the simulation increases approximately with the square of the cone size, so that it becomes soon difficult to produce samples with the large statistics necessary to assess
 a difference on the fake probability, which is also quite low. These samples were produced before the publication of the Step-1 layouts, with a similar layout that was proposed in the
 ATLAS Letter of Intent Document\cite{loi}, in the $<\mu> = 200$ scenario. The measured fake probability was $0.59 \pm 0.05\ \%$ for the $\Delta R = 0.1$ sample and $0.63 \pm 0.05\ \%$,
@@ -2019,7 +2031,7 @@ the detector acceptance. The results are summarized in tab.\ref{tab:tracking:tot
 \caption{} 
 \label{fig:tracking:pi15_eff_phi}
 \end{subfigure}
-\caption{Pion reconstruction efficiency in the ExtBrl4, in the sample with a generated $p_{T} = 15\ GeV$, as a function of $<\mu>$.}
+\caption{Pion reconstruction efficiency in the ExtBrl4, in the sample with a generated $p_{T} = 15\ GeV$, for different $<\mu>$.}
 \label{fig:tracking:effPileup}
 \end{figure}
 
@@ -2049,7 +2061,7 @@ the detector acceptance. The results are summarized in tab.\ref{tab:tracking:tot
 \end{table}
 \clearpage
 
-It was also verified that no significant dependence of the efficiency on the hard-scatter particle charge existed. The results were also compared with
+It was also verified that there is no significant dependence of the efficiency on the generated particle charge. The results were also compared with
 the Letter of Intent Document\cite{loi} layout, which was different in the geometry (4 pixel + 5 SCT layers) but essentially confirm the plausibility of the results (see fig.\ref{fig:tracking:loiEfficiencies}).
 
 \begin{figure}
@@ -2075,7 +2087,7 @@ The difference with respect to the pion reconstruction is due to the absence of 
 \end{figure} 
 
 The distribution of the $\Delta R$ between the matched tracks and the hard-scatter truth was also studied, and revealed essentially no fake tracks. The distribution is
-shown in fig.\ref{fig:tracking:muonMatchedDR}.
+shown in fig.\ref{fig:tracking:muonMatchedDR}.\\
 
 \begin{figure}
 \centering
@@ -2084,24 +2096,26 @@ shown in fig.\ref{fig:tracking:muonMatchedDR}.
 \label{fig:tracking:muonMatchedDR}
 \end{figure} 
 
+Overall our findings confirm that the ITk requirements, described at the beginning of this section, are fulfilled for all the different layouts.
+
 \clearpage
 
 \section{$H \rightarrow ZZ^* \rightarrow 4\mu$ performances}
-In this section the fast simulation technique described in sec.\ref{sec:physicsSimulation} is
-applied to the study of the physics process $ggF\ H \rightarrow ZZ^* \rightarrow 4\mu$. ITk performances are here compared for the three layouts described in sec.\ref{sec:tracking} 
-in mass resolution, track perigee parameters (see appendix \ref{appendix:perigee}) (CHECK?) resolution, efficiency, fake probability
+In this section we apply the fast simulation technique described in sec.\ref{sec:simulation:physicsSimulation} is
+applied to the study of the physics process $ggF\ H \rightarrow ZZ^* \rightarrow 4\mu$. Performances of the detector are compared for the three layouts described in sec.\ref{sec:tracking} 
+in the study of the mass resolution, track perigee parameters (see appendix \ref{appendix:perigee}) resolution, efficiency, fake probability
 and track quality.\\
 
 \subsection{Motivations of the study}
-Measurements of the Higgs boson will be an important goal of the HL-LHC physics programme, both to establish its Standard Model nature by measuring its properties and to 
-discover or exclude non standard predicted couplings. \\
+So far most of the measurements of the Higgs boson properties are statistics limited. The large sample collected in the high luminosity phase will be
+fundamental to confirm its SM nature, and exclude (or limit) non SM contributions to its couplings. \\
 
 In the Standard Model, the main 
 production mode of the Higgs boson is the gluon-gluon fusion (ggF) process. The second most 
 important production mode, the vector-boson fusion (VBF), is a factor of ten less frequent and includes the associate
 production of two hard-scatter jets. The study presented in this section analyses the exclusive
 $ggF H \rightarrow ZZ^* \rightarrow 4\mu$ channel (Fig.\ref{fig:ggFHZZ4mu}), that represents a benchmark process to measure and compare the tracker performances on physics objects reconstruction among several detector
-configurations, while providing an important test bench for the developed fast simulation technique.\\
+configurations, while providing an important test bench for the fast simulation technique.\\
 
 \begin{figure} [h]
 	\centering
@@ -2112,29 +2126,28 @@ configurations, while providing an important test bench for the developed fast s
 	\label{fig:ggFHZZ4mu}
 \end{figure}
 
-In particular, this channel is one of the two most clean channels (together with $H \rightarrow \gamma\gamma$) in which it is possible to measure the Higgs boson properties. While a full 
-simulation including the other ATLAS sub-detectors would allow to include the several Higgs
+In particular, this channel is one of the cleanest channels in which it is possible to measure the Higgs boson properties. While a full 
+simulation including the other ATLAS sub-detectors would allow to include all the Higgs
 production modes, the tracker-only proposed study can only
-be applied to the ggF production mode, that provides a clean tracker signature while
+be applied to the ggF production mode and the subsequent decay into $4\mu$. This provides a clean tracker signature while
 allowing the measurement of basic tracking performance parameters such as Higgs and Z mass resolution.
 
 \subsection{ATLAS Scoping-document analysis: inclusive $H \rightarrow ZZ^* \rightarrow 4\mu$}\label{subsec:physics:scoping}
 The study of this physics channel is of particular relevance because of the cleanness of the signature and the consequent high accuracy with which it was and is measured at LHC. In this paragraph, the analysis of this channel performed in the ATLAS Phase II Upgrade
-Scoping Document\cite{scoping_HZZ4mu} is described; which is similar to the one carried out in this
-thesis, described in the next sections.\\
+Scoping Document\cite{scoping_HZZ4mu} is PAROLA CHE NON CAPISCO?. This study, for sake of comparison, is the basis of our work.\\
 
-The ITk layout chosen for this analysis was different to the ones described in sec.\ref{sec:tracking}, but the angular coverage is the same ($|\eta| < 4.0$) and its details
+The ITk layout chosen for the Scoping Document was different to the ones described in sec.\ref{sec:tracking}, but the angular coverage is the same ($|\eta| < 4.0$) and its details
 can be found in \cite{scoping}.\\
 
 In this analysis, no particular production mode of the Higgs boson was selected and the only background considered is the irreducible dominant $ZZ^{(*)} \rightarrow 4\mu$, while the others are
-expected to have a small effect on the final result. The analysis selection applied is based on the Run-1 analysis:
+expected to have a small effect on the final result. The analysis requirements applied are based on those developed for the Run-1 analysis:
 
 \begin{itemize}
 \item the event must contain 2 pairs of candidate muons, each with 2
 opposite charge tracks;
 \item the ordered $p_T$ of the four muons must be larger than 20 GeV, 15 GeV, 10 GeV, 6 GeV respectively;
-\item the $\Delta R$ distance between the candidate muons must be greater than 0.1.
-\item defining the \textit{on-shell} candidate muon pair as the neutral one with mass closest to that of the Z boson and \textit{off-shell} the remaining neutral pair,
+\item the $\Delta R$ distance between the candidate muons must be greater than 0.1;
+\item The neutral muon pair with the mass closest to the Z boson is defines as the \textit{on-shell} pair, while the remaining is defined as the \textit{off-shell} pair;
  at least one of the off-shell muon candidates must lie in the
 region $|\eta| < 2.7$;	
 \item the on-shell pair mass is required to lie in the mass region [50 GeV, 106 GeV];
@@ -2142,10 +2155,12 @@ region $|\eta| < 2.7$;
 \end{itemize}
 
 Furthermore, a simplified version of the Run 1 Z mass constraint is applied, considering only 
-the $p_T$ resolution instead of the full covariance matrix. The overall acceptance of this channel is shown in Fig.\ref{fig:scopingHZZ4muAcceptance}, from which it is inferable an 
-acceptance gain of 21 \% thanks to the coverage extension of the present detector from $|\eta| < 2.7$ to 
-$|\eta| < 4.0$. The results of the analysis are shown in Fig.\ref{fig:scopingHZZ4muMassResolution},\ref{fig:scopingHZZ4muNEvents}, where the 
-performances of the three layouts proposed in the Scoping Document are compared. \\
+the effect of the $p_T$ resolution. The overall acceptance of this channel is shown in Fig.\ref{fig:scopingHZZ4muAcceptance}, from which it is inferable an 
+acceptance gain of 21 \% thanks to the coverage extension of the detector from $|\eta| < 2.7$ to 
+$|\eta| < 4.0$. The results of the analysis are shown in Fig.\ref{tab:scopingHZZ4muMassResolution},\ref{tab:scopingHZZ4muNEvents}, where the 
+performances of the three layouts proposed in the Scoping Document are compared. We now describe in detail our work.\\
+
+
 
 \begin{figure} [h]
 	\centering
@@ -2155,21 +2170,33 @@ performances of the three layouts proposed in the Scoping Document are compared.
 	\label{fig:scopingHZZ4muAcceptance}
 \end{figure}
 
-\begin{figure} [h]
-	\centering
-	\includegraphics[scale=0.3]{scopingHZZ4muMassResolution}
+	\begin{table} [h]
+	\resizebox{.8\textwidth}{!}{
+		\begin{tabular}{c  c  c}
+		\hline
+		\textbf{Coverage} & \textbf{Mass (GeV)} & \textbf{Width (GeV)} \\ \hline
+		$|\eta^{\mu}_{max}|$ < 2.7 & 124.95 $\pm$ 0.01 & 1.11 $\pm$ 0.01 \\
+		2.7 < $|\eta^{\mu}_{max}|$ < 3.2 & 125.31 $\pm$ 0.07 & 2.53 $\pm$ 0.08 \\
+		3.2 < $|\eta^{\mu}_{max}|$ < 4.0 & 125.89 $\pm$ 0.17 & 4.61 $\pm$ 0.23 \\ \hline
+	\end{tabular}}
 	\caption{Higgs mass and width measurement, where the samples are divided into three 
 	regions, depending on the value of $|\eta|$ of the most forward muon\cite{scoping}. In the Scoping Document, the only scenario with $|\eta| < 4.0$ coverage is the Reference scenario.}
-	\label{fig:scopingHZZ4muMassResolution}
-\end{figure}
+	\label{tab:scopingHZZ4muMassResolution}
+	\end{table}
 
-\begin{figure} [h]
-	\centering
-	\includegraphics[scale=0.3]{scopingHZZ4muNEvents}
+	\begin{table} [h]
+	\resizebox{.8\textwidth}{!}{
+		\begin{tabular}{l c  c  c}
+		\hline
+		\textbf{Scenario} & \boldmath$H \rightarrow 4\mu$ & \boldmath$ZZ^{(*)} \rightarrow 4\mu$ & \boldmath$\Delta\mu/\mu$ \\ \hline
+		Reference & 2551 $\pm$ 51 & 741 $\pm$ 27 & 0.022 \\
+		Middle & 2104 $\pm$ 46 & 351 $\pm$ 19 & 0.024 \\
+		Low & 2014 $\pm$ 45 & 336 $\pm$ 18 & 0.024 \\ \hline
+	\end{tabular}}
 	\caption{Number of expected signal and background events at 3000 $fb^{-1}$ integrated
 	luminosity and signal strength accuracy for the three Scoping Documents ITk layouts\cite{scoping}.}
-	\label{fig:scopingHZZ4muNEvents}
-\end{figure}
+	\label{tab:scopingHZZ4muNEvents}
+	\end{table}
 
 
 \subsection{Physics process generation}
@@ -2181,15 +2208,16 @@ frequent way ($\sim$ 86\% of the total cross section at 13 TeV) in which the Hig
 associated production of other physics objects (usually jets). The other production modes have not been taken
 into account for simplicity, thus assuming a 100\% rejection power. The only background considered is the irreducible $ZZ^{(*)}$, 
 in which each Z boson decays into two muons. The inclusion of other backgrounds are expected to 
-result in a small change on the final result\cite{scoping}. (IL SECONDO FONDO PIu IMPORTANTE SAREBBE Z + jets?).
+result in a small change on the final result\cite{scoping}.
 
 \subsubsection{Higgs generation}
 
-The Higgs boson samples were generated by the Powheg generator at 13 TeV (to make these results compatible with the ones from the
+The Higgs boson samples were generated with the Powheg generator at 13 TeV (to make these results compatible with the ones from the
 Run-2 analysis) with a 
 relativistic Breit-Wigner distribution with mean $125\ GeV$ and $\Gamma = 4\ MeV$ (Full
 width at half maximum), which 
-is shown in Fig.\ref{fig:HZZ4mu:generatedHiggs} with its generated $p_T$ and $\eta$ distributions.\\
+is shown in Fig.\ref{fig:HZZ4mu:generatedHiggs} with its generated $p_T$ and $\eta$ distributions. Higgs
+is forced to decay into two Z, that in turn decay into two muons.\\
 
 \begin{figure}
 \begin{subfigure}{.5\linewidth}
@@ -2220,14 +2248,15 @@ is defined as \textit{on-shell} and the other as \textit{off-shell}.
 \centering
   \includegraphics[width=0.8\textwidth]{HZZ4mu/genZMass}
   \caption{Generated mass distributions of the \textit{on-shell} and \textit{off-shell} Z boson 
-  in the $H \rightarrow ZZ^* \rightarrow 4\mu$ process.}
+  in the $H \rightarrow ZZ^* \rightarrow 4\mu$ process with the Powheg generator.}
 \label{fig:HZZ4mu:generatedZMass}
 \end{figure}
 
 \subsubsection{Background process generation}\label{physics:bkgGeneration}
-The generation efficiency of the background process $ZZ^{(*)}$ was optimized by only
-producing events in selected kinematic regions. In particular, a minimum value of 12 GeV for the mass of
-the Drell-Yan produced $Z^*$ boson was required, while the invariant mass of the four muon system is required
+The generation efficiency of the background process $ZZ^{(*)}$ was optimized by
+producing events in a selected kinematic region. In particular, a minimum value of 15 GeV (MA IL TAGLIO DI ANALISI NON E' A 12?) for the mass of
+the Drell-Yan produced $Z^*$ boson was required, while the invariant mass of the four muon system is required,
+in order to speed up the following simulation, 
 to lie in the region between 50 GeV and 160 GeV. These values were chosen so that no events were excluded that could
 have been accepted by the analysis. The distribution of the generated masses is shown 
 in Fig.\ref{fig:ZZ4mu:genMasses}.\\
@@ -2244,25 +2273,24 @@ in Fig.\ref{fig:ZZ4mu:genMasses}.\\
 \caption{}
 \label{fig:ZZ4mu:gen4muMass}
 \end{subfigure}
-\caption{(a): Z boson generated distributions in the $ZZ \rightarrow 4\mu$ process;\\
-\ \ \ \ \ (b): Mass distribution of the system of four leptons in $ZZ \rightarrow 4\mu$.}
+\caption{(a): Z boson generated distributions in the $ZZ^{(*)} \rightarrow 4\mu$ process, generated with Powheg;\\
+\ \ \ \ \ (b): Mass distribution of the system of four leptons in the $ZZ^{(*)} \rightarrow 4\mu$ process, generated with Powheg.}
 \label{fig:ZZ4mu:genMasses}
 \end{figure}
 
 
 \subsubsection{Selection of the generated events}
 The possible final states of the generated Higgs boson decay are not only the four muons that 
-compose the searched channel signature, but can be generally expressed as $H \rightarrow
-ZZ^* \rightarrow 4\mu + X$, where $X$ are usually final state photons emitted from the muon
-lines of the decay Feynman diagram of Fig.\ref{fig:ggFHZZ4mu}, but can also be electron-positron pairs converted from said photons, or other more complex states. As this analysis
+compose the signature in our channel of interest, but can be expressed as $H \rightarrow
+ZZ^* \rightarrow 4\mu + X$, where $X$ are usually final state photons. As this analysis
 is carried out by only considering the tracker reconstruction capabilities, to ensure 
 an appropriate reconstruction of the physics objects a selection on the 
 generated events was applied.\\
 
-Before the selection, the Higgs boson decays were categorized into five 
+Before the selection, the Higgs boson decays were categorized into fivse 
 mutually exclusive categories, whose frequency and kinematic features were separately 
 studied. In the following list, the number between parentheses shows the relative frequency
-of that particular channel:
+of that particular channel (no threshold on $p_{T}$ applies):
 
 \begin{itemize}
 \item $4\mu$ channel (25\%);
@@ -2272,7 +2300,7 @@ of that particular channel:
 \item $N\mu + X$, $N \neq 4$ (0.06\%).
 \end{itemize}
 
-As the detector is not always able to discriminate against these categories, the chosen selection attempts to include all the events that can be reconstructed as purely leptonic from
+As the detector is not always able to discriminate among these categories, the chosen selection attempts to include all the events that can be reconstructed as purely leptonic from
 the detector, thus including all the events
 from the first category and part of the ones from the second category passing a kinematic 
 selection. The exclusion of the other categories relies on the approximation that charged
