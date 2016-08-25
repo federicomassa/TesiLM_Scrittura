@@ -2257,8 +2257,8 @@ The generation efficiency of the background process $ZZ^{(*)}$ was optimized by
 producing events in a selected kinematic region. In particular, a minimum value of 15 GeV (MA IL TAGLIO DI ANALISI NON E' A 12?) for the mass of
 the Drell-Yan produced $Z^*$ boson was required, while the invariant mass of the four muon system is required,
 in order to speed up the following simulation, 
-to lie in the region between 50 GeV and 160 GeV. These values were chosen so that no events were excluded that could
-have been accepted by the analysis. The distribution of the generated masses is shown 
+to lie in the region between 50 GeV and 160 GeV. These values were chosen so that the $4\mu$ system in the events not passing the selection had a mass 
+far from the Higgs mass region, compared to the mass resolution (NUOVO, CONTROLLARE). The distribution of the generated masses is shown 
 in Fig.\ref{fig:ZZ4mu:genMasses}.\\
 
 \begin{figure}
@@ -2282,12 +2282,13 @@ in Fig.\ref{fig:ZZ4mu:genMasses}.\\
 \subsubsection{Selection of the generated events}
 The possible final states of the generated Higgs boson decay are not only the four muons that 
 compose the signature in our channel of interest, but can be expressed as $H \rightarrow
-ZZ^* \rightarrow 4\mu + X$, where $X$ are usually final state photons. As this analysis
-is carried out by only considering the tracker reconstruction capabilities, to ensure 
+ZZ^* \rightarrow 4\mu + X$, where $X$ are usually final state photons emitted in the
+radiative decay of the Z boson. Sometimes these photons are also converted in $e^{+}e^{-}$ pairs.
+ As this analysis is carried out by only considering the tracker reconstruction capabilities, to ensure 
 an appropriate reconstruction of the physics objects a selection on the 
 generated events was applied.\\
 
-Before the selection, the Higgs boson decays were categorized into fivse 
+Before the selection, the Higgs boson decays were categorized into five 
 mutually exclusive categories, whose frequency and kinematic features were separately 
 studied. In the following list, the number between parentheses shows the relative frequency
 of that particular channel (no threshold on $p_{T}$ applies):
@@ -2304,20 +2305,22 @@ As the detector is not always able to discriminate among these categories, the c
 the detector, thus including all the events
 from the first category and part of the ones from the second category passing a kinematic 
 selection. The exclusion of the other categories relies on the approximation that charged
-particles are reconstructed in the tracker, which is false if the $p_{T}$ of the particle is 
-too low or if it lies outside of the geometrical acceptance of the detector. The fail of one 
+particles are reconstructed in the tracker. This is not true if the $p_{T}$ of the particle is 
+too low or if it lies outside the geometrical acceptance of the detector. The fail of one 
 of these assumptions is, however, not expected to determine a significant change in the
 physics object reconstruction parameters (resolution, efficiency, etc.), because of the
 small abundance of these events inside the sample and their kinematic properties. 
 In particular, particles emitted from the muon lines have typically low transverse momenta, as can be 
-seen from the plot in Fig.\ref{fig:HZZ4mu:genPhotons}. \\
+seen from the plot in Fig.\ref{fig:HZZ4mu:photonPt}. [NE PARLIAMO?]\\
 
 During the ATLAS Run-1 analysis the electromagnetic calorimeter information was used
-in order to account for the system invariant mass underestimation due to the presence of
-unreconstructed photons, with a $p_T$ threshold of $1.5\ GeV$\cite{HZZ4mu_run1}. Assuming that the same
-is applicable under the HL-LHC conditions at ATLAS, events with no photons above said 
-threshold are also included into the generated Higgs boson sample. The $\eta$ distribution
-and the $\Delta R$ distance of the photon from the muon after the $p_T$ cut is shown in Fig.\ref{fig:HZZ4mu:genPhotonsAfterCut}.\\
+to account for the system invariant mass underestimation due to the presence of photons, 
+using a $p_T$ threshold of $1.5\ GeV$\cite{HZZ4mu_run1}. These photons were divided
+in \textit{collinear} ($\Delta R_{\mu\gamma}$ < 0.15) and \textit{non collinear} ($\Delta R_{\mu\gamma}$ > 0.15). 
+Energy of collinear photons with $p_{T}$ > 1.5 GeV were added to the muon. Non collinear photons 
+were accounted only if $E_{T}^{\gamma}$ > 10 GeV. Assuming that the same
+can be done in the HL-LHC conditions, we excluded events with $p_{T}^{\gamma}$ > 1.5 GeV. The $\eta$ distribution
+and the $\Delta R$ distance of the photon from the muon after this requirement is shown in Fig.\ref{fig:HZZ4mu:genPhotonsAfterCut}. [PARLARE DEL DELTA R?]\\
 
 \begin{figure}
 \centering
@@ -2333,7 +2336,7 @@ and the $\Delta R$ distance of the photon from the muon after the $p_T$ cut is s
   \caption{}
   \label{fig:HZZ4mu:nPhotons}
 \end{subfigure}
-\caption{(a): $p_T$ spectrum of photons emitted from the muon lines of the process 
+\caption{(a): $p_T$ spectrum of radiative photons of the process 
 	ggF $H \rightarrow ZZ^* \rightarrow 4\mu$; 
 	(b): Histogram of the number of photons emitted per event.}
 \label{fig:HZZ4mu:genPhotons}
@@ -2353,9 +2356,9 @@ and the $\Delta R$ distance of the photon from the muon after the $p_T$ cut is s
   \caption{}
   \label{fig:HZZ4mu:photonDRAfterCut}
 \end{subfigure}
-\caption{(a): $\eta$ spectrum of photons emitted from the muon lines of the process 
-	ggF $H \rightarrow ZZ^* \rightarrow 4\mu$ with $p^{max}_{T, \gamma} = 1.5\ GeV$; 
-	(b): Distribution of the $\Delta R$ distance between the muons and their emitted photons in the events with $p^{max}_{T, \gamma} = 1.5\ GeV$.}
+\caption{(a): $\eta$ spectrum of radiative photons of the process 
+	ggF $H \rightarrow ZZ^* \rightarrow 4\mu$ with $p^{max}_{T, \gamma} < 1.5\ GeV$; 
+	(b): Distribution of the $\Delta R$ distance between the muons and their emitted photons in events with $p^{max}_{T, \gamma} < 1.5\ GeV$.}
 \label{fig:HZZ4mu:genPhotonsAfterCut}
 \end{figure}
 
@@ -2363,11 +2366,12 @@ Thanks to the inclusion of the events from this category the generated events ac
 
 \subsection{Signal event simulation and truth analysis}
 
-The kinematics of the muons passing the above generation selection for the 
+The kinematics of the muons passing the generation selection for the 
 signal sample is shown in 
 Fig.\ref{fig:HZZ4mu:muonKinematics}. In particular, a geometrical acceptance of 94.1\%
 is inferable from the number of events in which all muons are within the detector
-coverage.\\
+coverage. It is also evident, from the $p_{T}$ spectrum, the shoulder due to the decays
+of the on-shell Z.\\
 
 
 \begin{figure}
@@ -2406,11 +2410,11 @@ coverage.\\
 Samples of $5 \cdot 10^4$ events were produced from the selected generated events by running
 the simulation/digitization/reconstruction chain described in sec.\ref{sec:simulation}, in the
 two pile-up scenarios  $<\mu>\ =\ 0$ and $<\mu>\ =\ 200$ and the three ITk layouts described in sec.\ref{sec:tracking} 
-(referred as ExtBrl4, IExtBrl4 and InclBrl4). Unless specified, the plots refer to the $<\mu> = 200$ sample, which is the reference
-value for the HL-LHC operations. For the events in which the particles are within the detector acceptance, the distribution of
+(referred as ExtBrl4, IExtBrl4 and InclBrl4). Unless otherwise specified, the plots refer to the $<\mu> = 200$ sample, which is the reference
+value for the HL-LHC operations. For events in which the particles are within the detector acceptance, the distribution of
 the number of primary charged particles and the number of reconstructed tracks per event is shown in
 Fig.\ref{fig:HZZ4mu:nTracks}. The difference between the two distributions in Fig.\ref{fig:HZZ4mu:nPrimaryChargedTruth_recotrk1GeV} is
-due to the pile-up tracks reconstruction inefficiency.
+mostly due to reconstruction inefficiency of pile-up tracks.
 
 \begin{figure}
 \begin{subfigure}{.5\linewidth}
@@ -2424,26 +2428,29 @@ due to the pile-up tracks reconstruction inefficiency.
 \label{fig:HZZ4mu:nPrimaryChargedTruth_recotrk1GeV}
 \end{subfigure}
 \caption{(a): Number of primary charged particles in the events within the acceptance;\\
-                  (b): Number of primary charged particles/reconstructed tracks with $p_{T} > 1\ GeV$ in the events within the acceptance; the reconstructed tracks are shown, as an example, for the InclBrl4 layout.}
+                  (b): Number of primary charged particles/reconstructed tracks with $p_{T} > 1\ GeV$ in the events within acceptance; the reconstructed tracks are shown, as an example, for the InclBrl4 layout.}
 \label{fig:HZZ4mu:nTracks}
 \end{figure}
 
 \subsubsection*{Identification of the truth event and track matching}
 At the end of the reconstruction stage, the output file contains both the truth and the tracks information. For
-each event, the first step is to identify the simulated physics process within the truth particles. (DEFINIRE BENE TRUTH ?)
+each event, the first step is to identify the Higgs boson decay products in the truth particles.
 To do so, for every event it was looked for four muons coming from the same vertex with zero total charge, which
 will referred from now on as \textbf{hard-scatter truth} muons. The extremely unlikely event in which more
 than one truth vertex contains four muons with null total charge is also taken into account. In this case 
 the hard-scatter vertex is chosen as the one in which its outgoing particles have the invariant mass closest to the Higgs boson mass.\\
 
-The next step was to find an appropriate \textbf{track matching} to every hard-scatter truth muon. There
-are several ways to define a match, which depend on the intended study. In the following a match is found by looking,
+The next step is to find an appropriate \textbf{track matching} to every hard-scatter truth muon. There
+are several ways to define a match, which depend on the study. \\
+
+In the following a match is found by looking,
 for every hard-scatter truth muon, for the track whose \textit{back-link} points to it, for every event in which all the muons are within
-the detector acceptance. This link is made available at reconstruction
-level and connects a track with a truth particle based on the value of the so called \textit{truth match probability}.
+the detector acceptance. This link is available at reconstruction
+level and connects a reconstructed track with a truth particle based on the value of the so called \textit{truth match probability}.
 This variable is based on the ratio between the number of clusters correctly associated to the truth particle and the total number
 of clusters forming the track. Unfortunately the definition still employs a weight system to account for the different Inner Detector sections,
-which was optimized for the Run-1 reconstruction with the presence of the TRT. Still, it is useful for tracking performances studies.
+which was optimized for the Run-1 reconstruction with the presence of the TRT. Despite not being yet optimized for HL-LHC, it
+can be used for our purposes.
 
 \subsection{Hard-scatter muons tracking performances}
 From the comparison between the kinematic distributions of the hard-scatter truth muons and the correspondent matched 
@@ -2454,7 +2461,7 @@ The resolution of the generic variable $x$ (usually a perigee parameter, see app
 $\Delta_x = x_{matched} - x_{truth}$ for different $|\eta_{truth}|$ bins, analogously to the study presented in sec.\ref{sec:tracking:resolution}. 
 The results for the hard-scatter muons are shown in Fig.\ref{fig:tracking:pionResolution}.
 The resolution generally tends to decrease 
-with increasing pseudo-rapidity for several reasons that have been described in sec.\ref{sec:tracking}.
+with increasing pseudo-rapidity for several reasons that have been described in sec.\ref{sec:tracking}. \\
 
 \begin{figure}
 \begin{subfigure}{.5\linewidth}
@@ -2487,22 +2494,16 @@ with increasing pseudo-rapidity for several reasons that have been described in 
 \caption{}
 \label{fig:HZZ4mu:sigZ0}
 \end{subfigure}
+\caption{Resolution of the reconstructed muon matched track parameters for the three ITk layouts considered, in the sample with $<\mu> = 200$, in the process $H \rightarrow ZZ^* \rightarrow 4\mu$.}
 \label{fig:HZZ4mu:muonResolution}
-\caption{Resolution of the reconstructed perigee parameters for the three ITk layouts considered, in the sample with $<\mu> = 200$.}
-
-In general, the ExtBrl4 shows worse performances in the forward region (but sometimes better in the central region, WHY??). This is expected for the same reasons described in sec.\ref{sec:tracking:resolution}. (CHECK).
-
-
-\caption{Perigee parameters resolution of the hard-scatter muons in the process $H \rightarrow ZZ^* \rightarrow 4\mu$.}
 \end{figure}
 
-\subsubsection*{Efficiency}
-DIPENDE DALLA DEFINIZIONE DI FAKE, CHIEDERE? SECONDO ME ANCHE NON METTERE NEL CAPITOLO DI FISICA. MAGARI METTIAMO 
-QUALCOSA SUI MU NEL CAPITOLO TRACKING E Lì POSSIAMO ANCHE USARE DEFINIZIONE DI FAKE VARIABILE CON PT
+In general, the ExtBrl4 layout shows worse performances in the forward region where, due to longer clusters, the algorithm for hit reconstruction in ITk
+does not perform well.\\
 
 \subsubsection*{Track quality}
 The distribution of the number of \textit{total silicon hits}\footnote{Here with total silicon hits it is meant the sum of the number
-of pixel space points plus the number of SCT clusters (one per side).} is shown separately for truth-matched tracks and pile-up tracks in
+of clusters in the Pixel and SCT layers.} is shown separately for truth-matched tracks and pile-up tracks in
 Fig.\ref{fig:HZZ4mu:trackQuality}.
 
 \begin{figure}
@@ -2512,9 +2513,6 @@ Fig.\ref{fig:HZZ4mu:trackQuality}.
 \label{fig:HZZ4mu:trackQuality}
 \end{figure}
 
-To minimize the fake rate, a \textbf{track quality cut} of 10 total hits was then applied for every muon candidate in the physics analysis carried
-out in this section.
-
 \subsection{Physics analysis}\label{sec:physics:analysis}
 To compare with the results of the Scoping document, that 
 are based on different ITk layouts and briefly summarized in sec.\ref{subsec:physics:scoping}, 
@@ -2522,11 +2520,12 @@ similar analysis cuts have been applied. \\
 
 \subsubsection{Identification of the track candidates}
 An initial set of tracks is selected by stacking into a vector all the tracks passing a minimum
-$p_{T}$ cut of $6\ GeV$ and a track quality cut of 10 total hits. The searched signal consists
-of four muons coming compatibly from the primary vertex. As no primary vertex finding algorithm
-was available in the employed reconstruction algorithm (DIRE DA QUALCHE PARTE LA RELEASE?),
-a cut was applied on the distance between the track $z_0$ parameter and the true primary vertex
-z position. (E D0? Si potrebbe fare lo stesso, il primary truth D0 è sempre 0). As the 
+$p_{T}$ requirement of $6\ GeV$ and with at least 10 hits (Pixel + SCT) to minimize the fake rate. 
+Our signal consists
+of four muons coming from the primary vertex. As no primary vertex finding algorithm
+is available in the reconstruction algorithm, 
+a selection was applied on the distance between the track $z_0$ parameter and the true primary vertex
+z position. As the 
 $z_0$ resolution heavily depends on the track pseudorapidity, as can be seen in Fig.
 \ref{fig:HZZ4mu:sigZ0}, the cut was applied in the following way:
 
@@ -2537,15 +2536,17 @@ $z_0$ resolution heavily depends on the track pseudorapidity, as can be seen in 
 with $\sigma_{z} (\eta) = 50\ \mu m$ for $|\eta| < 2.7$, $150\ \mu m$ for $2.7 < |\eta| < 3.2$
 and $500\ \mu m$ for $3.2 < |\eta| < 4.0$. 
 
-A very loose (CHECK?) isolation cut was then applied to further reduce the rate of events
+A very loose isolation requirement was then applied to further reduce the rate of events
 in which more than four tracks pass all the cuts, which is similar to the one used during
 the Run-1 analysis\cite{HZZ4mu_run1}. It was applied by requiring that the sum of the 
 $p_T$ of the tracks inside a cone of size $\Delta R = 0.1$ around the muon
-candidate, divided by its $p_T$ is smaller than 1.\\
+candidate, divided by its $p_T$ is smaller than 1. This requirement was kept loose as 
+it is well known that isolation is strongly dependent on pile-up tracks and it has not yet
+been optimised for HL-LHC.\\
 
-At this point, it has been verified that the fraction of events in which more than four tracks
-pass all the cuts is below the $10^{-4}$ level. For the sake of generality, the worst 
-case has also been taken into account. In this case, combinations of four tracks are formed
+At this point, it was verified that the fraction of events in which more than four tracks
+pass all the cuts is $\lesssim 10^{-4}$. For the sake of generality, the worst 
+case was also taken into account. In this case, combinations of four tracks are formed
 first excluding the ones that do not form an electrically neutral system. Then, subsequent
 cuts are applied to the combinations, starting from the transverse momenta cuts. If more
 than one combination pass all the cuts, the one with the highest four-muon mass is chosen. 
@@ -2556,8 +2557,9 @@ The remaining cuts are applied sequentially in the same order described in sec.\
 
 \subsubsection{Reconstruction efficiencies}\label{subsec:recoEfficiency}
 
-The cut efficiencies have been studied for the signal and background samples. They are summarized in 
-tab.\ref{tab:cutEfficiency}, \ref{tab:cutEfficiency27}, \ref{tab:cutEfficiency32}, \ref{tab:cutEfficiency4}.\\
+The selection efficiencies were studied for the signal and background samples, in the $<\mu> = 200$ scenario. They are summarized in 
+tab.\ref{tab:cutEfficiency}. In tab. \ref{tab:cutEfficiency27}, \ref{tab:cutEfficiency32}, \ref{tab:cutEfficiency4} results are shown for the three different regions $|\eta_{\mu}^{max}| < 2.7$, 
+$2.7 < |\eta_{\mu}^{max}| < 3.2$ and $3.2 < |\eta_{\mu}^{max}| < 4.0$. These three regions are relevant as they corrsepond to a "Run 1-like" scenario and to two possible extensions.\\
 
 \begin{table} [h]
 	\resizebox{\textwidth}{!}{
@@ -2670,16 +2672,15 @@ tab.\ref{tab:cutEfficiency}, \ref{tab:cutEfficiency27}, \ref{tab:cutEfficiency32
 	\label{tab:cutEfficiency4}
 \end{table}
 
-The Inclined (IExtBrl4) and Fully Inclined (InclBrl4) layouts have found to produce
-very similar results, whereas the Extended (ExtBrl4) layout shows slightly worse efficiencies, 
+Results show that the Inclined (IExtBrl4) and Fully Inclined (InclBrl4) layouts perform similarly, whereas the Extended (ExtBrl4) layout shows slightly worse efficiencies, 
 due to the worse $p_T$ and $z_0$ resolution in the forward region.\\
 
 The dependency on the number of simulated pile-up events was also studied comparing these efficiencies with
-a $<\mu> = 0$ sample, and the results are shown in Tab.\ref{tab:cutEfficiencyPU}, \ref{tab:cutEfficiencyPU27}, \ref{tab:cutEfficiencyPU32}, \ref{tab:cutEfficiencyPU4}. 
-The errors indicated are statistical and include generation and simulation fluctuations, but
-the hard-scatter event sample in the two pile-up scenarios is the same, so that the errors
-are correlated and the comparison is more consistent. 
-A very weak systematic decrease of the efficiency with the pile-up appears to be present, 
+a $<\mu> = 0$ sample, and the corresponding results are shown in Tab.\ref{tab:cutEfficiencyPU}, \ref{tab:cutEfficiencyPU27}, \ref{tab:cutEfficiencyPU32}, \ref{tab:cutEfficiencyPU4}. 
+The uncertainties indicated are statistical and include generation and simulation fluctuations, but
+the hard-scatter event sample in the two pile-up scenarios is the same, so that uncertainties
+are correlated.
+A weak systematic decrease of the efficiency with the pile-up appears to be present, 
 which can be indication of resolution degradation, but it is not statistically significant.\\
 
 \begin{table} [h]
