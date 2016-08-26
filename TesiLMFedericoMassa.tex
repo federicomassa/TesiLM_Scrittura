@@ -76,8 +76,8 @@ A causa dell'elevato numero di eventi di pileup ($>200$) previsti, il tempo rich
 \newpage
 
 \section*{Introduction} \label{sec:introduction}
-This thesis aims to illustrate the tracking performances of the ATLAS Inner Tracker (ITk) which will substitute the current Inner Detector in the context
-of the High Luminosity LHC upgrade scheduled for 2026. \\
+This thesis is centered on the expected performance of the tracking system (ITk) which is being designed for the ATLAS upgrade and that will replace the
+current Inner Detector in the High Luminosity LHC phase (HL-LHC), scheduled to start in 2026. \\
 
 The Large Hadron Collider (LHC) accelerator worked at a center-of-mass energy of 7 TeV during Run-1 and 13 TeV during Run-2. It is scheduled to be upgraded in two different stages: the first one will begin after the end of Run 2 during the Long shutdown 2 (LS2) in 2019-2020, when LHC will reach its maximum design energy of 14 TeV; the second one will start at the end of Run 3 during the Long shutdown 3 (LS3) in 2024-2026 (Fig.\ref{fig:HLLHC_Plan}). The latter upgrade stage will lead to what is known as High-Luminosity LHC (HL-LHC) during which the
 luminosity will reach the maximum value of $7.5 \times 10^{34}\ cm^{-2}s^{-1}$, corresponding to approximately $3000\ fb^{-1}$ during ten years of data taking. \\
@@ -167,7 +167,7 @@ $\pm\ 3512\ mm$ in length and $1150\ mm$ in radius. The whole system is placed i
 the central solenoid magnet. The ID is consists of three sub-detectors: the innermost section provides
 high resolution pattern recognition and secondary vertexing capability using \textit{silicon pixel layers}, the middle one consists of stereo pairs of \textit{silicon microstrip} (SCT) layers and the outermost one consists of the \textit{Transition Radiation Tracker} (TRT). During 2014 ATLAS upgrade, the \textit{Insertable B-Layer} (IBL), a fourth pixel barrel layer, was added to avoid the decrease of performances after the luminosity upgrade of LS1. \\
 
-Each one of these detectors is subdivided into a \textit{barrel} ($|\eta$ \lesssim 1.0$) region, in which the sensor modules 
+Each one of these detectors is subdivided into a \textit{barrel} ($|\eta \lesssim 1.0$) region, in which the sensor modules 
 are organized tangentially with respect to a circle around the beam axis and an \textit{end-cap} region, in which they are placed perpendicularly with respect to the beam axis, producing
 a disk resemblant shape.\\
 
@@ -2134,7 +2134,7 @@ allowing the measurement of basic tracking performance parameters such as Higgs 
 
 \subsection{ATLAS Scoping-document analysis: inclusive $H \rightarrow ZZ^* \rightarrow 4\mu$}\label{subsec:physics:scoping}
 The study of this physics channel is of particular relevance because of the cleanness of the signature and the consequent high accuracy with which it was and is measured at LHC. In this paragraph, the analysis of this channel performed in the ATLAS Phase II Upgrade
-Scoping Document\cite{scoping_HZZ4mu} is PAROLA CHE NON CAPISCO?. This study, for sake of comparison, is the basis of our work.\\
+Scoping Document\cite{scoping} is PAROLA CHE NON CAPISCO?. This study, for sake of comparison, is the basis of our work.\\
 
 The ITk layout chosen for the Scoping Document was different to the ones described in sec.\ref{sec:tracking}, but the angular coverage is the same ($|\eta| < 4.0$) and its details
 can be found in \cite{scoping}.\\
@@ -2171,13 +2171,14 @@ performances of the three layouts proposed in the Scoping Document are compared.
 \end{figure}
 
 	\begin{table} [h]
+	\centering
 	\resizebox{.8\textwidth}{!}{
 		\begin{tabular}{c  c  c}
 		\hline
 		\textbf{Coverage} & \textbf{Mass (GeV)} & \textbf{Width (GeV)} \\ \hline
-		$|\eta^{\mu}_{max}|$ < 2.7 & 124.95 $\pm$ 0.01 & 1.11 $\pm$ 0.01 \\
-		2.7 < $|\eta^{\mu}_{max}|$ < 3.2 & 125.31 $\pm$ 0.07 & 2.53 $\pm$ 0.08 \\
-		3.2 < $|\eta^{\mu}_{max}|$ < 4.0 & 125.89 $\pm$ 0.17 & 4.61 $\pm$ 0.23 \\ \hline
+		$|\eta^{\mu}_{max}| < 2.7$ & 124.95 $\pm$ 0.01 & 1.11 $\pm$ 0.01 \\
+		$2.7 < |\eta^{\mu}_{max}| < 3.2$ & 125.31 $\pm$ 0.07 & 2.53 $\pm$ 0.08 \\
+		$3.2 < |\eta^{\mu}_{max}| < 4.0$ & 125.89 $\pm$ 0.17 & 4.61 $\pm$ 0.23 \\ \hline
 	\end{tabular}}
 	\caption{Higgs mass and width measurement, where the samples are divided into three 
 	regions, depending on the value of $|\eta|$ of the most forward muon\cite{scoping}. In the Scoping Document, the only scenario with $|\eta| < 4.0$ coverage is the Reference scenario.}
@@ -2185,6 +2186,7 @@ performances of the three layouts proposed in the Scoping Document are compared.
 	\end{table}
 
 	\begin{table} [h]
+	\centering
 	\resizebox{.8\textwidth}{!}{
 		\begin{tabular}{l c  c  c}
 		\hline
@@ -2200,7 +2202,7 @@ performances of the three layouts proposed in the Scoping Document are compared.
 
 
 \subsection{Physics process generation}
-As described in sec.\ref{subsec:physicsSimulation}, the first step of the fast simulation 
+As described in sec.\ref{sec:simulation:physicsSimulation}, the first step of the fast simulation 
 technique employed is the generation of a number of proton-proton collisions containing the
 ggF production of a Higgs boson decaying into one on-shell and one off-shell Z boson, 
 each of which decaying into a neutral muon pair. This production channel represents the more
@@ -2254,7 +2256,7 @@ is defined as \textit{on-shell} and the other as \textit{off-shell}.
 
 \subsubsection{Background process generation}\label{physics:bkgGeneration}
 The generation efficiency of the background process $ZZ^{(*)}$ was optimized by
-producing events in a selected kinematic region. In particular, a minimum value of 15 GeV (MA IL TAGLIO DI ANALISI NON E' A 12?) for the mass of
+producing events in a selected kinematic region. In particular, a minimum value of 15 GeV for the mass of
 the Drell-Yan produced $Z^*$ boson was required, while the invariant mass of the four muon system is required,
 in order to speed up the following simulation, 
 to lie in the region between 50 GeV and 160 GeV. These values were chosen so that the $4\mu$ system in the events not passing the selection had a mass 
@@ -2316,10 +2318,10 @@ seen from the plot in Fig.\ref{fig:HZZ4mu:photonPt}. [NE PARLIAMO?]\\
 During the ATLAS Run-1 analysis the electromagnetic calorimeter information was used
 to account for the system invariant mass underestimation due to the presence of photons, 
 using a $p_T$ threshold of $1.5\ GeV$\cite{HZZ4mu_run1}. These photons were divided
-in \textit{collinear} ($\Delta R_{\mu\gamma}$ < 0.15) and \textit{non collinear} ($\Delta R_{\mu\gamma}$ > 0.15). 
-Energy of collinear photons with $p_{T}$ > 1.5 GeV were added to the muon. Non collinear photons 
-were accounted only if $E_{T}^{\gamma}$ > 10 GeV. Assuming that the same
-can be done in the HL-LHC conditions, we excluded events with $p_{T}^{\gamma}$ > 1.5 GeV. The $\eta$ distribution
+in \textit{collinear} ($\Delta R_{\mu\gamma} < 0.15$) and \textit{non collinear} ($\Delta R_{\mu\gamma} > 0.15$). 
+Energy of collinear photons with $p_{T} > 1.5 GeV$ were added to the muon. Non collinear photons 
+were accounted only if $E_{T}^{\gamma} > 10 GeV$. Assuming that the same
+can be done in the HL-LHC conditions, we excluded events with $p_{T}^{\gamma} > 1.5 GeV$. The $\eta$ distribution
 and the $\Delta R$ distance of the photon from the muon after this requirement is shown in Fig.\ref{fig:HZZ4mu:genPhotonsAfterCut}. [PARLARE DEL DELTA R?]\\
 
 \begin{figure}
@@ -2516,7 +2518,7 @@ Fig.\ref{fig:HZZ4mu:trackQuality}.
 \subsection{Physics analysis}\label{sec:physics:analysis}
 To compare with the results of the Scoping document, that 
 are based on different ITk layouts and briefly summarized in sec.\ref{subsec:physics:scoping}, 
-similar analysis cuts have been applied. \\
+similar analysis requirements have been applied. \\
 
 \subsubsection{Identification of the track candidates}
 An initial set of tracks is selected by stacking into a vector all the tracks passing a minimum
@@ -2527,7 +2529,7 @@ is available in the reconstruction algorithm,
 a selection was applied on the distance between the track $z_0$ parameter and the true primary vertex
 z position. As the 
 $z_0$ resolution heavily depends on the track pseudorapidity, as can be seen in Fig.
-\ref{fig:HZZ4mu:sigZ0}, the cut was applied in the following way:
+\ref{fig:HZZ4mu:sigZ0}, the selection was applied in the following way:
 
 \begin{equation*}
 |z_0\ (track) - z\ (truth\ primary\ vertex)| < 5 \times \sigma_{z} (\eta)
@@ -2537,7 +2539,7 @@ with $\sigma_{z} (\eta) = 50\ \mu m$ for $|\eta| < 2.7$, $150\ \mu m$ for $2.7 <
 and $500\ \mu m$ for $3.2 < |\eta| < 4.0$. 
 
 A very loose isolation requirement was then applied to further reduce the rate of events
-in which more than four tracks pass all the cuts, which is similar to the one used during
+in which more than four tracks pass all the requirements, which is similar to the one used during
 the Run-1 analysis\cite{HZZ4mu_run1}. It was applied by requiring that the sum of the 
 $p_T$ of the tracks inside a cone of size $\Delta R = 0.1$ around the muon
 candidate, divided by its $p_T$ is smaller than 1. This requirement was kept loose as 
@@ -2545,21 +2547,22 @@ it is well known that isolation is strongly dependent on pile-up tracks and it h
 been optimised for HL-LHC.\\
 
 At this point, it was verified that the fraction of events in which more than four tracks
-pass all the cuts is $\lesssim 10^{-4}$. For the sake of generality, the worst 
+pass all the requirements is $\lesssim 10^{-4}$. For the sake of generality, the worst 
 case was also taken into account. In this case, combinations of four tracks are formed
 first excluding the ones that do not form an electrically neutral system. Then, subsequent
-cuts are applied to the combinations, starting from the transverse momenta cuts. If more
-than one combination pass all the cuts, the one with the highest four-muon mass is chosen. 
+selections are applied to the combinations, starting from the transverse momenta requirements. If more
+than one combination pass the selection, the one with the highest four-muon mass is chosen. 
 This could result in the introduction of a bias, but it is not a worrying issue in this analysis due to
 the extreme rarity of this event.\\
 
-The remaining cuts are applied sequentially in the same order described in sec.\ref{subsec:physics:scoping}.
+The remaining requirements are applied sequentially in the same order described in sec.\ref{subsec:physics:scoping}.
 
 \subsubsection{Reconstruction efficiencies}\label{subsec:recoEfficiency}
 
 The selection efficiencies were studied for the signal and background samples, in the $<\mu> = 200$ scenario. They are summarized in 
 tab.\ref{tab:cutEfficiency}. In tab. \ref{tab:cutEfficiency27}, \ref{tab:cutEfficiency32}, \ref{tab:cutEfficiency4} results are shown for the three different regions $|\eta_{\mu}^{max}| < 2.7$, 
-$2.7 < |\eta_{\mu}^{max}| < 3.2$ and $3.2 < |\eta_{\mu}^{max}| < 4.0$. These three regions are relevant as they corrsepond to a "Run 1-like" scenario and to two possible extensions.\\
+$2.7 < |\eta_{\mu}^{max}| < 3.2$ and $3.2 < |\eta_{\mu}^{max}| < 4.0$. These three regions are relevant as they corrsepond to a "Run 1-like" scenario and to two possible extensions. Therefore
+it is important to assess the different capabilities of the three layouts.\\
 
 \begin{table} [h]
 	\resizebox{\textwidth}{!}{
@@ -2580,8 +2583,8 @@ $2.7 < |\eta_{\mu}^{max}| < 3.2$ and $3.2 < |\eta_{\mu}^{max}| < 4.0$. These thr
 \textbf{Off-shell mass}   & 0.920 & 0.996 & 0.921 & 0.996 & 0.921 & 0.996 \\ \hline\hline
 \textbf{Total efficiency} & \color{dred} 0.548 & \color{dred} 0.332 & \color{dred} 0.565 & \color{dred} 0.345 & \color{dred} 0.566 & \color{dred} 0.344 \\ \hline 
 \end{tabular}}
-	\caption{Relative and total cut efficiencies for the three ITk layouts considered. Relative efficiencies are defined as the fraction of events passing the cuts from the
-	previous step, while the total efficiency is the fraction of events passing all the cuts with respect to the total number of generated events. The uncertainty on the total efficiency is not shown for graphical 
+	\caption{Relative and total selection efficiencies for the three ITk layouts considered. Relative efficiencies are defined as the fraction of events passing the selection from the
+	previous step, while the total efficiency is the fraction of events passing all the requirements with respect to the total number of generated events. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.002 for the Higgs sample and 0.003 for the ZZ sample.}
 	\label{tab:cutEfficiency}
 \end{table}
@@ -2606,10 +2609,10 @@ $2.7 < |\eta_{\mu}^{max}| < 3.2$ and $3.2 < |\eta_{\mu}^{max}| < 4.0$. These thr
 \textbf{Partial efficiency} & \color{dred} 0.657 & \color{dred} 0.480 & \color{dred} 0.659 & \color{dred} 0.480 & \color{dred} 0.661 & \color{dred} 0.480 \\ \hline 
 \textbf{Total efficiency} & \color{dblue} 0.459 & \color{dblue} 0.249 & \color{dblue} 0.460 & \color{dblue} 0.249 & \color{dblue} 0.462 & \color{dblue} 0.248 \\ \hline 
 		\end{tabular}}
-	\caption{Relative and total cut efficiencies for the three ITk layouts considered, only for the
-		events with $|\eta^\mu_{max}| < 2.7$. Relative efficiencies are defined as the fraction of events passing the cuts from the
-	previous step. Partial efficiency is the fraction of events passing all the cuts with respect to the total number of generated events in the kinematic region. Total efficiency is the
-	fraction of events passing all the cuts with respect to the total number of generated events. The uncertainty on the total efficiency is not shown for graphical 
+	\caption{Relative and total selection efficiencies for the three ITk layouts considered, only for the
+		events with $|\eta^\mu_{max}| < 2.7$. Relative efficiencies are defined as the fraction of events passing the selection from the
+	previous step. Partial efficiency is the fraction of events passing the selection with respect to the total number of generated events in the kinematic region. Total efficiency is the
+	fraction of events passing the selection with respect to the total number of generated events. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.003 for the Higgs sample and 0.005 for the ZZ sample.}
 	\label{tab:cutEfficiency27}
 \end{table}
@@ -2635,10 +2638,10 @@ $2.7 < |\eta_{\mu}^{max}| < 3.2$ and $3.2 < |\eta_{\mu}^{max}| < 4.0$. These thr
 \textbf{Partial efficiency} & \color{dred} 0.448 & \color{dred} 0.33 & \color{dred} 0.513 & \color{dred} 0.38 & \color{dred} 0.516 & \color{dred} 0.38 \\ \hline
 \textbf{Total efficiency} & \color{dblue} 0.056 & \color{dblue} 0.046 & \color{dblue} 0.064 & \color{dblue} 0.053 & \color{dblue} 0.064 & \color{dblue} 0.053 \\ \hline 
 		\end{tabular}}
-	\caption{Relative and total cut efficiencies for the three ITk layouts considered, only for the
-		events with $2.7 < |\eta^\mu_{max}| < 3.2$. Relative efficiencies are defined as the fraction of events passing the cuts from the
-	previous step. Partial efficiency is the fraction of events passing all the cuts with respect to the total number of generated events in the kinematic region. Total efficiency is the
-	fraction of events passing all the cuts with respect to the total number of generated events. The uncertainty on the total efficiency is not shown for graphical 
+	\caption{Relative and total selection efficiencies for the three ITk layouts considered, only for the
+		events with $2.7 <|\eta^\mu_{max}| < 3.2$. Relative efficiencies are defined as the fraction of events passing the selection from the
+	previous step. Partial efficiency is the fraction of events passing the selection with respect to the total number of generated events in the kinematic region. Total efficiency is the
+	fraction of events passing the selection with respect to the total number of generated events. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.006 for the Higgs sample and 0.01 for the ZZ sample.}
 	\label{tab:cutEfficiency32}
 \end{table}
@@ -2664,10 +2667,10 @@ $2.7 < |\eta_{\mu}^{max}| < 3.2$ and $3.2 < |\eta_{\mu}^{max}| < 4.0$. These thr
 \textbf{Partial efficiency} & \color{dred} 0.289  & \color{dred} 0.196  & \color{dred} 0.343  & \color{dred} 0.227  & \color{dred} 0.343  & \color{dred} 0.220 \\ \hline
 \textbf{Total efficiency} & \color{dblue} 0.034 & \color{dblue} 0.038 & \color{dblue} 0.041 & \color{dblue} 0.044 & \color{dblue} 0.041 & \color{dblue} 0.042 \\ \hline 
 	\end{tabular}}
-	\caption{Relative and total cut efficiencies for the three ITk layouts considered, only for the
-		events with $3.2 < |\eta^\mu_{max}| < 4.0$. Relative efficiencies are defined as the fraction of events passing the cuts from the
-	previous step. Partial efficiency is the fraction of events passing all the cuts with respect to the total number of generated events in the kinematic region. Total efficiency is the
-	fraction of events passing all the cuts with respect to the total number of generated events. The uncertainty on the total efficiency is not shown for graphical 
+	\caption{Relative and total selection efficiencies for the three ITk layouts considered, only for the
+		events with $3.2 < |\eta^\mu_{max}| < 4.0$. Relative efficiencies are defined as the fraction of events passing the selection from the
+	previous step. Partial efficiency is the fraction of events passing the selection with respect to the total number of generated events in the kinematic region. Total efficiency is the
+	fraction of events passing the selection with respect to the total number of generated events. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.006 for the Higgs sample and 0.007 for the ZZ sample.}
 	\label{tab:cutEfficiency4}
 \end{table}
@@ -2691,7 +2694,7 @@ which can be indication of resolution degradation, but it is not statistically s
 \boldmath$<\mu> = 0$   & 0.551  &  0.332  & 0.567  &  0.348  & 0.568  &  0.347 \\ \hline
 \boldmath$<\mu> = 200$   &   0.548 &  0.332 &  0.565 &  0.345 &  0.566 & 0.344 \\ \hline
 	\end{tabular}}
-	\caption{Total cut efficiencies for the three ITk layouts considered and two pile-up scenarios. The uncertainty on the total efficiency is not shown for graphical 
+	\caption{Total selection efficiencies for the three ITk layouts considered and two pile-up scenarios. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.002 for the Higgs sample and 0.003 for the ZZ sample.}
 	\label{tab:cutEfficiencyPU}
 \end{table}
@@ -2704,7 +2707,7 @@ which can be indication of resolution degradation, but it is not statistically s
 \boldmath$<\mu> = 0$   & 0.658  &  0.478  & 0.662  &  0.482  & 0.663  &  0.481 \\ \hline
 \boldmath$<\mu> = 200$   &  0.657 & 0.480 & 0.659 & 0.480 & 0.661 & 0.480 \\ \hline
 	\end{tabular}}
-	\caption{Total cut efficiencies for the three ITk layouts considered and two pile-up scenarios, only for the
+	\caption{Total selection efficiencies for the three ITk layouts considered and two pile-up scenarios, only for the
 		events with $|\eta^\mu_{max}| < 2.7$. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.003 for the Higgs sample and 0.005 for the ZZ sample.}
 	\label{tab:cutEfficiencyPU27}
@@ -2718,7 +2721,7 @@ which can be indication of resolution degradation, but it is not statistically s
 \boldmath$<\mu> = 0$   & 0.453  &  0.34  & 0.519  &  0.40  & 0.519  &  0.40 \\ \hline
 \boldmath$<\mu> = 200$   &  0.448 & 0.33 &  0.513 & 0.38 &  0.516 &  0.38 \\ \hline
 	\end{tabular}}
-	\caption{Total cut efficiencies for the three ITk layouts considered and two pile-up scenarios, only for the
+	\caption{Total selection efficiencies for the three ITk layouts considered and two pile-up scenarios, only for the
 		events with $2.7 < |\eta^\mu_{max}| < 3.2$. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.006 for the Higgs sample and 0.01 for the ZZ sample.}
 	\label{tab:cutEfficiencyPU32}
@@ -2732,7 +2735,7 @@ which can be indication of resolution degradation, but it is not statistically s
 \boldmath$<\mu> = 0$   & 0.297  &  0.191  & 0.345  &  0.221  & 0.345  &  0.222 \\ \hline
 \boldmath$<\mu> = 200$   & 0.289  &  0.196  & 0.343  &  0.227  & 0.343  &  0.220 \\ \hline
 	\end{tabular}}
-	\caption{Total cut efficiencies for the three ITk layouts considered and two pile-up scenarios, only for the
+	\caption{Total selection efficiencies for the three ITk layouts considered and two pile-up scenarios, only for the
 		events with $3.2 < |\eta^\mu_{max}| < 4.0$. The uncertainty on the total efficiency is not shown for graphical 
 	clarity and it is 0.006 for the Higgs sample and 0.007 for the ZZ sample.}
 	\label{tab:cutEfficiencyPU4}
@@ -2741,9 +2744,10 @@ which can be indication of resolution degradation, but it is not statistically s
 
 
 \subsubsection{Higgs reconstruction performance}
-The events passing the analysis cuts have been divided into three kinematic regions, depending on the $|\eta|$ value of the
-most forward muon candidate. This division is useful to compare the reconstruction resolution and the signal significance 
-as a function of the detector coverage. In fig.\ref{fig:HZZ4mu:recoMasses} is shown the distribution
+As described, events passing the analysis requirements were divided into three kinematic regions, depending on the $|\eta|$ value of the
+most forward muon candidate. This is useful to compare the reconstruction resolution and the signal significance 
+as a function of the detector coverage.\\
+In fig.\ref{fig:HZZ4mu:recoMasses} is shown the distribution
 of the reconstructed on-shell and off-shell candidate muon pair mass and the four-muon mass for the
 signal sample.\\
 
@@ -2763,7 +2767,6 @@ signal sample.\\
 \ \ \ \ \ (b): $4\mu$ reconstructed mass distribution in the signal process.}
 \label{fig:HZZ4mu:recoMasses}
 \end{figure}
-
 
  The resolution of the same reconstructed quantities is shown in Fig.\ref{fig:HZZ4mu:massResolution}, divided into the three kinematic regions, for the InclBrl4 layout, as an example. Fig.\ref{fig:HZZ4mu:layoutMassResolution} shows instead the comparison between the mass resolution in the three ITk layouts considered.\\
 
@@ -2814,8 +2817,7 @@ three considered ITk layouts separately for the events with $|\eta^\mu_{max}| < 
 \label{fig:HZZ4mu:layoutMassResolution}
 \end{figure}
 
-These distributions were fitted with a gaussian shape employing an iterative method 
-(IN APPENDICE DESCRIVE IL METODO?). The results are summarized in 
+These distributions were fitted with a gaussian shape employing an iterative method. The results are summarized in 
 Tab.\ref{tab:massResolutions}, which show that the ExtBrl4 layout produces worse performances in the forward region, as
 expected. \\
 
@@ -2862,7 +2864,7 @@ expected. \\
 	\end{tabular}}
 	\caption{On-shell, off-shell pair and $4\mu$ mass resolution for the
 	three ITk layouts considered, in total and separately for the three kinematic regions.
-	The errors are the fit parameters estimation errors. The values are expressed in GeV.}
+	The uncertainties are the fit parameters estimation uncertainties. The values are expressed in GeV.}
 	\label{tab:massResolutions}
 \end{table}
 
@@ -2872,11 +2874,11 @@ are shown in Fig.\ref{fig:HZZ4mu:recoPtEtaPhi}, Fig.\ref{fig:HZZ4mu:sigRecoPtEta
 InclBrl4 layout. As for the masses, these distributions have been fitted with a gaussian shape
 and the results are summarized in Tab.\ref{tab:ptEtaPhiResolutions}. \\
 
-Compared with the results of the Scoping Document (fig.\ref{fig:scopingHZZ4muMassResolution}), the found $4\mu$ resolutions
-are worse, but in this case no Z mass constraint is present, so that the comparison
-is not consistent. With increasing the pseudo-rapidity of the most forward candidate,
-the resolutions decrease very significantly, but the measurement also suffers from the
-decrease of the statistics in those regions.
+Compared with the results of the Scoping Document (tab.\ref{tab:scopingHZZ4muMassResolution}), the resolutions
+of the $4\mu$ system are worse, but in our case no Z mass constraint is present, so the comparison
+is not consistent. With increasing pseudo-rapidity of the most forward muon candidate,
+resolutions decrease significantly, but the measurement also suffers from 
+decrease of the statistics.
 
 \begin{figure}
 \begin{subfigure}{.5\linewidth}
@@ -2943,21 +2945,21 @@ decrease of the statistics in those regions.
 	\end{tabular}}
 	\caption{$4\mu$ $p_{T}$, $\eta$ and $\phi$ resolutions for the
 	three ITk layouts considered, in total and separately for the three kinematic regions.
-	The errors are the fit parameters estimation errors. The values are expressed in GeV for the
+	The uncertainties are the fit parameters estimation errors. The values are expressed in GeV for the
 	$p_{T}$ and in radians for $\phi$.}
 	\label{tab:ptEtaPhiResolutions}
 \end{table}
 
 To assess the impact of the final-state radiation selection applied, a special sample
-of reduced statistics has been generated with the inclusion of all the events, without 
-photon $p_{T}$ cut. The resolution on the $4\mu$ mass system is summarized
+with reduced statistics was generated (NON CAPISCO? by including all the events, without 
+any photon $p_{T}$ requirement. The resolution on the $4\mu$ mass system in this case is summarized
 in tab.\ref{tab:massResolutionWithPhotons}.
 
 \begin{table} [h]
 	\resizebox{\textwidth}{!}{
 		\begin{tabular}{l || c | c | c | c | c | c }
 		& \multicolumn{2}{c}{\textbf{ExtBrl4}} & \multicolumn{2}{c}{\textbf{IExtBrl4}} & \multicolumn{2}{c}{\textbf{InclBrl4}} \\ \hline \hline
-	& \textbf{\boldmath$p_{T}$ cut}  & \textbf{No cut} & \textbf{\boldmath$p_{T}$ cut}  & \textbf{No cut} & \textbf{\boldmath$p_{T}$ cut}  & \textbf{No cut} \\ \hline
+	& \textbf{Photon selection}  & \textbf{No selection} & \textbf{Photon selection}  & \textbf{No selection} & \textbf{Photon selection}  & \textbf{No selection} \\ \hline
 	
 	\boldmath$|\eta^\mu_{max}| < 2.7$ & 1.46 $\pm$ 0.01 & 1.8 $\pm$ 0.1 & 1.42 $\pm$ 0.01 & 1.8 $\pm$ 0.1 & 1.42 $\pm$ 0.01 & 1.8 $\pm$ 0.1 \\ \hline
 
@@ -2968,24 +2970,27 @@ in tab.\ref{tab:massResolutionWithPhotons}.
 	
 	\end{tabular}}
 	\caption{Comparison between the $4\mu$ mass resolutions with or without
-	the $p_{T}$ selection applied during the generation stage. The values are expressed
+	the photon selection applied during the generation stage. Values are expressed
 	in GeV.}
 	\label{tab:massResolutionWithPhotons}
 \end{table}
 
-The results show that the resolution worsens in all the kinematic regions, but the InclBrl4
-layout shows good performances in the forward region.
+The results show that the resolution worsens in all the kinematic regions, as expected, 
+but the InclBrl4
+layout shows good performances in the forward region. We also expect that, in the
+final configuration, resolution will be improved by using the electromagnetic calorimeter.
 
-\subsubsection*{Fake analysis}
-As explained in sec.\ref{subsec:physicsSimulation}, the employed fast simulation technique 
+\subsubsection*{Analysis of fake tracks}
+As explained in sec.\ref{sec:simulation:physicsSimulation}, the fast simulation technique 
 presents some limitations when defining a fake event in a physics process. One of the
 possible sources of fake events, especially at HL-LHC, could be the inclusion of a 
 track produced by a pile-up particle into the combination of hard-scatter candidates.
-The absence of the entire sample of tracks in the employed samples makes it impossible
+The absence of the full sample of tracks in the whole detector makes it impossible
 to correctly assess the importance of this effect. However, this kind of study can be done with the 
-available samples and will provide an underestimation of the rate at which it happens.\\
+available samples and provides an estimate (although optimistic) of the rate at which it happens.\\
 
-In this study, we define a fake event as an event that passes the cuts in which:\\
+In this study, we define a fake event as an event that passes the requirements in which at least one of 
+the following happens:\\
 \begin{itemize}
 \item the charge associated with two or four tracks is wrong;
 \item at least one of the hard-scatter truth muons is outside of the detector acceptance;
@@ -2993,35 +2998,40 @@ In this study, we define a fake event as an event that passes the cuts in which:
 from an hard-scatter muon.
 \end{itemize}
 
-First of all, a matching is necessary for every event that passes the cuts to compare 
+First of all, a matching is needed for each event passing our requirements to compare 
 the tracks and the hard-scatter muons. A matching was realized by comparing the candidate
 tracks vector with the hard-scatter truth muons vector and start by matching the pairs
-that are nearest (in $\Delta R$) to each other and are withdrawn from consideration for 
-the following matching. This method ensures, in case of a fake event, the correct
+that are nearest (in $\Delta R$) to each other. The pair is withdrawn and then the process
+is iterated. This method ensures, in case of a fake event, the correct
 identification of the fake tracks. \\
 
 The measured charge fake rate was zero for the three layouts, which places this
-effect at the $10^{-4}$ level. The truth link was found incorrectly matched in one of the
+effect at the $10^{-4}$ level. \\
+
+The truth link was found incorrectly matched in one of the
 four tracks in 37, 41 and 39 events (over 50000 generated) respectively, for the ExtBrl4, IExtBrl4
 and InclBrl4 layout, which is an effect at the $10^{-3}$ level. No events in which more than one
-track was incorrectly linked were found.  It has been verified that the reason for which 
+track was incorrectly linked were found.  It was verified that the reason for which 
 the truth link fails to identify the hard-scatter muon is that the muon itself has produced
 a secondary particle in one of the first layers, so that the track is mostly due to the muon
-after the interaction, which has been slightly deviated. Thus, no events in which a pile-up 
-track has faked a muon candidate has been found.\\
+after the interaction, (NON CAPISCO?) slightly deviated. Thus, no events in which a pile-up 
+track has faked a muon candidate were found.\\
 
-Finally, only one event has been found in the ExtBrl4 layout
-in which an event passed all the cuts but a muon was outside of the detector acceptance.\\
+Finally, we found a case (in the ExtBrl4 layout) 
+in which an event passed all the requirements but a muon was outside of the detector acceptance.\\
 
-The measured fake rate is thus essentially zero and does not depend on pile-up at this level.
+The measured fake rate is therefore essentially zero and does not depend on pile-up at this level.
+This confirms that the layouts being considered by ATLAS are robust.
 
 \subsubsection*{Channel significance}
-The selected events, both for the signal and the background processes, have been
+In order to assess the significance of our findings, selected events, both for the signal and the background processes, were
 scaled to an integrated luminosity of 3000 $fb^{-1}$, which is the expected
-value at the end of HL-LHC operations, in 2036. Note that the processes
+value at the end of HL-LHC operations, in 2036. \\
+
+Note that the processes
 were generated at $\sqrt{s} = 13\ TeV$, at a lower cross section with respect
-to the expected HL-LHC one, thus underestimating the channel significance. The scaling factor has been
-computed with the theoretical values of the cross sections and the branching ratios,
+to the expected HL-LHC one, thus underestimating the channel significance. The scaling factor was
+computed by using the theoretical values of the cross sections and the branching ratios,
 and the measured generation and analysis efficiencies. The number of expected
 events at a particular integrated luminosity is given by: 
 
@@ -3029,15 +3039,18 @@ events at a particular integrated luminosity is given by:
 N = (\sigma \times BR)\cdot \mathcal{L}\cdot \epsilon_{gen. cuts}\cdot \epsilon_{gen. selection} \cdot \epsilon_{analysis},
 \end{equation*}
 
-where $\epsilon_{gen. cuts}$ is the fraction of events passing the generation cuts applied in order to optimize the generation process, as described in sec.\ref{physics:bkgGeneration}, 
+where $\epsilon_{gen. cuts}$ is the fraction of events passing the generation selection applied in order to optimize the generation process, as described in sec.\ref{physics:bkgGeneration}, 
 $\epsilon_{gen. selection}$ is the fraction of events being passed to the sim/digit/reco chain with respect to the generated sample and $\epsilon_{cuts}$ is the 
-analysis cut efficiency, $\sigma \times BR$ is the production cross section for the particular decay mode and $\mathcal{L}$ is the integrated luminosity. The measured values are $\epsilon_{gen. cuts} = 100\ \%$, $\epsilon_{gen. selection} = 81.2 \pm 0.1\ \%$ for the Higgs sample and 
+analysis selection efficiency, $\sigma \times BR$ is the production cross section for the particular decay mode and $\mathcal{L}$ is the integrated luminosity. \\
+
+The measured values are $\epsilon_{gen. cuts} = 100\ \%$, $\epsilon_{gen. selection} = 81.2 \pm 0.1\ \%$ for the Higgs sample and 
 $\epsilon_{gen. cuts} = 25\ \%$, $\epsilon_{gen. selection} = 80.8 \pm 0.2\ \%$ for
-the background sample. The analysis efficiencies have been described in sec.\ref{subsec:recoEfficiency} and depend weakly on the considered ITk layout. The employed values for the cross sections are
+the background sample. The analysis efficiencies were described in sec.\ref{subsec:recoEfficiency} and depend weakly on the considered ITk layout. The employed values for the cross sections are
 $\sigma \times BR = 1.64\ fb$ for the signal process and $\sigma \times BR = 24\ fb$ for the background process.\\
 
-In order to evaluate the effect of the ITk angular coverage extension on the significance of this channel, the analysis has been also carried out with limited $\eta$ coverage by selecting 
-the events with $|\eta^\mu_{max}| < 2.7$, $|\eta^\mu_{max}| < 3.2$ and $|\eta^\mu_{max}| < 4.0$. The results are shown for the InclBrl4 layout in Fig.\ref{fig:SB}.\\
+In order to evaluate the effect of the ITk angular coverage extension on the significance of this channel, the analysis was also carried out with limited $\eta$ coverage by selecting 
+events with $|\eta^\mu_{max}| < 2.7$, $|\eta^\mu_{max}| < 3.2$ and $|\eta^\mu_{max}| < 4.0$. The results are shown for the InclBrl4 layout in Fig.\ref{fig:SB}. Looking at the plots in
+fig. \ref{fig:HZZ4mu:massResolution}-\ref{fig:HZZ4mu:sigRecoPtEtaPhi} we can see that the $4\mu$ invariant mass resolution appears good enough that a meaningful (NON CAPISCO?) can be performed. \\
 
 To define the signal measurement, we integrate a region of $\pm 1.5\ \sigma$ around the measured resonance peak in the $4\mu$ invariant mass distribution. The fit has been performed iteratively 
 with a gaussian shape. The results for the different layouts and angular coverage are summarized in tab.\ref{tab:SB}.
@@ -3090,24 +3103,24 @@ with a gaussian shape. The results for the different layouts and angular coverag
 The results show compatibility of the significance of the layouts within the errors. As a function of the angular coverage, the 
 signal-to-background ratio worsens, but the significance, defined as $\frac{S}{\sqrt{S+B}}$, increases. 
 Compared with the results from the Scoping Document in the Reference Scenario 
-($|\eta| < 4.0$ coverage, fig.\ref{fig:scopingHZZ4muNEvents}), the obtained number of
-signal and background events is considerably smaller. The discrepancy can be explained by 
+($|\eta| < 4.0$ coverage, tab.\ref{tab:scopingHZZ4muNEvents}), the number of
+signal and background events is smaller. The discrepancy can be explained by 
 different factors:\\
 \begin{itemize}
 \item the samples were generated at $\sqrt{s} = 13\ TeV$ instead of $14\ TeV$ in the present study. The Higgs
-production cross section is smaller by a factor of 1.13; the branching ratio increases by a factor of ??? NON LO TROVO.
+production cross section is smaller by a factor of 1.13; 
 \item the Scoping Document study includes all the Higgs production modes, whereas the ggF process represents the 86\% of 
 the total;
 \item the applied generation selection excluded the 20\% of the events, that could have been recovered with
 	the electromagnetic calorimeter.
 \end{itemize} 
 
-For the background process the discrepancy can be partially due to the same reasons (except the production modes), but other effects tend to increase the difference. 
+For the background process the discrepancy can be partially due to the same reasons, but other effects tend to increase the difference. 
 An important difference between the two analyses is that the Scoping Document analysis employs a Z mass constraint
-in the reconstruction algorithm. In the Reference Scenario, this was very helpful in the on-shell pair reconstruction and
+in the reconstruction algorithm. However, even in the reference scenarios is not ??? separate Higgs from ZZ$^{*}$. [In the Reference Scenario, this was very helpful in the on-shell pair reconstruction and
 has the effect of lowering the resolution in the forward regions, producing better resolutions compared to the
 ones obtained with the Step-1 layouts. However, it is not trivial to assess if this has the net effect of lowering the expected
-background, because of the consequent deformation of the $4\mu$ mass distribution. 
+background, because of the consequent deformation of the $4\mu$ mass distribution. ] ?? RIVEDERE CORREZIONI DI QUESTA PARTE
 
 \clearpage
 \section{Conclusions}\label{sec:conclusions}
