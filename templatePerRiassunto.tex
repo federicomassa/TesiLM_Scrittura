@@ -1,0 +1,109 @@
+%%% LaTeX Template
+%%% This template is made for project reports
+%%%	You may adjust it to your own needs/purposes
+%%%
+%%% Copyright: http://www.howtotex.com/
+%%% Date: March 2011
+
+%%% Preamble
+\documentclass[paper=a4, fontsize=11pt]{scrartcl}	% Article class of KOMA-script with 11pt font and a4 format
+\usepackage[T1]{fontenc}
+\usepackage{fourier}
+
+\usepackage[english]{babel}															% English language/hyphenation
+\usepackage[protrusion=true,expansion=true]{microtype}				% Better typography
+\usepackage{amsmath,amsfonts,amsthm}										% Math packages
+\usepackage[pdftex]{graphicx}														% Enable pdflatex
+\usepackage{url}
+
+
+%%% Custom sectioning (sectsty package)
+\usepackage{sectsty}												% Custom sectioning (see below)
+\allsectionsfont{\centering \normalfont\scshape}	% Change font of al section commands
+
+
+%%% Custom headers/footers (fancyhdr package)
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{}														% No page header
+%\fancyfoot[L]{\small \url{HowToTeX.com}}		% You may remove/edit this line 
+\fancyfoot[C]{}													% Empty
+\fancyfoot[R]{\thepage}									% Pagenumbering
+\renewcommand{\headrulewidth}{0pt}			% Remove header underlines
+\renewcommand{\footrulewidth}{0pt}				% Remove footer underlines
+\setlength{\headheight}{13.6pt}
+
+
+%%% Equation and float numbering
+\numberwithin{equation}{section}		% Equationnumbering: section.eq#
+\numberwithin{figure}{section}			% Figurenumbering: section.fig#
+\numberwithin{table}{section}				% Tablenumbering: section.tab#
+
+
+%%% Maketitle metadata
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+
+\title{
+		%\vspace{-1in} 	
+		\usefont{OT1}{bch}{b}{n}
+		\normalfont \normalsize \textsc{Universit\`a di Pisa} \\
+		\normalfont \normalsize \textsc{Riassunto della Tesi di Laurea Magistrale}\\ [25pt]
+		\horrule{0.5pt} \\[0.4cm]
+		\huge  Tracking performances of the ATLAS detector \\
+			and impact on the $H\rightarrow ZZ^{*}\rightarrow 4\mu$ channel\\
+		\horrule{2pt} \\[0.0cm]
+}
+
+\author{
+		\normalfont 								\normalsize
+%		\begin{flushleft}
+        \textbf{Candidato: Federico Massa\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } \\[-3pt]		\normalsize
+        \textbf{Relatori: Prof. Giorgio Chiarelli\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } \\ [-3pt]\normalsize
+        \textbf{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dott. Claudia Gemme\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+%        \end{flushleft}
+        %\today
+}
+\date{}
+
+
+%%% Begin document
+\begin{document}
+\maketitle
+
+This thesis is focused on the assessment of the performances of the tracking system (ITk) which
+will replace the current tracker of the ATLAS experiment during the high-luminosity upgrade of
+the Large Hadron Collider (LHC), scheduled for 2026. \\
+
+LHC has been working at a center-of-mass
+energy of $\sqrt{s}$ = 7 - 8 TeV during Run-1 and at \mbox{$\sqrt{s}$ = 13 TeV} during Run-2, which started last year. It is scheduled to be upgraded in two different stages: the 
+first one will begin after the end of Run-2 After the Long Shutdown 2, scheduled for 2019-2020, LHC will work at
+an energy of 14 TeV, reaching its maximum design value; the second one will start at
+the end of Run 3 during the Long Shutdown 3 in 2024-2026. The latter stage will lead
+to what is dubbed as High-Luminosity LHC (HL-LHC) during which the 
+instantaneous luminosity will reach the maximum value of $7.5 \times 10^{34}$ cm$^{-2}$ s${^{-1}}$, corresponding to approximately 3000 fb$^{-1}$ over ten years of data taking. \\
+
+The increase of the instantaneous luminosity will cause the average number of proton-proton interactions per bunch crossing (``pile-up'' events) to reach the value $\langle\mu\rangle$ = 200, which 
+is about 10 times the current one ($\langle\mu\rangle$ = 23). By the end of Run-3, ATLAS detector will be using \mbox{15-20 years old} components. In particular, the pixel and strip sensors of the current Inner Detector will have reached the end of their lifetime, while the Transition
+Radiation Tracker will not be able to withstand the harsh conditions imposed by HL-LHC. Thus,
+ the Inner Detector must be completely replaced by the Inner Tracker (ITk), which will have
+ to guarantee the same or an improved performance during that phase.\\
+
+Due to the large number of pile-up events, the time required by the Monte Carlo simulations 
+is extremely high, making it difficult to produce samples with large statistics. In this thesis,
+a fast simulation method that significantly decreases the time required by the simulation while
+allowing to simulate the effect of the high number of pile-up events on the tracking
+and physics performances was developed. The idea is to limit the simulation to specific regions of interest, excluding a considerable part of the generated event. While the idea was inspired
+from previous works, we extended the use of this technique to samples containing physics 
+processes.\\
+
+At the moment, the ATLAS Collaboration is working on the design of a robust ITk layout
+ which will be able to perform adequately in the high-luminosity conditions. A fast simulation method is particularly useful as we want to quickly compare, in a realistic scenario, different detector designs and layouts. In this thesis, the performances of three ITk layouts are compared both from the point of view of the track reconstruction capabilities, which have been explored by considering single particle samples with either charged pions or muons, and 
+from the point of view of the physics performances, in the $H \rightarrow ZZ^{*} \rightarrow 4\mu$ channel. In fact, 
+ as Higgs physics is of the utmost importance, it is useful to check our capability to perform
+ well in the high pile-up environment. \\
+ 
+Results obtained in this thesis showed that the layouts proposed 
+are robust, as no significant dependence of the performance on the pile-up scenario (up to $\langle\mu\rangle$ = 200) was observed. Also, the three layouts respect the requirements fixed by the collaboration on the expected track parameters resolution in the central
+region. Our work shows also that, while no clear choice among the different layouts can be drawn at this stage, the extension of the $\eta$ coverage up to $|\eta| = 4.0$ will provide the Higgs studies with better statistics. A signal-to-background radio of at least 7 can be obtained in the $H \rightarrow ZZ^{*} \rightarrow 4\mu$ channel alone, with an estimated experimental $\Delta\mu/\mu$ of about 2.5\%  (before inclusion of luminosity uncertainty) for the various layouts, which is very close to the requirement of the Collaboration. 
+
+\end{document}
