@@ -16,6 +16,7 @@
 \usepackage[font=small]{caption}
 \usepackage{subcaption}
 \usepackage{scalerel}
+\usepackage{fancyhdr}
 \usepackage{tabu}
 %\usepackage{emptypage}
 \usepackage{hyperref}
@@ -28,6 +29,9 @@
 \usepackage{verbatim}
 \graphicspath{ {Images/} }
 
+\usepackage{tocloft}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+
 \hypersetup{
 colorlinks=true,
 linkcolor=blue,
@@ -35,7 +39,7 @@ urlcolor=blue
 }
 \urlstyle{same}
 
-\pagestyle{headings}
+\pagestyle{myheadings}
 
 \definecolor{dred}{RGB}{200,0,0}
 \definecolor{dblue}{RGB}{0,0,200}
@@ -79,6 +83,9 @@ A causa dell'elevato numero di eventi di pileup ($>200$) previsti, il tempo rich
 \newpage
 
 \chapter*{Introduction} \label{sec:introduction}
+\markboth{\MakeUppercase{Introduction}}{\MakeUppercase{Introduction}}
+\addcontentsline{toc}{chapter}{\numberline{}Introduction}
+
 This thesis is centered on the expected performance of the tracking system (ITk) which is being designed for the ATLAS upgrade and that will replace the
 current Inner Detector in the High Luminosity LHC phase (HL-LHC), scheduled to start in 2026. \\
 
@@ -141,6 +148,7 @@ Collaboration.
 \clearpage
 
 \chapter{The Physics Scenario}\label{sec:physics}
+\markboth{\MakeUppercase{1. The Physics Scenario}}{\MakeUppercase{1. The Physics Scenario}}
 
 As the upgraded detector for the high luminosity phase is foreseen to keep or improve
 the current ATLAS performance in spite of the huge amount of pileup events, the benefits gained from the increase in statistics
@@ -519,6 +527,7 @@ $10^{-5} \div 10^{-4}$, with possible improvements.
 \clearpage
 
 \chapter{ATLAS Detector} \label{sec:detector}
+\markboth{\MakeUppercase{2. ATLAS Detector}}{\MakeUppercase{2. ATLAS Detector}}
 
 \begin{figure} [h]
 	\includegraphics[width=\textwidth]{atlasdet}
@@ -772,6 +781,8 @@ efficient use of commercial networking and computing hardware.
 
 
 \chapter{Physics objects reconstruction}
+\markboth{\MakeUppercase{3. Physics objects reconstruction}}{\MakeUppercase{3. Physics objects reconstruction}}
+
 Every analysis in the ATLAS experiment starts from the reconstruction of physics objects
 based on the features of the signals coming from the different sub-detectors\cite{PhysicsObjectReconstruction}. In this section we briefly
 summarize how physics objects are reconstructed in ATLAS. Given the relevance of muons in this thesis, they will be described in more detail.\\
@@ -972,6 +983,7 @@ corrected for its energy as measured in the spectrometer.
 \clearpage
 
 \chapter{Overview of the simulation technique}\label{sec:simulation}
+\markboth{\MakeUppercase{4. Overview of the simulation technique}}{\MakeUppercase{4. Overview of the simulation technique}}
 Full Monte Carlo simulations are typically performed considering 
 a physical process of interest and simulating it through the whole detector. As the goal of this
 thesis is to analyse and compare the performances of several ITk configurations in a way that
@@ -1422,6 +1434,7 @@ FULL: 2.45
 \clearpage
 
 \chapter{Tracking performances of the upgraded Inner Tracker}\label{sec:tracking}
+\markboth{\MakeUppercase{5. Tracking performances of ITk}}{\MakeUppercase{5. Tracking performances of ITk}}
 
 \section{The ATLAS tracker upgrade: ITk}
 The current ATLAS Inner Detector was designed to operate for 10 years at a maximum luminosity of $10^{34}\ cm^{-2} s^{-1}$, 
@@ -1837,72 +1850,90 @@ each variable considered, but slightly better performances are observed in the t
 region between the flat barrel and the inclined modules for the $d_{0}$ parameter. \\
 
 \begin{figure}
-\begin{subfigure}{.5\linewidth}
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sigPt_abseta}
+\includegraphics[width=.7\textwidth]{Tracking/Mixed/pi15pu200_sigPt_abseta}
 \caption{}
 \label{fig:tracking:pi15pu200_sigPt_abseta}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sigQPt_abseta}
+\includegraphics[width=.7\textwidth]{Tracking/Mixed/pi15pu200_sigQPt_abseta}
 \caption{}
 \label{fig:tracking:pi15pu200_sigQPt_abseta}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sigEta_abseta}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/Mixed/pi15pu200_sigEta_abseta}
 \caption{}
 \label{fig:tracking:pi15pu200_sigEta_abseta}
 \end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sigPhi_abseta}
+\caption{Resolution of the reconstructed track $p_{T}$, q/$p_{T}$ and $\eta$ for the three ITk layouts considered, in the sample with pion $p_{T} = 15\ GeV$ and $\langle\mu\rangle = 200$}
+\label{fig:tracking:pionResolution-1}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/Mixed/pi15pu200_sigPhi_abseta}
 \caption{}
 \label{fig:tracking:pi15pu200_sigPhi_abseta}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sigD0_abseta}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/Mixed/pi15pu200_sigD0_abseta}
 \caption{}
 \label{fig:tracking:pi15pu200_sigD0_abseta}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sigZ0_abseta}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/Mixed/pi15pu200_sigZ0_abseta}
 \caption{}
 \label{fig:tracking:pi15pu200_sigZ0_abseta}
 \end{subfigure}
-\caption{Resolution of the reconstructed track parameters for the three ITk layouts considered, in the sample with pion $p_{T} = 15\ GeV$ and $\langle\mu\rangle = 200$.}
-\label{fig:tracking:pionResolution}
+\caption{Resolution of the reconstructed track $\phi$, $d_{0}$ and $z_{0}$ for the three ITk layouts considered, in the sample with pion $p_{T} = 15\ GeV$ and $\langle\mu\rangle = 200$}
+\label{fig:tracking:pionResolution-2}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/Mixed/pi15pu200_sysPt_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sysPt_abseta}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/Mixed/pi15pu200_sysEta_abseta}
+\caption{}
+\label{fig:tracking:pi15pu200_sysD0_abseta}
+\end{subfigure}
+\caption{Bias of the reconstructed track $p_{T}$ and $\eta$ for the three ITk layouts considered, in the sample with pion $p_{T} = 15\ GeV$ and $\langle\mu\rangle = 200$}
+\label{fig:tracking:pionBias-1}
 \end{figure}
 
 
 \begin{figure}
 \begin{subfigure}{\linewidth}
-\includegraphics[width=.5\textwidth]{Tracking/Mixed/pi15pu200_sysPt_abseta}
 \centering
-\caption{}
-\label{fig:tracking:pi15pu200_sysPt_abseta}
-\end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sysEta_abseta}
-\caption{}
-\label{fig:tracking:pi15pu200_sysEta_abseta}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sysPhi_abseta}
+\includegraphics[width=.7\textwidth]{Tracking/Mixed/pi15pu200_sysPhi_abseta}
 \caption{}
 \label{fig:tracking:pi15pu200_sysPhi_abseta}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sysD0_abseta}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/Mixed/pi15pu200_sysD0_abseta}
 \caption{}
 \label{fig:tracking:pi15pu200_sysD0_abseta}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/Mixed/pi15pu200_sysZ0_abseta}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/Mixed/pi15pu200_sysZ0_abseta}
 \caption{}
 \label{fig:tracking:pi15pu200_sysZ0_abseta}
 \end{subfigure}
-\caption{Bias of the reconstructed track parameters for the three ITk layouts considered, in the sample with pion $p_{T}$ = 15 GeV and $\langle\mu\rangle = 200$.}
-\label{fig:tracking:pionBias}
+\caption{Bias of the reconstructed track $\phi$, $d_{0}$ and $z_{0}$ for the three ITk layouts considered, in the sample with pion $p_{T} = 15\ GeV$ and $\langle\mu\rangle = 200$}
+\label{fig:tracking:pionBias-2}
 \end{figure}
 
 The results for the resolution show a substantial decrease of performances with increasing track pseudo-rapidity. This is caused by different effects: 
@@ -1928,155 +1959,199 @@ for the other variables the resolution tend to improve with increasing $p_{T}$ a
 multiple scattering plays a stronger role at lower $p_{T}$.\\ 
 
 \begin{figure}
-\begin{subfigure}{.5\linewidth}
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{Tracking/InclBrl4/pipu200_sigPt_abseta}
+\includegraphics[width=.7\textwidth]{Tracking/InclBrl4/pipu200_sigPt_abseta}
 \caption{}
 \label{fig:tracking:pipu200_sigPt_abseta}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{Tracking/InclBrl4/pipu200_sigQPt_abseta}
+\includegraphics[width=.7\textwidth]{Tracking/InclBrl4/pipu200_sigQPt_abseta}
 \caption{}
 \label{fig:tracking:pipu200_sigQPt_abseta}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/InclBrl4/pipu200_sigEta_abseta}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/InclBrl4/pipu200_sigEta_abseta}
 \caption{}
 \label{fig:tracking:pipu200_sigEta_abseta}
 \end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/InclBrl4/pipu200_sigPhi_abseta}
+\caption{Resolution of the reconstructed track $p_{T}$, q/$p_{T}$ and $\eta$ for the InclBrl4 layout, in the $\langle\mu\rangle = 200$ scenario, as a function of the generated pion $p_{T}$}
+\label{fig:tracking:pionPt-1}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/InclBrl4/pipu200_sigPhi_abseta}
 \caption{}
 \label{fig:tracking:pipu200_sigPhi_abseta}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/InclBrl4/pipu200_sigD0_abseta}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/InclBrl4/pipu200_sigD0_abseta}
 \caption{}
 \label{fig:tracking:pipu200_sigD0_abseta}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/InclBrl4/pipu200_sigZ0_abseta}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/InclBrl4/pipu200_sigZ0_abseta}
 \caption{}
 \label{fig:tracking:pipu200_sigZ0_abseta}
 \end{subfigure}
-\caption{Resolution of the reconstructed track parameters for the InclBrl4 layout, in the $\langle\mu\rangle = 200$ scenario, as a function of the generated pion $p_{T}$.}
-\label{fig:tracking:pionResolutionPt}
+\caption{Resolution of the reconstructed track $\phi$, $d_{0}$ and $z_{0}$ for the InclBrl4 layout, in the $\langle\mu\rangle = 200$ scenario, as a function of the generated pion $p_{T}$}
+\label{fig:tracking:pionPt-2}
 \end{figure}
 
-The resolution as a function of the average number of pile-up events is shown in Fig.\ref{fig:tracking:resolutionPileup_ExtBrl4}, \ref{fig:tracking:resolutionPileup_IExtBrl4}, \ref{fig:tracking:resolutionPileup_InclBrl4}. No significant difference was observed, 
+
+The resolution as a function of the average number of pile-up events is shown in Fig.\ref{fig:tracking:resolutionPileup-1_ExtBrl4}, \ref{fig:tracking:resolutionPileup-2_ExtBrl4},
+\ref{fig:tracking:resolutionPileup-1_IExtBrl4}, \ref{fig:tracking:resolutionPileup-2_IExtBrl4},\ref{fig:tracking:resolutionPileup-1_InclBrl4}, \ref{fig:tracking:resolutionPileup-2_InclBrl4}. No significant difference was observed, 
 which shows that the layouts are robust against pile-up and that the fake rate is low.\\
 
 \begin{figure}
-\begin{subfigure}{.5\linewidth}
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pi15_sigPt_abseta}
+\includegraphics[width=.7\textwidth]{Tracking/ExtBrl4/pi15_sigPt_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigPt_abseta_ExtBrl4}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pi15_sigQPt_abseta}
+\includegraphics[width=.7\textwidth]{Tracking/ExtBrl4/pi15_sigQPt_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigQPt_abseta_ExtBrl4}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pi15_sigEta_abseta}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/ExtBrl4/pi15_sigEta_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigEta_abseta_ExtBrl4}
 \end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pi15_sigPhi_abseta}
+\caption{Resolution of the reconstructed track $p_{T}$, q/$p_{T}$ and $\eta$ for the ExtBrl4 layout, with a pion $p_{T}$ = 15 GeV in different pile-up scenarios.}
+\label{fig:tracking:resolutionPileup_ExtBrl4-1}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/ExtBrl4/pi15_sigPhi_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigPhi_abseta_ExtBrl4}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pi15_sigD0_abseta}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/ExtBrl4/pi15_sigD0_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigD0_abseta_ExtBrl4}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/ExtBrl4/pi15_sigZ0_abseta}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/ExtBrl4/pi15_sigZ0_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigZ0_abseta_ExtBrl4}
 \end{subfigure}
-\caption{Resolution of the reconstructed track parameters for the $p_{T} = 15\ GeV$ sample, for the different pile-up scenarios in the ExtBrl4 layout.}
-\label{fig:tracking:resolutionPileup_ExtBrl4}
+\caption{Resolution of the reconstructed track $\phi$, $d_{0}$ and $z_{0}$ for the ExtBrl4 layout, with a pion $p_{T}$ = 15 GeV in different pile-up scenarios.}
+\label{fig:tracking:resolutionPileup_ExtBrl4-2}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{figure}
-\begin{subfigure}{.5\linewidth}
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{Tracking/IExtBrl4/pi15_sigPt_abseta}
+\includegraphics[width=.7\textwidth]{Tracking/IExtBrl4/pi15_sigPt_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigPt_abseta_IExtBrl4}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{Tracking/IExtBrl4/pi15_sigQPt_abseta}
+\includegraphics[width=.7\textwidth]{Tracking/IExtBrl4/pi15_sigQPt_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigQPt_abseta_IExtBrl4}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/IExtBrl4/pi15_sigEta_abseta}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/IExtBrl4/pi15_sigEta_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigEta_abseta_IExtBrl4}
 \end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/IExtBrl4/pi15_sigPhi_abseta}
-\caption{}
-\label{fig:tracking:pi15_sigPhi_abseta_IExtBrl4}
-\end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/IExtBrl4/pi15_sigD0_abseta}
-\caption{}
-\label{fig:tracking:pi15_sigD0_abseta_IExtBrl4}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/IExtBrl4/pi15_sigZ0_abseta}
-\caption{}
-\label{fig:tracking:pi15_sigZ0_abseta_IExtBrl4}
-\end{subfigure}
-\caption{Resolution of the reconstructed track parameters for the $p_{T} = 15\ GeV$ sample, for the different pile-up scenarios in the IExtBrl4 layout.}
-\label{fig:tracking:resolutionPileup_IExtBrl4}
+\caption{Resolution of the reconstructed track $p_{T}$, q/$p_{T}$ and $\eta$ for the IExtBrl4 layout, with a pion $p_{T}$ = 15 GeV in different pile-up scenarios.}
+\label{fig:tracking:resolutionPileup_IExtBrl4-1}
 \end{figure}
 
 \begin{figure}
-\begin{subfigure}{.5\linewidth}
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{Tracking/InclBrl4/pi15_sigPt_abseta}
+\includegraphics[width=.7\textwidth]{Tracking/IExtBrl4/pi15_sigPhi_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigPhi_abseta_IExtBrl4}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/IExtBrl4/pi15_sigD0_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigD0_abseta_IExtBrl4}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/IExtBrl4/pi15_sigZ0_abseta}
+\caption{}
+\label{fig:tracking:pi15_sigZ0_abseta_IExtBrl4}
+\end{subfigure}
+\caption{Resolution of the reconstructed track $\phi$, $d_{0}$ and $z_{0}$ for the IExtBrl4 layout, with a pion $p_{T}$ = 15 GeV in different pile-up scenarios.}
+\label{fig:tracking:resolutionPileup_IExtBrl4-2}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/InclBrl4/pi15_sigPt_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigPt_abseta_InclBrl4}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{Tracking/InclBrl4/pi15_sigQPt_abseta}
+\includegraphics[width=.7\textwidth]{Tracking/InclBrl4/pi15_sigQPt_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigQPt_abseta_InclBrl4}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/InclBrl4/pi15_sigEta_abseta}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/InclBrl4/pi15_sigEta_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigEta_abseta_InclBrl4}
 \end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/InclBrl4/pi15_sigPhi_abseta}
+\caption{Resolution of the reconstructed track $p_{T}$, q/$p_{T}$ and $\eta$ for the InclBrl4 layout, with a pion $p_{T}$ = 15 GeV in different pile-up scenarios.}
+\label{fig:tracking:resolutionPileup_InclBrl4-1}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/InclBrl4/pi15_sigPhi_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigPhi_abseta_InclBrl4}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/InclBrl4/pi15_sigD0_abseta}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/InclBrl4/pi15_sigD0_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigD0_abseta_InclBrl4}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{Tracking/InclBrl4/pi15_sigZ0_abseta}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{Tracking/InclBrl4/pi15_sigZ0_abseta}
 \caption{}
 \label{fig:tracking:pi15_sigZ0_abseta_InclBrl4}
 \end{subfigure}
-\caption{Resolution of the reconstructed track parameters for the $p_{T} = 15\ GeV$ sample, for the different pile-up scenarios in the InclBrl4 layout.}
-\label{fig:tracking:resolutionPileup_InclBrl4}
+\caption{Resolution of the reconstructed track $\phi$, $d_{0}$ and $z_{0}$ for the InclBrl4 layout, with a pion $p_{T}$ = 15 GeV in different pile-up scenarios.}
+\label{fig:tracking:resolutionPileup_InclBrl4-2}
 \end{figure}
+
+%%%%%%%%%%%%%%%%
 
 Another quantity of interest to assess the quality of the reconstruction is the significance of the parameters, defined as:
 $$
@@ -2124,16 +2199,19 @@ layouts, because of the limited description of the passive material and services
 
 \begin{figure}
 \begin{subfigure}{\linewidth}
+\centering
 \includegraphics[width=.7\textwidth]{Tracking/Mixed/pi100pu200_sigQPt_abseta_zoom}
 \caption{}
 \label{fig:tracking:pi100pu200_sigQPt_abseta_zoom}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
+\centering
 \includegraphics[width=.7\textwidth]{Tracking/Mixed/pi100pu200_sigD0_abseta_zoom}
 \caption{}
 \label{fig:tracking:pi100pu200_sigD0_abseta_zoom}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
+\centering
 \includegraphics[width=.7\textwidth]{Tracking/Mixed/pi100pu200_sigZ0_abseta_zoom}
 \caption{}
 \label{fig:tracking:pi100pu200_sigZ0_abseta_zoom}
@@ -2339,6 +2417,7 @@ shown in Fig.\ref{fig:tracking:muonMatchedDR}.\\
 \clearpage
 
 \chapter{$H \rightarrow ZZ^* \rightarrow 4\mu$ performances}
+\markboth{\MakeUppercase{6. $H \rightarrow ZZ^* \rightarrow 4\mu$ performances}}{\MakeUppercase{6. $H \rightarrow ZZ^* \rightarrow 4\mu$ performances}}
 In this section the fast simulation technique described in Chap.\ref{sec:simulation:physicsSimulation} is
 applied to the study of the physics process $gg \rightarrow H \rightarrow ZZ^* \rightarrow 4\mu$. \\
 
@@ -3185,7 +3264,7 @@ final configuration, resolution will be improved by using the electromagnetic ca
 	\resizebox{\textwidth}{!}{
 		\begin{tabular}{l || c | c | c | c | c | c }
 		& \multicolumn{2}{c}{\textbf{ExtBrl4}} & \multicolumn{2}{c}{\textbf{IExtBrl4}} & \multicolumn{2}{c}{\textbf{InclBrl4}} \\ \hline \hline
-	& \textbf{Photon selection}  & \textbf{No selection} & \textbf{Photon selection}  & \textbf{No selection} & \textbf{Photon selection}  & \textbf{No selection} \\ \hline
+	& \textbf{$\gamma$ selection}  & \textbf{No selection} & \textbf{$\gamma$ selection}  & \textbf{No selection} & \textbf{$\gamma$ selection}  & \textbf{No selection} \\ \hline
 	
 	\boldmath$|\eta^\mu_{max}| < 2.7$ & 1.46 $\pm$ 0.01 & 1.8 $\pm$ 0.1 & 1.42 $\pm$ 0.01 & 1.8 $\pm$ 0.1 & 1.42 $\pm$ 0.01 & 1.8 $\pm$ 0.1 \\ \hline
 
@@ -3340,6 +3419,8 @@ in the reconstruction algorithm. However, in the reference scenarios used in the
 
 \clearpage
 \chapter{Conclusions}\label{sec:conclusions}
+\markboth{\MakeUppercase{Conclusions}}{\MakeUppercase{Conclusions}}
+
 The High Luminosity Phase of the LHC will provide unique opportunities to precision studies of the Higgs Boson properties. \\
 
 Due to the large integrated luminosity (3000 fb$^{-1}$), rare decay channels can be searched for and couplings measured with accuracy at the few percent level.
@@ -3351,6 +3432,8 @@ Our work shows that , while no clear choice among the different layouts can be d
 
 \begin{appendices}
 \chapter{ATLAS reference frame and track parameters} \label{appendix:perigee}
+\markboth{\MakeUppercase{A. ATLAS reference frame and track parameters}}{\MakeUppercase{A. ATLAS reference frame and track parameters}}
+
 Fig.\ref{fig:appendix:perigee} shows the ATLAS frame of reference ($e_{x}$, $e_{y}$, $e_{z}$), where $e_{z}$ is parallel to the beam line and $e_{x}$, $e_{y}$ lie on the
 transverse plane and are oriented so that the system is right-handed. A reconstructed track is completely characterized by five variables, called the \textit{perigee parameters}, also shown in
 Fig.\ref{fig:appendix:perigee}, which are the \textbf{transverse impact parameter} $d_{0}$, \textbf{the longitudinal impact parameter} $z_{0}$, the \textbf{polar angle} $\theta$, commonly replaced by the 
@@ -3371,6 +3454,8 @@ truth $d_{0}$ is assumed as 0. In this case, the intrinsic $d_{0}$ resolution wa
 \end{figure}
 
 \chapter{Monte Carlo generators}\label{appendix:MC}
+\markboth{\ }{\ }
+
 \section{Minimum bias events: Pythia 8}
 \textbf{Pythia 8} is a program used to generate high-energy collisions that employs a set of physics
 models to simulate the evolution of a hard process from the interaction between few bodies 
@@ -3393,6 +3478,7 @@ at NLO comes mainly from higher-order QCD effects and from the parton distributi
 functions uncertainties.
 
 \chapter{Iterative gaussian fit}\label{appendix:gaussFit}
+
 A gaussian fit is performed following an iterative method. During the first
 iteration the fit parameters, which are amplitude, mean and $\sigma$ of the gaussian
 distribution, are estimated using 
@@ -3416,6 +3502,7 @@ fixed to $10^{-4}$.
 \appendix
 
 %%% OBBLIGATORIA:
+
 
 \bibliographystyle{unsrt}
 \bibliography{biblio}
