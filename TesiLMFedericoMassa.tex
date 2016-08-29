@@ -107,7 +107,7 @@ the highly irradiated Inner Detector pixels and strips will have reached the end
 lifetime and the transition radiation tracker will reach 100\% occupancy at that luminosity. Thus, the Inner Detector must be completely replaced by the Inner Tracker (ITk), which will
 have to guarantee the same or an improved performance in the harsh conditions of HL-LHC while maximizing the acceptance. \\
 
-At design luminosity, the expected number of in-time pileup events will be $\langle\mu\rangle$ = 200, a much
+At design luminosity, the expected number of in-time pileup events will be about $\langle\mu\rangle$ = 200, a much
 higher value than the one expected at the end of Run-3 ($\langle\mu\rangle = 80$) and even more if 
 compared to the current one ($\langle\mu\rangle = 23$), introducing new challenges in the pattern
 recognition. The increase of the number
@@ -119,7 +119,7 @@ At the moment the ATLAS collaboration is working on the design of a robust ITk l
 Other than detector and hardware upgrades, HL-LHC will require software upgrades to meet the needs of the new detectors, handle large event samples and adapt to multi-processor
 architectures. To deal with the simulation size and time requirements it will be necessary to mix fast simulation techniques (using detector parametrisations) with full simulation at event level.\\
 
-My work was focused on the development of a fast simulation method that allows to simulate the effect of the high number of pile-up events on the tracking and physics performances, applied to single pion and $H \rightarrow ZZ^{*} \rightarrow 4\mu$ Monte Carlo samples. A fast simulation technique is needed as we want to quickly compare, in a realistic scenario, different detector
+My work was focused on the development of a fast simulation method that allows to simulate the effect of the high number of pile-up events on the tracking and physics performances, applied to single particle (``particle-gun'') and $H \rightarrow ZZ^{*} \rightarrow 4\mu$ Monte Carlo studies. A fast simulation technique is needed as we want to quickly compare, in a realistic scenario, different detector
 designs and layouts. Besides, as Higgs physics is of the utmost importance it is useful to check our capability to perform well in the high luminosity environment.\\
 
 ATLAS presented a Scoping Document\cite{scoping} last year. In this document three different upgrade scenarios ("Reference", "Middle" and "Low") with different angular coverage 
@@ -1093,7 +1093,7 @@ features are excluded from these plots:
 \includegraphics[width=.7\textwidth]{pileup_eta}
 \caption{}
 \label{fig:pileup_eta}
-\end{subfigure}
+\end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.7\textwidth]{pileup_phi}
@@ -1585,7 +1585,7 @@ layers and 47.6 mm in the remaining, 75 $\mu$m pitch and 320 $\mu$m thickness)\c
 will be significantly smaller than in the current Inner Detector ($< 0.7 X_{0}$ against $1.2 X_{0}$), for a broad pseudo-rapidity region. This will be important to minimize
 photon conversions, electron bremmstrahlung and hadron interactions. \\
 
-One of the problems connected with the angular coverage extension proposed in these layouts is the generation of \textit{long clusters} in the forward region. This effect is a purely 
+One of the effects connected with the angular coverage extension proposed in these layouts is the generation of \textit{long clusters} in the forward region. This effect is a purely 
 geometrical one and emerges from the fact that particles with large pseudo-rapidity traverse the depth of the sensors, therefore the corresponding signal spans over a broader region. This effect is
 minimized in the inclined layouts, where the inclined sensors ensure that the particle traverses a smaller amount of material. However, a better reconstruction algorithm could reduce
 the impact of this effect in the ExtBrl4 layout by using the sharing 
@@ -1593,7 +1593,7 @@ of the signal among different pixels. Unfortunately in Step-1 studies the recons
 so it is too early to draw final conclusions from the comparison of different performances in the forward region. \\
 
 \section{Monte Carlo samples}\label{sec:tracking:sampleProduction}
-Particle gun samples of $5\cdot 10^4$ events were generated with charged pions following the technique described in Chap.\ref{sec:simulation:pg}. The charge of the pion
+Particle gun samples of $4.5\cdot 10^4$ events were generated with charged pions following the technique described in Chap.\ref{sec:simulation:pg}. The charge of the pion
 is chosen randomly for each event. 
 Each sample contains pions distributed with flat $\eta$ in the range [-5,5], flat $\phi$ in the range [-$\pi$, $\pi$] and fixed transverse momentum (5 GeV, 15 GeV, 50 GeV, 100 GeV). 
 A flat $\eta$ distribution was chosen to study all the regions of the detector with the same statistics, whereas the chosen $\eta$ range, that extends well beyond the detector coverage ($|\eta| < 4.0$),
@@ -1616,29 +1616,29 @@ After the generation step, each sample was processed using the full simulation/d
 truth and reconstruction level. \\
 
 For the different pile-up scenarios, the number of reconstructed tracks, the number of simulated primary and secondary charged particles per event
-(inside the simulated region of interest) are shown in Fig.\ref{fig:tracking:nPrimaryChargedTruth}, \ref{fig:tracking:nSecondaryChargedTruth}, \ref{fig:tracking:nRecoTracks} for the InclBrl4 layout (as an example) and with pion $p_{T}$ = 15 GeV. The plots show the growth in the number of particles produced with increasing average number of generated pile-up events and
-the correspondent increase in the number of reconstructed tracks. Events in which no track is reconstructed are mostly due to the geometrical acceptance (80\%), and part is caused by the reconstruction efficiency (Fig.\ref{fig:tracking:nRecoTracks}. \\
+(inside the simulated region of interest) are shown in Fig.\ref{fig:tracking:nRecoTracks},
+\ref{fig:tracking:nRecoTracks_eta}, \ref{fig:tracking:nPrimaryChargedTruth}, \ref{fig:tracking:nSecondaryChargedTruth},  for the InclBrl4 layout (as an example) and with pion $p_{T}$ = 15 GeV. The plots show the growth in the number of particles produced with increasing average number of generated pile-up events and
+the correspondent increase in the number of reconstructed tracks. Events in which no track is reconstructed are mostly due to the geometrical acceptance (80\%), and part is caused by the reconstruction efficiency (Fig.\ref{fig:tracking:nRecoTracks}.\\
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{Tracking/nRecoTracks}
+\caption{Number of reconstructed tracks per event in different pile-up scenarios, for the InclBrl4 layout and pion $p_{T}$ = 15 GeV.}
+\label{fig:tracking:nRecoTracks}
+\end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=.8\textwidth]{Tracking/nPrimaryChargedTruth}
-\caption{Number of simulated primary charged particles per event in different pile-up scenarios, for the InclBrl4 layout.}
+\caption{Number of simulated primary charged particles per event in different pile-up scenarios, for the InclBrl4 layout and pion $p_{T}$ = 15 GeV.}
 \label{fig:tracking:nPrimaryChargedTruth}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=.8\textwidth]{Tracking/nSecondaryChargedTruth}
-\caption{Number of simulated secondary charged particles per event in different pile-up scenarios, for the InclBrl4 layout.}
+\caption{Number of simulated secondary charged particles per event in different pile-up scenarios, for the InclBrl4 layout and pion $p_{T}$ = 15 GeV.}
 \label{fig:tracking:nSecondaryChargedTruth}
-\end{figure}
-
-
-\begin{figure}
-\centering
-\includegraphics[width=.8\textwidth]{Tracking/nRecoTracks}
-\caption{Number of reconstructed tracks per event in different pile-up scenarios, for the InclBrl4 layout.}
-\label{fig:tracking:nRecoTracks}
 \end{figure}
 
 From the distribution of the number of tracks per event in the $\langle\mu\rangle = 0$ scenario is visible
@@ -1653,7 +1653,7 @@ particle is produced, corresponding to a fraction of X/Y of the events in which 
 \begin{figure}
 \centering
 \includegraphics[width=.8\textwidth]{Tracking/nSecondaryChargedTruth1GeV}
-\caption{Number of secondary charged particles with $p_T > 1\ GeV$ in the \mbox{$\langle\mu\rangle = 0$} sample, in the InclBrl4 layout.}
+\caption{Number of secondary charged particles with $p_T > 1\ GeV$ in the \mbox{$\langle\mu\rangle = 0$} sample, in the InclBrl4 layout and pion $p_{T}$ = 15 GeV.}
 \label{fig:tracking:nSecondaryChargedTruth1GeV}
 \end{figure}
 
@@ -1666,7 +1666,24 @@ is not found. This excludes most of the events outside the geometrical acceptanc
 high $p_{T}$ track faking it. There could be events in which the hard-scatter pion lies beyond the geometrical acceptance but close to the detector edge 
 and a high $p_{T}$ track is reconstructed from the pile-up particles. These cases are included by the matching algorithm and can potentially contribute
 to the number of fake tracks. The ``matched track''
-represents the reconstructed "hard-scattering" candidate of the event.  
+represents the reconstructed "hard-scattering" candidate of the event.  \\
+
+The dependence on $|\eta|$ of the number of reconstructed tracks is shown
+in Fig.\ref{fig:tracking:nRecoTracks_eta}, in events with a generated pion with $p_{T}$ = 15 GeV,
+in the InclBrl4 layout and $\langle\mu\rangle$ = 200 scenario, only for the
+events in which a matching is found. The distribution is approximately flat, 
+which indicates that the number of unmatched tracks is essentially constant and
+the tracker reconstruct them with good efficiency.
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{Tracking/nRecoTracks_eta_InclBrl4}
+\caption{Number of reconstructed tracks per event as a function of the
+track $|\eta|$, for the InclBrl4 layout and pion $p_{T}$ = 15 GeV, in the $\langle\mu\rangle$ = 200 scenario. The bin contents have been normalized separately for every $|\eta|$ bin to
+reduce the impact of the generation fluctuations.}
+\label{fig:tracking:nRecoTracks_eta}
+\end{figure}
+
 
 \section{Track quality}\label{subsec:tracking:quality}
 
@@ -1697,7 +1714,7 @@ of hits, it is important to remember that each SCT module is two-sided, so that 
 \caption{}
 \label{fig:tracking:nSiHits}
 \end{subfigure}
-\caption{Number of pixel (a), SCT (b) and total (c) hits for matched and unmatched tracks in the sample with a generated pion with $p_{T} = 15\ GeV$ and $\langle\mu\rangle = 200$, in the InclBrl4 layout.}
+\caption{Number of pixel (a), SCT (b) and total (c) hits for matched and unmatched tracks in the sample with a generated pion with $p_{T} = 15\ GeV$, $|\eta <$ 1.0 and $\langle\mu\rangle = 200$, in the InclBrl4 layout.}
 \label{fig:tracking:nHits}
 \end{figure}
 
@@ -1708,12 +1725,11 @@ of hits, it is important to remember that each SCT module is two-sided, so that 
 \label{fig:tracking:chiSquare}
 \end{figure}
 
-The hit distributions are, for matched and unmatched tracks, quite similar but a tendency of the matched ones to produce tracks with more hits is noticeable (especially in the total hits distribution). It is important to note that the shape of these distributions depend on the generated $\eta$ distribution of the hard-scatter particle, which
-also affects the $\eta$ distribution of the secondary and pile-up tracks due to the region of interest selection. \\
+The hit distributions are, for matched and unmatched tracks, similar but a tendency of the matched ones to produce tracks with more hits is noticeable (especially in the total hits distribution). \\
 
-The $\chi^2/DOF$ distribution of the unmatched tracks is broader and denotes a generally worse quality reconstruction of tracks generated by secondary and pile-up particles. \\
+The $\chi^2/DOF$ distribution of the unmatched tracks is broader and denotes a generally -worse quality reconstruction of tracks generated by secondary and pile-up particles. \\
 
-\subsection{Quality of matched tracks}
+\subsection{Quality of matched tracks}\label{sec:tracking:matchedQuality}
 The distribution of the number of hits (Pixel, SCT, total) are shown, as a function of $|\eta|$, 
 for the different layouts in Fig.\ref{fig:tracking:nHits_eta_ExtBrl4},
  \ref{fig:tracking:nHits_eta_IExtBrl4}, \ref{fig:tracking:nHits_eta_InclBrl4}.
@@ -2160,7 +2176,7 @@ $$
 
 where $x_{err}$ is the uncertainty on the variable $x$ as estimated from the fit. If the variable is gaussian distributed, this distribution should be compatible with
 a gaussian distribution with mean = 0 and $\sigma$ = 1. In Fig.\ref{fig:tracking:pull}, for the sample with a $p_{T} = 15\ GeV$ generated pion, $\langle\mu\rangle = 200$ in the InclBrl4 layout, the significance is shown for the different
-track parameters. Results show a general overestimation of the fit uncertainty, that causes the $\sigma$ to be smaller than one and confirm the presence of 
+reconstructed track angular parameters. Results show a general overestimation of the fit uncertainty, that causes the $\sigma$ to be smaller than one and confirm the presence of 
 a negative bias, especially in the $d_{0}$ reconstruction. This could also partially explain the systematically $\chi^2/DOF < 1$ measured in
 Fig.\ref{fig:tracking:chiSqPerDof_eta}. To verify if this effect was due to $\eta$ asymmetries in the detector geometry, 
 we also looked at the $d_{0}$ significance distribution separately for tracks with $\eta > 0$ and $\eta < 0$, but no significant difference was found. \\
@@ -2194,8 +2210,10 @@ uncertainties shown are taken from the fit covariance matrix.}
 
 Finally, to compare the performances of our layouts at large momentum with the Collaboration requirements (Fig.\ref{fig:tracking:requirements}), we consider the $p_{T}$ = 100 GeV sample.
 Fig.\ref{fig:tracking:pt100resolutions_zoom} shows the resolutions in $q/p_{T}$, $d_{0}$ and $z_{0}$ in the central
-$|\eta|$ region. The measured $d_{0}$ resolution, as described in appendix \ref{appendix:perigee}, is the sum of the intrinsic resolution and the transverse dimension of the beamspot ($\sim$ 15 $\mu$m). Thus, our findings confirm that the ITk requirements are fulfilled for all the different layouts. It is important to remember that, at Step-1, it is too early to choose among the
+$|\eta|$ region. The measured $d_{0}$ resolution, as described in appendix \ref{appendix:perigee}, is the sum of the intrinsic resolution and the transverse dimension of the beamspot ($\sim$ 12 $\mu$m for the particle gun\footnote{The primary vertex smearing is hard-coded inside the simulation algorithm. It parameters are $\sigma_{x} = \sigma_{y}$ = 12 $\mu$m and $sigma_{z}$ = 50 mm.}). Thus, our findings confirm that the ITk requirements are fulfilled for all the different layouts. It is important to remember that, at Step-1, it is too early to choose among the
 layouts, because of the limited description of the passive material and services, and the not yet optimized reconstruction algorithm. \\
+
+
 
 \begin{figure}
 \begin{subfigure}{\linewidth}
@@ -2264,6 +2282,7 @@ the pion produces more secondary particles, thus increasing the number of outlie
 \end{figure}
 
 \begin{table}
+\centering
 {\tabulinesep=1.2mm
    \begin{tabu}{ c | c || c | c | c }
 \boldmath$p_{T}$ & \boldmath$\langle\mu\rangle$ & \textbf{ExtBrl4} & \textbf{IExtBrl4} & \textbf{InclBrl4} \\ \hline \hline
@@ -2276,6 +2295,9 @@ the pion produces more secondary particles, thus increasing the number of outlie
 \multirow{3}{*}{50 GeV}  & 0 & 3.40 $\pm$ 0.09 \% & 2.70 $\pm$ 0.08 \% & 2.58 $\pm$ 0.08 \%\\ \cline{2-5}
  & 50 & 3.12 $\pm$ 0.10 \% & 2.49 $\pm$ 0.08 \% & 2.45 $\pm$ 0.08 \%\\ \cline{2-5}
  & 200 & 3.22 $\pm$ 0.09 \% & 2.47 $\pm$ 0.08 \% & 2.35 $\pm$ 0.08 \%\\ \hline
+\multirow{3}{*}{100 GeV}  & 0 & 4.1 $\pm$ 0.1 \% & 3.42 $\pm$ 0.10 \% & 3.29 $\pm$ 0.09 \%\\ \cline{2-5}
+ & 50 & 4.1 $\pm$ 0.1 \% & 3.2 $\pm$ 0.1 \% & 3.1 $\pm$ 0.1 \%\\ \cline{2-5}
+ & 200 & 4.3 $\pm$ 0.1 \% & 3.2 $\pm$ 0.1 \% & 3.1 $\pm$ 0.1 \%\\ \hline
 \end{tabu}}
 	\caption{Average fake probability as a function of the layout, generated pion $p_{T}$ and $\langle\mu\rangle$.}
 	\label{tab:tracking:fakeProbability}
@@ -2360,6 +2382,7 @@ compatible with the results of the Letter of Intent Document\cite{loi} shown in 
 \end{figure}
 
 \begin{table}
+\centering
 {\tabulinesep=1.2mm
    \begin{tabu}{ c | c || c | c | c }
 \boldmath$p_{T}$ (GeV) & \boldmath$\langle\mu\rangle$ & \textbf{ExtBrl4} & \textbf{IExtBrl4} & \textbf{InclBrl4} \\ \hline \hline
@@ -2372,6 +2395,9 @@ compatible with the results of the Letter of Intent Document\cite{loi} shown in 
 \multirow{3}{*}{50 GeV}  & 0 & 94.2 $\pm$ 0.1 \% & 95.4 $\pm$ 0.1 \% & 95.6 $\pm$ 0.1 \%\\ \cline{2-5}
  & 50 & 94.3 $\pm$ 0.1 \% & 95.3 $\pm$ 0.1 \% & 95.6 $\pm$ 0.1 \%\\ \cline{2-5}
  & 200 & 94.2 $\pm$ 0.1 \% & 95.3 $\pm$ 0.1 \% & 95.7 $\pm$ 0.1 \%\\ \hline
+\multirow{3}{*}{100 GeV}  & 0 & 94.5 $\pm$ 0.1 \% & 95.5 $\pm$ 0.1 \% & 95.7 $\pm$ 0.1 \%\\ \cline{2-5}
+ & 50 & 94.6 $\pm$ 0.1 \% & 95.9 $\pm$ 0.1 \% & 96.0 $\pm$ 0.1 \%\\ \cline{2-5}
+ & 200 & 94.0 $\pm$ 0.2 \% & 95.7 $\pm$ 0.1 \% & 95.9 $\pm$ 0.1 \%\\ \hline
 \end{tabu}}
 	\caption{Total reconstruction efficiency as a function of the layout, generated pion $p_{T}$ and $\langle\mu\rangle$.}
 	\label{tab:tracking:totalEfficiency}
@@ -2535,31 +2561,16 @@ The Higgs boson samples were generated with the Powheg\cite{Powheg} generator at
 Run-2 analysis) with a 
 relativistic Breit-Wigner distribution with mean 125 GeV and $\Gamma = 4$ MeV (full
 width at half maximum), which 
-is shown in Fig.\ref{fig:HZZ4mu:generatedHiggs}, along with the generated $p_T$ and $\eta$ distributions. Higgs boson
+is shown in Fig.\ref{fig:HZZ4mu:generatedHiggs}. Higgs boson
 is then forced to decay into two Z, that in turn decay into two muons each. The mass distribution of the two Z bosons is instead shown in Fig.\ref{fig:HZZ4mu:generatedZMass}, where the Z boson with mass closest to the rest mass
 is defined as \textit{on-shell} and the other as \textit{off-shell}.
 
 
 \begin{figure}
-\begin{subfigure}{\linewidth}
 \centering
 \includegraphics[width=.7\textwidth]{HZZ4mu/generatedMass}
 \caption{}
-\label{fig:HZZ4mu:generatedHiggs}
-\end{subfigure}\\[1ex]
-\begin{subfigure}{\linewidth}
-\centering
-\includegraphics[width=.7\textwidth]{HZZ4mu/higgsPt}
-\caption{}
-\label{fig:HZZ4mu:higgsPt}
-\end{subfigure}\\[1ex]
-\begin{subfigure}{\linewidth}
-\centering
-\includegraphics[width=.7\textwidth]{HZZ4mu/higgsEta}
-\caption{}
-\label{fig:HZZ4mu:higgsEta}
-\end{subfigure}
-\caption{(a): Higgs generated mass distribution;	Higgs $p_{T}$ (b) and $\eta$ (c) distributions, as generated.}
+\caption{Higgs generated mass distribution.}
 \label{fig:HZZ4mu:generatedHiggs}
 \end{figure}
 
@@ -2580,14 +2591,15 @@ to lie in the region between 50 GeV and 160 GeV. Values were chosen so that the 
 in Fig.\ref{fig:ZZ4mu:genMasses}.\\
 
 \begin{figure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{ZZ4mu/truthOnShellVsOffShell}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{ZZ4mu/truthOnShellVsOffShell}
 \caption{}
 \label{fig:ZZ4mu:truthOnShellVsOffShell}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
+\end{subfigure}\\[1 ex]
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{ZZ4mu/gen4muMass}
+\includegraphics[width=.7\textwidth]{ZZ4mu/gen4muMass}
 \caption{}
 \label{fig:ZZ4mu:gen4muMass}
 \end{subfigure}
@@ -2601,7 +2613,8 @@ in Fig.\ref{fig:ZZ4mu:genMasses}.\\
 The possible final states of the generated Higgs boson decay are not only the four muons that 
 compose the signature in our channel of interest, but can be expressed as $H \rightarrow
 ZZ^* \rightarrow 4\mu + X$, where $X$ are usually final state photons emitted in the
-radiative decay of the Z boson. Sometimes these photons are also converted in $e^{+}e^{-}$ pairs.
+radiative decay of the Z boson. Sometimes these photons are also converted in $e^{+}e^{-}$ pairs. Fig.\ref{fig:HZZ4m-u:genPhotons} shows the distribution of the $p_{T}$ and the number
+of photons per event. 
  As this analysis is carried out by only considering the tracker reconstruction capabilities, to ensure 
 an appropriate reconstruction of the physics objects a selection on the 
 generated events was applied. Before selection, the Higgs boson decays were categorized into five 
@@ -2636,33 +2649,34 @@ and the $\Delta R$ distance of the photon from the muon after this requirement i
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{HZZ4mu/photonPt}
+  \includegraphics[width=\linewidth]{HZZ4mu/HZZ4mu_photonPtLine}
   \caption{}
   \label{fig:HZZ4mu:photonPt}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{HZZ4mu/nPhotons}
+  \includegraphics[width=\linewidth]{HZZ4mu/HZZ4mu_nPhotons}
   \caption{}
   \label{fig:HZZ4mu:nPhotons}
 \end{subfigure}
 \caption{(a): $p_T$ spectrum of radiative photons of the process \\
- \mbox{$gg \rightarrow H \rightarrow ZZ^* \rightarrow 4\mu$}; 
+ \mbox{$gg \rightarrow H \rightarrow ZZ^* \rightarrow 4\mu$}. The line
+ marks the selection threshold; 
 	(b): histogram of the number of photons emitted per event.}
 \label{fig:HZZ4mu:genPhotons}
 \end{figure}
 
 \begin{figure}
 \centering
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{\linewidth}
   \centering
-  \includegraphics[width=\linewidth]{HZZ4mu/photonEtaAfterCut}
+  \includegraphics[width=.7\textwidth]{HZZ4mu/HZZ4mu_photonEta}
   \caption{}
   \label{fig:HZZ4mu:photonEtaAfterCut}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
   \centering
-  \includegraphics[width=\linewidth]{HZZ4mu/photonDRAfterCut}
+  \includegraphics[width=.7\textwidth]{HZZ4mu/HZZ4mu_photonDR}
   \caption{}
   \label{fig:HZZ4mu:photonDRAfterCut}
 \end{subfigure}
@@ -2678,43 +2692,44 @@ Thanks to the inclusion of the events from this category the generated events ac
 
 The kinematics of the muons passing the generation selection for the 
 signal sample is shown in 
-Fig.\ref{fig:HZZ4mu:muonKinematics}. In particular, a geometrical acceptance of 94.1\%
+Fig.\ref{fig:HZZ4mu:muonKinematics},\ref{fig:HZZ4mu:muonAcceptance}. In particular, a geometrical acceptance of 94.1\%
 is inferable from the number of events in which all muons are within the detector
 coverage. It is also evident, from the $p_{T}$ spectrum, the shoulder due to the decays
 of the on-shell Z.\\
 
 
 \begin{figure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{HZZ4mu/muonPt}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{HZZ4mu/muonPt}
 \caption{}
 \label{fig:HZZ4mu:pt}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{HZZ4mu/muonEta}
+\includegraphics[width=.7\textwidth]{HZZ4mu/muonEta}
 \caption{}
 \label{fig:HZZ4mu:eta}
 \end{subfigure}\\[1 ex]
-\begin{subfigure}{.5\linewidth}
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{HZZ4mu/muonPhi}
+\includegraphics[width=.7\textwidth]{HZZ4mu/muonPhi}
 \caption{}
 \label{fig:HZZ4mu:phi}
 \end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\centering
-\includegraphics[width=\textwidth]{HZZ4mu/truthOutsideDetector}
-\caption{}
-\label{fig:HZZ4mu:truthOutsideDetector}
-\end{subfigure}
 \caption{(a): $p_T$ distribution of the muons passing the generation selection;\\
 	        (b): $\eta$ distribution of the muons passing the generation selection;\\
-        	        (c): $\phi$ distribution of the muons passing the generation selection;\\
-         	        (d): histogram of the number of muons per event lying outside of the detector acceptance
+        	        (c): $\phi$ distribution of the muons passing the generation selection.  }
+\label{fig:HZZ4mu:muonKinematics}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=.7\textwidth]{HZZ4mu/truthOutsideDetector}
+\caption{Histogram of the number of muons per event lying outside of the detector acceptance
          	        	($|\eta| > 4.0$);\\
         	        }
-\label{fig:HZZ4mu:muonKinematics}
+\label{fig:HZZ4mu:muonAcceptance}
 \end{figure}
 
 Samples of $5 \cdot 10^4$ events were produced from the selected generated events by running
@@ -2767,45 +2782,56 @@ tracks it is possible to define basic tracking performance parameters, such as r
 \subsection*{Resolution}
 The resolution of the generic variable $x$ (usually one of the reconstructed track parameters, see appendix \ref{appendix:perigee}) as a function of $|\eta|$ is defined, for every hard-scatter muon, from the distribution of the residual 
 $\Delta_x = x_{matched} - x_{truth}$ for different $|\eta_{truth}|$ bins, as done in the study presented in Chap.\ref{sec:tracking:resolution}. 
-The results for the hard-scatter muons are shown in Fig.\ref{fig:HZZ4mu:muonResolution}.
+The results for the hard-scatter muons are shown in Fig.\ref{fig:HZZ4mu:muonResolution-1},\ref{fig:HZZ4mu:muonResolution-2}.
 The resolution tends to worsen 
 with increasing pseudo-rapidity for reasons already discussed in Chap.\ref{sec:tracking}. In general, the ExtBrl4 layout shows worse performances in the forward region where, due to longer clusters, the algorithm for hit reconstruction in ITk
 does not perform well.\\
 
 
 \begin{figure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{HZZ4mu/sigPt}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{HZZ4mu/sigPt}
 \caption{}
 \label{fig:HZZ4mu:sigPt}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{HZZ4mu/sigQPt}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{HZZ4mu/sigQPt}
 \caption{}
 \label{fig:HZZ4mu:sigQPt}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{HZZ4mu/sigEta}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{HZZ4mu/sigEta}
 \caption{}
 \label{fig:HZZ4mu:sigEta}
 \end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{HZZ4mu/sigPhi}
+\caption{Resolution of the reconstructed muon matched track $p_{T}$, $q/p_{T}$ and $\eta$ for the three ITk layouts considered, in the sample with $\langle\mu\rangle = 200$, in the process $H \rightarrow ZZ^* \rightarrow 4\mu$.}
+\label{fig:HZZ4mu:muonResolution-1}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{HZZ4mu/sigPhi}
 \caption{}
 \label{fig:HZZ4mu:sigPhi}
 \end{subfigure}\\[1ex]
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{HZZ4mu/sigD0}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{HZZ4mu/sigD0}
 \caption{}
 \label{fig:HZZ4mu:sigD0}
 \end{subfigure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{HZZ4mu/sigZ0}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{HZZ4mu/sigZ0}
 \caption{}
 \label{fig:HZZ4mu:sigZ0}
 \end{subfigure}
-\caption{Resolution of the reconstructed muon matched track parameters for the three ITk layouts considered, in the sample with $\langle\mu\rangle = 200$, in the process $H \rightarrow ZZ^* \rightarrow 4\mu$.}
-\label{fig:HZZ4mu:muonResolution}
+\caption{Resolution of the reconstructed muon matched track $\phi$, $d_{0}$ and $z_{0}$ for the three ITk layouts considered, in the sample with $\langle\mu\rangle = 200$, in the process $H \rightarrow ZZ^* \rightarrow 4\mu$.}
+\label{fig:HZZ4mu:muonResolution-2}
 \end{figure}
 
 
@@ -2816,7 +2842,7 @@ Fig.\ref{fig:HZZ4mu:trackQuality}.
 
 \begin{figure}
 \centering
-\includegraphics[width=.5\textwidth]{HZZ4mu/nSiHits_matchedVsPileup}
+\includegraphics[width=.7\textwidth]{HZZ4mu/nSiHits_matchedVsPileup}
 \caption{Distribution of the number of total silicon hits for truth-matched and pile-up tracks.}
 \label{fig:HZZ4mu:trackQuality}
 \end{figure}
@@ -3060,14 +3086,15 @@ Tab.\ref{tab:massResolutions}, which shows that the ExtBrl4 layout has worse per
 expected. \\
 
 \begin{figure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{HZZ4mu/recoOnShellVsOffShell}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{HZZ4mu/recoOnShellVsOffShell_new}
 \caption{}
 \label{fig:HZZ4mu:recoOnShellVsOffShell}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{HZZ4mu/recoMass}
+\includegraphics[width=.7\textwidth]{HZZ4mu/recoMass_new}
 \caption{}
 \label{fig:HZZ4mu:recoMass}
 \end{subfigure}
@@ -3101,20 +3128,21 @@ expected. \\
 \end{figure}
 
 \begin{figure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{HZZ4mu/sigReco27}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{HZZ4mu/sigReco27}
 \caption{}
 \label{fig:HZZ4mu:sigReco27}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{HZZ4mu/sigReco32}
+\includegraphics[width=.7\textwidth]{HZZ4mu/sigReco32}
 \caption{}
 \label{fig:HZZ4mu:sigReco32}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=.5\textwidth]{HZZ4mu/sigReco4}
+\includegraphics[width=.7\textwidth]{HZZ4mu/sigReco4}
 \caption{}
 \label{fig:HZZ4mu:sigReco4}
 \end{subfigure}
@@ -3191,20 +3219,21 @@ layout shows good performances in the forward region. We also expect that, in th
 final configuration, resolution will be improved by using the electromagnetic calorimeter.
 
 \begin{figure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{HZZ4mu/recoPt}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{HZZ4mu/recoPt}
 \caption{}
 \label{fig:HZZ4mu:recoPt}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{HZZ4mu/recoEta}
+\includegraphics[width=.7\textwidth]{HZZ4mu/recoEta}
 \caption{}
 \label{fig:HZZ4mu:recoEta}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=.5\textwidth]{HZZ4mu/recoPhi}
+\includegraphics[width=.7\textwidth]{HZZ4mu/recoPhi}
 \caption{}
 \label{fig:HZZ4mu:recoPhi}
 \end{subfigure}
@@ -3213,20 +3242,21 @@ final configuration, resolution will be improved by using the electromagnetic ca
 \end{figure}
 
 \begin{figure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{HZZ4mu/sigRecoPt}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{HZZ4mu/sigRecoPt}
 \caption{}
 \label{fig:HZZ4mu:sigRecoPt}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{HZZ4mu/sigRecoEta}
+\includegraphics[width=.7\textwidth]{HZZ4mu/sigRecoEta}
 \caption{}
 \label{fig:HZZ4mu:sigRecoEta}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=.5\textwidth]{HZZ4mu/sigRecoPhi}
+\includegraphics[width=.7\textwidth]{HZZ4mu/sigRecoPhi}
 \caption{}
 \label{fig:HZZ4mu:sigRecoPhi}
 \end{subfigure}
@@ -3354,20 +3384,21 @@ To define the signal measurement, we integrate a region of $\pm 1.5\ \sigma$ aro
 using a gaussian shape. Results for the different layouts and angular coverage are summarized in Tab.\ref{tab:SB}.
 
 \begin{figure}
-\begin{subfigure}{.5\linewidth}
-\includegraphics[width=\textwidth]{SB/SBInclBrl27}
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=.7\textwidth]{SB/SBInclBrl27}
 \caption{}
 \label{fig:SBInclBrl27}
-\end{subfigure}
-\begin{subfigure}{.5\linewidth}
+\end{subfigure}\\[1ex]
+\begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=\textwidth]{SB/SBInclBrl32}
+\includegraphics[width=.7\textwidth]{SB/SBInclBrl32}
 \caption{}
 \label{fig:SBInclBrl32}
 \end{subfigure}\\[1ex]
 \begin{subfigure}{\linewidth}
 \centering
-\includegraphics[width=.5\textwidth]{SB/SBInclBrl4}
+\includegraphics[width=.7\textwidth]{SB/SBInclBrl4}
 \caption{}
 \label{fig:SBInclBrl4}
 \end{subfigure}
